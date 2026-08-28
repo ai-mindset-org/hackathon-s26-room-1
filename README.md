@@ -38,5 +38,6 @@ PDF, скриншоты расписаний, транскрипты созво�
 
 ## Кто в комнате
 
-Состав, зум и чекин — https://hackathon-live.aimindset.org/rooms/
+Комната, зум и чекин — https://hackathon-live.aimindset.org/ (блок «мой код»)
+Голосование и итоги — https://hackathon-live.aimindset.org/vote/
 Инструкция агенту — https://hackathon-live.aimindset.org/skill/HACKATHON.md
