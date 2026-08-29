@@ -19,6 +19,13 @@ EXAMPLES = REPO / "examples"
 
 ITEM = re.compile(r"^\s*\d+\.\s+(.*)$")
 DATE = re.compile(r"\b\d{1,2}\.\d{2}\b")
+# Пункт-количество: «записей про «Витрину» ровно одна». Грепом непроверяем
+# в принципе — считаем строки реестра, а не ищем подстроку.
+COUNT = re.compile(r"«([^»]+)»[^«»]*?ровно\s+(одна|один|одно|два|две|\d+)",
+                   re.IGNORECASE)
+NUMWORD = {"одна": 1, "один": 1, "одно": 1, "два": 2, "две": 2}
+ENTRY = re.compile(r"^\s*-\s+\[[ x]\]")
+STEM = 5  # «Витрину» и «Витрина» — одна запись, а не две
 STOP = {
     "источник", "письмо", "школы", "чат", "транскрипт", "спикер", "или",
     "допустимо", "назначен", "событие", "действий", "подготовке", "нет",
@@ -47,7 +54,25 @@ def keywords(item: str) -> list[str]:
     return [w.lower() for w in words if w.lower() not in STOP][:6]
 
 
+def count_check(item: str, registry_text: str) -> bool | None:
+    """-> True/False для пункта-количества, None если пункт не про количество."""
+    m = COUNT.search(item)
+    if not m:
+        return None
+    stem = m.group(1).lower().strip("«»\"' ")[:STEM]
+    want = NUMWORD.get(m.group(2).lower(), 0) or int(
+        m.group(2) if m.group(2).isdigit() else 0)
+    got = sum(
+        1 for ln in registry_text.splitlines()
+        if ENTRY.match(ln) and stem in ln.lower()
+    )
+    return got == want
+
+
 def covered(item: str, registry_text: str) -> bool:
+    counted = count_check(item, registry_text)
+    if counted is not None:
+        return counted
     low = registry_text.lower()
     dates = DATE.findall(item)
     kws = keywords(item)
@@ -84,10 +109,14 @@ def run_one(example: Path, today: str, llm: bool = False,
         from runner.judge import judge
         verdicts = judge(items, text)
         if verdicts:  # пусто = судья не сработал, откатываемся на grep
-            missed = [
-                f"{it}" + (f"  — {why}" if why else "")
-                for it, (ok, why) in zip(items, verdicts) if not ok
-            ]
+            missed = []
+            for it, (ok, why) in zip(items, verdicts):
+                # количество — арифметика, а не смысл: судью тут не спрашиваем
+                counted = count_check(it, text)
+                if counted is not None:
+                    ok, why = counted, "" if counted else "число записей не сошлось"
+                if not ok:
+                    missed.append(f"{it}" + (f"  — {why}" if why else ""))
             return len(items) - len(missed), len(items), missed
         print("    (судья не ответил — грубая сверка)")
 

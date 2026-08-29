@@ -54,6 +54,7 @@ ORDINALS = {
 }
 
 NUM_DATE = re.compile(r"\b(\d{1,2})\.(\d{1,2})(?:\.(\d{4}))?\b")
+LEAD = re.compile(r"за\s+(\d+)\s+(?:день|дня|дней)\s+до\s+(.+)", re.IGNORECASE)
 DAY_MONTH = re.compile(r"\b(\d{1,2})\s+([А-Яа-яЁё]+)")
 DAY_OF_MONTH = re.compile(r"\b(\d{1,2})\s+числа")
 
@@ -112,6 +113,19 @@ def resolve_one(raw: str | None, ref: dt.date) -> Deadline:
         return Deadline(raw=raw, kind=kind, boundary=boundary, anchor=anchor,
                         date=date.isoformat(), precision=precision,
                         alternatives=alternatives, note=note)
+
+    # «подтвердить за 3 дня» — срок считается от чужой даты, а не от опорной.
+    # Ставим раньше NUM_DATE: иначе «за 3 дня до 21.09» вернёт само 21.09.
+    m = LEAD.search(low)
+    if m:
+        base = resolve_one(m.group(2), ref)
+        if base.date:
+            shifted = dt.date.fromisoformat(base.date) - dt.timedelta(days=int(m.group(1)))
+            return made(shifted, "lead_time", base.precision,
+                        note=f"за {m.group(1)} дн. до {base.date}")
+        return Deadline(raw=raw, kind="lead_time", boundary=boundary, anchor=anchor,
+                        precision=FUZZY,
+                        note=f"не от чего считать «{raw}»")
 
     # 05.09 / 14.09.2026 — названа дата
     m = NUM_DATE.search(low)

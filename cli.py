@@ -15,7 +15,7 @@ import argparse
 import sys
 from pathlib import Path
 
-from core.graph import EVIDENCED_BY, Graph
+from core.graph import DERIVED_FROM, EVIDENCED_BY, Graph
 from core.model import CANCELLED, DONE, EVENT, RECURRING
 from core.store import DEFAULT_REGISTRY, load, save
 from dates.resolve import resolve, sort_key
@@ -52,12 +52,27 @@ def render(graph: Graph) -> str:
         for c in closed:
             mark = "снято/отменено" if c.status == CANCELLED else "сделано"
             lines.append(f"- [x] {c.what} · {mark}")
+            # каскад должно быть видно: иначе снятое производное выглядит как
+            # вторая независимая отмена, а не как следствие первой
+            if c.status == CANCELLED:
+                for parent in _parents(graph, c):
+                    lines.append(f"  ↳ снято вместе с: {parent.what}")
             for chunk_id in graph.neighbors(c.id, EVIDENCED_BY):
                 ch = graph.get("chunk", chunk_id)
                 if ch:
                     lines.append(f"  ↳ основание: «{ch.quote}»")
 
     return "\n".join(lines) + "\n"
+
+
+def _parents(graph: Graph, c) -> list:
+    """Родители по DERIVED_FROM — те записи, без которых этой не было бы."""
+    out = []
+    for pid in graph.neighbors(c.id, DERIVED_FROM):
+        parent = graph.get("commitment", pid)
+        if parent is not None:
+            out.append(parent)
+    return out
 
 
 MARK = {"exact": "", "day": "", "period": " ~", "fuzzy": " ?"}
@@ -85,6 +100,8 @@ def _line(graph: Graph, c) -> str:
         src = graph.get("source", ch.source_id) if ch.source_id else None
         name = src.name if src else "источник"
         out.append(f"  ↳ источник: {name} — «{ch.quote}»")
+    for parent in _parents(graph, c):
+        out.append(f"  ↳ производно от: {parent.what}")
     d = c.deadline
     if d and d.alternatives:
         out.append(f"  ↳ иначе: {'; '.join(d.alternatives)}")
