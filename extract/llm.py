@@ -1,92 +1,163 @@
-"""Извлечение через модель — шов, включается ключом в окружении.
+"""Извлечение обязательств моделью. Работает с OpenAI и с Anthropic.
 
-Сигнатура та же, что у extract.naive.extract, поэтому переключение сводится
-к одной строке в cli.py. Без ключа модуль честно говорит «не могу» и вызывающая
-сторона откатывается на правила.
+Сигнатура та же, что у extract.naive.extract, поэтому переключение — один флаг.
+Ключ берётся из окружения или из .env (который в .gitignore).
 
-Почему это важно: на regexp инструмент хорошо выглядит только на examples/.
-На реальной пачке заказчика — разнородной, с чужими формулировками — правила
-рассыпаются. Промпт ниже уже написан и проверен глазами; ему нужен только ключ.
+Почему это важно: на правилах инструмент хорошо выглядит только на examples/.
+На реальной пачке заказчика — с чужими формулировками, вежливыми оборотами
+и косвенными просьбами — регулярки слепые.
+
+Границу держим ту же: модель ПОНИМАЕТ (что сказано, кто должен, то же ли это,
+насколько уверена), а код РЕШАЕТ (какая это дата, что обновить, что погасить).
+Даты модель не считает — она врёт в арифметике; она отдаёт `due_raw` как
+сказано, а разбирает его dates/.
 """
 
 from __future__ import annotations
 
 import json
 import os
-import urllib.error
 import urllib.request
 
-from core.graph import EVIDENCED_BY, PREPARES, Graph
+import re
+
+from core.env import load as load_env
+from core.graph import DERIVED_FROM, EVIDENCED_BY, PREPARES, Graph
 from core.model import Chunk, Commitment, Event
 
-API_URL = "https://api.anthropic.com/v1/messages"
-MODEL = "claude-sonnet-5"
+OPENAI_URL = "https://api.openai.com/v1/chat/completions"
+ANTHROPIC_URL = "https://api.anthropic.com/v1/messages"
+
+DEFAULT_OPENAI_MODEL = "gpt-4o"
+DEFAULT_ANTHROPIC_MODEL = "claude-sonnet-5"
+
+# дата сообщения в чат-экспорте: [27.08 14:05]
+CHAT_STAMP = re.compile(r"\[(\d{1,2})\.(\d{2})\s+\d{1,2}:\d{2}\]")
 
 PROMPT = """\
-Ты извлекаешь обязательства из входящих сообщений. Верни ТОЛЬКО JSON.
+Ты извлекаешь обязательства из входящих сообщений (письма, чаты, транскрипты
+созвонов, текст со скриншотов). Верни ТОЛЬКО JSON, без пояснений.
 
-Опорная дата (сегодня): {today}
+Сегодня: {today}
 Уже известные ключи обязательств: {known_keys}
 
-Правила:
-1. Обязательство — то, что кто-то должен СДЕЛАТЬ. Событие (встреча, собрание,
-   демо) — не обязательство: на нём надо присутствовать, а не делать.
-2. Если задача ГОТОВИТ событие — у задачи свой срок, у события своя дата.
-   «Забронировать зал до 10.09 для демо 25.09» — срок задачи 10.09, НЕ 25.09.
-   Это самая частая ошибка. Проверь себя дважды.
-3. Производное обязательство («подтвердить за 3 дня до записи») ссылается на
-   родителя через derived_from.
-4. Если обязательство совпадает по смыслу с известным ключом — ВЕРНИ ЭТОТ КЛЮЧ,
-   не придумывай новый. Формулировка могла измениться, обязательство то же.
-5. Владелец — тот, кто должен сделать. «@Павел с тебя цифры» — владелец Павел,
-   а не автор сообщения. Не назван — оставь null, это нормально.
-6. Лучше вернуть сомнительное с пометкой в uncertainty, чем промолчать.
-   Пропустить обязательство хуже, чем показать лишнее.
-7. due_raw — срок ровно как сказано в тексте, не разбирай его в дату.
-8. quote — точная строка из входа, по которой человек может проверить.
+ПРАВИЛА
 
-Формат:
-{{"commitments": [{{"key": "слаг-из-двух-трёх-слов", "what": "...",
-  "owner": null, "due_raw": "...", "kind": "task|event|recurring",
-  "derived_from": null, "prepares_event": null, "uncertainty": [],
-  "quote": "..."}}],
- "events": [{{"id": "ev-1", "title": "...", "date_raw": "..."}}]}}
+1. Обязательство — то, что кто-то должен СДЕЛАТЬ. Событие (собрание, демо,
+   встреча) — не обязательство: на нём надо присутствовать, а не делать.
+   НО событие всё равно верни в commitments с kind="event" — человеку нужно
+   видеть его в реестре. Просто не выдумывай для него действий.
 
-Входящие:
+2. САМАЯ ЧАСТАЯ ОШИБКА: задача, которая ГОТОВИТ событие, имеет СВОЙ срок,
+   отличный от даты события. «Бронирую зал на демо 25 сентября» + «зал бронируй
+   до десятого» = одна задача «забронировать зал», срок «до десятого»,
+   prepares_event указывает на демо 25.09. НЕ ставь 25.09 сроком задачи.
+
+3. Реплики про одно и то же — ОДНО обязательство, не три. В транскрипте
+   «я бронирую» / «бронируй до десятого» / «понял, забронирую» — это одна
+   задача. Собери из них лучшую формулировку и все цитаты в quotes.
+
+4. Владелец — тот, кто ДОЛЖЕН СДЕЛАТЬ, а не автор сообщения.
+   «@Павел с тебя цифры» — владелец Павел. «Я отправлю договор» — владелец тот,
+   кто говорит. Не понял — ставь null, это нормально.
+
+5. Производное обязательство ссылается на родителя: «подтвердить за 3 дня»
+   при записи на ТО — derived_from на ключ записи на ТО.
+
+6. Если обязательство по смыслу совпадает с известным ключом — ВЕРНИ ЭТОТ
+   КЛЮЧ. Формулировка могла измениться, обязательство то же.
+
+7. Пропустить хуже, чем показать лишнее. Сомневаешься — верни с пометкой
+   в uncertainty, а не молчи.
+
+8. due_raw — срок РОВНО как сказано в тексте. НЕ вычисляй дату, не переводи
+   «до пятницы» в число. Это сделает код.
+
+9. quotes — точные строки из входа, по которым человек может проверить.
+   Копируй дословно, включая служебные префиксы.
+
+ФОРМАТ
+{{"commitments": [
+   {{"key": "слаг-два-три-слова", "what": "что сделать",
+     "owner": null, "due_raw": "до пятницы",
+     "kind": "task|event|recurring", "basket": "mine|work|unknown",
+     "derived_from": null, "prepares_event": null,
+     "uncertainty": [], "quotes": ["точная строка"]}}],
+ "events": [{{"id": "ev-1", "title": "демо", "date_raw": "25 сентября"}}]}}
+
+ВХОДЯЩИЕ
 {text}
 """
 
 
-class NoKey(RuntimeError):
-    pass
+def _provider() -> str | None:
+    load_env()
+    if os.environ.get("OPENAI_API_KEY"):
+        return "openai"
+    if os.environ.get("ANTHROPIC_API_KEY"):
+        return "anthropic"
+    return None
 
 
 def available() -> bool:
-    return bool(os.environ.get("ANTHROPIC_API_KEY"))
+    return _provider() is not None
 
 
-def _call(prompt: str, timeout: int = 60) -> str:
-    key = os.environ.get("ANTHROPIC_API_KEY")
-    if not key:
-        raise NoKey("ANTHROPIC_API_KEY не задан")
+def describe() -> str:
+    """Для честной декларации: какая модель реально в контуре."""
+    p = _provider()
+    if p == "openai":
+        return os.environ.get("LLM_MODEL", DEFAULT_OPENAI_MODEL)
+    if p == "anthropic":
+        return os.environ.get("LLM_MODEL", DEFAULT_ANTHROPIC_MODEL)
+    return "нет"
 
-    body = json.dumps({
-        "model": MODEL,
-        "max_tokens": 4000,
-        "messages": [{"role": "user", "content": prompt}],
-    }).encode("utf-8")
 
+def _post(url: str, body: dict, headers: dict, timeout: int) -> dict:
     req = urllib.request.Request(
-        API_URL, data=body,
-        headers={
-            "content-type": "application/json",
-            "x-api-key": key,
-            "anthropic-version": "2023-06-01",
-        },
+        url, data=json.dumps(body).encode("utf-8"), headers=headers
     )
     with urllib.request.urlopen(req, timeout=timeout) as resp:
-        payload = json.loads(resp.read())
-    return payload["content"][0]["text"]
+        return json.loads(resp.read())
+
+
+def _call(prompt: str, timeout: int = 90) -> str:
+    provider = _provider()
+    if provider is None:
+        raise RuntimeError("нет ключа: ни OPENAI_API_KEY, ни ANTHROPIC_API_KEY")
+
+    if provider == "openai":
+        data = _post(
+            OPENAI_URL,
+            {
+                "model": os.environ.get("LLM_MODEL", DEFAULT_OPENAI_MODEL),
+                "messages": [{"role": "user", "content": prompt}],
+                "response_format": {"type": "json_object"},
+                "temperature": 0,
+            },
+            {
+                "content-type": "application/json",
+                "authorization": f"Bearer {os.environ['OPENAI_API_KEY']}",
+            },
+            timeout,
+        )
+        return data["choices"][0]["message"]["content"]
+
+    data = _post(
+        ANTHROPIC_URL,
+        {
+            "model": os.environ.get("LLM_MODEL", DEFAULT_ANTHROPIC_MODEL),
+            "max_tokens": 4000,
+            "messages": [{"role": "user", "content": prompt}],
+        },
+        {
+            "content-type": "application/json",
+            "x-api-key": os.environ["ANTHROPIC_API_KEY"],
+            "anthropic-version": "2023-06-01",
+        },
+        timeout,
+    )
+    return data["content"][0]["text"]
 
 
 def _parse(raw: str) -> dict:
@@ -99,8 +170,8 @@ def _parse(raw: str) -> dict:
 
 
 def extract(chunks: list[Chunk], known_keys: list[str], today: str) -> Graph:
-    """Тот же контракт, что у naive.extract. Бросает NoKey без ключа."""
-    text = "\n".join(f"[{c.id}] {c.text}" for c in chunks)
+    """Тот же контракт, что у naive.extract."""
+    text = "\n".join(c.text for c in chunks)
     raw = _call(PROMPT.format(
         today=today,
         known_keys=", ".join(known_keys) or "(пусто)",
@@ -110,29 +181,76 @@ def extract(chunks: list[Chunk], known_keys: list[str], today: str) -> Graph:
 
     g = Graph()
     by_quote = {c.quote: c for c in chunks}
+    key_to_id: dict[str, str] = {}
 
     for ev in data.get("events", []):
-        g.add_node("event", Event(id=ev["id"], title=ev.get("title", ""),
-                                  date=None))
+        g.add_node("event", Event(id=ev.get("id", "ev"),
+                                  title=ev.get("title", ""), date=None))
 
-    for i, row in enumerate(data.get("commitments", [])):
+    rows = data.get("commitments", [])
+
+    for i, row in enumerate(rows):
+        key = row.get("key") or f"без-названия-{i}"
+        cid = f"c-{key}"
+        key_to_id[key] = cid
+
         c = Commitment(
-            id=f"c-{row.get('key', i)}",
-            key=row.get("key", f"без-названия-{i}"),
+            id=cid,
+            key=key,
             what=row.get("what", ""),
             owner=row.get("owner"),
             due_raw=row.get("due_raw"),
-            kind=row.get("kind", "task"),
+            kind=row.get("kind") or "task",
+            basket=row.get("basket") or "unknown",
             uncertainty=list(row.get("uncertainty") or []),
         )
         g.add_node("commitment", c)
 
-        ch = by_quote.get(row.get("quote", ""))
-        if ch:
-            g.add_node("chunk", ch)
-            g.add_edge(c.id, EVIDENCED_BY, ch.id)
+        for q in row.get("quotes") or []:
+            ch = by_quote.get(q) or next(
+                (x for x in chunks if q and q in x.text), None
+            )
+            if ch:
+                g.add_node("chunk", ch)
+                g.add_edge(c.id, EVIDENCED_BY, ch.id)
+                # относительный срок считается от даты сообщения, а не прогона:
+                # «до пятницы», сказанное 27.08, — это пятница после 27.08
+                if c.said_on is None:
+                    stamp = CHAT_STAMP.search(ch.text)
+                    if stamp:
+                        c.said_on = (
+                            f"{today[:4]}-{stamp.group(2)}-{int(stamp.group(1)):02d}"
+                        )
 
         if row.get("prepares_event"):
             g.add_edge(c.id, PREPARES, row["prepares_event"])
+
+    # события, которые модель унесла в events и не продублировала в commitments,
+    # материализуем сами: человеку нужно видеть их в реестре.
+    # Уговаривать промпт ненадёжно — дешевле гарантировать кодом.
+    seen = {c.what.lower() for c in g.commitments()}
+    for ev in data.get("events", []):
+        title = (ev.get("title") or "").strip()
+        if not title or any(title.lower() in s for s in seen):
+            continue
+        ec = Commitment(
+            id=f"c-{ev.get('id', title)}",
+            key=ev.get("id", title),
+            what=title,
+            due_raw=ev.get("date_raw"),
+            kind="event",
+        )
+        g.add_node("commitment", ec)
+        for ch in chunks:
+            if title.lower() in ch.text.lower():
+                g.add_node("chunk", ch)
+                g.add_edge(ec.id, EVIDENCED_BY, ch.id)
+                break
+
+    # рёбра на родителей — вторым проходом, когда все id известны
+    for row in rows:
+        parent = row.get("derived_from")
+        if parent and parent in key_to_id and row.get("key") in key_to_id:
+            g.add_edge(key_to_id[row["key"]], DERIVED_FROM, key_to_id[parent])
 
     return g
