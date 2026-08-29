@@ -205,12 +205,12 @@ def _parse_json_object(text: str) -> dict[str, object]:
     facts = value["facts"]
     if not isinstance(facts, list) or any(
         not isinstance(item, dict)
-        or set(item) != {"fact", "ok"}
-        or not isinstance(item["fact"], str)
-        or not isinstance(item["ok"], bool)
+        or not isinstance(item.get("fact"), str)
+        or not isinstance(item.get("ok"), bool)
         for item in facts
     ):
         raise ValueError("поле facts имеет неверный формат")
+    value["facts"] = [{"fact": item["fact"], "ok": item["ok"]} for item in facts]
     return value
 
 
@@ -239,7 +239,7 @@ def _judge_prompt(scenario: Scenario, registry_md: str) -> str:
                 f"\n--- SOURCE {source_scenario.name}/{relative} ---\n{_read_text(source)}"
             )
     sources = "".join(source_parts)
-    return f"""Ты строгий смысловой судья реестра обязательств. Верни только JSON по схеме.
+    return f"""Ты строгий смысловой судья реестра обязательств. Верни только один JSON-объект точной формы: {{"pass":true или false,"reason":"краткая причина","facts":[{{"fact":"конкретный проверенный факт","ok":true или false}}]}}. Не добавляй другие ключи.
 
 Проверь все факты ожидаемого результата: что, кто, срок/время, числа, тип, конечный статус, слияния и разделение похожих записей. Если expected.md содержит раздел «Не создавать», negative checks или нулевой результат, строго проверь их. Каждая цитата, которую реестр приписывает именованному источнику, должна быть точной непрерывной подстрокой этого исходного файла. Не требуй дословного совпадения формулировок самого обязательства. Не штрафуй за дополнительные поля или историю, если они не противоречат ожидаемому состоянию. При любой существенной ошибке pass=false. Reason дай кратко на русском и назови решающий ошибочный факт. В facts перечисли конкретные проверенные факты, включая ключевые отрицательные проверки; не используй общие фразы.
 
@@ -288,7 +288,7 @@ def _run_codex_judge(prompt: str, result_file: Path) -> dict[str, object]:
     return _parse_json_object(_read_text(result_file))
 
 
-def _run_claude_judge(prompt: str) -> dict[str, object]:
+def _run_claude_judge(prompt: str, result_file: Path) -> dict[str, object]:
     claude = shutil.which("claude")
     if not claude:
         raise RuntimeError("claude не найден в PATH")
@@ -305,11 +305,16 @@ def _run_claude_judge(prompt: str) -> dict[str, object]:
         "--mcp-config",
         '{"mcpServers":{}}',
         "--strict-mcp-config",
-        prompt,
     ]
-    completed = _run_process(args, env=env, timeout=int(os.getenv("OLEG_PIPELINE_JUDGE_TIMEOUT", "600")))
+    completed = _run_process(
+        args,
+        input_text=prompt,
+        env=env,
+        timeout=int(os.getenv("OLEG_PIPELINE_JUDGE_TIMEOUT", "600")),
+    )
     if completed.returncode != 0:
         raise RuntimeError("claude judge завершился с ошибкой: " + _tail(completed.stderr or completed.stdout))
+    result_file.write_text(completed.stdout, encoding="utf-8")
     outer = _parse_json_loose(completed.stdout)
     payload = outer.get("result", outer) if isinstance(outer, dict) else outer
     if isinstance(payload, dict):
@@ -339,7 +344,7 @@ def judge(scenario: Scenario, registry_md: str, requested: str, work_dir: Path) 
                 if backend == "codex":
                     verdict = _run_codex_judge(prompt, work_dir / f"judge-codex-{attempt + 1}.json")
                 else:
-                    verdict = _run_claude_judge(prompt)
+                    verdict = _run_claude_judge(prompt, work_dir / f"judge-claude-{attempt + 1}.json")
                 return verdict, backend
             except (OSError, RuntimeError, ValueError, subprocess.TimeoutExpired) as exc:
                 errors.append(f"{backend} попытка {attempt + 1}: {exc}")
