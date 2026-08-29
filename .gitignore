@@ -1,6 +1,6 @@
-.env
-*.key
-*.pem
-node_modules/
 __pycache__/
-.DS_Store
+*.pyc
+.env
+registry.json
+*.registry.json
+.commitments/
