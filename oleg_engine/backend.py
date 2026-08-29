@@ -13,6 +13,23 @@ class BackendError(RuntimeError):
     pass
 
 
+def _child_env() -> dict[str, str]:
+    """Fill the standard variables a spawning server may omit; codex.cmd needs APPDATA, node needs TEMP."""
+    env = os.environ.copy()
+    home = env.get("USERPROFILE") or env.get("HOME") or str(Path.home())
+    env.setdefault("USERPROFILE", home)
+    env.setdefault("HOME", home)
+    if os.name == "nt":
+        env.setdefault("SYSTEMROOT", r"C:\Windows")
+        env.setdefault("COMSPEC", os.path.join(env["SYSTEMROOT"], "System32", "cmd.exe"))
+        env.setdefault("APPDATA", os.path.join(home, "AppData", "Roaming"))
+        env.setdefault("LOCALAPPDATA", os.path.join(home, "AppData", "Local"))
+        env.setdefault("TEMP", os.path.join(env["LOCALAPPDATA"], "Temp"))
+        env.setdefault("TMP", env["TEMP"])
+    env["PATH"] = _search_path()
+    return env
+
+
 def _search_path() -> str:
     extra: list[str] = []
     for base in (os.environ.get("USERPROFILE"), os.environ.get("HOME")):
@@ -108,6 +125,7 @@ def _run_codex(prompt: str, schema: dict[str, Any], model: str) -> dict[str, Any
                     timeout=420,
                     check=False,
                     shell=use_shell,
+                    env=_child_env(),
                 )
                 if completed.returncode != 0:
                     failures.append(f"attempt {attempt + 1}: exit {completed.returncode}: {completed.stderr[-300:]!r}")
@@ -122,7 +140,7 @@ def _run_codex(prompt: str, schema: dict[str, Any], model: str) -> dict[str, Any
 
 
 def _run_claude(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, Any]:
-    env = os.environ.copy()
+    env = _child_env()
     env.pop("ANTHROPIC_API_KEY", None)
     env.pop("ANTHROPIC_AUTH_TOKEN", None)
     claude, use_shell = _executable("claude")

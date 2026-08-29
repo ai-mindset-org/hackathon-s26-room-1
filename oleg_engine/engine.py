@@ -53,6 +53,16 @@ SOURCE_SCHEMA = _object_schema(
     ["path", "quote", "line_start", "line_end"],
 )
 
+UNCERTAINTY_SCHEMA = _object_schema(
+    {
+        "field": {"type": "string", "enum": ["due", "owner", "what"]},
+        "note": {"type": "string"},
+        "strength": {"type": "string", "enum": ["low", "medium", "high"]},
+        "alternatives": {"type": "array", "items": {"type": "string"}},
+    },
+    ["field", "note", "strength", "alternatives"],
+)
+
 CANDIDATE_SCHEMA = _object_schema(
     {
         "what": {"type": "string"},
@@ -63,9 +73,10 @@ CANDIDATE_SCHEMA = _object_schema(
         "recurrence": {"type": ["string", "null"]},
         "status": {"type": "string", "enum": ["open", "done", "cancelled", "superseded"]},
         "derived_from_what": {"type": ["string", "null"]},
+        "uncertainty": {"type": "array", "items": UNCERTAINTY_SCHEMA},
         "sources": {"type": "array", "items": SOURCE_SCHEMA, "minItems": 1},
     },
-    ["what", "owner", "due", "due_text", "kind", "recurrence", "status", "derived_from_what", "sources"],
+    ["what", "owner", "due", "due_text", "kind", "recurrence", "status", "derived_from_what", "uncertainty", "sources"],
 )
 
 EXTRACT_SCHEMA = _object_schema(
@@ -159,7 +170,7 @@ Return JSON only and follow the schema. Reference date: {now}.
 
 Extract explicit current commitments, assigned work, live deadlines, recurring duties, and independently announced future events. Do not turn questions, ideas, conditions, historical facts, completed work, rejected or retired proposals, examples, templates, generic handbook procedures, FAQ instructions, service hours, automated system behaviour, status forecasts, or unrelated dates into obligations. Imperative grammar in a handbook or checklist is not an assignment unless the text instantiates a real current case and addressee. Always emit an explicit cancellation, completion, supersession, or removal of a specific item as a candidate row with status cancelled, done, or superseded, even when this chunk alone does not show that the item was live: other files or the existing registry may establish it, and only the global adjudicator may reject an unmatched lifecycle row. A past date that is mere context is not an obligation. A date mentioned only as context for a task is not a second event: for example, "book a room for the demo on 25 September by 10 September" is one booking task that keeps the demo date in its wording. Distinguish an event date from a deadline for preparing or booking it. Resolve relative dates from the nearest dated message; use the reference date only when no local message date exists. Do not split one request with joined verbs, one actor, and one deadline into multiple rows. For Russian chat, the speaker who says "я" owns the action. A direct assignment such as "@Павел с тебя" belongs to Pavel. In a two-speaker transcript, use "спикер 1" and "спикер 2" in alternating order.
 
-Represent completion, cancellation, deadline changes, and reassignment as candidates about the same obligation, with the latest status and due date. If a reminder is derived from an event, emit both and put the event wording in derived_from_what for the reminder. Quotes must be exact non-empty substrings from the chunk. Use the source path exactly as supplied. Line numbers are 1-based absolute line numbers.
+Represent completion, cancellation, deadline changes, and reassignment as candidates about the same obligation, with the latest status and due date. If a reminder is derived from an event, emit both and put the event wording in derived_from_what for the reminder. Mark uncertainty in the uncertainty list instead of guessing silently: a deadline whose inclusiveness is unclear (such as "до пятницы" or "к среде": inclusive or not), a vague period (a week, a month, "завтра утром" without a time), and an owner that several people could match (a first name shared by several participants). Each entry names the field (due, owner, or what), a short note in the source language, a strength (low, medium, high: how strong the doubt is), and the alternative values when they can be listed, such as the two candidate ISO dates. Leave the list empty when the value is clear. Quotes must be exact non-empty substrings from the chunk. Use the source path exactly as supplied. Line numbers are 1-based absolute line numbers.
 
 SOURCE PATH: {chunk['path']}
 SOURCE SHA256: {chunk['sha256']}
@@ -173,7 +184,7 @@ def _adjudicate_prompt(existing: list[dict[str, Any]], candidates: list[dict[str
     return f"""You adjudicate a final obligation registry. Return JSON only and follow the schema.
 Reference date: {now}.
 
-Merge NEW CANDIDATES into EXISTING OBLIGATIONS by meaning, not exact string. Preserve one row per real current obligation. The correct final list can be empty even when extraction supplied many candidates. Reject rows whose evidence is only a question, idea, condition, historical or completed work, rejected or retired proposal, example, template, generic procedure, handbook or FAQ instruction, opening hours, automated process description, status forecast, footer, or quoted history. Reject a cancelled-only or past event unless an existing registry row or another source in this package establishes that same obligation as live before its cancellation. This rule still keeps a cancellation when another source creates the live event and its derived reminder. Never combine a question in one file with a date from an unrelated declined event in another file. Combine joined actions from one request when they have the same actor and deadline, such as paying a fee and sending its receipt. Remove a candidate event when its date is only context for an extracted task, such as a first lesson that sets a certificate deadline or a demo that explains a room-booking task; keep the contextual date in the task wording. Preserve an independently announced event such as a parents' meeting. Later evidence can change a due date, owner, or status. A done, cancelled, or superseded item remains in the output with that status when it belongs to a real obligation. Match every cancelled, done, or superseded candidate against the existing rows and the other candidates in this package by meaning; when it matches a live item, output that item once with the closed status and add the cancellation source. Cancellation of an event also cancels every derived reminder. Do not invent owners, dates, or links. Preserve exact source quotes. Keep all still-valid existing obligations even when new candidates do not mention them. When a year is absent, preserve the source's own weekday convention instead of imposing an external calendar year; in a chat whose dated sequence begins 27.08 and says "до пятницы", the required day/month is 29.08.
+Merge NEW CANDIDATES into EXISTING OBLIGATIONS by meaning, not exact string. Preserve one row per real current obligation. The correct final list can be empty even when extraction supplied many candidates. Reject rows whose evidence is only a question, idea, condition, historical or completed work, rejected or retired proposal, example, template, generic procedure, handbook or FAQ instruction, opening hours, automated process description, status forecast, footer, or quoted history. Reject a cancelled-only or past event unless an existing registry row or another source in this package establishes that same obligation as live before its cancellation. This rule still keeps a cancellation when another source creates the live event and its derived reminder. Never combine a question in one file with a date from an unrelated declined event in another file. Combine joined actions from one request when they have the same actor and deadline, such as paying a fee and sending its receipt. Remove a candidate event when its date is only context for an extracted task, such as a first lesson that sets a certificate deadline or a demo that explains a room-booking task; keep the contextual date in the task wording. Preserve an independently announced event such as a parents' meeting. Later evidence can change a due date, owner, or status. A done, cancelled, or superseded item remains in the output with that status when it belongs to a real obligation. Match every cancelled, done, or superseded candidate against the existing rows and the other candidates in this package by meaning; when it matches a live item, output that item once with the closed status and add the cancellation source. Cancellation of an event also cancels every derived reminder. Do not invent owners, dates, or links. Carry each candidate's uncertainty entries into the final row, merge duplicates, and drop an entry only when another source resolves it; keep the list empty when nothing is uncertain. Preserve exact source quotes. Keep all still-valid existing obligations even when new candidates do not mention them. When a year is absent, preserve the source's own weekday convention instead of imposing an external calendar year; in a chat whose dated sequence begins 27.08 and says "до пятницы", the required day/month is 29.08.
 
 For each existing row that remains, set match_id to its exact id. For each genuinely new row, set match_id to null. Keep sources that support the final state, and include the latest update source. derived_from_what names the parent obligation's final what text, or null. Prefer concise Russian wording when the source is Russian.
 
@@ -245,9 +256,24 @@ def _normalize_items(
             "recurrence": str(raw["recurrence"]).strip() if raw.get("recurrence") else None,
             "status": raw.get("status") if raw.get("status") in {"open", "done", "cancelled", "superseded"} else "open",
             "derived_from_what": str(raw["derived_from_what"]).strip() if raw.get("derived_from_what") else None,
+            "uncertainty": _normalize_uncertainty(raw.get("uncertainty")),
             "sources": sources,
         })
     return [item for item in result if item["what"]]
+
+
+def _normalize_uncertainty(raw: Any) -> list[dict[str, Any]]:
+    result: list[dict[str, Any]] = []
+    for entry in raw if isinstance(raw, list) else []:
+        if not isinstance(entry, dict) or not str(entry.get("note", "")).strip():
+            continue
+        result.append({
+            "field": entry.get("field") if entry.get("field") in {"due", "owner", "what"} else "what",
+            "note": str(entry["note"]).strip(),
+            "strength": entry.get("strength") if entry.get("strength") in {"low", "medium", "high"} else "medium",
+            "alternatives": [str(value) for value in entry.get("alternatives", []) if isinstance(entry.get("alternatives"), list)],
+        })
+    return result
 
 
 def _next_id(existing: list[dict[str, Any]]) -> int:
@@ -322,6 +348,7 @@ def _merge_final(
             "recurrence": final["recurrence"],
             "status": final["status"],
             "derived_from": None,
+            "uncertainty": final.get("uncertainty", []),
             "sources": final["sources"],
             "history": history,
             "manual": manual,
@@ -387,7 +414,8 @@ def render_markdown(obligations: list[dict[str, Any]]) -> str:
         extra = f" · {'/'.join(extras)}" if extras else ""
         source = item["sources"][-1]
         quote = source["quote"].replace("\n", " ").strip()
-        return f"{number}. {item['what']} · {owner} · {_display_due(item)}{extra} · источник: {source['path']}: «{quote}»"
+        warning = "".join(f" · ⚠ {entry['note']}" for entry in item.get("uncertainty") or [])
+        return f"{number}. {item['what']} · {owner} · {_display_due(item)}{extra} · источник: {source['path']}: «{quote}»{warning}"
 
     lines = ["# Реестр обязательств", "", "## Открытые", ""]
     lines.extend(row(index, item) for index, item in enumerate(open_items, 1))
