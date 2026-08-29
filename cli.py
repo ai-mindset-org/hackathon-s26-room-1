@@ -52,6 +52,10 @@ def render(graph: Graph) -> str:
         for c in closed:
             mark = "снято" if c.status == CANCELLED else "сделано"
             lines.append(f"- [x] {c.what} · {mark}")
+            for chunk_id in graph.neighbors(c.id, EVIDENCED_BY):
+                ch = graph.get("chunk", chunk_id)
+                if ch:
+                    lines.append(f"  ↳ основание: «{ch.quote}»")
 
     return "\n".join(lines) + "\n"
 
