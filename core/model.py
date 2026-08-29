@@ -67,6 +67,37 @@ class Topic:
     name: str
 
 
+# Как прочитана граница срока
+BY = "by"          # «к понедельнику» — включительно, сам понедельник
+BEFORE = "before"  # «до пятницы» — строго раньше пятницы
+
+# Насколько точен срок
+EXACT = "exact"      # 05.09 — названа дата
+DAY = "day"          # «до пятницы» — день выводится, но однозначно
+PERIOD = "period"    # «до конца месяца» — граница периода
+FUZZY = "fuzzy"      # разобрать не удалось
+
+
+@dataclass
+class Deadline:
+    """Срок как ИНТЕНТ, а не как дата.
+
+    Хранить только вычисленную дату нельзя: при следующем прогоне «до пятницы»
+    уже не пересчитаешь — интент потерян. И «31.08» с «до конца месяца» дают
+    одну дату, но это сроки разной надёжности; сортировать их как равные значит
+    врать человеку.
+    """
+
+    raw: str                                   # как было сказано
+    kind: str = "none"                         # hard|weekday|end_of_period|day_of_month|relative|none
+    boundary: str = BY                         # прочитана «до» или «к»
+    anchor: Optional[str] = None               # от какой даты считали
+    date: Optional[str] = None                 # что получилось
+    precision: str = FUZZY
+    alternatives: list[str] = field(default_factory=list)  # другие прочтения
+    note: Optional[str] = None
+
+
 @dataclass
 class Commitment:
     """Обязательство.
@@ -83,9 +114,10 @@ class Commitment:
     key: str
     what: str
     owner: Optional[str] = None
-    due: Optional[str] = None  # ГГГГ-ММ-ДД, заполняет dates/
+    due: Optional[str] = None  # ГГГГ-ММ-ДД — плоская проекция deadline.date
     due_raw: Optional[str] = None  # как было сказано в тексте
     said_on: Optional[str] = None  # дата сообщения — опора для «до пятницы»
+    deadline: Optional[Deadline] = None  # структурный срок
     kind: str = TASK
     status: str = OPEN
     basket: str = UNKNOWN  # заполняет фаза 4

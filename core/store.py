@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 
 from .graph import Edge, Graph
-from .model import NODE_TYPES, to_dict
+from .model import NODE_TYPES, Deadline, to_dict
 
 DEFAULT_REGISTRY = Path(os.path.expanduser("~/.commitments/registry.json"))
 
@@ -50,6 +50,8 @@ def load(path: str | Path) -> Graph:
         if cls is None:
             continue
         for row in rows:
+            if kind == "commitment" and isinstance(row.get("deadline"), dict):
+                row = {**row, "deadline": Deadline(**row["deadline"])}
             graph.nodes[kind][row["id"]] = cls(**row)
 
     for e in payload.get("edges", []):

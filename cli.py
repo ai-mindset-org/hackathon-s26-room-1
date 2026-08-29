@@ -18,7 +18,7 @@ from pathlib import Path
 from core.graph import EVIDENCED_BY, Graph
 from core.model import CANCELLED, DONE, EVENT, RECURRING
 from core.store import DEFAULT_REGISTRY, load, save
-from dates.resolve import resolve
+from dates.resolve import resolve, sort_key
 from extract import llm as extract_llm
 from extract.naive import extract as extract_naive
 from ingest.reader import read_folder
@@ -50,7 +50,7 @@ def render(graph: Graph) -> str:
     if not solid:
         lines.append("_Пусто._")
 
-    for c in solid:
+    for c in sorted(solid, key=sort_key):
         lines.append(_line(graph, c))
 
     if unsure:
@@ -69,12 +69,16 @@ def render(graph: Graph) -> str:
     return "\n".join(lines) + "\n"
 
 
+MARK = {"exact": "", "day": "", "period": " ~", "fuzzy": " ?"}
+
+
 def _due_label(c) -> str:
-    if c.due:
-        y, m, d = c.due.split("-")
-        raw = f" ({c.due_raw})" if c.due_raw else ""
-        return f"{d}.{m}{raw}"
-    return c.due_raw or "срок неясен"
+    d = c.deadline
+    if d is None or not d.date:
+        return c.due_raw or "срок неясен"
+    y, mth, day = d.date.split("-")
+    raw = f" ({d.raw})" if d.raw else ""
+    return f"{day}.{mth}{MARK.get(d.precision, '')}{raw}"
 
 
 def _line(graph: Graph, c) -> str:
@@ -90,6 +94,11 @@ def _line(graph: Graph, c) -> str:
         src = graph.get("source", ch.source_id) if ch.source_id else None
         name = src.name if src else "источник"
         out.append(f"  ↳ источник: {name} — «{ch.quote}»")
+    d = c.deadline
+    if d and d.alternatives:
+        out.append(f"  ↳ иначе: {'; '.join(d.alternatives)}")
+    if d and d.note and d.date:
+        out.append(f"  ↳ {d.note}")
     return "\n".join(out)
 
 
