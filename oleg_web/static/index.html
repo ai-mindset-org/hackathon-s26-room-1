@@ -329,9 +329,13 @@ $("#run").addEventListener("click", async () => {
 });
 
 $("#runex").addEventListener("click", async () => {
-  const dir = $("#path").value.trim() || (CFG.examples_roots||[])[0];
+  // папка примеров = родитель родителя выбранного input/
+  const sel = $("#ex").value || "";
+  const dir = sel ? sel.replace(/[\\/][^\\/]+[\\/][^\\/]+$/, "") : (CFG.examples_roots||[])[0];
+  if(!dir){ setErr("не найдена папка примеров"); return; }
+  setStatus("папка примеров: "+dir);
   setErr(""); $("#log").textContent=""; $("#runex").disabled = true;
-  const r = await jpost("/api/run_examples"+location.search, {examples: dir, judge: "none"});
+  const r = await jpost("/api/run_examples"+location.search, {examples: dir, judge: "codex", jobs: 4});
   if(!r.ok){ setErr(r.error); $("#runex").disabled=false; return; }
   $("#log").style.display="block"; $("#log").textContent = "$ "+r.cmd+"\n";
   poll(r.run, res => {

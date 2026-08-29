@@ -396,10 +396,13 @@ async def api_run_examples(request: Request) -> JSONResponse:
     engine_tpl = f'"{sys.executable}" -u -m oleg_engine run --input {{input}} --registry {{registry}}'
     cmd = [sys.executable, "-u", "-m", "oleg_pipeline", "run",
            "--examples", str(ex_path), "--engine", engine_tpl,
-           "--judge", body.get("judge") or "none", "--out", str(out)]
+           "--judge", body.get("judge") or "codex", "--out", str(out)]
     only = (body.get("only") or "").strip()
     if only:
         cmd += ["--only", only]
+    jobs = body.get("jobs")
+    if jobs:
+        cmd += ["--jobs", str(jobs)]
 
     run = Run("pipeline")
     run.report_path = str(out / "report.md")
