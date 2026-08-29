@@ -4,7 +4,25 @@
 
 ## Быстрый запуск
 
-Из корня репозитория:
+Из корня репозитория. Первая команда работает на этой ветке без внешних зависимостей (встроенный fake engine):
+
+```powershell
+python -m oleg_pipeline run `
+  --examples examples `
+  --engine "python oleg_pipeline/fake_engine.py run --input {input} --registry {registry}" `
+  --out oleg_pipeline/out/fake
+```
+
+Штатный движок комнаты (`cli.py`) через адаптер `room_engine.py`. После слияния в main `cli.py` лежит в корне репозитория, и `--room-root` не нужен; до слияния укажите `--room-root <путь к checkout с cli.py>`:
+
+```powershell
+python -m oleg_pipeline run `
+  --examples examples `
+  --engine "python oleg_pipeline/room_engine.py --input {input} --registry {registry}" `
+  --out oleg_pipeline/out/room
+```
+
+`oleg_engine` (нужна папка движка в репозитории после слияния или на `PYTHONPATH`):
 
 ```powershell
 python -m oleg_pipeline run `
@@ -16,6 +34,9 @@ python -m oleg_pipeline run `
 Команда движка обязана содержать `{input}` и `{registry}`. Если она содержит `{now}`, pipeline берёт дату из строки `Опорное время`, `Reference time` или `Reference clock` в `expected.md`. Если такой строки нет, используется текущая локальная дата.
 
 Движок должен завершиться с кодом 0 и создать `registry.json` и `registry.md` рядом. Pipeline не зависит от внутренней реализации движка.
+
+**Любые данные.** Подходит любая папка, чьи подпапки содержат `input/` и `expected.md`: укажите её через `--examples <папка>`.
+Подходит любой движок: подставьте его команду в шаблон `--engine` с `{input}` и `{registry}`.
 
 ## Правило цепочки
 
