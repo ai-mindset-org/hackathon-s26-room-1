@@ -18,7 +18,7 @@ from __future__ import annotations
 import hashlib
 import re
 
-from core.graph import EVIDENCED_BY, PREPARES, Graph
+from core.graph import DERIVED_FROM, EVIDENCED_BY, PREPARES, Graph
 from core.model import EVENT, RECURRING, TASK, Chunk, Commitment, Event
 
 # Маркеры долженствования
@@ -49,6 +49,8 @@ DATE_WORD = re.compile(
     r"десятого|первого|второго|третьего|пятого)",
     re.IGNORECASE,
 )
+# «..., подтвердить за 3 дня» — хвост, который живёт только при родителе
+LEAD_CLAUSE = re.compile(r"\bза\s+\d+\s+(?:день|дня|дней)\b", re.IGNORECASE)
 MENTION = re.compile(r"@([А-ЯЁ][а-яё]+)")
 CHAT_PREFIX = re.compile(r"^\[(\d{1,2}\.\d{2})\s+\d{1,2}:\d{2}\]\s*([^:]{1,20}):\s*")
 TRANSCRIPT_PREFIX = re.compile(r"^\s*[—–-]\s+")
@@ -147,6 +149,8 @@ def extract(chunks: list[Chunk], known_keys: list[str], today: str) -> Graph:
         if len(what) < 8:
             continue
 
+        what, derived, lead = _split_derived(what)
+
         key = make_key(what)
         # если ключ уже известен — переиспользуем, не плодим новый
         if key in known:
@@ -167,8 +171,63 @@ def extract(chunks: list[Chunk], known_keys: list[str], today: str) -> Graph:
         g.add_edge(c.id, EVIDENCED_BY, ch.id)
 
         _link_prepared_event(g, c, ch.text)
+        if derived:
+            _add_derived(g, c, ch, derived, lead)
 
     return g
+
+
+def _split_derived(what: str) -> tuple[str, str | None, str | None]:
+    """Отделить хвост-напоминание от записи, которая его породила.
+
+    «ТО ... запись на 21.09, подтвердить за 3 дня» — это ДВА обязательства.
+    Пока напоминание сидит внутри строки родителя, отмена гасит его молча:
+    не потому что каскад сработал, а потому что напоминания вообще нет
+    в реестре. Отдельная запись делает каскад видимым и проверяемым.
+
+    -> (родитель, хвост | None, «за N дней» | None)
+    """
+    parts = [p.strip() for p in re.split(r"\s*[,;]\s*", what) if p.strip()]
+    if len(parts) < 2:
+        return what, None, None
+
+    tail = parts[-1]
+    m = LEAD_CLAUSE.search(tail)
+    # хвост без глагола долженствования — это не обязательство, а уточнение
+    if not m or not any(w in tail.lower() for w in MARKERS):
+        return what, None, None
+
+    head = ", ".join(parts[:-1])
+    if len(head) < 8:
+        return what, None, None
+    return head, tail, m.group(0)
+
+
+def _add_derived(g: Graph, parent: Commitment, ch: Chunk,
+                 what: str, lead: str) -> None:
+    """Производное обязательство: свой срок, свой id, ребро на родителя.
+
+    Срок считается не от опорной даты, а от даты родителя — «за 3 дня до
+    21.09». Разрешает его `dates/` (kind=lead_time), здесь мы только
+    сохраняем формулировку как она была сказана.
+    """
+    key = make_key(what)
+    c = Commitment(
+        id=_id(key),
+        key=key,
+        what=what,
+        owner=parent.owner,
+        due_raw=f"{lead} до {parent.due_raw}" if parent.due_raw else None,
+        said_on=parent.said_on,
+        kind=TASK,
+    )
+    if c.due_raw is None:
+        c.uncertainty.append(
+            f"«{lead}» — не от чего считать: у родителя нет даты"
+        )
+    g.add_node("commitment", c)
+    g.add_edge(c.id, EVIDENCED_BY, ch.id)
+    g.add_edge(c.id, DERIVED_FROM, parent.id)
 
 
 def _link_prepared_event(g: Graph, c: Commitment, text: str) -> None:
