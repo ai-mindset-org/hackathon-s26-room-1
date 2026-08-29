@@ -211,6 +211,10 @@ def _parse_json_object(text: str) -> dict[str, object]:
     ):
         raise ValueError("поле facts имеет неверный формат")
     value["facts"] = [{"fact": item["fact"], "ok": item["ok"]} for item in facts]
+    failed = [item["fact"] for item in value["facts"] if not item["ok"]]
+    if value["pass"] and failed:
+        value["pass"] = False
+        value["reason"] = f"судья вернул pass=true при проваленном факте: {failed[0]}"
     return value
 
 
