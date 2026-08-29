@@ -85,6 +85,7 @@ class Commitment:
     owner: Optional[str] = None
     due: Optional[str] = None  # ГГГГ-ММ-ДД, заполняет dates/
     due_raw: Optional[str] = None  # как было сказано в тексте
+    said_on: Optional[str] = None  # дата сообщения — опора для «до пятницы»
     kind: str = TASK
     status: str = OPEN
     basket: str = UNKNOWN  # заполняет фаза 4

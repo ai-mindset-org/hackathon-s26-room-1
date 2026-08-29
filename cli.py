@@ -18,6 +18,7 @@ from pathlib import Path
 from core.graph import EVIDENCED_BY, Graph
 from core.model import CANCELLED, DONE, EVENT, RECURRING
 from core.store import DEFAULT_REGISTRY, load, save
+from dates.resolve import resolve
 from extract.naive import extract
 from ingest.reader import read_folder
 
@@ -67,9 +68,17 @@ def render(graph: Graph) -> str:
     return "\n".join(lines) + "\n"
 
 
+def _due_label(c) -> str:
+    if c.due:
+        y, m, d = c.due.split("-")
+        raw = f" ({c.due_raw})" if c.due_raw else ""
+        return f"{d}.{m}{raw}"
+    return c.due_raw or "срок неясен"
+
+
 def _line(graph: Graph, c) -> str:
     owner = c.owner or "не назначен"
-    due = c.due or c.due_raw or "срок неясен"
+    due = _due_label(c)
     kind = KIND_LABEL.get(c.kind)
     tail = f" · {kind}" if kind else ""
     out = [f"- [ ] {c.what} · {owner} · {due}{tail}"]
@@ -92,6 +101,7 @@ def cmd_run(args: argparse.Namespace) -> int:
         graph.add_node("source", s)
 
     new = extract(chunks, graph.known_keys(), args.today)
+    resolve(new.commitments(), args.today)
     graph = merge_into(graph, new)
 
     save(graph, registry_path)

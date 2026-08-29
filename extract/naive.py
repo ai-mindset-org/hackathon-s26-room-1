@@ -99,16 +99,28 @@ def looks_like_commitment(text: str) -> bool:
     )
 
 
-def clean(text: str) -> tuple[str, str | None]:
-    """Убрать служебный префикс, вернуть (текст, владелец)."""
-    owner = None
+def clean(text: str) -> tuple[str, str | None, str | None]:
+    """Убрать служебный префикс, вернуть (текст, владелец, дата сообщения)."""
+    owner = said = None
     m = CHAT_PREFIX.match(text)
     if m:
+        said = m.group(1)  # дд.мм
         owner = m.group(2).strip()
         text = text[m.end():]
     else:
         text = TRANSCRIPT_PREFIX.sub("", text)
-    return text.strip(), owner
+    return text.strip(), owner, said
+
+
+def _said_on(day_month: str | None, today: str) -> str | None:
+    """«27.08» + опорный год -> ГГГГ-ММ-ДД."""
+    if not day_month:
+        return None
+    try:
+        d, mth = day_month.split(".")
+        return f"{today[:4]}-{int(mth):02d}-{int(d):02d}"
+    except (ValueError, IndexError):
+        return None
 
 
 def extract(chunks: list[Chunk], known_keys: list[str], today: str) -> Graph:
@@ -124,7 +136,7 @@ def extract(chunks: list[Chunk], known_keys: list[str], today: str) -> Graph:
         if not looks_like_commitment(ch.text):
             continue
 
-        what, owner = clean(ch.text)
+        what, owner, said_dm = clean(ch.text)
         if len(what) < 8:
             continue
 
@@ -140,6 +152,7 @@ def extract(chunks: list[Chunk], known_keys: list[str], today: str) -> Graph:
             owner=owner,
             due=None,  # заполнит dates/ в фазе 2
             due_raw=find_due_raw(ch.text),
+            said_on=_said_on(said_dm, today),
             kind=guess_kind(ch.text),
         )
         g.add_node("commitment", c)
