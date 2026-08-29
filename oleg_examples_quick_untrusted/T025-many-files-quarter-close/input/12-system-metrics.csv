@@ -1,0 +1,5 @@
+metric,value,observed_at
+documents_indexed,4481,2027-03-06T09:00:00Z
+parse_latency_ms,312,2027-03-06T09:00:00Z
+duplicate_ratio,0.18,2027-03-06T09:00:00Z
+

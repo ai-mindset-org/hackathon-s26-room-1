@@ -1,0 +1,7 @@
+MA1NTENANCE B0ARD — Z0NE C
+asset | acti0n | 0wner | due
+VALVE PACK-47 | inspect seals | R.Kim | O8.11.2O27
+RACK 202 | label 17-B | — | n0 date
+
+N0TE: characters O/0 and I/1 may be c0nfused by OCR. Dates are DD.MM.YYYY.
+

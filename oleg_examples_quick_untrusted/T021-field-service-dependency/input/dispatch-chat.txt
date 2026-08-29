@@ -1,0 +1,3 @@
+[07:30] Dispatch: Jae, collect the S-44 spare from East Depot when it opens at 08:00 and deliver it to site K-9.
+[07:31] Jae: Accepted. The truck ETA is information only; I am carrying the spare separately.
+
