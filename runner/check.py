@@ -57,7 +57,7 @@ def covered(item: str, registry_text: str) -> bool:
     return has_kw
 
 
-def run_one(example: Path, today: str) -> tuple[int, int, list[str]]:
+def run_one(example: Path, today: str, llm: bool = False) -> tuple[int, int, list[str]]:
     expected = example / "expected.md"
     inputs = example / "input"
     if not expected.exists() or not inputs.exists():
@@ -70,7 +70,7 @@ def run_one(example: Path, today: str) -> tuple[int, int, list[str]]:
              "--input", str(inputs),
              "--today", today,
              "--registry", str(Path(tmp) / "registry.json"),
-             "--out", str(out)],
+             "--out", str(out)] + (["--llm"] if llm else []),
             cwd=REPO, capture_output=True, text=True,
         )
         if proc.returncode != 0:
@@ -82,12 +82,12 @@ def run_one(example: Path, today: str) -> tuple[int, int, list[str]]:
     return len(items) - len(missed), len(items), missed
 
 
-def run_all(today: str = "2026-08-28") -> int:
+def run_all(today: str = "2026-08-28", llm: bool = False) -> int:
     total_ok = total = 0
     for example in sorted(EXAMPLES.iterdir()):
         if not example.is_dir():
             continue
-        ok, n, missed = run_one(example, today)
+        ok, n, missed = run_one(example, today, llm)
         total_ok += ok
         total += n
         print(f"{example.name}: прошло {ok} из {n}")

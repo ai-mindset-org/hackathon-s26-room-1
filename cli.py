@@ -136,7 +136,7 @@ def cmd_run(args: argparse.Namespace) -> int:
 def cmd_check(args: argparse.Namespace) -> int:
     from runner.check import run_all
 
-    return run_all(today=args.today)
+    return run_all(today=args.today, llm=args.llm)
 
 
 def main() -> int:
@@ -156,6 +156,8 @@ def main() -> int:
     c = sub.add_parser("check", help="прогнать приёмочные примеры")
     c.add_argument("--today", default="2026-08-28",
                    help="опорная дата для примеров")
+    c.add_argument("--llm", action="store_true",
+                   help="извлекать моделью")
     c.set_defaults(func=cmd_check)
 
     args = p.parse_args()
