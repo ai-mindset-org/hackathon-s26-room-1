@@ -18,7 +18,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI, Request, UploadFile, File
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, PlainTextResponse
 
 # --------------------------------------------------------------------------
 # FEATURES — единственное место, где включаются/выключаются надстройки.
@@ -77,6 +77,14 @@ def engine_dir() -> Optional[Path]:
 
 def pipeline_dir() -> Optional[Path]:
     return find_module_dir("OLEG_PIPELINE_DIR", "oleg_pipeline")
+
+
+def cli_path() -> Optional[Path]:
+    """cli.py комнаты (общий инструмент в корне репозитория после слияния)."""
+    for c in _candidate_dirs("OLEG_CLI_DIR", "cli.py"):
+        if (c / "cli.py").is_file():
+            return c / "cli.py"
+    return None
 
 
 def child_env(extra_paths: List[Path]) -> Dict[str, str]:
@@ -307,7 +315,7 @@ def index() -> HTMLResponse:
 
 @app.get("/api/config")
 def api_config(request: Request) -> JSONResponse:
-    ed, pd = engine_dir(), pipeline_dir()
+    ed, pd, cp = engine_dir(), pipeline_dir(), cli_path()
     ensure_default_registry()
     return JSONResponse({
         "features": effective_features(request),
@@ -318,6 +326,7 @@ def api_config(request: Request) -> JSONResponse:
         "pipeline_dir": str(pd) if pd else None,
         "engine_available": ed is not None,
         "pipeline_available": pd is not None,
+        "cli_path": str(cp) if cp else None,
         "repo_root": str(REPO_ROOT),
         "python": sys.executable,
         # Видно ли подпроцессам сами бэкенды — проверяется тем же PATH, с которым
@@ -542,6 +551,19 @@ def api_file(path: str, quote: str = "") -> JSONResponse:
         return JSONResponse({"ok": False, "error": str(exc)})
     return JSONResponse({"ok": True, "path": str(p), "text": text[:20000],
                          "quote_found": (quote in text) if quote else None})
+
+
+@app.get("/api/download")
+def api_download(path: str = "", kind: str = "md"):
+    """Скачать registry.md (kind=md) или registry.json (kind=json) текущего реестра."""
+    p = Path(path) if path else ensure_default_registry()
+    if not p.is_absolute():
+        p = (REPO_ROOT / p).resolve()
+    suffix, media = (".json", "application/json") if kind == "json" else (".md", "text/markdown")
+    f = p.with_suffix(suffix)
+    if not f.is_file():
+        return PlainTextResponse(f"Файл не найден: {f}", status_code=404)
+    return FileResponse(str(f), media_type=media, filename=f.name)
 
 
 @app.get("/api/health")

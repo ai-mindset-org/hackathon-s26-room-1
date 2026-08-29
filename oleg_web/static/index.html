@@ -100,6 +100,11 @@ kbd{background:var(--chip);border:1px solid var(--line);border-radius:4px;paddin
         <button data-v="1" aria-pressed="true">новый реестр</button>
         <button data-v="0" aria-pressed="false">поверх текущего</button>
       </span>
+      <select id="engpreset" title="Пресет команды движка: подставляет команду в поле справа, поле остаётся редактируемым">
+        <option value="oleg">oleg_engine</option>
+        <option value="cli">cli.py комнаты</option>
+        <option value="custom">своя команда</option>
+      </select>
       <input type="text" id="engcmd" placeholder="своя команда движка: … {input} {registry}" title="Плейсхолдеры {input} {registry} {out} {now}. Пусто — встроенный oleg_engine." style="min-width:330px">
       <button class="primary" id="run">Прогнать ▶</button>
       <button id="reload">Обновить</button>
@@ -117,6 +122,8 @@ kbd{background:var(--chip);border:1px solid var(--line);border-radius:4px;paddin
 
   <div class="bar">
     <span class="count" id="count"></span>
+    <a class="muted" id="dlmd" href="/api/download?kind=md" title="Скачать registry.md рядом с JSON">скачать registry.md</a>
+    <a class="muted" id="dljson" href="/api/download?kind=json" title="Скачать registry.json">registry.json</a>
     <span style="flex:1"></span>
     <span class="count" id="diff"></span>
     <button class="primary" id="save" style="display:none">Сохранить правки</button>
@@ -169,7 +176,22 @@ async function boot(){
   $("#runex").style.display = f.run_examples ? "" : "none";
   $("#runex").classList.remove("off");
   REG_PATH = new URLSearchParams(location.search).get("registry") || CFG.registry_default;
+  initPresets();
   await loadRegistry();
+}
+
+// ---------- пресеты команды движка ----------
+const PRESETS = {
+  oleg: () => "python -u -m oleg_engine run --input {input} --registry {registry}",
+  cli:  () => `python -u "${CFG.cli_path}" run --input {input} --today 2026-08-28 --registry {registry} --out {out}`,
+};
+function initPresets(){
+  const sel = $("#engpreset"), opt = sel.querySelector('option[value="cli"]');
+  if(!CFG.cli_path){ opt.disabled = true; opt.title = "cli.py не найден"; opt.textContent = "cli.py комнаты (не найден)"; }
+  else opt.title = CFG.cli_path;
+  sel.value = "oleg";   // по умолчанию — oleg_engine; пустое поле = встроенный запуск с режимом/бэкендом
+  sel.addEventListener("change", () => { const f = PRESETS[sel.value]; if(f) $("#engcmd").value = f(); });
+  $("#engcmd").addEventListener("input", () => { sel.value = "custom"; });
 }
 
 async function loadRegistry(path){
@@ -178,6 +200,7 @@ async function loadRegistry(path){
   if(!r.ok){ setErr(r.error); REG=null; render(); return; }
   setErr(""); REG = r.registry; REG_PATH = r.path; EDITS = {};
   $("#hdr-path").textContent = r.path;
+  for(const [id,kind] of [["#dlmd","md"],["#dljson","json"]]) $(id).href = `/api/download?kind=${kind}&path=` + encodeURIComponent(r.path);
   render();
 }
 
