@@ -55,6 +55,7 @@ td.q{max-width:400px}
   font-size:11px;border:1px solid var(--line)}
 .chip.done{color:var(--ok)} .chip.cancelled{color:var(--bad)} .chip.superseded{color:var(--warn)}
 .chip.man{color:var(--warn);border-color:var(--warn)}
+.chip.unc{cursor:help;color:var(--warn);border-color:var(--warn)} .chip.unc.high{color:var(--bad);border-color:var(--bad)} .chip.unc.low{opacity:.6}
 .caret{cursor:pointer;color:var(--dim);user-select:none;width:14px;display:inline-block}
 tr.tl td{background:var(--chip);font-size:12px}
 .tl-item{padding:2px 0;border-left:2px solid var(--line);padding-left:8px;margin-left:2px}
@@ -208,13 +209,15 @@ function render(){
     const ed = (field,val,ph) => feat.edit
       ? `<input class="ed" data-id="${esc(ob.id)}" data-f="${field}" value="${esc(val==null?"":val)}" placeholder="${ph||"—"}">`
       : esc(val==null?"—":val);
+    const unc = f => (ob.uncertainty||[]).filter(u=>u && u.field===f).map(u =>
+      `<span class="chip unc ${esc(u.strength||"")}" title="${esc((u.note||"")+((u.alternatives||[]).length?" · варианты: "+u.alternatives.join(", "):""))}">⚠</span>`).join("");
     tr.innerHTML =
       `<td>${caret}</td>`+
-      `<td class="what">${esc(ob.what)}${ob.manual?' <span class="chip man">правка</span>':""}</td>`+
-      `<td>${ed("owner", ob.owner, "не назначен")}</td>`+
+      `<td class="what">${esc(ob.what)}${unc("what")}${ob.manual?' <span class="chip man">правка</span>':""}</td>`+
+      `<td>${ed("owner", ob.owner, "не назначен")}${unc("owner")}</td>`+
       `<td title="${esc(ob.due_text||"")}">${feat.edit
           ? `<input class="ed" data-id="${esc(ob.id)}" data-f="due" value="${esc(ob.due||"")}" placeholder="ГГГГ-ММ-ДД">`
-          : "<b>"+ru(ob.due)+"</b>"}<div class="quote" style="font-size:11px">${esc(ob.due_text||"")}</div></td>`+
+          : "<b>"+ru(ob.due)+"</b>"}${unc("due")}<div class="quote" style="font-size:11px">${esc(ob.due_text||"")}</div></td>`+
       `<td><span class="chip">${esc(ob.kind||"task")}</span></td>`+
       `<td>${feat.edit
           ? `<select class="ed" data-id="${esc(ob.id)}" data-f="status">`+
