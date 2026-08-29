@@ -7,6 +7,24 @@ function Add-Error([string]$Message) {
     [void]$script:errors.Add($Message)
 }
 
+function Get-DeclaredRecordCount([string]$Text) {
+    $number = '(?:\d+|zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|thirteen|fourteen|fifteen|sixteen)'
+    $patterns = @(
+        "(?im)^(?:[-#]+\s*|\d+\.\s*)?(?:The\s+)?final\s+(?:registry|register|records|result)(?:\s+size)?[^\r\n]*?(?<count>$number)",
+        "(?im)^\s*\d+\.\s*Produce\s+exactly\s+(?<count>$number)\s+final\s+records\b",
+        '(?im)^(?:[-#]+\s*|\d+\.\s*)?(?:\u041a\u043e\u043d\u0435\u0447\u043d\u044b\u0439|\u0418\u0442\u043e\u0433\u043e\u0432\u044b\u0439|\u0422\u0440\u0435\u0431\u0443\u0435\u043c\u043e\u0435(?:\s+\u043a\u043e\u043d\u0435\u0447\u043d\u043e\u0435)?)\s+(?:\u0440\u0435\u0435\u0441\u0442\u0440|\u0441\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435)[^\r\n]*?(?<count>\d+)\s+\u0437\u0430\u043f\u0438\u0441'
+    )
+    $wordValues = @{ zero = 0; one = 1; two = 2; three = 3; four = 4; five = 5; six = 6; seven = 7; eight = 8; nine = 9; ten = 10; eleven = 11; twelve = 12; thirteen = 13; fourteen = 14; fifteen = 15; sixteen = 16 }
+    $counts = @()
+    foreach ($pattern in $patterns) {
+        foreach ($match in [regex]::Matches($Text, $pattern)) {
+            $value = $match.Groups['count'].Value.ToLowerInvariant()
+            $counts += if ($value -match '^\d+$') { [int]$value } else { $wordValues[$value] }
+        }
+    }
+    return @($counts | Select-Object -Unique)
+}
+
 $scenarios = [ordered]@{
     'T001-distributed-release'         = @{ Id = 'T001'; Tier = 'scale';    Namespace = 'AURORA-R7/';      MinFiles = 8;  MinBytes = 40960; MinLines = 400 }
     'T002-supplier-customs'            = @{ Id = 'T002'; Tier = 'standard'; Namespace = 'KITE-CLEAR/';     MinFiles = 5;  MinBytes = 12288; MinLines = 100 }
@@ -41,6 +59,7 @@ foreach ($group in @($scenarioDirs | ForEach-Object { $_.Name.Substring(0, 4) } 
 }
 
 $metrics = @{}
+$expectedRecordCounts = @{}
 $allNamespaces = @($scenarios.Values | ForEach-Object Namespace)
 $bannedPhrases = @(
     'informational only', 'for information only', 'do not infer', 'no task',
@@ -115,6 +134,14 @@ foreach ($folder in $expectedFolders) {
 
     if (Test-Path -LiteralPath $expectedPath -PathType Leaf) {
         $expectedText = [IO.File]::ReadAllText($expectedPath)
+        $declaredCounts = @(Get-DeclaredRecordCount $expectedText)
+        if ($declaredCounts.Count -eq 0) {
+            Add-Error "$folder expected.md has no recognized final record count"
+        } elseif ($declaredCounts.Count -gt 1) {
+            Add-Error "$folder expected.md has conflicting final record counts: $($declaredCounts -join ', ')"
+        } else {
+            $expectedRecordCounts[$folder] = $declaredCounts[0]
+        }
         foreach ($match in [regex]::Matches($expectedText, '(?i)(?<![A-Za-z0-9])input/[A-Za-z0-9][A-Za-z0-9._/-]*')) {
             $relative = $match.Value.TrimEnd('.', ',', ';', ':')
             $sourcePath = Join-Path $scenarioPath ($relative -replace '/', [IO.Path]::DirectorySeparatorChar)
@@ -147,6 +174,9 @@ if (-not (Test-Path -LiteralPath $indexPath -PathType Leaf)) {
         if ([int]$row.input_files -ne $metric.Files) { Add-Error "index.csv input_files mismatch for $($row.folder)" }
         if ([int64]$row.input_bytes -ne $metric.Bytes) { Add-Error "index.csv input_bytes mismatch for $($row.folder)" }
         if ([int]$row.nonblank_lines -ne $metric.Lines) { Add-Error "index.csv nonblank_lines mismatch for $($row.folder)" }
+        if ($expectedRecordCounts.ContainsKey($row.folder) -and [int]$row.expected_records -ne $expectedRecordCounts[$row.folder]) {
+            Add-Error "index.csv expected_records mismatch for $($row.folder): index has $($row.expected_records), expected.md declares $($expectedRecordCounts[$row.folder])"
+        }
     }
 }
 
