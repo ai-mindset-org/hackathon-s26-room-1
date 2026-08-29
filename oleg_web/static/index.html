@@ -99,6 +99,7 @@ kbd{background:var(--chip);border:1px solid var(--line);border-radius:4px;paddin
         <button data-v="1" aria-pressed="true">новый реестр</button>
         <button data-v="0" aria-pressed="false">поверх текущего</button>
       </span>
+      <input type="text" id="engcmd" placeholder="своя команда движка: … {input} {registry}" title="Плейсхолдеры {input} {registry} {out} {now}. Пусто — встроенный oleg_engine." style="min-width:330px">
       <button class="primary" id="run">Прогнать ▶</button>
       <button id="reload">Обновить</button>
       <button id="runex" class="off" title="FEATURES.run_examples">Прогнать примеры</button>
@@ -314,7 +315,8 @@ $("#run").addEventListener("click", async () => {
   const input = $("#path").value.trim() || $("#ex").value;
   if(!input){ setErr("не выбрана папка со входящими"); return; }
   setErr(""); $("#log").textContent=""; $("#run").disabled = true;
-  const body = {input, mode: segVal("mode"), fresh: segVal("fresh")==="1", registry: REG_PATH};
+  const body = {input, mode: segVal("mode"), fresh: segVal("fresh")==="1", registry: REG_PATH,
+                engine_cmd: $("#engcmd").value.trim()};
   const r = await jpost("/api/run", body);
   if(!r.ok){ setErr(r.error); $("#run").disabled=false; setStatus(""); return; }
   $("#log").style.display="block"; $("#log").textContent = "$ "+r.cmd+"\n";

@@ -27,9 +27,9 @@ from fastapi.responses import HTMLResponse, JSONResponse
 # Префикс "-" выключает: ?features=-edit
 # --------------------------------------------------------------------------
 FEATURES: Dict[str, bool] = {
-    "timeline": False,      # (2) раскрытие строки: история, supersession, диф прогона
-    "edit": False,          # (3) inline-редактирование владельца/срока/статуса + Save
-    "run_examples": False,  # кнопка «Прогнать примеры» (pipeline)
+    "timeline": True,       # (2) раскрытие строки: история, supersession, диф прогона
+    "edit": True,           # (3) inline-редактирование владельца/срока/статуса + Save
+    "run_examples": True,   # кнопка «Прогнать примеры» (pipeline)
 }
 
 HERE = Path(__file__).resolve().parent
@@ -334,12 +334,13 @@ async def api_run(request: Request) -> JSONResponse:
     if not inp_path.is_dir():
         return JSONResponse({"ok": False, "error": f"Папка не найдена: {inp_path}"}, status_code=400)
 
+    tpl = (body.get("engine_cmd") or "").strip()
     ed = engine_dir()
-    if ed is None:
+    if not tpl and ed is None:
         tried = ", ".join(str(p) for p in _candidate_dirs("OLEG_ENGINE_DIR", "oleg_engine"))
         return JSONResponse({"ok": False, "error":
             f"Движок не найден: нет модуля oleg_engine. Искали в: {tried}. "
-            f"Задайте OLEG_ENGINE_DIR или дождитесь сборки движка."}, status_code=503)
+            f"Задайте OLEG_ENGINE_DIR или впишите свою команду движка."}, status_code=503)
 
     reg = Path(body.get("registry") or DEFAULT_REGISTRY)
     if not reg.is_absolute():
@@ -351,20 +352,39 @@ async def api_run(request: Request) -> JSONResponse:
             if f.is_file():
                 f.unlink()
 
-    cmd = [sys.executable, "-u", "-m", "oleg_engine", "run",
-           "--input", str(inp_path), "--registry", str(reg)]
-    mode = body.get("mode")
-    if mode and mode != "auto":
-        cmd += ["--mode", mode]
-    for flag, key in (("--backend", "backend"), ("--model", "model"), ("--now", "now")):
-        val = (body.get(key) or "").strip()
-        if val:
-            cmd += [flag, val]
+    now = (body.get("now") or "").strip()
+    if tpl:
+        # Свободный шаблон команды: {input} {registry} {out} {now}
+        import shlex
+        subs = {"input": str(inp_path), "registry": str(reg),
+                "out": str(reg.with_suffix(".md")), "now": now or "2026-08-29"}
+        try:
+            cmd = [p.format(**subs) for p in shlex.split(tpl, posix=False)]
+        except (KeyError, ValueError) as exc:
+            return JSONResponse({"ok": False, "error":
+                f"Не разобрать команду движка: {exc}. Плейсхолдеры: "
+                "{input} {registry} {out} {now}."}, status_code=400)
+        cmd = [p.strip('"') for p in cmd]
+        cwd = Path(body.get("cwd") or "").expanduser() if body.get("cwd") else REPO_ROOT
+        if not cwd.is_dir():
+            cwd = REPO_ROOT
+        env = child_env([ed] if ed else [])
+    else:
+        cmd = [sys.executable, "-u", "-m", "oleg_engine", "run",
+               "--input", str(inp_path), "--registry", str(reg)]
+        mode = body.get("mode")
+        if mode and mode != "auto":
+            cmd += ["--mode", mode]
+        for flag, key in (("--backend", "backend"), ("--model", "model"), ("--now", "now")):
+            val = (body.get(key) or "").strip()
+            if val:
+                cmd += [flag, val]
+        cwd, env = ed, child_env([ed])
 
     run = Run("engine")
     run.registry_path = str(reg)
     RUNS[run.id] = run
-    _spawn(run, cmd, ed, child_env([ed]))
+    _spawn(run, cmd, cwd, env)
     return JSONResponse({"ok": True, "run": run.id, "cmd": " ".join(cmd), "registry_path": str(reg)})
 
 
