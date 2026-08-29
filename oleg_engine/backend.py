@@ -22,7 +22,7 @@ def _executable(name: str) -> str:
     return name
 
 
-def _decode_json(text: str) -> dict[str, Any]:
+def _decode_json(text: str) -> Any:
     text = text.strip()
     fence_start = text.find("```json")
     if fence_start < 0:
@@ -51,9 +51,21 @@ def _decode_json(text: str) -> dict[str, Any]:
             raise
     if isinstance(value, dict) and isinstance(value.get("result"), str):
         return _decode_json(value["result"])
-    if not isinstance(value, dict):
-        raise ValueError("backend response is not a JSON object")
     return value
+
+
+def _coerce_response(value: Any, schema: dict[str, Any]) -> dict[str, Any]:
+    if isinstance(value, dict):
+        return value
+    if isinstance(value, list):
+        array_properties = [
+            name
+            for name, definition in schema.get("properties", {}).items()
+            if definition.get("type") == "array"
+        ]
+        if len(array_properties) == 1:
+            return {array_properties[0]: value}
+    raise ValueError("backend response does not match the requested top-level object")
 
 
 def _run_codex(prompt: str, schema: dict[str, Any], model: str) -> dict[str, Any]:
@@ -87,13 +99,13 @@ def _run_codex(prompt: str, schema: dict[str, Any], model: str) -> dict[str, Any
                     failures.append(f"attempt {attempt + 1}: exit {completed.returncode}")
                     continue
                 raw = output_path.read_text(encoding="utf-8") if output_path.exists() else completed.stdout
-                return _decode_json(raw)
+                return _coerce_response(_decode_json(raw), schema)
             except (OSError, subprocess.TimeoutExpired, ValueError, json.JSONDecodeError) as exc:
                 failures.append(f"attempt {attempt + 1}: {type(exc).__name__}: {exc}")
     raise BackendError("codex failed twice: " + "; ".join(failures))
 
 
-def _run_claude(prompt: str, model: str) -> dict[str, Any]:
+def _run_claude(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, Any]:
     env = os.environ.copy()
     env.pop("ANTHROPIC_API_KEY", None)
     env.pop("ANTHROPIC_AUTH_TOKEN", None)
@@ -116,7 +128,7 @@ def _run_claude(prompt: str, model: str) -> dict[str, Any]:
     if completed.returncode != 0:
         raise BackendError(f"claude failed: exit {completed.returncode}: {completed.stderr[-500:]}")
     try:
-        return _decode_json(completed.stdout)
+        return _coerce_response(_decode_json(completed.stdout), schema)
     except (ValueError, json.JSONDecodeError) as exc:
         detail = (completed.stderr or completed.stdout)[-500:]
         raise BackendError(f"claude returned invalid JSON: {exc}: {detail}") from exc
@@ -130,13 +142,13 @@ def call_model(
 ) -> tuple[dict[str, Any], str, str]:
     if backend == "claude":
         selected = model or "opus"
-        return _run_claude(prompt, selected), "claude", selected
+        return _run_claude(prompt, selected, schema), "claude", selected
 
     selected = model or "gpt-5.6-sol"
     try:
         return _run_codex(prompt, schema, selected), "codex", selected
     except BackendError as codex_error:
         try:
-            return _run_claude(prompt, "opus"), "claude", "opus"
+            return _run_claude(prompt, "opus", schema), "claude", "opus"
         except BackendError as claude_error:
             raise BackendError(f"{codex_error}; fallback {claude_error}") from claude_error

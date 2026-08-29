@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from .backend import _decode_json
+from .backend import _coerce_response, _decode_json
 from .engine import SourceFile, _chunks, _document_now, _normalize_items
 
 
@@ -12,6 +12,10 @@ class EngineBoundaryTests(unittest.TestCase):
     def test_claude_json_envelope_with_fenced_result_is_decoded(self) -> None:
         outer = '{"result":"Here is the result:\\n```json\\n{\\"candidates\\":[]}\\n```"}'
         self.assertEqual(_decode_json(outer), {"candidates": []})
+
+    def test_single_schema_array_can_be_normalized(self) -> None:
+        schema = {"properties": {"obligations": {"type": "array"}}}
+        self.assertEqual(_coerce_response([], schema), {"obligations": []})
 
     def test_chat_timestamp_controls_reference_date_not_future_deadline(self) -> None:
         source = SourceFile("chat.txt", Path("chat.txt"), "[27.08 14:02] deadline 25.09\n", "abc", 35, "chat")
