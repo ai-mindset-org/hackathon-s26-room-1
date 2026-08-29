@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Реестр обязательств</title>
+<style>
+:root{
+  --bg:#f6f7f9; --panel:#fff; --ink:#14171c; --dim:#6b7280; --line:#e3e6ea;
+  --accent:#1f5fd6; --ok:#137a4a; --bad:#b32020; --warn:#8a5a00; --chip:#eef1f6;
+}
+@media (prefers-color-scheme: dark){
+  :root{--bg:#12141a; --panel:#1a1d25; --ink:#e8eaee; --dim:#9aa3b2; --line:#2b303b;
+        --accent:#6ea3ff; --ok:#4cc38a; --bad:#ff6b6b; --warn:#e0a33a; --chip:#232833;}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:13px/1.45 -apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+header{display:flex;align-items:baseline;gap:12px;padding:10px 16px;
+  border-bottom:1px solid var(--line);background:var(--panel);position:sticky;top:0;z-index:5;flex-wrap:wrap}
+h1{font-size:15px;margin:0;font-weight:650;letter-spacing:.2px}
+.muted{color:var(--dim)}
+.wrap{padding:12px 16px 60px;max-width:1400px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:12px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+label{font-size:12px;color:var(--dim)}
+select,input[type=text],button{font:inherit;color:var(--ink);background:var(--panel);
+  border:1px solid var(--line);border-radius:6px;padding:5px 8px}
+input[type=text]{min-width:260px}
+select{max-width:420px}
+button{cursor:pointer;background:var(--chip)}
+button:hover{border-color:var(--accent)}
+button.primary{background:var(--accent);color:#fff;border-color:var(--accent);font-weight:600}
+button.primary:disabled{opacity:.5;cursor:default}
+button.small{padding:3px 7px;font-size:12px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.seg button{border:0;border-radius:0;background:transparent;padding:5px 10px}
+.seg button[aria-pressed=true]{background:var(--accent);color:#fff}
+#log{font:11.5px/1.4 ui-monospace,Consolas,monospace;white-space:pre-wrap;max-height:170px;
+  overflow:auto;background:var(--chip);border-radius:6px;padding:8px;margin-top:8px;display:none}
+.err{color:var(--bad);font-weight:600;padding:6px 0}
+.ok{color:var(--ok);font-weight:600}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:8px}
+th,td{text-align:left;padding:6px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--dim);
+  cursor:pointer;user-select:none;white-space:nowrap;position:sticky;top:41px;background:var(--panel);z-index:2}
+th:hover{color:var(--accent)}
+tr.closed td{opacity:.45}
+tr.ob:hover{background:var(--chip)}
+td.what{font-weight:550;max-width:380px}
+td.q{max-width:400px}
+.quote{color:var(--dim);font-style:italic}
+.src{font-size:11.5px;color:var(--accent);cursor:pointer;text-decoration:underline dotted}
+.chip{display:inline-block;padding:1px 6px;border-radius:99px;background:var(--chip);
+  font-size:11px;border:1px solid var(--line)}
+.chip.done{color:var(--ok)} .chip.cancelled{color:var(--bad)} .chip.superseded{color:var(--warn)}
+.chip.man{color:var(--warn);border-color:var(--warn)}
+.caret{cursor:pointer;color:var(--dim);user-select:none;width:14px;display:inline-block}
+tr.tl td{background:var(--chip);font-size:12px}
+.tl-item{padding:2px 0;border-left:2px solid var(--line);padding-left:8px;margin-left:2px}
+.tl-item b{font-weight:650}
+.diffbar{display:flex;gap:14px;font-size:12px;margin:6px 0}
+.ed{width:100%;border:1px dashed transparent;background:transparent;border-radius:4px;padding:2px 4px;
+  font:inherit;color:inherit}
+.ed:hover{border-color:var(--line)} .ed:focus{border-color:var(--accent);outline:none;background:var(--panel)}
+.ed.dirty{border-color:var(--warn);background:rgba(224,163,58,.12)}
+.bar{display:flex;gap:10px;align-items:center;margin:8px 0}
+.count{font-size:12px;color:var(--dim)}
+dialog{border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);
+  max-width:820px;width:90%;padding:0}
+dialog pre{margin:0;padding:12px;max-height:60vh;overflow:auto;white-space:pre-wrap;font:11.5px/1.5 ui-monospace,Consolas,monospace}
+dialog header{position:static}
+kbd{background:var(--chip);border:1px solid var(--line);border-radius:4px;padding:0 4px;font-size:11px}
+.off{opacity:.5}
+</style>
+</head>
+<body>
+<header>
+  <h1>Реестр обязательств</h1>
+  <span class="muted" id="hdr-path"></span>
+  <span style="flex:1"></span>
+  <span class="muted" id="hdr-feat"></span>
+</header>
+
+<div class="wrap">
+
+  <div class="panel">
+    <div class="row">
+      <label for="ex">Входящие</label>
+      <select id="ex"></select>
+      <input type="text" id="path" placeholder="…или свой путь к папке">
+      <span class="muted">режим</span>
+      <span class="seg" id="mode">
+        <button data-v="auto" aria-pressed="true">авто</button>
+        <button data-v="parallel" aria-pressed="false">параллельно</button>
+        <button data-v="sequential" aria-pressed="false">последовательно</button>
+      </span>
+      <span class="seg" id="fresh">
+        <button data-v="1" aria-pressed="true">новый реестр</button>
+        <button data-v="0" aria-pressed="false">поверх текущего</button>
+      </span>
+      <button class="primary" id="run">Прогнать ▶</button>
+      <button id="reload">Обновить</button>
+      <button id="runex" class="off" title="FEATURES.run_examples">Прогнать примеры</button>
+    </div>
+    <div class="row" style="margin-top:6px">
+      <span class="muted" id="drop" style="border:1px dashed var(--line);border-radius:6px;padding:4px 10px">
+        перетащите файлы сюда, чтобы загрузить их во временную папку
+      </span>
+      <span class="muted" id="status"></span>
+    </div>
+    <div id="err" class="err" style="display:none"></div>
+    <div id="log"></div>
+  </div>
+
+  <div class="bar">
+    <span class="count" id="count"></span>
+    <span style="flex:1"></span>
+    <span class="count" id="diff"></span>
+    <button class="primary" id="save" style="display:none">Сохранить правки</button>
+  </div>
+
+  <table id="tbl">
+    <thead><tr>
+      <th style="width:18px"></th>
+      <th data-k="what">Что сделать</th>
+      <th data-k="owner" style="width:120px">Владелец</th>
+      <th data-k="due" style="width:110px">Срок</th>
+      <th data-k="kind" style="width:80px">Тип</th>
+      <th data-k="status" style="width:110px">Статус</th>
+      <th data-k="src">Источник · цитата</th>
+    </tr></thead>
+    <tbody id="tb"></tbody>
+  </table>
+  <p class="muted" id="empty" style="display:none">Реестр пуст.</p>
+</div>
+
+<dialog id="dlg"><header style="padding:8px 12px;border-bottom:1px solid var(--line)">
+  <b id="dlg-t"></b> <button class="small" style="float:right" onclick="dlg.close()">закрыть</button>
+</header><pre id="dlg-b"></pre></dialog>
+
+<script>
+const $ = s => document.querySelector(s);
+let CFG = {features:{}}, REG = null, REG_PATH = "", SORT = {k:"due", dir:1}, OPEN = new Set(), EDITS = {};
+let LAST_RUN = null;
+
+function esc(s){ return (s==null?"":String(s)).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+function ru(d){ if(!d) return "—"; const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(d); return m? `${m[3]}.${m[2]}` : d; }
+function setErr(msg){ const e=$("#err"); if(!msg){e.style.display="none";e.textContent="";return;} e.style.display="block"; e.textContent="Ошибка: "+msg; }
+function setStatus(t){ $("#status").textContent = t||""; }
+
+async function jget(u){ const r = await fetch(u); return r.json(); }
+async function jpost(u,b){ const r = await fetch(u,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(b)}); return r.json(); }
+
+// ---------- загрузка конфигурации ----------
+async function boot(){
+  CFG = await jget("/api/config" + location.search);
+  const sel = $("#ex"); sel.innerHTML = "";
+  for(const e of CFG.examples){ const o=document.createElement("option"); o.value=e.path; o.textContent=e.name; sel.appendChild(o); }
+  if(!CFG.examples.length){ const o=document.createElement("option"); o.textContent="(примеры не найдены)"; sel.appendChild(o); }
+  const f = CFG.features;
+  $("#hdr-feat").textContent = "FEATURES: " + Object.entries(f).map(([k,v])=>`${k}=${v?"вкл":"выкл"}`).join(" · ")
+    + (CFG.engine_available ? "" : " · движок не найден");
+  $("#runex").style.display = f.run_examples ? "" : "none";
+  $("#runex").classList.remove("off");
+  REG_PATH = CFG.registry_default;
+  await loadRegistry();
+}
+
+async function loadRegistry(path){
+  const p = path || REG_PATH;
+  const r = await jget("/api/registry?path=" + encodeURIComponent(p||""));
+  if(!r.ok){ setErr(r.error); REG=null; render(); return; }
+  setErr(""); REG = r.registry; REG_PATH = r.path; EDITS = {};
+  $("#hdr-path").textContent = r.path;
+  render();
+}
+
+// ---------- отрисовка ----------
+function cmp(a,b){
+  const k = SORT.k;
+  if(k==="src"){ a=(a.sources&&a.sources[0]||{}).path||""; b=(b.sources&&b.sources[0]||{}).path||""; }
+  else { a=a[k]; b=b[k]; }
+  if(a==null) return 1; if(b==null) return -1;
+  return String(a).localeCompare(String(b),"ru",{numeric:true}) * SORT.dir;
+}
+const CLOSED = s => s==="done"||s==="cancelled"||s==="superseded";
+
+function render(){
+  const tb = $("#tb"); tb.innerHTML="";
+  const obs = (REG && REG.obligations) ? REG.obligations.slice() : [];
+  // закрытые всегда внизу, внутри групп — выбранная сортировка
+  obs.sort((x,y)=>{ const cx=CLOSED(x.status)?1:0, cy=CLOSED(y.status)?1:0; return cx-cy || cmp(x,y); });
+  const open = obs.filter(o=>!CLOSED(o.status)).length;
+  $("#count").textContent = obs.length ? `${obs.length} записей · ${open} открытых · ${obs.length-open} закрытых` : "";
+  $("#empty").style.display = obs.length ? "none" : "";
+  const feat = CFG.features||{};
+  for(const ob of obs){
+    const tr = document.createElement("tr");
+    tr.className = "ob" + (CLOSED(ob.status)?" closed":"");
+    const s0 = (ob.sources&&ob.sources[0])||{};
+    const caret = feat.timeline ? `<span class="caret" data-id="${esc(ob.id)}">${OPEN.has(ob.id)?"▾":"▸"}</span>` : "";
+    const ed = (field,val,ph) => feat.edit
+      ? `<input class="ed" data-id="${esc(ob.id)}" data-f="${field}" value="${esc(val==null?"":val)}" placeholder="${ph||"—"}">`
+      : esc(val==null?"—":val);
+    tr.innerHTML =
+      `<td>${caret}</td>`+
+      `<td class="what">${esc(ob.what)}${ob.manual?' <span class="chip man">правка</span>':""}</td>`+
+      `<td>${ed("owner", ob.owner, "не назначен")}</td>`+
+      `<td title="${esc(ob.due_text||"")}">${feat.edit
+          ? `<input class="ed" data-id="${esc(ob.id)}" data-f="due" value="${esc(ob.due||"")}" placeholder="ГГГГ-ММ-ДД">`
+          : "<b>"+ru(ob.due)+"</b>"}<div class="quote" style="font-size:11px">${esc(ob.due_text||"")}</div></td>`+
+      `<td><span class="chip">${esc(ob.kind||"task")}</span></td>`+
+      `<td>${feat.edit
+          ? `<select class="ed" data-id="${esc(ob.id)}" data-f="status">`+
+            ["open","done","cancelled","superseded"].map(s=>`<option ${s===ob.status?"selected":""}>${s}</option>`).join("")+"</select>"
+          : `<span class="chip ${esc(ob.status)}">${esc(ob.status)}</span>`}</td>`+
+      `<td class="q"><span class="src" data-p="${esc(s0.path||"")}" data-q="${esc(s0.quote||"")}">${esc((s0.path||"—").split(/[\\/]/).pop())}</span>`+
+      `<div class="quote">«${esc(s0.quote||"")}»</div>`+
+      (ob.sources && ob.sources.length>1 ? `<div class="muted" style="font-size:11px">+ ещё ${ob.sources.length-1} источник(а)</div>`:"")+
+      `</td>`;
+    tb.appendChild(tr);
+    if(feat.timeline && OPEN.has(ob.id)) tb.appendChild(timelineRow(ob));
+  }
+  $("#save").style.display = (feat.edit && Object.keys(EDITS).length) ? "" : "none";
+}
+
+function timelineRow(ob){
+  const tr = document.createElement("tr"); tr.className="tl";
+  const runs = {}; (REG.runs||[]).forEach(r=>runs[r.run_id]=r);
+  const hist = (ob.history||[]).map(h=>{
+    const r = runs[h.run_id]||{};
+    const fromTo = (h.from!=null||h.to!=null) ? ` <span class="muted">${esc(h.from==null?"—":h.from)} → ${esc(h.to==null?"—":h.to)}</span>` : "";
+    const src = h.source_path ? ` <span class="muted">· ${esc(String(h.source_path).split(/[\\/]/).pop())}</span>` : "";
+    return `<div class="tl-item"><b>${esc(h.change)}</b>${fromTo}${src} <span class="muted">${esc(h.ts||"")} · прогон ${esc(h.run_id||"")}${r.backend?" ("+esc(r.backend)+")":""}</span></div>`;
+  }).join("") || '<div class="muted">истории нет</div>';
+  const srcs = (ob.sources||[]).map((s,i)=>
+    `<div class="tl-item">${i===0?"первичный":"подтверждает/замещает"}: <span class="src" data-p="${esc(s.path)}" data-q="${esc(s.quote||"")}">${esc(String(s.path).split(/[\\/]/).pop())}</span>`+
+    ` <span class="quote">«${esc(s.quote||"")}»</span> <span class="muted">стр. ${esc(s.line_start)}–${esc(s.line_end)}</span></div>`).join("");
+  const sup = ob.derived_from ? `<div class="tl-item"><b>заменяет</b> ${esc(ob.derived_from)}</div>` : "";
+  const replaced = (REG.obligations||[]).filter(o=>o.derived_from===ob.id)
+    .map(o=>`<div class="tl-item"><b>заменено</b> записью ${esc(o.id)} — ${esc(o.what)}</div>`).join("");
+  let diff = "";
+  if(LAST_RUN && LAST_RUN.summary){
+    const s = LAST_RUN.summary;
+    diff = `<div class="diffbar"><span class="ok">создано ${s.created??0}</span><span class="warn">обновлено ${s.updated??0}</span>`+
+           `<span class="muted">закрыто ${s.closed??0} · открытых ${s.total_open??0} · прогон ${esc(s.run_id||"")}</span></div>`;
+  }
+  tr.innerHTML = `<td></td><td colspan="6"><b>${esc(ob.id)}</b> · таймлайн${diff}${hist}${sup}${replaced}
+    <div class="muted" style="margin-top:6px">источники</div>${srcs}</td>`;
+  return tr;
+}
+
+// ---------- события ----------
+document.addEventListener("click", async ev => {
+  const th = ev.target.closest("th[data-k]");
+  if(th){ const k=th.dataset.k; SORT = {k, dir: SORT.k===k ? -SORT.dir : 1}; render(); return; }
+  const c = ev.target.closest(".caret");
+  if(c){ const id=c.dataset.id; OPEN.has(id)?OPEN.delete(id):OPEN.add(id); render(); return; }
+  const s = ev.target.closest(".src");
+  if(s && s.dataset.p){
+    const r = await jget("/api/file?path="+encodeURIComponent(s.dataset.p)+"&quote="+encodeURIComponent(s.dataset.q||""));
+    $("#dlg-t").textContent = (r.ok? s.dataset.p : "не открылось") + (r.quote_found===true? "  ✓ цитата найдена дословно" : r.quote_found===false? "  ✗ цитата не найдена" : "");
+    $("#dlg-b").textContent = r.ok ? r.text : r.error;
+    $("#dlg").showModal();
+  }
+});
+document.querySelectorAll(".seg").forEach(seg => seg.addEventListener("click", ev=>{
+  const b = ev.target.closest("button"); if(!b) return;
+  seg.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed", String(x===b)));
+}));
+const segVal = id => $("#"+id).querySelector("[aria-pressed=true]").dataset.v;
+
+$("#tb").addEventListener("input", ev => {
+  const el = ev.target.closest(".ed"); if(!el) return;
+  const id = el.dataset.id, f = el.dataset.f;
+  EDITS[id] = EDITS[id] || {id};
+  EDITS[id][f] = el.value;
+  el.classList.add("dirty");
+  $("#save").style.display = "";
+});
+
+$("#save").addEventListener("click", async () => {
+  const edits = Object.values(EDITS);
+  if(!edits.length) return;
+  setStatus("сохраняю…");
+  const r = await jpost("/api/save"+location.search, {path: REG_PATH, edits});
+  if(!r.ok){ setErr(r.error||"не сохранилось"); setStatus(""); return; }
+  setErr(""); REG = r.registry; EDITS = {};
+  setStatus(`сохранено: ${r.changed} запис(ей) · файл перечитан с диска`);
+  render();
+});
+
+$("#reload").addEventListener("click", ()=>loadRegistry());
+
+// ---------- прогон ----------
+async function poll(runId, onDone){
+  let since = 0;
+  const log = $("#log"); log.style.display="block";
+  const tick = async () => {
+    const r = await jget(`/api/run/${runId}?since=${since}`);
+    if(!r.ok){ setErr(r.error); return; }
+    since = r.next;
+    if(r.lines.length){ log.textContent += r.lines.join("\n")+"\n"; log.scrollTop = log.scrollHeight; }
+    setStatus(`выполняется… ${r.elapsed}с`);
+    if(r.done){ onDone(r); return; }
+    setTimeout(tick, 500);
+  };
+  tick();
+}
+
+$("#run").addEventListener("click", async () => {
+  const input = $("#path").value.trim() || $("#ex").value;
+  if(!input){ setErr("не выбрана папка со входящими"); return; }
+  setErr(""); $("#log").textContent=""; $("#run").disabled = true;
+  const body = {input, mode: segVal("mode"), fresh: segVal("fresh")==="1", registry: REG_PATH};
+  const r = await jpost("/api/run", body);
+  if(!r.ok){ setErr(r.error); $("#run").disabled=false; setStatus(""); return; }
+  $("#log").style.display="block"; $("#log").textContent = "$ "+r.cmd+"\n";
+  poll(r.run, async res => {
+    $("#run").disabled = false; LAST_RUN = res;
+    if(res.error){ setErr(res.error); }
+    const s = res.summary;
+    setStatus(s ? `создано ${s.created??"?"} · обновлено ${s.updated??"?"} · закрыто ${s.closed??"?"} · открытых ${s.total_open??"?"}`
+                : (res.exit===0 ? "прогон завершён" : "прогон завершился с ошибкой"));
+    $("#diff").textContent = s ? `последний прогон: +${s.created??0} / ~${s.updated??0} / −${s.closed??0}` : "";
+    await loadRegistry(res.registry_path || REG_PATH);
+  });
+});
+
+$("#runex").addEventListener("click", async () => {
+  const dir = $("#path").value.trim() || (CFG.examples_roots||[])[0];
+  setErr(""); $("#log").textContent=""; $("#runex").disabled = true;
+  const r = await jpost("/api/run_examples"+location.search, {examples: dir, judge: "none"});
+  if(!r.ok){ setErr(r.error); $("#runex").disabled=false; return; }
+  $("#log").style.display="block"; $("#log").textContent = "$ "+r.cmd+"\n";
+  poll(r.run, res => {
+    $("#runex").disabled = false;
+    const m = res.lines.join("\n").match(/прошло\s+\d+\s+из\s+\d+/);
+    setStatus(m ? m[0] : (res.error ? "" : "пайплайн завершён"));
+    if(res.error) setErr(res.error);
+  });
+});
+
+// ---------- drag & drop ----------
+const drop = $("#drop");
+["dragover","dragenter"].forEach(e=>drop.addEventListener(e, ev=>{ev.preventDefault(); drop.style.borderColor="var(--accent)";}));
+["dragleave","drop"].forEach(e=>drop.addEventListener(e, ()=>drop.style.borderColor="var(--line)"));
+drop.addEventListener("drop", async ev => {
+  ev.preventDefault();
+  const fd = new FormData();
+  for(const f of ev.dataTransfer.files) fd.append("files", f, f.name);
+  const r = await (await fetch("/api/upload", {method:"POST", body:fd})).json();
+  if(r.ok){ $("#path").value = r.path; setStatus(`загружено ${r.files.length} файл(ов) → ${r.path}`); }
+  else setErr(r.error||"загрузка не удалась");
+});
+
+document.addEventListener("keydown", ev => {
+  if(ev.key==="Enter" && (ev.metaKey||ev.ctrlKey)) $("#run").click();
+  if(ev.key==="s" && (ev.metaKey||ev.ctrlKey)){ ev.preventDefault(); $("#save").click(); }
+});
+
+boot().catch(e => setErr(String(e)));
+</script>
+</body>
+</html>
