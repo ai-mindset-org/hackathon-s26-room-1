@@ -50,7 +50,7 @@ def render(graph: Graph) -> str:
     if closed:
         lines += ["", "## Закрытые и снятые", ""]
         for c in closed:
-            mark = "снято" if c.status == CANCELLED else "сделано"
+            mark = "снято/отменено" if c.status == CANCELLED else "сделано"
             lines.append(f"- [x] {c.what} · {mark}")
 
     return "\n".join(lines) + "\n"

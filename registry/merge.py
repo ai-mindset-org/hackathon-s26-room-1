@@ -30,10 +30,17 @@ def _absorb(old: Commitment, fresh: Commitment, *, override_due: bool = False) -
         old.said_on = fresh.said_on
 
     newer = (fresh.said_on or "") >= (old.said_on or "")
-    if fresh.due and (override_due or (newer and not old.due)):
+    take_due = override_due or (newer and not old.due)
+    if fresh.due and take_due:
         old.due = fresh.due
     if fresh.due_raw and (override_due or not old.due_raw):
         old.due_raw = fresh.due_raw
+    # `due` — плоская проекция `deadline`, а рендер читает именно структуру.
+    # Обновить проекцию и забыть структуру значит перенести срок в данных и
+    # не перенести его на экране: «Витрина» лежала бы в реестре с 02.09, а
+    # человеку показывалась с 31.08.
+    if fresh.deadline and take_due:
+        old.deadline = fresh.deadline
 
     if override_due:  # срок уточнён — старые сомнения о нём сняты
         old.uncertainty = [u for u in old.uncertainty if "срок" not in u]
