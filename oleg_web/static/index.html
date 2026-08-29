@@ -167,7 +167,7 @@ async function boot(){
   if(!b.codex && !b.claude) setErr("ни codex, ни claude не видны из этого процесса — прогон движка упадёт");
   $("#runex").style.display = f.run_examples ? "" : "none";
   $("#runex").classList.remove("off");
-  REG_PATH = CFG.registry_default;
+  REG_PATH = new URLSearchParams(location.search).get("registry") || CFG.registry_default;
   await loadRegistry();
 }
 
@@ -325,12 +325,15 @@ $("#run").addEventListener("click", async () => {
   $("#log").style.display="block"; $("#log").textContent = "$ "+r.cmd+"\n";
   poll(r.run, async res => {
     $("#run").disabled = false; LAST_RUN = res;
-    if(res.error){ setErr(res.error); }
     const s = res.summary;
     setStatus(s ? `создано ${s.created??"?"} · обновлено ${s.updated??"?"} · закрыто ${s.closed??"?"} · открытых ${s.total_open??"?"}`
                 : (res.exit===0 ? "прогон завершён" : "прогон завершился с ошибкой"));
     $("#diff").textContent = s ? `последний прогон: +${s.created??0} / ~${s.updated??0} / −${s.closed??0}` : "";
+    const prevCount = (REG && REG.obligations || []).length;
     await loadRegistry(res.registry_path || REG_PATH);
+    if(res.error) setErr(res.error);
+    else if(!body.fresh && prevCount > 0 && (REG && REG.obligations || []).length === 0)
+      setErr("движок вернул пустой реестр — предыдущие записи заменены");
   });
 });
 
