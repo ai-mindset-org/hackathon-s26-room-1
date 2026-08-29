@@ -13,13 +13,25 @@ class BackendError(RuntimeError):
     pass
 
 
-def _executable(name: str) -> str:
+def _search_path() -> str:
+    extra: list[str] = []
+    for base in (os.environ.get("USERPROFILE"), os.environ.get("HOME")):
+        if base:
+            extra += [os.path.join(base, "bin"), os.path.join(base, ".local", "bin")]
+    if os.environ.get("APPDATA"):
+        extra.append(os.path.join(os.environ["APPDATA"], "npm"))
+    return os.pathsep.join([os.environ.get("PATH", ""), *extra])
+
+
+def _executable(name: str) -> tuple[str, bool]:
+    """Resolve a CLI; returns (command, use_shell). use_shell is the last resort when nothing resolves."""
     candidates = [name + ".cmd", name + ".exe", name] if os.name == "nt" else [name]
+    path = _search_path()
     for candidate in candidates:
-        resolved = shutil.which(candidate)
+        resolved = shutil.which(candidate, path=path)
         if resolved:
-            return resolved
-    return name
+            return resolved, False
+    return name, True
 
 
 def _decode_json(text: str) -> Any:
@@ -75,8 +87,9 @@ def _run_codex(prompt: str, schema: dict[str, Any], model: str) -> dict[str, Any
         schema_path = temp_path / "schema.json"
         output_path = temp_path / "answer.json"
         schema_path.write_text(json.dumps(schema, ensure_ascii=False), encoding="utf-8")
+        codex, use_shell = _executable("codex")
         command = [
-            _executable("codex"), "exec", "-m", model,
+            codex, "exec", "-m", model,
             "-c", "model_reasoning_effort=high",
             "--skip-git-repo-check", "--sandbox", "read-only",
             "--ignore-rules", "--disable", "default_mode_request_user_input",
@@ -94,12 +107,15 @@ def _run_codex(prompt: str, schema: dict[str, Any], model: str) -> dict[str, Any
                     capture_output=True,
                     timeout=420,
                     check=False,
+                    shell=use_shell,
                 )
                 if completed.returncode != 0:
-                    failures.append(f"attempt {attempt + 1}: exit {completed.returncode}")
+                    failures.append(f"attempt {attempt + 1}: exit {completed.returncode}: {completed.stderr[-300:]!r}")
                     continue
                 raw = output_path.read_text(encoding="utf-8") if output_path.exists() else completed.stdout
                 return _coerce_response(_decode_json(raw), schema)
+            except FileNotFoundError as exc:
+                failures.append(f"attempt {attempt + 1}: FileNotFoundError: {exc}; searched PATH={_search_path()}")
             except (OSError, subprocess.TimeoutExpired, ValueError, json.JSONDecodeError) as exc:
                 failures.append(f"attempt {attempt + 1}: {type(exc).__name__}: {exc}")
     raise BackendError("codex failed twice: " + "; ".join(failures))
@@ -109,8 +125,9 @@ def _run_claude(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, An
     env = os.environ.copy()
     env.pop("ANTHROPIC_API_KEY", None)
     env.pop("ANTHROPIC_AUTH_TOKEN", None)
+    claude, use_shell = _executable("claude")
     command = [
-        _executable("claude"), "-p", "--model", model,
+        claude, "-p", "--model", model,
         "--output-format", "json",
         "--mcp-config", '{"mcpServers":{}}', "--strict-mcp-config",
     ]
@@ -124,14 +141,16 @@ def _run_claude(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, An
         timeout=420,
         check=False,
         env=env,
+        shell=use_shell,
     )
     if completed.returncode != 0:
         raise BackendError(f"claude failed: exit {completed.returncode}: {completed.stderr[-500:]}")
     try:
         return _coerce_response(_decode_json(completed.stdout), schema)
     except (ValueError, json.JSONDecodeError) as exc:
-        detail = (completed.stderr or completed.stdout)[-500:]
-        raise BackendError(f"claude returned invalid JSON: {exc}: {detail}") from exc
+        raise BackendError(
+            f"claude returned invalid JSON: {exc}: stdout[:300]={completed.stdout[:300]!r}; stderr tail={completed.stderr[-200:]!r}"
+        ) from exc
 
 
 def call_model(
