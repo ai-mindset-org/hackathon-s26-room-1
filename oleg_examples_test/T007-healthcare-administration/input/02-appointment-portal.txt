@@ -1,0 +1,41 @@
+HARBOR ADMINISTRATION — APPOINTMENT PORTAL TEXT EXPORT
+Export generated: 04/03/2028 18:10 Europe/Paris
+Workspace: Paris administrative reception
+Portal release: 3.19.4-paris
+Display language: English (United Kingdom)
+Queue summary: 12 booked, 3 pending documents, 1 desk reassignment
+Record: HARBOR-ADMIN/APPT-2047
+Administrative file: HARBOR-ADMIN/ADM-2047
+Reception point: Accueil Ouest
+Previous slot: 14/03/2028 09:30 Europe/Paris
+Change accepted: HARBOR-ADMIN/APPT-2047 moved from 14/03/2028 09:30 to 15/03/2028 14:00 Europe/Paris.
+Current portal state: BOOKED
+Confirmation channel: bilingual email
+Confirmation queue owner: Léa Martin
+Queue target shown by portal: 13/03/2028 17:00 Europe/Paris
+Audit reference: HARBOR-ADMIN/MOVE-2047-0304-1718
+Record: HARBOR-ADMIN/APPT-2048
+Administrative file: HARBOR-ADMIN/ADM-2048
+Reception point: Accueil Est
+HARBOR-ADMIN/APPT-2048 remains booked for 15/03/2028 14:00 Europe/Paris at Accueil Est.
+Current portal state: BOOKED
+Confirmation state: delivered on 02/03/2028
+Audit reference: HARBOR-ADMIN/KEEP-2048-0227-0902
+The two reception points share a waiting area but keep separate appointment ledgers.
+Printer counter: 2048 pages since maintenance
+Kiosk theme build: 2028.03.14-rc2
+Suggested interface option: show larger desk labels on small screens
+Open design question: should the month name appear beside numeric dates?
+The accessibility group will discuss contrast settings during its next design review.
+Yesterday's uptime report showed three short reconnects before 07:00.
+The help panel received six searches for the phrase “east entrance”.
+The previous release placed the language selector below the fold on small screens.
+The training workspace contains twelve fictional cards with grey placeholder icons.
+Designers compared a compact header with a two-row header during the February workshop.
+The kiosk keyboard map uses AZERTY by default at the Paris reception points.
+The export screen records the selected locale beside the generation timestamp.
+The portal archive retained last month's colour samples for the interface team.
+Footer build identifier: HARBOR-ADMIN/PORTAL-03194
+Support mailbox: portal-support@harbor-admin.example
+Export checksum label: HARBOR-ADMIN/PX-150328-1400-77
+End of appointment portal text export

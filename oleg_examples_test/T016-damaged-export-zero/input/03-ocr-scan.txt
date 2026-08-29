@@ -1,0 +1,42 @@
+FRACTURE-ZERO/OCR-CAPTURE-2021-06
+OCR source label: FRACTURE-ZERO/MINUTES-2021-06-18, paper copy, pages 2-4.
+[page 1 was not present in the scan batch]
+PAGlNA 2
+ACTA DE REVlSION DEL ARCHlVO
+La sesion comenzo con el recuento de cajas de la sala norte.
+Se registraron cuarenta y dos cajas secas y tres cajas en observacion.
+La etiqueta FRACTURE-ZERO/BOX-17 aparecia dos veces en una fotografia antigua.
+Una nota al margen decia 14.09, pero la unidad quedo fuera del recorte.
+El grupo comparo papel crema, papel gris y sobres con ventana.
+CONFIRMO? el lector antiguo mostraba esa palabra con una mancha sobre la O.
+Nadie pudo leer la linea anterior completa.
+La mesa recordo que el terminal de 2011 usaba verbos como nombres de columnas.
+ENVI
+AR UNA COPIA: abra la pantalla FRACTURE-ZERO/EXPORT, elija una carpeta y cierre la vista previa.
+El texto continuaba debajo de una marca de agua.
+RESPON
+SABLE era el titulo partido entre dos lineas de la hoja.
+Debajo figuraba el ejemplo tipografico Mateo S., sin firma ni iniciales manuscritas.
+PAGINA 3
+The copied manual changed language halfway through the page.
+Review each recovered row before export.
+Keep the original page number beside every recovered row.
+Never place damp paper on the reader glass.
+The example screen showed FRIDAY in the date-help panel.
+The example screen showed SEND in the command glossary.
+The example screen showed LINA in the name-width test.
+The margin carried FRACTURE-ZERO/FORM-C and the number 09:00.
+A pencil total read 188.40 near the binding holes.
+The group discussed whether the decimal point came from the OCR profile.
+PAGlNA 4
+The 2021 meeting ended after the scanner lamp cooled.
+Attendees returned the cream folders to FRACTURE-ZERO/SHELF-4.
+The grey folders remained in FRACTURE-ZERO/TRAY-6 for ventilation.
+The typed footer was partly covered by repair tape.
+old line: Mateo will send ...
+[right edge missing]
+old line: by Friday ...
+[left edge missing]
+The two old lines were printed on different clipped paragraphs.
+OCR confidence summary: letters 0,82; punctuation 0,41; line joins 0,33.
+[scan ends at the middle of the footer]

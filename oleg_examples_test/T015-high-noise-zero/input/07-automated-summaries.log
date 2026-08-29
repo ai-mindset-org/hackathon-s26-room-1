@@ -1,0 +1,37 @@
+2028-03-18T02:10:00Z service=ECHO-ZERO/SummaryBot run=8841 status=complete
+2028-03-18T02:10:01Z source=ECHO-ZERO/Ideas messages=31 reactions=7 locale=en-US
+2028-03-18T02:10:01Z source=ECHO-ZERO/Calendar-Notices entries=5 locale=mixed
+2028-03-18T02:10:02Z source=ECHO-ZERO/History-26 sections=6 locale=mixed
+2028-03-18T02:10:02Z cluster=ECHO-ZERO/Willow confidence=0.87
+2028-03-18T02:10:02Z summary="Participants compared a wall map, a possible pocket card, and 2026 survey scores."
+2028-03-18T02:10:02Z suggestion="Could a folded route card be easier to read than the wall map?"
+2028-03-18T02:10:03Z date_token="04/12/2028" origin=declined_calendar_hold region=US
+2028-03-18T02:10:03Z amount_token="$1,245.50" origin=expired_2026_print_quote region=US
+2028-03-18T02:10:03Z amount_token="EUR 1.245,50" origin=expired_2026_print_quote region=EU
+2028-03-18T02:10:04Z note="Topic cluster includes two source links and seven chat reactions."
+2028-03-18T02:10:04Z source_links=ECHO-ZERO/Ideas#031,ECHO-ZERO/Calendar/Willow-OLD-12
+
+2028-03-18T02:10:05Z cluster=ECHO-ZERO/Quartz confidence=0.81
+2028-03-18T02:10:05Z summary="The chat asked about a future planning cycle and quoted the declined 2026 study."
+2028-03-18T02:10:05Z date_tokens="03/29/2028,04/05/2028,04/12/2028" origin=removed_series
+2028-03-18T02:10:06Z history_token="12/05/2026" origin=US_panel_minutes
+2028-03-18T02:10:06Z alternate_display="05/12/2026" origin=EU_migration_index
+2028-03-18T02:10:06Z source_links=ECHO-ZERO/Ideas#044,ECHO-ZERO/Calendar/Quartz-OLD-77
+
+2028-03-18T02:10:07Z cluster=ECHO-ZERO/Harbor confidence=0.94
+2028-03-18T02:10:07Z summary="The archive scan ended in 2026 with 14,208 indexed folders."
+2028-03-18T02:10:07Z quote="All seven exception boxes were reviewed before the register was locked in December 2026."
+2028-03-18T02:10:08Z date_token="11/18/2026" origin=historical_report region=US
+2028-03-18T02:10:08Z source_links=ECHO-ZERO/History-26#Harbor
+
+2028-03-18T02:10:09Z cluster=ECHO-ZERO/Handbook confidence=0.78
+2028-03-18T02:10:09Z summary="The handbook contains prompts, conditionals, and placeholders for meeting records."
+2028-03-18T02:10:09Z quote="Could ECHO-ZERO/Sample publish a two-page guide for new visitors?"
+2028-03-18T02:10:10Z sample_date="04/05/2028" interpretations="US April 5; EU 4 May"
+2028-03-18T02:10:10Z source_links=ECHO-ZERO/Handbook#meeting-structure,ECHO-ZERO/FAQ#dates
+
+2028-03-18T02:10:11Z system="No source ingestion errors" warning_count=0
+2028-03-18T02:10:11Z system="Mixed locale tokens retained with source labels" token_count=17
+2028-03-18T02:10:11Z system="Quoted history retained" quote_count=9
+2028-03-18T02:10:12Z export=ECHO-ZERO/Summary/8841 format=text version=2.7
+2028-03-18T02:10:12Z footer="Generated from indexed sources; timestamps are UTC."

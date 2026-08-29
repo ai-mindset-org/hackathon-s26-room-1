@@ -1,0 +1,45 @@
+CEDAR-FIELD/TECH-LOG — diario de cuadrilla
+Técnica: Camila Ríos (“Cami”)
+Periodo exportado: 01/09/2026–03/09/2026
+Las horas son de Bogotá.
+
+01/09 06:35 — Salida de CEDAR-FIELD/BASE-BOG-NORTE con CEDAR-FIELD/VAN-06.
+01/09 06:41 — Presión de neumáticos revisada: 34, 34, 35 y 35 psi.
+01/09 06:44 — Medidor azul, serie CEDAR-FIELD/METER-22, con batería al 96 %.
+01/09 07:18 — Llegada a CEDAR-FIELD/TORRE-ARCE; puerta norte sin fila.
+01/09 07:24 — Recepción entregó tarjeta temporal 0417.
+01/09 07:31 — Sala occidental a 21,8 °C; humedad relativa 56 %.
+01/09 07:37 — CEDAR-FIELD/UNIT-CH-17 operando a 62 % de carga.
+01/09 07:41 — Lectura axial 2,10 mm/s; pico breve de 4,75 mm/s durante transición.
+01/09 07:45 — El sonido disminuyó cuando cerró la compuerta del pasillo.
+01/09 07:52 — Se tomaron catorce fotos y tres clips cortos.
+01/09 07:58 — La etiqueta de seguridad está rozada en la esquina inferior.
+01/09 08:03 — No se desmontó la guarda; la inspección fue externa.
+01/09 08:09 — El operario dijo que el pico suele aparecer después de las 06:00.
+01/09 08:16 — Sensor portátil reiniciado por pérdida de enlace Bluetooth.
+01/09 08:20 — El segundo muestreo quedó entre 2,02 y 2,18 mm/s.
+01/09 08:28 — Salida de la sala occidental; tarjeta devuelta a recepción.
+01/09 08:34 — Se dejó un paño absorbente cerrado dentro de la caja azul.
+
+01/09 09:20 — Revisión rápida de CEDAR-FIELD/UNIT-CH-71 desde el pasillo oriental.
+01/09 09:24 — Placa terminada en 71; soporte derecho visible sin grietas.
+01/09 09:29 — Lecturas 3,18 y 3,21 mm/s, ambas estables.
+01/09 09:34 — El cuarto oriental tiene una caja de herramientas propiedad del cliente.
+01/09 09:42 — Carlos Peña recibirá el juego de llaves en recepción el día de su visita.
+
+02/09 15:05 — Descarga de datos de CEDAR-FIELD/METER-22 terminada.
+02/09 15:09 — El archivo CSV contiene 1.204 filas y usa coma decimal.
+02/09 15:12 — La aplicación muestra versión 3.8.12; la versión de firmware del sensor es 2.4.6.
+02/09 15:18 — Lucía pidió cargar CEDAR-FIELD/PHOTO-4821 antes del 03/09 a las 17:00; responsable inicial: Cami.
+02/09 15:21 — Separé las fotos de CEDAR-FIELD/UNIT-CH-17 y CEDAR-FIELD/UNIT-CH-71 en carpetas distintas.
+02/09 15:27 — Foto 07 con reflejo; foto 08 legible; foto 11 muestra el pasillo.
+02/09 15:33 — La red de la base tardó nueve minutos en copiar 63 MB.
+
+03/09 07:10 — CEDAR-FIELD/VAN-06 quedó en mantenimiento por cambio de limpiaparabrisas.
+03/09 07:14 — La furgoneta de reserva tiene dos conos y no tiene escalera larga.
+03/09 07:19 — El estante B conserva seis bases magnéticas; dos tienen cinta amarilla.
+03/09 07:26 — Turno de Cami asignado a CEDAR-FIELD/PARQUE-LINO hasta las 17:30.
+03/09 07:31 — Diego confirmó que puede recibir la carpeta de fotos en la red interna.
+03/09 07:36 — El tablero impreso todavía muestra 04/09 08:30; la actualización digital llegó por SMS después.
+03/09 07:42 — El termo de la cuadrilla quedó en el casillero 12.
+03/09 07:48 — La batería del medidor quedó al 82 % después de una hora de carga.

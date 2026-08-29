@@ -1,0 +1,32 @@
+CIVIC-ORCHID/Bezirksstelle-Ostbogen — exportierter Anhörungskalender
+Kalenderzone: Europe/Berlin
+Export erstellt: 21.06.2029 14:45
+UID: CIVIC-ORCHID/HEAR-417@ostbogen.example
+Aktenbezug: CIVIC-ORCHID/BA-2029-417/V2
+Früherer Beginn: 28.06.2029 10:00 Europe/Berlin
+Früheres Ende: 28.06.2029 11:30 Europe/Berlin
+Früherer Status: abgesagt; Änderung gespeichert am 20.06.2029 12:16.
+Neuer Beginn: 03.07.2029 14:00 Europe/Berlin
+Neues Ende: 03.07.2029 15:30 Europe/Berlin
+Neuer Status: bestätigt
+Ort: CIVIC-ORCHID/RAUM-B3, Berlin
+Titel: Erörterung Hofzugang CIVIC-ORCHID/HOF-17
+Beschreibung: Anhörung zu Zugang, Fluchtwegdarstellung und Materialansicht.
+Der Raum hat 18 feste Plätze und zwei mobile Tische.
+Die Mikrofonanlage wurde am 07.06.2029 mit Kanal 3 getestet.
+Besucher erhalten am Empfang eine Papierkarte mit dem Weg zu CIVIC-ORCHID/RAUM-B3.
+Das Zeitfenster davor gehört zu CIVIC-ORCHID/HEAR-402 und endet um 13:35.
+Das Zeitfenster danach ist eine interne Raumpause von 20 Minuten.
+Kalenderfarbe: Orchidee 4; diese Bezeichnung steuert nur die Ansicht.
+Agenda: Begrüßung, Planstand, Zugang, Rückfragen, Zusammenfassung.
+Agenda-Notiz: Eine mögliche Dachbegrünung kann in einer späteren Förderphase besprochen werden.
+English caption: hearing for CIVIC-ORCHID/BA-2029-417/V2, confirmed for 3 July 2029.
+Separater Eintrag: CIVIC-ORCHID/HEAR-471 für CIVIC-ORCHID/BA-2029-471/V1 am 05.07.2029 09:00.
+CIVIC-ORCHID/HEAR-471 betrifft die Farbbemusterung des Vordachs an CIVIC-ORCHID/HOF-71.
+Raumreinigung ist werktags um 07:15 und 17:20 eingeplant.
+Kalenderrevision: 21-1445; Serverknoten CIVIC-ORCHID/CAL-NODE-2.
+Die Raumtür von CIVIC-ORCHID/RAUM-B3 ist 1,10 Meter breit.
+Eine mobile Hörunterstützung liegt im verschlossenen Medienschrank.
+Der Kalenderexport enthält zusätzlich die Raumkapazität als benutzerdefiniertes Feld.
+Die Tagesansicht beginnt um 07:00 und endet um 20:00 Uhr.
+Im Juli verwendet die Hausanzeige ein zweispaltiges Layout für lange Veranstaltungstitel.

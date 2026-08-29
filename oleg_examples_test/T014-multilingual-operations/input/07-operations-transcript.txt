@@ -1,0 +1,32 @@
+POLYGLOT-OPS regional call transcript
+Call opened: 29/08/2026 11:46 America/Mexico_City
+Participants: Diego Serrano, Eva Cornejo, Theo Marsh, Nino Lomidze
+[11:46] Eva: La grabación empezó. Revisemos primero el flujo del patio.
+[11:47] Diego: Entraron cinco vehículos desde el último corte, todos por la puerta central.
+[11:48] Theo: London has one revised board in circulation and one older print beside the radio.
+[11:49] Nino: В Тбилиси утренняя очередь закончилась раньше обычного.
+[11:50] Eva: El indicador 29/08.6 es la versión del tablero de esta llamada.
+[11:51] Diego: La humedad sigue alta, pero las etiquetas nuevas no se despegaron.
+[11:52] Theo: The river reading fell by three centimetres after the early tide.
+[11:53] Nino: У нас на общей схеме два серых прямоугольника означают закрытые ворота.
+[11:54] Eva: La cifra 184 del calendario era el número de carpetas, no de vehículos.
+[11:55] Diego: Sobre Atlas México, ya están reservados los dos lugares para vehículos.
+[11:56] Eva: ¿Es el expediente POLYGLOT-OPS/ATLAS-MX, C-4478?
+[11:56] Diego: Sí, el de México; no es el paquete del muelle de Tbilisi.
+[11:57] Theo: I can see both regional keys in the dashboard and their counts differ.
+[11:58] Nino: Короткое название одинаковое, но у нас другая команда и другой результат.
+[11:59] Eva: El turno de tarde pidió más marcadores para la pizarra.
+[12:00] Diego: La caja con marcadores llegó ayer; quedan nueve paquetes cerrados.
+[12:01] Theo: London processed the duplicate seal scan before handover.
+[12:02] Nino: В комнате Нarikala сейчас меняют кабель экрана.
+[12:03] Eva: Si terminan pronto, quizá hagamos allí la próxima revisión mensual.
+[12:04] Diego: El tráfico exterior se escucha menos que durante la llamada anterior.
+[12:05] Theo: The printed code 163008 is the meeting bridge, not a shipment number.
+[12:06] Eva: Cerramos Atlas México cuando quede registrada tu confirmación.
+[12:07] Diego: Confirmo completado POLYGLOT-OPS/ATLAS-MX: los dos espacios de vehículo quedaron reservados a las 12:07 hora de Ciudad de México.
+[12:08] Eva: Registrado. Pasemos al consumo de combustible de la semana.
+[12:09] Nino: Средний расход в Тбилиси снизился примерно на два процента.
+[12:10] Theo: London has no fuel anomaly; the spike was a unit conversion in the chart.
+[12:11] Eva: La siguiente llamada regular sigue en el horario habitual.
+[12:12] Diego: Termino aquí; voy al patio para el cambio de turno.
+Call closed: 29/08/2026 12:12 America/Mexico_City

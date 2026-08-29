@@ -1,0 +1,39 @@
+FRACTURE-ZERO/CHAT-EXPORT-2025-09
+[export begins after an unavailable block]
+[2025-09-16 09:41] Ari: The recovery counter reached 8,412 lines overnight.
+[2025-09-16 09:42] Luz: El lote FRACTURE-ZERO/BATCH-31 sigue en lectura; faltan dos páginas.
+[2025-09-16 09:43] Ari: The blue labels came from FRACTURE-ZERO/BOX-17, not the index folder.
+[2025-09-16 09:4?] Noelia: Could Noelia send the recovered index by Friday, or should it stay inside FRACTURE-ZERO/VAULT-2?
+[message edge lost]
+[2025-09-16 09:48] Noelia: I cannot take ownership of the checksum review.
+[2025-09-16 09:49] Mateo: ¿Y si revisamos FRACTURE-ZERO/ARC-17 el 14/09?
+[2025-09-16 09:50] Luz: ¿Septiembre de qué año? El recorte no conserva esa parte.
+[2025-09-16 09:52] Ari: The scanner called page group 14/09, but the carton label says group 14-09-B.
+[2025-09-16 09:55] Mateo: Maybe the slash was a field separator in the old display.
+[2025-09-16 09:57] Luz: FRACTURE-ZERO/BOX-17 weighs 14.09 kg after the damp sleeves were removed.
+[2025-09-16 10:02] Ari: Version 4.11 opened the export; version 4.10 stopped at line 906.
+[2025-09-16 10:05] Noelia: What if we compare only the page counts before choosing a route?
+[2025-09-16 10:08] Luz: The east shelf has 63 folders and the west shelf has 61.
+[2025-09-16 10:12] Mateo: I would use the flat export if its character map survives.
+[2025-09-16 10:16] Ari: The Spanish accents are intact in 72% of the sample.
+[2025-09-16 10:19] Luz: The remaining marks look like old fax speckle, not fresh ink.
+[2025-09-16 10:23] Noelia: Did anyone confirm which clock produced 09:41?
+[2025-09-16 10:26] Mateo: The header is gone, so I only see the digits.
+[2025-09-16 10:31] Ari: Yesterday's count sheet listed 33 envelopes in FRACTURE-ZERO/TRAY-6.
+[2025-09-16 10:34] Luz: The physical tray now has 32; one envelope is in the drying rack.
+[2025-09-16 10:38] Noelia: Could the word SEND be a column label rather than a message?
+[2025-09-16 10:41] Ari: It appeared beside OWNER and DATE in the broken view.
+[2025-09-16 10:44] Mateo: Suppose FRACTURE-ZERO/ARC-17 and FRACTURE-ZERO/BOX-17 only share the suffix by chance.
+[2025-09-16 10:48] Luz: Their paper stock differs; ARC-17 is cream and BOX-17 is grey.
+[2025-09-16 10:52] Ari: The image sequence jumps from 0048 to 0052.
+[2025-09-16 10:55] Noelia: We should not email the raw scan outside FRACTURE-ZERO/VAULT-2.
+[2025-09-16 10:58] Mateo: The preview can remain on the isolated reader.
+[2025-09-16 11:04] Luz: Lunch delivery is expected near the north entrance at 12:30.
+[2025-09-16 11:07] Ari: The humidity display is 48%, down from 51% at opening.
+[2025-09-16 11:11] Noelia: If the missing block returns, could we compare its speaker map?
+[2025-09-16 11:15] Mateo: Perhaps, depending on whether the export kept stable participant IDs.
+[2025-09-16 11:20] Luz: The old terminal used initials, while this view expands some names.
+[2025-09-16 11:23] Ari: There are three Ari labels in the archive glossary.
+[2025-09-16 11:27] Noelia: The visible thread does not say which one spoke before 09:41.
+[2025-09-16 11:3
+[export ends inside a timestamp]

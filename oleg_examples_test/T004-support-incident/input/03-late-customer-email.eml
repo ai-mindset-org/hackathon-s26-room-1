@@ -1,0 +1,26 @@
+From: pilar.estevez@lumenbay-west.northstar-inc.invalid
+To: support@northstar-inc.invalid
+Date: Thu, 19 Aug 2027 08:12:00 -0700
+Received: by NORTHSTAR-INC/Mail-Gateway at 2027-08-19 16:41:52 +0000
+Imported: 2027-08-19 16:42:37 +0000
+Message-ID: <NORTHSTAR-INC-MAIL-IN-2048@northstar-inc.invalid>
+Subject: [NORTHSTAR-INC/7421] attachment retry failed again in West
+Hello Mira,
+The fresh uploads from this morning are still fast.
+The interrupted uploads are different: two retries stayed in processing after the network recovered.
+This began again at 08:05 PDT after two successful submissions.
+“Los archivos adjuntos vuelven a quedarse en procesando para el espacio Oeste.”
+“El espacio Este sigue funcionando; este correo corresponde a NORTHSTAR-INC/7421.”
+One affected sample is NORTHSTAR-INC/UP-88907, and its file size is 3.1 MB.
+The second sample is NORTHSTAR-INC/UP-88911, generated from the same test fixture.
+Our operators can continue with fresh uploads for the current batch.
+Could your team review why the retry keys are being accepted twice?
+The finance batch has 19 remaining documents and normally finishes before lunch.
+Regards,
+Pilar Estevez
+NORTHSTAR-INC/LumenBay-West operations
+Quoted portal reply from 2027-08-18:
+> We retried two documents and both reached ready state.
+> Customer confirmed the upload completed on a fresh retry.
+> Resolve NORTHSTAR-INC/7421 as mitigated at 2027-08-18 18:05 UTC.
+Mail gateway metadata: spam score 0.2; attachment count 0; route NORTHSTAR-INC/Support-Import-3.

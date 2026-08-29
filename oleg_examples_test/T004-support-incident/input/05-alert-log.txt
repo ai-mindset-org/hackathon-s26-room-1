@@ -1,0 +1,47 @@
+source=NORTHSTAR-INC/Alert-Bridge export_time=2027-08-19T17:30:00Z timezone=UTC
+2027-08-18T14:11:02Z level=info service=NORTHSTAR-INC/Relay-API route=fresh-upload p95_ms=241 requests=188
+2027-08-18T14:12:17Z level=warn alert=NORTHSTAR-INC/AL-984 incident_ref=NORTHSTAR-INC/7421 tenant=NORTHSTAR-INC/LumenBay-West route=retry-worker queue_age_s=604
+2027-08-18T14:12:47Z level=info alert=NORTHSTAR-INC/AL-984 state=firing sample=NORTHSTAR-INC/UP-88421 worker=west-03
+2027-08-18T14:14:01Z level=info service=NORTHSTAR-INC/Object-Store write_state=complete sample=NORTHSTAR-INC/UP-88421 bytes=2516582
+2027-08-18T14:16:33Z level=info service=NORTHSTAR-INC/Relay-API route=ticket-create p95_ms=198 requests=92
+2027-08-18T14:20:05Z level=warn service=NORTHSTAR-INC/Retry-Worker node=west-05 lease_age_s=711 retry_key=NORTHSTAR-INC/RK-4420
+2027-08-18T14:25:44Z level=info service=NORTHSTAR-INC/Retry-Worker node=west-03 build=4.18.7 queue_depth=481
+2027-08-18T14:30:12Z level=info service=NORTHSTAR-INC/Relay-API route=fresh-upload success_pct=99.97 window_min=15
+2027-08-18T14:42:09Z level=info tenant=NORTHSTAR-INC/LumenBay-West active_seats=38 batch_documents=27
+2027-08-18T14:55:00Z level=info watcher=NORTHSTAR-INC/WATCH-22 linked_ticket=NORTHSTAR-INC/7421
+2027-08-18T15:02:20Z level=info service=NORTHSTAR-INC/Retry-Worker queue_age_s=81 queue_depth=74
+2027-08-18T15:15:11Z level=info node=west-03 cpu_pct=54.1 memory_pct=61.7
+2027-08-18T15:15:12Z level=info node=west-05 cpu_pct=49.8 memory_pct=58.3
+2027-08-18T15:30:00Z level=info service=NORTHSTAR-INC/Relay-API route=fresh-upload requests=201 success_pct=100.0
+2027-08-18T16:04:31Z level=info deployment=NORTHSTAR-INC/DEP-4187R2 build=4.18.7-r2 pool=west status=complete
+2027-08-18T16:12:42Z level=info service=NORTHSTAR-INC/Retry-Worker completed=121 failed=4 window_min=15
+2027-08-18T16:18:00Z level=info service=NORTHSTAR-INC/Retry-Worker completion_pct=96.8 window_min=15
+2027-08-18T16:45:06Z level=info service=NORTHSTAR-INC/Retry-Worker sample_count=2 completion_pct=100.0
+2027-08-18T17:24:31Z level=info alert=NORTHSTAR-INC/AL-984 state=cleared incident_ref=NORTHSTAR-INC/7421
+2027-08-18T18:07:58Z level=info ticket_state=NORTHSTAR-INC/7421:resolved actor=M.C.
+2027-08-18T19:05:14Z level=warn alert=NORTHSTAR-INC/AL-988 incident_ref=NORTHSTAR-INC/7422 tenant=NORTHSTAR-INC/LumenBay-East route=email-preview error_pct=14.2
+2027-08-18T19:06:02Z level=info sample=NORTHSTAR-INC/MAIL-552 object_state=ready preview_state=blank
+2027-08-18T19:22:00Z level=info template=NORTHSTAR-INC/Email-Blue version=9.6.1 pool=east
+2027-08-18T19:42:18Z level=info template=NORTHSTAR-INC/Email-Blue version=9.6.0 rollback_state=complete
+2027-08-18T20:04:31Z level=info service=NORTHSTAR-INC/Relay-Email-Preview errors=0 window_min=10
+2027-08-18T20:43:22Z level=info digest=NORTHSTAR-INC/DIGEST-119 attachments_rendered=7 failures=0
+2027-08-18T21:17:01Z level=info alert=NORTHSTAR-INC/AL-988 state=cleared incident_ref=NORTHSTAR-INC/7422
+2027-08-18T21:18:06Z level=info ticket_state=NORTHSTAR-INC/7422:resolved actor=Priya-Shah
+2027-08-19T15:40:00Z level=info service=NORTHSTAR-INC/Relay-API route=fresh-upload p95_ms=219 requests=176
+2027-08-19T15:45:00Z level=info service=NORTHSTAR-INC/Retry-Worker sample_count=3 p95_ms=139000
+2027-08-19T15:52:11Z level=warn alert=NORTHSTAR-INC/AL-991 incident_ref=NORTHSTAR-INC/7421 tenant=NORTHSTAR-INC/LumenBay-West route=retry-worker duplicate_keys=4
+2027-08-19T15:55:20Z level=info alert=NORTHSTAR-INC/AL-991 state=firing queue_depth=63 oldest_age_s=151
+2027-08-19T16:01:04Z level=info alert=NORTHSTAR-INC/AL-991 state=cleared queue_depth=11 oldest_age_s=37
+2027-08-19T16:02:44Z level=info service=NORTHSTAR-INC/Relay-Email-Preview tenant=NORTHSTAR-INC/LumenBay-East errors=0
+2027-08-19T16:08:09Z level=info bridge=NORTHSTAR-INC/Mail-Bridge pending_association=1
+2027-08-19T16:41:52Z level=info gateway=NORTHSTAR-INC/Mail-Gateway message=NORTHSTAR-INC/MAIL-IN-2048 subject_ticket=NORTHSTAR-INC/7421
+2027-08-19T16:42:37Z level=info importer=NORTHSTAR-INC/Support-Import-3 message=NORTHSTAR-INC/MAIL-IN-2048 attached_ticket=NORTHSTAR-INC/7421
+2027-08-19T16:47:22Z level=info ticket_state=NORTHSTAR-INC/7421:reopened actor=Mira-Chen evidence=NORTHSTAR-INC/MAIL-IN-2048
+2027-08-19T16:49:13Z level=info ticket_owner=NORTHSTAR-INC/7421:Diego-Rios previous=M.C.
+2027-08-19T16:52:02Z level=info service=NORTHSTAR-INC/Retry-Worker repeated_keys=4 leases=2
+2027-08-19T16:58:54Z level=info service=NORTHSTAR-INC/Relay-Email-Preview tenant=NORTHSTAR-INC/LumenBay-East errors=0
+2027-08-19T17:05:30Z level=info service=NORTHSTAR-INC/Retry-Worker trace_readers=1 export_bytes=884736
+2027-08-19T17:16:18Z level=info service=NORTHSTAR-INC/Retry-Worker sample_count=5 p95_ms=143000 fresh_p95_ms=19000
+2027-08-19T17:22:00Z level=info node=west-03 cpu_pct=47.4 memory_pct=60.2
+2027-08-19T17:22:01Z level=info node=west-05 cpu_pct=52.9 memory_pct=62.1
+footer schema=NORTHSTAR-INC/Alert-Schema-7 retention_days=30 rows=45

@@ -1,0 +1,45 @@
+LANTERN-HR/CHAT/MANAGERS-SEPT-A
+Channel: people-managers-london-paris
+Exported: 8 September 2028, 18:10 Europe/London
+
+[2028-09-05 08:46 CEST] Camille Laurent: Paris reception opened the side desk while the main counter is being repainted.
+[2028-09-05 08:49 CEST] Hugo Perrin: The intake dashboard is at eleven starters, with three payroll checks still moving through review.
+[2028-09-05 08:51 BST] Eleanor Shaw: London has enough headsets, although two carry the old asset labels.
+[2028-09-05 08:53 CEST] Amélie Durand: J'ai rangé les guides bilingues dans le placard près de LANTERN-HR/PARIS/ROOM-LILAC.
+[2028-09-05 08:55 CEST] Camille Laurent: Claire asked whether 18 September could replace the earlier Paris date.
+[2028-09-05 08:57 CEST] Camille Laurent: If Claire confirms Monday 18 September, A. Durand will assemble the bilingual welcome pack and leave it with Paris reception by Friday 15 September at 16:00 Paris time.
+[2028-09-05 09:01 CEST] Hugo Perrin: I will leave her current 12 September calendar hold in place until her reply arrives.
+[2028-09-05 09:03 BST] Eleanor Shaw: The London orientation deck still has the old reception photograph on slide four.
+[2028-09-05 09:05 BST] Priya Nair: Could the welcome tables use the same signs in both offices next month?
+[2028-09-05 09:07 CEST] Amélie Durand: Une version commune serait jolie, mais les consignes d'évacuation restent différentes.
+[2028-09-05 09:10 CEST] Hugo Perrin: The printer produced forty handbook covers; six have a pale stripe along the bottom.
+[2028-09-05 09:13 BST] Eleanor Shaw: We can use those striped covers for internal facilitator copies.
+[2028-09-05 09:16 CEST] Camille Laurent: The survey completion rate for the August intake was 72 percent.
+[2028-09-05 09:20 CEST] Amélie Durand: Peut-être ajouter une courte visite du quartier après le déjeuner ?
+[2028-09-05 09:22 BST] Priya Nair: That could work when the weather is stable.
+[2028-09-05 09:25 CEST] Hugo Perrin: Facilities logged the lift inspection against LANTERN-HR/PARIS/FACILITY/LIFT-3.
+[2028-09-05 09:28 BST] Eleanor Shaw: The London kitchen delivery window is now 07:30 to 08:15.
+[2028-09-05 09:31 CEST] Camille Laurent: We still need a better place for the spare umbrellas.
+[2028-09-05 09:34 CEST] Amélie Durand: Le meuble près de la sortie est trop étroit.
+[2028-09-05 09:37 BST] Priya Nair: I can measure the storage recess next time I am on floor five.
+
+[2028-09-08 10:02 BST] Eleanor Shaw: The identity vendor moved its maintenance window to Thursday afternoon.
+[2028-09-08 10:04 BST] Marc Vidal: My rota is full while LANTERN-HR/PARIS/PAYROLL-MIGRATION runs.
+[2028-09-08 10:06 BST] Priya Nair: I have capacity after the London service review.
+[2028-09-08 10:08 BST] Eleanor Shaw: For LANTERN-HR/ACCESS/LM-88, Priya Nair takes over from Marc Vidal; move the deadline from 14 September at 16:00 to 15 September at noon, London time.
+[2028-09-08 10:12 BST] Marc Vidal: Priya now has the ticket notes and the vendor contact history.
+[2028-09-08 10:15 CEST] Hugo Perrin: My Paris HRIS queue is down to two records after this morning's batch.
+[2028-09-08 10:18 CEST] Camille Laurent: The new French benefits leaflet has an extra blank page after the contents.
+[2028-09-08 10:21 CEST] Amélie Durand: Le fournisseur corrigera le fichier pendant son prochain cycle.
+[2028-09-08 10:24 BST] Priya Nair: Has anyone tested the smaller laptop sleeve with the fourteen-inch model?
+[2028-09-08 10:27 BST] Eleanor Shaw: The sample is in the locked stationery cupboard.
+[2028-09-08 10:30 CEST] Camille Laurent: We might move the facilitator coffee break ten minutes later in October.
+[2028-09-08 10:33 CEST] Hugo Perrin: The payroll demonstration uses synthetic names from LANTERN-HR/TRAINING/PEOPLE-DEMO.
+[2028-09-08 10:36 BST] Marc Vidal: Friday's access report will have a separate tab for expired guest passes.
+[2028-09-08 10:39 BST] Priya Nair: The current report has 18 active requests and three waiting on supplier data.
+[2028-09-08 10:42 CEST] Amélie Durand: La salle Lilac est calme après 15 h cette semaine.
+[2028-09-08 10:45 BST] Eleanor Shaw: The London fire-door test finished without affecting the reception queue.
+[2028-09-08 10:49 CEST] Camille Laurent: I will bring the September survey comments to Monday's team review.
+
+End of LANTERN-HR/CHAT/MANAGERS-SEPT-A export.
+Retention group: LANTERN-HR/RECORDS/CHAT-90D

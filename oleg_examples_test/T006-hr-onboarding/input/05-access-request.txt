@@ -1,0 +1,55 @@
+LANTERN-HR/ACCESS/LM-88
+Service: identity and standard application access
+Requester: Eleanor Shaw
+Subject: Louis Marot
+Personnel reference: LANTERN-HR/PEOPLE/LM-88
+Office route: LANTERN-HR/LONDON
+Opened: 5 September 2028 11:26 BST
+Current export: 8 September 2028 11:40 BST
+
+Request summary
+Create the standard London analytics access bundle for Louis Marot.
+Marc Vidal owns LANTERN-HR/ACCESS/LM-88 with an original deadline of 14 September 2028 at 16:00 London time.
+The bundle contains directory sign-in, analytics workspace membership and the floor-five print queue.
+The payroll application is outside this role profile.
+The building badge is managed by reception through a separate physical-access system.
+
+Routing history
+05 Sep 11:26 - Request created from LANTERN-HR/ONB/LM-88.
+05 Sep 11:31 - Routed to LANTERN-HR/QUEUE/IDENTITY-LONDON.
+05 Sep 12:04 - Marc Vidal accepted the request.
+06 Sep 09:18 - Vendor reference LANTERN-HR/VENDOR/ID-771 attached.
+06 Sep 09:22 - Role template LANTERN-HR/ROLE/ANALYTICS-STANDARD selected.
+07 Sep 15:07 - Floor-five print queue confirmed by office services.
+08 Sep 10:12 - Manager chat handoff noted; ticket owner update pending in this export.
+
+Environment notes
+The London directory sync runs at 07:15, 12:15 and 17:15.
+The analytics workspace had 214 active members at the morning count.
+Two dormant guest groups are being reviewed under LANTERN-HR/ACCESS/GUEST-AUDIT.
+The printer queue uses the revised driver package from July.
+The role catalogue shows version 4.3 for analytics-standard.
+Could the new starter use the finance reporting sandbox later in the year?
+That possibility belongs to the manager's quarterly role review.
+The service desk is comparing two formats for its completion email.
+One format groups system names; the other groups support contacts.
+The support article has screenshots from both office layouts.
+French screenshots are planned for a later documentation release.
+
+Supplier status excerpt
+The identity supplier recorded 99.2 percent availability in August.
+Its Thursday maintenance affects profile images but not directory sign-in.
+The vendor status page lists the next certificate rotation in November.
+The London queue currently contains four standard bundles and one contractor extension.
+Paris access requests use a separate queue and a different role catalogue.
+
+Requester context
+Eleanor's team sits in the analytics bay near LANTERN-HR/LONDON/ROOM-ASH.
+The floor-five kitchen closes for cleaning at 16:30 on Fridays.
+The team moved its weekly review from Tuesday to Wednesday last month.
+Louis selected the standard keyboard layout in the equipment survey.
+No additional software choice appears in this request.
+
+Record route: LANTERN-HR/RECORDS/ACCESS-REQUESTS
+Service desk contact: access-desk@lantern-hr.example
+Ticket text is retained according to the LANTERN-HR Services administration schedule.

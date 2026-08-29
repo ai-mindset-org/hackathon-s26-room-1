@@ -1,0 +1,36 @@
+EXTRACTED TEXT — ADMINISTRATIVE REFERRAL COVER SHEET
+Document namespace: HARBOR-ADMIN/REF-711
+Associated administrative file: HARBOR-ADMIN/ADM-2071
+Received by Paris intake: 07/03/2028 at 10:18 Europe/Paris
+Source office: Harbor Administration Lyon Desk
+Destination: Paris Routing Desk B
+Document language: French
+Objet administratif: reprise d'un dossier dont la page de routage est incomplète.
+Le code de routage manque; le bureau émetteur doit être contacté avant le mercredi 15 mars à 17 h, heure de Paris.
+Champ gestionnaire: non renseigné.
+Canal de retour proposé: boîte partagée du bureau émetteur.
+Numéro de transmission: HARBOR-ADMIN/TX-2028-0711-0315
+Version de couverture: 4.2
+Nombre de pages déclaré: 7
+Nombre de pages reçu dans l'extraction: 7
+Le tampon administratif porte la date du 6 mars 2028.
+La marge gauche contient le code d'impression 2047-2048.
+La page deux reprend l'adresse générique du service de routage.
+La page quatre contient la liste des formats de fichier acceptés.
+La page six montre le numéro de version du modèle précédent, 3.19.
+Suggestion manuscrite transcrite: « Peut-être une case plus large pour le code? »
+Question en marge: « Camille pourrait-elle reprendre ce dossier si le bureau B est chargé? »
+L'enveloppe était affranchie à 2,45 EUR.
+Le bordereau de numérisation indique le lot HARBOR-ADMIN/PAR-0307-18.
+Le lot précédent contenait cinq feuilles avec une marge plus étroite.
+Le scanner du bureau B a été nettoyé après le contrôle de vendredi.
+Le texte de couverture emploie la police Marianne en taille 10.
+Une ligne pâle apparaît sous le titre dans l'extraction monochrome.
+Le verso de la couverture contient les horaires généraux des bureaux du réseau.
+Le formulaire de retour propose des cases carrées et un champ de commentaire libre.
+Le groupe documentaire a comparé deux positions pour le numéro de page en février.
+Le meuble d'archives du bureau de Paris utilise des intercalaires gris numérotés.
+Adresse de retour: routing-lyon@harbor-admin.example
+Harbor Administration — réseau fictif de bureaux administratifs
+Référence de conservation: HARBOR-ADMIN/ARC-REF-711-2028
+Fin du texte extrait

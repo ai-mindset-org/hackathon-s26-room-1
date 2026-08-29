@@ -1,0 +1,39 @@
+Mailbox export: POLYGLOT-OPS regional operations
+Locale: en-GB
+Timezone used by this mailbox: Europe/London
+From: Celia Ward <celia.ward@polyglot-ops.example>
+To: Omar Dene <omar.dene@polyglot-ops.example>
+Cc: Priya Holt <priya.holt@polyglot-ops.example>
+Sent: 28/08/2026 09:15 Europe/London
+Subject: POLYGLOT-OPS/EMBER-LDN berth sequence
+Omar, please send the revised berth sequence for POLYGLOT-OPS/EMBER-LDN by 29/08/2026 15:00 London time.
+The draft from Thursday has the right vessel order, but the south-gate note still uses the old lane label.
+Priya has the latest count sheet if you need to compare totals.
+The morning queue peaked at 11 vehicles and cleared before 08:40.
+Regards,
+Celia Ward
+Regional flow manager
+POLYGLOT-OPS internal routing: London desk / extension 204
+Standard archive label: retention class OPS-7
+---
+From: Theo Marsh <theo.marsh@polyglot-ops.example>
+To: Celia Ward <celia.ward@polyglot-ops.example>
+Sent: 28/08/2026 11:28 Europe/London
+Subject: Tbilisi naming in the consolidated sheet
+Maya B. owns the final dock handover packet for POLYGLOT-OPS/ATLAS-TBS; keep the current Tbilisi deadline until management posts a revision.
+The Mexico City team also writes “Atlas” in short comments, so the regional suffix must remain in the dashboard key.
+Their vehicle count belongs to POLYGLOT-OPS/ATLAS-MX and is not part of the berth document.
+The dashboard build number is 29.08.118, despite looking like a local date.
+Thanks,
+Theo Marsh
+Reporting desk
+POLYGLOT-OPS internal routing: shared metrics / extension 118
+---
+Quoted message from 12/08/2026 14:05 Europe/London:
+“Omar sent the July access roster before 12/08/2026 12:00 and Celia archived it after lunch.”
+Quoted reply from 12/08/2026 14:11 Europe/London:
+“The old roster review is complete; the badge count was 73.”
+The quoted exchange remains below because this mailbox groups messages by subject stem.
+Delivery trace: mx-london-04 / queue 8871 / retry 0
+Confidentiality footer: This synthetic operations message is intended for its listed recipients.
+Postal line: POLYGLOT-OPS, Fictional Quay, London.

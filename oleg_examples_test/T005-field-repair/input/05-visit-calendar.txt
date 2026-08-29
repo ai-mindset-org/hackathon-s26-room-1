@@ -1,0 +1,49 @@
+CEDAR-FIELD/CALENDAR — exportación de agenda de campo
+Generado: 03/09/2026 09:02 America/Bogota
+Vista: 03/09/2026–08/09/2026
+
+03/09/2026 07:30–07:45 | Reunión de arranque CEDAR-FIELD/BASE-BOG-NORTE | Sala Pino
+Tema: distribución de vehículos, estado de baterías y cierres de calles.
+La pantalla del salón sigue mostrando agosto en el encabezado.
+
+03/09/2026 12:30–13:15 | Almuerzo escalonado de bodega | Patio cubierto
+Hay 18 puestos; el microondas derecho tarda seis minutos con dos recipientes.
+
+04/09/2026 08:00–08:25 | Bloque de viaje de Cami | Desde CEDAR-FIELD/BASE-BOG-NORTE
+Reserva anterior asociada a CEDAR-FIELD/VISIT-4821; el sincronizador aún conserva el bloque de conducción.
+Color del calendario: azul claro.
+
+04/09/2026 15:30–15:45 | Ventana de llamada con recepción | CEDAR-FIELD/TORRE-ARCE
+Referencia: CEDAR-FIELD/CONF-4821, confirmación de acceso para la visita del sábado.
+Responsable: Lucía Fajardo.
+La llamada debe terminar antes de las 16:00, hora de Bogotá.
+
+05/09/2026 10:00–11:30 | CEDAR-FIELD/VISIT-4821 | CEDAR-FIELD/UNIT-CH-17
+Estado al generar el archivo: Confirmada internamente, pendiente de acceso del sitio.
+Técnica: Camila Ríos (“Cami”).
+Origen del cambio: mensaje de Lucía del 03/09 a las 08:15.
+Acceso por puerta norte; ascensor reservado a las 10:05.
+Equipo sugerido: CEDAR-FIELD/METER-22 y dos bases magnéticas.
+
+05/09/2026 11:40–12:10 | Margen de ruta | CEDAR-FIELD/TORRE-ARCE
+La duración se calculó con el promedio de los últimos cuatro sábados.
+
+07/09/2026 08:55–09:20 | Bloque de viaje de Carlos | Desde CEDAR-FIELD/BASE-BOG-NORTE
+El pronóstico interno de ruta usa 25 minutos y agrega diez de margen.
+
+07/09/2026 09:30–10:45 | CEDAR-FIELD/VISIT-4827 | CEDAR-FIELD/UNIT-CH-71
+Estado: Programada.
+Técnico: Carlos Peña.
+Acceso por recepción; juego de llaves disponible en el mostrador.
+La orden usa el soporte derecho como punto principal de revisión.
+
+07/09/2026 11:00–11:20 | Café de cuadrilla | Cafetería CEDAR-FIELD/TORRE-ARCE
+La mesa grande queda reservada para mantenimiento del edificio después de las 11:30.
+
+08/09/2026 16:30–17:00 | Ventana administrativa CEDAR-FIELD/ACT-4827 | Portal de actas
+Fecha límite visible: 08/09/2026 17:00 America/Bogota.
+Responsable: campo vacío en la exportación.
+
+Fila de sincronización con caracteres dañados:
+05/09|10:00|CEDAR-FIELD/VISlT-482l|CEDAR-FIELD/UNIT-CH-l7|Camila Rios|1h30
+El identificador legible del evento anterior es CEDAR-FIELD/VISIT-4821.

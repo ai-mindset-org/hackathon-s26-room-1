@@ -1,0 +1,40 @@
+CALL NOTE — PARIS ADMINISTRATIVE RECEPTION
+Call received: Wednesday, 8 March 2028 14:06 Europe/Paris
+Logged by: Jules Mercier, reception support
+Administrative references discussed: HARBOR-ADMIN/APPT-2047, HARBOR-ADMIN/ORI-55, HARBOR-ADMIN/REF-711
+The caller used the anonymous file code HARBOR-ADMIN/ADM-2047.
+Caller asked, "Would you cancel HARBOR-ADMIN/APPT-2047 and its confirmation if I decide not to use the slot?"
+Jules repeated the current booking details: Wednesday 15 March at 14:00, Accueil Ouest.
+The caller said they would check their calendar and contact reception again.
+No second call was received during this shift.
+The caller also asked whether the east desk and west desk share the same entrance.
+Jules described the foyer signs and the lift route from the ground floor.
+The building directory was updated last month and uses grey arrows for Accueil Ouest.
+The call lasted 8 minutes and 42 seconds.
+The telephone console displayed queue code 2048 during the transfer.
+The daily call sheet version was 3.19.4.
+Quoted from the reception email: “Le rendez-vous administratif HARBOR-ADMIN/APPT-2047 est réservé le mardi 14 mars 2028 à 09 h 30, heure de Paris.”
+Jules checked the portal during the call and read the current slot as 15 March at 14:00 Paris time.
+The caller asked whether a larger font could be used in future confirmation emails.
+The reception support group will collect layout comments during March.
+Camille confirmed that HARBOR-ADMIN/ORI-55 will take place on 16 March at 10:00 Paris time and that she will send the access link by noon on 15 March.
+The orientation uses Virtual Room 5 and a bilingual welcome screen.
+Jules asked, "Could Camille also take HARBOR-ADMIN/REF-711 if Routing Desk B gets busy?"
+The routing desk representative said the cover sheet still had no named handler.
+They discussed whether a larger routing-code field would reduce returned forms.
+The representative noted that the next template workshop is planned for April.
+The desk received fourteen calls before lunch and eleven after lunch.
+Two calls concerned misplaced umbrellas, and three concerned entrance signage.
+The headset battery was replaced at 12:40.
+The shift handover binder is stored beside the grey label rolls.
+The morning shift reported a short echo on the third telephone handset.
+The foyer clock was two minutes fast when reception opened.
+The lost-property drawer contained one scarf and two folding umbrellas.
+The February call chart uses twenty-minute intervals across the horizontal axis.
+A proposal for the next staff workshop is to compare two shorter greeting scripts.
+The reception map was folded inside the old training binder after last week's tour.
+The note-taking screen saved drafts every thirty seconds during this call.
+The support desk replaced one worn headset cushion before the afternoon shift.
+Follow-up channel for this note: reception-notes@harbor-admin.example
+Call log reference: HARBOR-ADMIN/CALL-0308-1406
+End of call note

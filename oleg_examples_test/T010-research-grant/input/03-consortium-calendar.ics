@@ -1,0 +1,62 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//QUILL-GRANT//Consortium Calendar 2.7//EN
+CALSCALE:GREGORIAN
+X-WR-CALNAME:QUILL-GRANT/APP-27 milestones
+X-WR-TIMEZONE:UTC
+BEGIN:VEVENT
+UID:quill-app27-steering-20270215@calendar.example
+DTSTAMP:20270208T081500Z
+DTSTART:20270215T140000Z
+DTEND:20270215T150000Z
+SUMMARY:QUILL-GRANT/APP-27 steering meeting
+LOCATION:Berlin room B-214 and video bridge
+DESCRIPTION:Agenda: narrative outline, finance confirmation, letters, portal rehearsal, and partner updates.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:quill-app27-upload-rehearsal@calendar.example
+DTSTAMP:20270213T123000Z
+DTSTART:20270308T100000Z
+DTEND:20270308T110000Z
+SUMMARY:Run QUILL-GRANT/APP-27 portal upload rehearsal
+DESCRIPTION:Owner: Leonie Falk. Use the training portal and capture the validation receipt.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:quill-app27-submission@calendar.example
+DTSTAMP:20270203T083000Z
+DTSTART:20270310T150000Z
+DTEND:20270310T151500Z
+SUMMARY:QUILL-GRANT/APP-27 submission cutoff
+DESCRIPTION:The application portal closes at this instant. Coordinator workspace: APP-27.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:quill-app27-budget-sync-old@calendar.example
+DTSTAMP:20270205T090000Z
+DTSTART:20270212T083000Z
+DTEND:20270212T090000Z
+SUMMARY:Budget worksheet sync
+DESCRIPTION:Compare workbook 5.7 with partner totals before the finance reply.
+STATUS:CANCELLED
+END:VEVENT
+BEGIN:VEVENT
+UID:quill-app27-briefing-playback@calendar.example
+DTSTAMP:20270208T120000Z
+DTSTART:20270209T110000Z
+DTEND:20270209T120000Z
+SUMMARY:Applicant briefing playback
+DESCRIPTION:Shared viewing of the programme office recording, followed by open discussion.
+STATUS:CONFIRMED
+END:VEVENT
+BEGIN:VEVENT
+UID:quill-app27-panel-window@calendar.example
+DTSTAMP:20270203T083500Z
+DTSTART;VALUE=DATE:20270517
+DTEND;VALUE=DATE:20270522
+SUMMARY:Expected panel week from call announcement
+DESCRIPTION:Planning window copied from QUILL-GRANT/CALL-2027-04.
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,33 @@
+FRACTURE-ZERO/QUOTATION-CATALOG-2018-2021
+Catalog assembled from printed training examples and meeting recollections.
+The catalog page was scanned in 2025 after its binder tabs faded.
+Each entry preserves the year printed beside the quotation.
+FRACTURE-ZERO/QUOTE-01 | 2018 | English | “I will send the blue index tomorrow.”
+FRACTURE-ZERO/QUOTE-02 | 2018 | Español | “Mañana preparo el resumen.”
+FRACTURE-ZERO/QUOTE-03 | 2018 | English | “Could the Friday label be a weekday field?”
+FRACTURE-ZERO/QUOTE-04 | 2019 | Español | “¿Y si usamos la carpeta crema?”
+FRACTURE-ZERO/QUOTE-05 | 2019 | English | “I cannot sign for a box I have not opened.”
+FRACTURE-ZERO/QUOTE-06 | 2019 | Español | “No sacar los originales de FRACTURE-ZERO/VAULT-2.”
+FRACTURE-ZERO/QUOTE-07 | 2019 | English | “Review each row before export.”
+FRACTURE-ZERO/QUOTE-08 | 2019 | Español | “RESPONSABLE era un encabezado de pantalla.”
+FRACTURE-ZERO/QUOTE-09 | 2020 | English | “The board review was at 09:00.”
+FRACTURE-ZERO/QUOTE-10 | 2020 | Español | “La caja pesaba 14,09 kg.”
+FRACTURE-ZERO/QUOTE-11 | 2020 | English | “Version 4.11 kept the accent marks.”
+FRACTURE-ZERO/QUOTE-12 | 2020 | Español | “La versión 04.11 estaba en el manual.”
+FRACTURE-ZERO/QUOTE-13 | 2021 | English | “If the lamp cools, perhaps the next page will scan cleanly.”
+FRACTURE-ZERO/QUOTE-14 | 2021 | Español | “¿Quién era Lina en el ejemplo?”
+FRACTURE-ZERO/QUOTE-15 | 2021 | English | “Bring the cream folder to the old review.”
+FRACTURE-ZERO/QUOTE-16 | 2021 | Español | “El viernes era parte de la demostración.”
+Margin note beside FRACTURE-ZERO/QUOTE-01: speaker unavailable in copied page.
+Margin note beside FRACTURE-ZERO/QUOTE-02: place unavailable in copied page.
+Margin note beside FRACTURE-ZERO/QUOTE-07: extracted from a procedure card.
+Margin note beside FRACTURE-ZERO/QUOTE-09: meeting year was printed as 2020.
+Binder index: FRACTURE-ZERO/TRAINING-A covers display vocabulary.
+Binder index: FRACTURE-ZERO/TRAINING-B covers damaged-paper handling.
+Binder index: FRACTURE-ZERO/TRAINING-C covers archive-room orientation.
+Paper stock: recycled cream, 90 gsm.
+Ink note: blue headings, black quotation text, pencil annotations.
+Scan note: left margin lost about four millimetres.
+Scan note: curly quotation marks survived on most lines.
+Catalog total: 16 quotation entries, 4 margin notes, 3 binder references.
+[catalog ends before the page that once listed contributors]

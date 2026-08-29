@@ -1,0 +1,55 @@
+2026-11-17T08:00:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: Dzień dobry, nocna zmiana zostawiła spokojną kolejkę.
+2026-11-17T08:04:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: AURORA-R7/LAB-WAW-2 has 14 active runners and 3 idle runners.
+2026-11-17T08:08:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: The telemetry baseline covers the last twenty-eight days.
+2026-11-17T08:12:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: The translated navigation labels passed the 320-pixel layout check.
+2026-11-17T08:16:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: I own AURORA-R7/TKT-7811, the rollback rehearsal, due 2026-11-18 16:00 CET, which is 15:00 UTC.
+2026-11-17T08:20:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: I can shadow the rehearsal after my certificate review.
+2026-11-17T08:24:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: AURORA-R7/PANEL-31 has a narrow gap between 02:10 and 02:14.
+2026-11-17T08:28:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: The release note has two approved diagrams and one pending caption.
+2026-11-17T08:32:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: Rehearsal storage consumed 41% of the temporary quota.
+2026-11-17T08:36:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: Certificate chain AURORA-R7/CERT-61B expires in 93 days.
+2026-11-17T08:40:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: The alert preview lists twelve routes, including three silent mirrors.
+2026-11-17T08:44:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: Lunch at 12:30 CET? The small kitchen has pierogi today.
+2026-11-17T08:48:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: The rollback script printed build 2026.11.19 as its version label.
+2026-11-17T08:52:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: The staging gateway accepted 2,600 sessions without a reset.
+2026-11-17T08:56:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: AURORA-R7/METRIC-CHECKOUT p99 is 411 ms, six milliseconds below yesterday.
+2026-11-17T09:00:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: AURORA-R7/TKT-7852 is mine: publish the regional release note by 2026-11-20 10:00 CET, 09:00 UTC.
+2026-11-17T09:04:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: The rehearsal hostnames use the AURORA-R7/RB- prefix and end at 24.
+2026-11-17T09:08:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: The test tenant contains nine language packs.
+2026-11-17T09:12:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: The dashboard annotation says 19/11 because the browser locale is pl-PL.
+2026-11-17T09:16:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: Wersja polska ma już poprawione znaki i odstępy.
+2026-11-17T09:20:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: The rehearsal package count is 312, matching the EU blue-ring manifest.
+2026-11-17T09:24:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: My local terminal reports CET, while the ticket export reports UTC offsets.
+2026-11-17T09:28:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: AURORA-R7/PANEL-17 color changed from teal to blue after refresh.
+2026-11-17T09:32:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: The approval spreadsheet has 27 rows and three hidden comment columns.
+2026-11-17T09:36:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: The restore step completed in 11 minutes 42 seconds in the sandbox.
+2026-11-17T09:40:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: I saw one harmless clock-skew warning from AURORA-R7/RB-07.
+2026-11-17T09:44:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: Alert volume is 68 per hour, mostly expected cache churn.
+2026-11-17T09:48:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: The Czech paragraph remains English because that locale is outside this release.
+2026-11-17T09:52:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: I may lose network access during the building test tomorrow morning.
+2026-11-17T09:56:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: I can take the ticket if the building test overlaps the rehearsal.
+2026-11-17T10:00:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: The telemetry export uses semicolons and decimal commas in this locale.
+2026-11-17T10:04:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: The release-note image weighs 438 KB after compression.
+2026-11-17T10:08:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: AURORA-R7/RB-12 rebooted once after a kernel update.
+2026-11-17T10:12:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: The mirror latency chart is smooth across all three zones.
+2026-11-17T10:16:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: The old threshold was 1.8%, and the current threshold remains 1.8%.
+2026-11-17T10:20:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: The editor displays 10:00 CET correctly in the footer preview.
+2026-11-17T10:24:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: AURORA-R7/TKT-7811 has the full rollback command transcript attached.
+2026-11-17T10:28:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: The attachment is 1.7 MB and opens without encoding damage.
+2026-11-17T10:32:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: The watch list includes AURORA-R7/METRIC-EDGE and AURORA-R7/METRIC-CHECKOUT.
+2026-11-17T10:36:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: The legal footer uses revision 5.3 from the shared style pack.
+2026-11-17T10:40:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: The building test notice lists 14:00 to 14:20 CET tomorrow.
+2026-11-17T10:44:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: That overlaps cleanup, not the main rehearsal window.
+2026-11-17T10:48:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: AURORA-R7/PANEL-31 now has 60-second buckets instead of 30-second buckets.
+2026-11-17T10:52:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: The glossary review has seven resolved comments and two open comments.
+2026-11-17T10:56:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: The rollback bundle checksum begins 7a41 and ends c09e.
+2026-11-17T11:00:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: The audit screen groups the bundle under AURORA-R7/BUILD-204.7.19.
+2026-11-17T11:04:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: The graph legend still sorts uppercase labels before lowercase labels.
+2026-11-17T11:08:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: Kawa jest obok sali AURORA-R7/ROOM-3.
+2026-11-17T11:12:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: AURORA-R7/LAB-WAW-2 returned to 16 active runners.
+2026-11-17T11:16:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: Staging traffic remains within the planned error budget.
+2026-11-17T11:20:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: The morning telemetry archive contains 86,400 samples per series.
+2026-11-17T11:24:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-KASIA-WROBEL: The footer date 17.11.2026 is the document revision date.
+2026-11-17T11:28:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-PIOTR-NOWAK: I will post a clean rehearsal result after the final restore pass.
+2026-11-17T11:32:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-ELENA-PARK: I will stay available if ownership changes.
+2026-11-17T11:36:00+01:00 | AURORA-R7/CHAT-CET | AURORA-R7/OWNER-LENA-KOVAC: The telemetry baseline export finished with 0 rejected rows.

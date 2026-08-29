@@ -1,0 +1,38 @@
+COMMON-GOOD/Shared calendar export
+Generated: 2027-09-14 12:05 America/Toronto
+Calendar locale: fr-CA / en-CA
+Display zone: America/Toronto
+ENTRY COMMON-GOOD/EVT-441
+Title: Community Pantry / Garde-manger communautaire
+When: Saturday 18 September 2027, 12:00–15:30
+Venue: COMMON-GOOD/Maison-du-Canal, Montréal
+Status: Confirmed
+Event coordinator: Roxane Gervais
+Description: indoor distribution, east entrance, bilingual welcome table after 11:30
+Room capacity shown by facilities: 145 standing or 92 with all tables open
+The description still contains the spring layout link ending in version 4.1.
+ENTRY COMMON-GOOD/VOL-214
+Title: Conditional morning welcome shift
+When: Saturday 18 September 2027, 08:30–11:00
+Venue: COMMON-GOOD/Maison-du-Canal, Montréal
+Status: Tentative — coordinator weather decision pending
+Lead shown at export: Amélie Nadeau
+Description: setup option before COMMON-GOOD/EVT-441; east entrance desk
+ENTRY COMMON-GOOD/EVT-442
+Title: Repair Café / Café de réparation
+When: Sunday 19 September 2027, 10:00–13:00
+Venue: COMMON-GOOD/Maison-du-Canal, Montréal
+Status: Confirmed
+Event coordinator: Riad Moreau
+Description: small-appliance tables in the west room; doors open at 09:50
+The repair team counted 27 extension leads at its last inventory.
+Calendar note: the west room piano tuning happened on 7 September and is complete.
+Calendar note: the fictional COMMON-GOOD/Quartier-Lucioles newsletter closes its October layout on 27 September.
+Calendar note: a possible seed-swap evening was discussed for November, with no date selected.
+Calendar note: the shared room colour is teal because the old blue label was hard to read.
+Calendar note: the community choir used the east room on 4 September and returned 36 chairs to storage.
+Calendar note: the room thermostat display was replaced after the August reading froze at 22°C.
+Calendar note: an October film night could use the west wall if the acoustic test is favourable.
+Calendar note: the wall clock near the kitchen runs about ninety seconds fast.
+Calendar note: the lobby plant was moved away from the door during the July heat wave.
+End of export.

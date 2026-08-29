@@ -1,0 +1,65 @@
+KITE-CLEAR/SPRING-GATE shared calendar text export
+Calendar zone set: Europe/Istanbul
+Secondary display zone: Europe/Amsterdam
+Export time: 2027-04-08T12:58:00+03:00
+Calendar revision: 19
+
+Entry KITE-CLEAR/CAL-88A-OLD
+Title: KITE-CLEAR/LT-88A pickup
+Start: 2027-04-13T09:00:00+03:00
+Zone: Europe/Istanbul
+Status: superseded by KITE-CLEAR/CAL-88A-R3
+Created from carrier booking revision 2
+
+Entry KITE-CLEAR/CAL-88A-R3
+Title: KITE-CLEAR/LT-88A pickup
+Start: 13.04.2027 15:30
+Zone: Europe/Istanbul
+Status: confirmed
+Source booking: KITE-CLEAR/CAR-88A revision 3
+Responsible owner: [blank]
+Display: KITE-CLEAR/LT-88A pickup — 13.04.2027 15:30 Europe/Istanbul
+
+Entry KITE-CLEAR/CAL-88B-INSP
+Title: KITE-CLEAR/LT-88B packaging inspection
+Start: 14.04.2027 11:00
+Zone: Europe/Istanbul
+Status: confirmed
+Owner: Selin Demir
+Display: KITE-CLEAR/LT-88B packaging inspection — 14.04.2027 11:00 Europe/Istanbul
+
+Entry KITE-CLEAR/CAL-CUS-88A
+Title: KITE-CLEAR/LT-88A customs examination
+Start: 2027-04-17T09:30:00+02:00
+Zone: Europe/Amsterdam
+Status: confirmed
+Location: KITE-CLEAR/RTM-B12-04
+Responsible owner: [blank]
+Display: KITE-CLEAR/LT-88A customs examination — 17.04.2027 09:30 Europe/Amsterdam
+
+Calendar display settings
+Week starts on Monday.
+Business hours in Istanbul display as 08:00–18:00.
+Business hours in Rotterdam display as 07:00–17:00.
+Twenty-four-hour time is enabled.
+Travel overlays are hidden.
+Week numbers follow ISO-8601.
+The Rotterdam holiday overlay uses profile KITE-CLEAR/NL-HOL-27.
+The Istanbul holiday overlay uses profile KITE-CLEAR/TR-HOL-27.
+Default reminder lead is 30 minutes.
+Colour KITE-CLEAR/BLUE marks carrier entries.
+Colour KITE-CLEAR/GREEN marks customs entries.
+
+2026 archive entry KITE-CLEAR/CAL-TRAIN-11
+Title: bonded-terminal process workshop
+Start: 2026-11-18T14:00:00+01:00
+End: 2026-11-18T15:30:00+01:00
+Status: completed
+Attendance recorded: 11 participants
+Room: KITE-CLEAR/RTM-TRAIN-2
+Archive note: slides stored with the 2026 training set.
+
+Calendar footer
+Sync engine: KITE-CLEAR/CAL-SYNC 5.4
+Last successful sync: 2027-04-08T12:56:12+03:00
+Export checksum label: KITE-CLEAR/CAL-19-88A

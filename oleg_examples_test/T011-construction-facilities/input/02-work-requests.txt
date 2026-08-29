@@ -1,0 +1,42 @@
+STONEBRIDGE-FM/WAW-CAMPUS — work request export
+Export generated: 2026-09-07 17:10 Europe/Warsaw
+Queue: Facilities corrective work / Warsaw weekday calendar
+
+Request: STONEBRIDGE-FM/WR-418
+Opened: Monday 7 September 2026, 09:40
+Asset zone: STONEBRIDGE-FM/ZONE-E17A — east plant room
+Requested work: Seal the expansion joint beside drain channel E-4 and record the cured surface condition.
+Initial owner: Piotr Malec, STONEBRIDGE-FM/VISTULA-BUILD crew
+Requested finish: next Tuesday, 15 September, before the 16:00 shift handover.
+Access note: use the plant-room east door; the west service corridor is not part of this request.
+Material line: flexible sealant batch STONEBRIDGE-FM/BATCH-FS31, colour grey, nominal pack 6 kg.
+Requester: Alicja Krawiec, facilities coordination
+Priority: normal planned repair
+
+Request: STONEBRIDGE-FM/WR-481
+Opened: Monday 7 September 2026, 10:05
+Asset zone: STONEBRIDGE-FM/ZONE-E17B — west service corridor
+Requested work: Replace the occupancy sensor above door E17B-2 and record the final switch-off delay.
+Owner: Karol Bednar, STONEBRIDGE-FM/ELECTRICAL team
+Required finish: Tuesday 15 September 2026 at 16:00 Europe/Warsaw.
+Access note: ceiling step platform required; plant-room drainage access is not required.
+Part line: sensor STONEBRIDGE-FM/PART-OS18, firmware label 3.6, white housing.
+Requester: Natalia Lis, building services desk
+Priority: normal planned repair
+
+Queue snapshot: 34 requests open across the campus; 11 await materials and 7 await access windows.
+Oldest unrelated request in the queue is STONEBRIDGE-FM/WR-302 for repainting archive shelf ends.
+The monthly target printed on the dashboard is 92 percent closed within the planned week.
+Version shown in the footer is STONEBRIDGE-FM/WORKDESK 5.14.2; export template revision is 2026-08-B.
+
+Standard request fields shown to the desk:
+- Confirm the asset label before work starts.
+- Add the isolation reference when electrical or mechanical isolation is used.
+- Record removed parts in the material return field.
+- Put photographs in the campus album under the request number.
+- Leave a short handover note when a repair crosses shifts.
+- Escalation bands are routine, priority, and emergency.
+
+Routing: Facilities Desk -> discipline lead -> site diary archive
+Internal contact: facilities.desk@stonebridge-fm.example
+End of export STONEBRIDGE-FM/EXPORT-WR-0907

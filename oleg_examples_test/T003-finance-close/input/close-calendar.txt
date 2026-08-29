@@ -1,0 +1,65 @@
+Calendar: MERIDIAN-CLOSE/FIN-CLOSE-MASTER
+Calendar owner: MERIDIAN-CLOSE/Controller-US
+Display zone: America/New_York
+US entries use MM/DD/YYYY. EU entries retain DD/MM/YYYY and name Europe/Paris.
+Snapshot created: 04/01/2028 06:00 PM ET
+
+SERIES MERIDIAN-CLOSE/ACCRUAL-IC
+Title: Monthly intercompany accrual review
+Cadence: monthly, third US business day after period end
+Occurrence key: MERIDIAN-CLOSE/ACCRUAL-IC/MAR-2028
+Period: March 2028
+Start: 04/04/2028 4:00 PM ET
+Due: 04/04/2028 5:00 PM ET
+Owner label: LH
+Location: MERIDIAN-CLOSE/Virtual-Room-4
+Occurrence key: MERIDIAN-CLOSE/ACCRUAL-IC/APR-2028
+Period: April 2028
+Start: 05/03/2028 4:00 PM ET
+Due: 05/03/2028 5:00 PM ET
+Owner label: LH
+Location: MERIDIAN-CLOSE/Virtual-Room-4
+Next display-only occurrence: 06/05/2028 4:00 PM ET
+Calendar color: blue
+
+EVENT MERIDIAN-CLOSE/CLOSE-HUDDLE/0402
+Title: Controller status huddle
+Start: 04/02/2028 8:30 AM ET
+End: 04/02/2028 8:50 AM ET
+Room: MERIDIAN-CLOSE/Virtual-Room-1
+Agenda line: cash coverage, workbook health, staffing rota
+
+EVENT MERIDIAN-CLOSE/CLOSE-HUDDLE/0403
+Title: Controller status huddle
+Start: 04/03/2028 8:30 AM ET
+End: 04/03/2028 8:50 AM ET
+Room: MERIDIAN-CLOSE/Virtual-Room-1
+Agenda line: source feeds, AP counts, disclosure notes
+
+EVENT MERIDIAN-CLOSE/PARIS-RECON/0405
+Title: EU cash reconciliation working session
+Source zone: Europe/Paris
+Source date convention: DD/MM/YYYY
+Start: 05/04/2028 14:30 CEST
+End: 05/04/2028 15:15 CEST
+Room: MERIDIAN-CLOSE/Paris-Room-2
+Agenda line: clearing accounts 0441 and 0447
+
+EVENT MERIDIAN-CLOSE/DASHBOARD-DEMO/0406
+Title: Finance dashboard layout review
+Start: 04/06/2028 11:30 AM ET
+End: 04/06/2028 12:00 PM ET
+Room: MERIDIAN-CLOSE/Virtual-Room-3
+Agenda line: column widths and print scaling
+
+CALENDAR NOTES
+Meeting descriptions inherit the display zone unless a source zone is named.
+The monthly control series uses period keys to distinguish occurrences.
+Default reminder offset is 10 minutes.
+Blue marks recurring controls; grey marks meetings.
+Room 4 supports 20 attendees.
+Room 1 supports 12 attendees.
+Calendar build is MERIDIAN-CLOSE/CAL-4.2.
+Holiday overlay build is MERIDIAN-CLOSE/HOL-US-2028.1.
+Week numbers follow ISO display rules in the sidebar.
+Printed pages show Sunday as the first column for the US owner view.

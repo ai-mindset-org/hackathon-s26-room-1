@@ -1,0 +1,21 @@
+snapshot_generated,2027-02-12T18:00:00+01:00
+workspace,QUILL-GRANT/APP-27
+path,version,last_modified,state,recorded_owner,recorded_target,comment
+/narrative/main.docx,NARRATIVE-v1,2027-02-04T11:20:00+01:00,archived,Mara Voss,2027-02-14T17:00:00+01:00,briefing structure
+/narrative/main.docx,NARRATIVE-v2,2027-02-10T18:05:00+01:00,current,Mara Voss,2027-02-20T17:00:00+01:00,methods matrix expanded
+/narrative/main.docx,NARRATIVE-v3,2027-02-12T17:48:00+01:00,planned,Mara Voss,2027-02-25T17:00:00+01:00,awaiting finance condition
+/budget/workbook.xlsx,BUDGET-v3,2027-02-05T10:10:00+01:00,archived,Isaac Chen,2027-02-09T12:00:00+01:00,initial partner totals
+/budget/workbook.xlsx,BUDGET-v4,2027-02-09T16:32:00+01:00,archived,Isaac Chen,2027-02-12T12:00:00+01:00,travel correction
+/budget/workbook.xlsx,BUDGET-v5,2027-02-11T14:01:00+01:00,in_review,Isaac Chen,2027-02-16T15:00:00+01:00,workbook 5.8 review copy
+/data/app27-dmp.docx,DMP-v1,2027-02-06T09:16:00+01:00,archived,Jun Park,2027-02-18T18:00:00+01:00,inventory skeleton
+/data/app27-dmp.docx,DMP-v2,2027-02-10T09:29:00+01:00,in_progress,Jun Park,2027-02-28T18:00:00+01:00,APP-27 signed draft
+/letters/provider-a.docx,LETTER-v1,2027-02-07T12:44:00+01:00,draft,,2027-03-01T12:00:00+01:00,signature block pending
+/portal/rehearsal-checklist.md,CHECK-v4,2027-02-09T10:06:00+01:00,current,Ava Reed,2027-03-08T11:00:00+01:00,file name and receipt steps
+/figures/error-bars.svg,FIG-v6,2027-02-10T13:18:00+01:00,current,Mara Voss,,caption width 78 mm
+/figures/workflow.svg,FIG-v4,2027-02-10T13:26:00+01:00,current,Mara Voss,,three-stage annotation flow
+/profiles/dresden.md,PROFILE-v7,2027-02-10T15:11:00+01:00,current,Otto Klein,,staff count 49
+/profiles/dublin.md,PROFILE-v5,2027-02-10T15:23:00+01:00,current,Jun Park,,license paragraph revised
+/archive/risk-register-2025.xlsx,RISK-v9,2025-11-18T08:40:00+01:00,archived,Ava Reed,2025-12-02T17:00:00+01:00,prior programme
+note,The snapshot predates the finance confirmation and the 2027-02-15 steering minutes.
+note,APP-72 files are held in a separate workspace and are not listed in this APP-27 export.
+note,Blank recorded_target cells describe files without a committed delivery time in this snapshot.

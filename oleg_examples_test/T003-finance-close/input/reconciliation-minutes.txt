@@ -1,0 +1,62 @@
+Document: MERIDIAN-CLOSE/PARIS-RECON/0405-MINUTES
+Source: MERIDIAN-CLOSE/EU-Treasury
+Locale: en-IE; dates DD/MM/YYYY; amounts use dot thousands and decimal comma.
+Time zone: Europe/Paris
+Meeting: 05/04/2028 14:30-15:15 CEST
+Recorder: Celia Moss
+
+Attendees: Owen Vale (OV), Celia Moss, Rowan Pike.
+The cash import contained 226 rows across four bank files.
+Opening control total was 4.812.090,33 EUR.
+The difference from the morning dashboard was 14.884,02 EUR.
+Three timing items explain 12.779,42 EUR of that difference.
+The remaining two clearing accounts have similar descriptions.
+
+MERIDIAN-CLOSE/BANK-EU-0441 concerns the payroll clearing account ending 0441.
+OV owns the reconciliation for MERIDIAN-CLOSE/BANK-EU-0441.
+Its deadline is 05/04/2028 16:00 CEST.
+The 0441 difference of 12.779,42 EUR matched the delayed payroll file during the meeting.
+The match is ready for approval in MERIDIAN-CLOSE/APPROVAL-EU.
+
+MERIDIAN-CLOSE/BANK-EU-0447 concerns the benefits clearing account ending 0447.
+The 0447 difference is 2.104,60 EUR and remains under investigation.
+No participant accepted ownership of MERIDIAN-CLOSE/BANK-EU-0447 during the meeting.
+The minutes record no deadline for MERIDIAN-CLOSE/BANK-EU-0447.
+The 0447 description begins with the same words as the 0441 description.
+
+Discussion notes:
+Bank file A covers account suffixes 0410 through 0429.
+Bank file B covers account suffixes 0430 through 0449.
+Bank file C covers account suffixes 0450 through 0469.
+Bank file D contains fee and interest lines.
+The payroll file arrived at 13:58 CEST.
+The benefits carrier statement arrived at 14:07 CEST.
+Both files use UTF-8 and semicolon separators.
+The statement header has bank date 05/04/2028.
+The workbook has 19 visible tabs and two hidden calculation tabs.
+Row labels follow the account suffixes.
+The variance column is displayed to two decimal places.
+The meeting room clock was two minutes fast.
+The screen-share used workbook build MERIDIAN-CLOSE/RECON-6.4.
+The prior build was MERIDIAN-CLOSE/RECON-6.3.
+One attendee joined by audio after the first control total.
+The archive copy will include the bank-file hashes.
+
+Standard reconciliation sequence:
+Confirm source-file row counts against the bank portal.
+Compare opening and closing balances to the statement header.
+Match timing items with a dated source file.
+Enter preparer initials in the reconciliation header.
+Enter reviewer initials after the reviewer decision.
+Retain the original bank file beside the workbook.
+Keep account suffixes visible in exported comments.
+Use the source locale when reading dates and amounts.
+
+Historical excerpt from 05/04/2027 minutes:
+"OV cleared the old account ending 0441 before 16:00 CEST."
+"The 2027 benefits file contained 188 rows."
+The historical workbook is MERIDIAN-CLOSE/RECON-2027-04.
+
+Next status meeting: 06/04/2028 09:00 CEST.
+Document route: MERIDIAN-CLOSE/FIN-ARCHIVE/2028/EU-CASH.
+Minutes version: 1.2.

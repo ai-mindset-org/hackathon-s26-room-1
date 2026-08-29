@@ -1,0 +1,43 @@
+STONEBRIDGE-FM/WAW-CAMPUS — site diary extract
+Diary period: Monday 7 September to Friday 18 September 2026
+Location: Stonebridge North Campus, Warsaw, Poland
+All diary times use Europe/Warsaw local time.
+
+2026-09-07 06:45 — Morning temperature was 14 C; the north yard was dry after overnight wind.
+2026-09-07 06:58 — Gate B opened on the normal weekday roster with two guards and one relief officer.
+2026-09-07 07:06 — The freight lift counter showed 2,184 cycles; no fault code was present.
+2026-09-07 07:15 — STONEBRIDGE-FM/ZONE-E17A had a damp line beside the east expansion joint, about 1.8 m long.
+2026-09-07 07:22 — STONEBRIDGE-FM/ZONE-E17B lights responded normally, but the occupancy sensor stayed on for nine minutes after the walk-through.
+2026-09-07 07:31 — The paint store inventory was 26 white tins, 8 grey tins, and 14 unopened primer cans.
+2026-09-07 07:44 — Waste skip STONEBRIDGE-FM/SKIP-04 was at 62 percent by the visual gauge.
+2026-09-07 08:03 — Housekeeping moved the floor scrubber from corridor N2 to the charging bay.
+2026-09-07 08:18 — A temporary cable ramp at stair S4 was reset after the delivery crew passed.
+2026-09-07 08:42 — The east plant room fan ran at setting 2; vibration felt unchanged from Friday.
+2026-09-07 09:05 — Photos numbered STONEBRIDGE-FM/PHOTO-1701 through -1706 were added to the maintenance album.
+2026-09-07 09:27 — The roof drain basket was clear; leaves were collected in one small sack.
+2026-09-07 10:10 — The site radio check reached the gate, loading bay, roof, and both plant rooms.
+2026-09-07 11:36 — Concrete delivery docket STONEBRIDGE-FM/DOCKET-8841-PL was filed against the south-ramp repair, a separate September job.
+2026-09-07 13:12 — Lunch cover at reception ran from 13:00 to 13:30 without a queue.
+2026-09-07 14:26 — The west stair door closed in 6.2 seconds during the routine check.
+2026-09-07 15:48 — Pallets in bay 3 were moved 40 cm inside the yellow line.
+2026-09-07 16:20 — End-of-day water meter reading was 014882.7 m3.
+
+2026-09-09 07:02 — Cloud cover was low; surface temperature at the east wall was 13 C.
+2026-09-09 07:34 — Visitors for STONEBRIDGE-FM/VISIT-E17A signed in against the 09:00 inspection slot.
+2026-09-09 09:58 — Alicja Krawiec closed the first STONEBRIDGE-FM/VISIT-E17A occurrence after the drainage inspection in STONEBRIDGE-FM/ZONE-E17A.
+2026-09-09 10:11 — The inspection team used two chalk marks and removed both before leaving.
+2026-09-09 10:26 — Airflow at grille E-3 read 1.7 m/s, within the range logged in August.
+2026-09-09 11:04 — The west corridor floor remained open while the east door was briefly held for equipment.
+2026-09-09 12:18 — A canteen supplier left six empty crates for collection on the next route.
+2026-09-09 13:46 — Generator fuel showed 71 percent; the weekly test is recorded in the utilities register.
+2026-09-09 14:33 — The cleaning contractor reported 18 occupied desks on level 2.
+2026-09-09 15:25 — Handrail temperature near the atrium was 20 C.
+2026-09-09 16:14 — Gate B closed after the last booked van departed.
+
+2026-09-18 07:12 — The east plant room was released after the overnight ventilation test.
+2026-09-18 14:26 — The repaired joint in STONEBRIDGE-FM/ZONE-E17A was dry to the touch after the contractor packed away.
+2026-09-18 15:03 — Protective mats were returned to rack STONEBRIDGE-FM/RACK-M2.
+2026-09-18 16:22 — Final meter reading for this extract was 014936.1 m3.
+
+Diary keeper: Ewa Borowska, facilities clerk
+Archive route: STONEBRIDGE-FM/WAW-CAMPUS / Operations / Site diary / 2026-W38

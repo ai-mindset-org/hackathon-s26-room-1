@@ -1,0 +1,53 @@
+Workspace: QUILL-GRANT/APP-27 consortium
+Timezone shown by export: Europe/Berlin
+Exported: 2027-02-16T08:30:00+01:00
+
+[2027-02-10T09:07:12+01:00] Ava Reed: Good morning. The briefing notes are in the shared folder now.
+[2027-02-10T09:08:44+01:00] Isaac Chen: I saw the 20 percent ceiling. Our workbook still shows 22 percent for two partners.
+[2027-02-10T09:10:03+01:00] Mara Voss: The methods outline is 14 pages before figures. We can trim the historical comparison.
+[2027-02-10T09:11:27+01:00] Jun Park: The data inventory has 38 rows. Six are public corpora and the rest are synthetic plans.
+[2027-02-10T09:13:06+01:00] Otto Klein: Kurze Notiz: Dresden prüft heute die Speicherfristen.
+[2027-02-10T09:14:59+01:00] Leonie Falk: The Berlin room is free after lunch if anyone wants a working session.
+[2027-02-10T09:17:20+01:00] Ava Reed: The applicant briefing recording is 64 minutes. The portal demo starts around minute 21.
+[2027-02-10T09:20:15+01:00] Isaac Chen: Travel is EUR 18,400 in the current sheet, down from EUR 21,000 last week.
+[2027-02-10T09:22:31+01:00] Mara Voss: I renamed the evidence table so it matches section 2.3.
+[2027-02-10T09:25:08+01:00] Jun Park: Our license column now distinguishes source data from derived annotations.
+[2027-02-10T09:28:46+01:00] Otto Klein: APP-72 uses the same DMP template, which is why both folders have a DMP-v2 file.
+[2027-02-10T09:30:02+01:00] Jun Park: For QUILL-GRANT/APP-27/DMP-v2, I will deliver the signed draft by 2027-02-28T18:00:00+01:00.
+[2027-02-10T09:31:18+01:00] Otto Klein: For QUILL-GRANT/APP-72/DMP-v2, I will deliver our Dresden draft by 2027-03-03T17:00:00+01:00.
+[2027-02-10T09:33:40+01:00] Ava Reed: Great. APP-27 and APP-72 have different coordinators, budgets, and portal spaces.
+[2027-02-10T09:36:11+01:00] Leonie Falk: I found three duplicate institution descriptions in the partner profiles.
+[2027-02-10T09:38:27+01:00] Mara Voss: The older profile says 46 researchers; the current partner page says 49.
+[2027-02-10T09:42:53+01:00] Isaac Chen: I will finish QUILL-GRANT/APP-27/BUDGET-v5 by 2027-02-16T15:00:00+01:00.
+[2027-02-10T09:45:05+01:00] Ava Reed: Please keep the staff-month totals next to the cost explanation.
+
+[2027-02-11T14:02:18+01:00] Mara Voss: I can commit to the next narrative once the rate question is settled.
+[2027-02-11T14:03:51+01:00] Mara Voss: If Finance confirms that our revised workbook meets the 20 percent indirect-cost ceiling by 2027-02-13, I will deliver QUILL-GRANT/APP-27/NARRATIVE-v3 by 2027-02-25T17:00:00+01:00.
+[2027-02-11T14:05:12+01:00] Isaac Chen: I sent Finance workbook 5.8 with the partner notes attached.
+[2027-02-11T14:06:49+01:00] Otto Klein: Verstanden. Wir warten auf die Bestätigung der Finanzstelle.
+[2027-02-11T14:09:30+01:00] Jun Park: The glossary still alternates between evaluation set and benchmark set.
+[2027-02-11T14:11:57+01:00] Leonie Falk: Could a small public workshop help us explain the evaluation protocol?
+[2027-02-11T14:15:22+01:00] Ava Reed: The panel biography limit is 1,000 characters, including spaces.
+[2027-02-11T14:18:04+01:00] Mara Voss: The figure captions are 312 words in total, so trimming there will not solve the page issue.
+[2027-02-11T14:21:36+01:00] Isaac Chen: One invoice example uses 2026 rates. I will replace that example in the workbook commentary.
+
+[2027-02-13T13:06:07+01:00] Isaac Chen: Finance replied. I will forward the full message to the group archive.
+[2027-02-13T13:07:39+01:00] Mara Voss: Thanks. I can now schedule the narrative work against the confirmed ceiling.
+[2027-02-13T13:09:14+01:00] Otto Klein: Die Kostenquote ist bestätigt; das hilft unserer Partnerbeschreibung.
+[2027-02-13T13:12:42+01:00] Jun Park: I reduced the retention matrix to three access tiers.
+[2027-02-13T13:15:08+01:00] Leonie Falk: The rehearsal slot still clashes with Ava's panel training.
+[2027-02-13T13:17:45+01:00] Ava Reed: Leonie, can you take the portal upload rehearsal from me?
+[2027-02-13T13:19:02+01:00] Leonie Falk: Yes, I will own QUILL-GRANT/APP-27/UPLOAD-REHEARSAL and run it by 2027-03-08T11:00:00+01:00.
+[2027-02-13T13:21:33+01:00] Ava Reed: Thank you. I am removing it from my own work list.
+[2027-02-13T13:24:10+01:00] Isaac Chen: The test account currently has 14 files and reports 26 MB.
+[2027-02-13T13:26:58+01:00] Mara Voss: The narrative index points to section 4.2 twice. I will correct the second link while editing.
+
+[2027-02-15T10:01:44+01:00] Jun Park: Reviewer comments arrived. Most are questions about terminology and sampling.
+[2027-02-15T10:04:16+01:00] Otto Klein: APP-72 also received comments, but they belong in its separate workspace.
+[2027-02-15T10:06:51+01:00] Isaac Chen: The finance ledger shows EUR 612,840 after the latest adjustments.
+[2027-02-15T10:09:35+01:00] Leonie Falk: I tested the portal login. The session remained active for 31 minutes.
+[2027-02-15T10:11:28+01:00] Ava Reed: We should use the March rehearsal for file names, checksums, and receipt capture.
+[2027-02-15T10:14:07+01:00] Mara Voss: I will bring the revised outline to today's steering meeting.
+[2027-02-15T10:16:49+01:00] Otto Klein: Noch eine Notiz: Die zwei DMP-Dateien gehören zu verschiedenen Anträgen.
+[2027-02-15T10:19:22+01:00] Jun Park: The archive has an old 2025 risk register. I moved it into the prior-work folder.
+[2027-02-15T10:22:05+01:00] Isaac Chen: Coffee is in the second-floor kitchen. The main machine is being serviced.

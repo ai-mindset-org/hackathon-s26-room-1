@@ -1,0 +1,48 @@
+KITE-CLEAR/NORTH-QUAY carrier channel export
+Channel: KITE-CLEAR/PO-7843 dispatch
+Exported: 2027-04-08T13:05:00+03:00
+
+[2027-04-07 08:18 Europe/Istanbul] Bora: Morning deck check is complete for vehicle KITE-CLEAR/TRK-208.
+[2027-04-07 08:19 Europe/Istanbul] Bora: The curtain rails move freely and the floor is dry.
+[2027-04-07 08:21 Europe/Istanbul] Lena: Rotterdam terminal reported 74% yard occupancy overnight.
+[2027-04-07 08:23 Europe/Istanbul] Lena: Tuesday arrivals averaged 38 minutes from gate to scale.
+[2027-04-07 08:24 Europe/Istanbul] Bora: Driver rest plan uses Edirne and Sofia stops.
+[2027-04-07 08:25 Europe/Istanbul] Bora: Diesel estimate is 812 litres for the base route.
+[2027-04-07 08:27 Europe/Istanbul] Arda: The February lane had one snow diversion near Plovdiv.
+[2027-04-07 08:29 Europe/Istanbul] Lena: April ferry allocation is 14 units per evening sailing.
+[2027-04-07 08:32 Europe/Istanbul] Mert: KITE-CLEAR/LT-88A still appears at 13.04.2027 09:00 Istanbul in booking revision 2.
+[2027-04-07 08:34 Europe/Istanbul] Mert: I have the loading-release draft from the purchase order.
+[2027-04-07 08:36 Europe/Istanbul] Bora: The vehicle plate placeholder is KITE-CLEAR/PLATE-208 until dispatch assigns the tractor.
+[2027-04-07 08:39 Europe/Istanbul] Lena: KITE-CLEAR/LT-88B has a packaging appointment, not a carrier booking in this channel.
+[2027-04-07 08:42 Europe/Istanbul] Arda: Pallet footprint 1200 x 800 mm matches the standard deck plan.
+
+[2027-04-08 09:10 Europe/Istanbul] Lena: Terminal KITE-CLEAR/RTM-B12 has moved the provisional arrival window to Saturday morning.
+[2027-04-08 09:12 Europe/Istanbul] Bora: Border statistics yesterday showed 126 minutes median queue time.
+[2027-04-08 09:15 Europe/Istanbul] Arda: The dispatch board now shows vehicle KITE-CLEAR/TRK-214 instead of KITE-CLEAR/TRK-208.
+[2027-04-08 09:17 Europe/Istanbul] Bora: KITE-CLEAR/TRK-214 passed its deck inspection on 2027-04-07.
+[2027-04-08 09:20 Europe/Istanbul] Lena: Revision 6 of the route sheet has the same bonded terminal.
+[2027-04-08 09:24 Europe/Istanbul] Mert: My afternoon is allocated to KITE-CLEAR/PO-7821 returns, so Arda has the release handoff.
+[2027-04-08 09:28 Europe/Istanbul] Arda: I received the draft and the seal field is still blank until loading.
+[2027-04-08 09:31 Europe/Istanbul] Bora: Twelve pallet positions leave eight positions free.
+[2027-04-08 09:35 Europe/Istanbul] Lena: The rate card code is KITE-CLEAR/LANE-IST-RTM-27.
+[2027-04-08 09:38 Europe/Istanbul] Bora: The quoted line-haul amount is EUR 4,260.
+[2027-04-08 09:41 Europe/Istanbul] Arda: The driver-copy sleeve stock count is 36.
+
+[2027-04-08 12:14 Europe/Istanbul] Lena: The supplier confirmed that KITE-CLEAR/LT-88A can meet the later loading window.
+[2027-04-08 12:16 Europe/Istanbul] Lena: KITE-CLEAR/LT-88A pickup is confirmed for 13.04.2027 15:30 Europe/Istanbul; the 09:00 slot is superseded.
+[2027-04-08 12:18 Europe/Istanbul] System: Booking KITE-CLEAR/CAR-88A revision changed from 2 to 3.
+[2027-04-08 12:19 Europe/Istanbul] System: Responsible owner field remains empty in booking KITE-CLEAR/CAR-88A.
+[2027-04-08 12:21 Europe/Istanbul] Arda: Arda Yilmaz takes the KITE-CLEAR/LT-88A loading release from Mert Kaya and will send it by 13.04.2027 13:30 Europe/Istanbul.
+[2027-04-08 12:24 Europe/Istanbul] Bora: Two hours between the release and pickup covers gate printing and driver check-in.
+[2027-04-08 12:27 Europe/Istanbul] Lena: Rotterdam yard forecast is 69% for the planned arrival day.
+[2027-04-08 12:29 Europe/Istanbul] Arda: Route-sheet revision 6 remains valid after the time change.
+[2027-04-08 12:31 Europe/Istanbul] Bora: The vehicle wash certificate expires on 2027-05-02.
+[2027-04-08 12:34 Europe/Istanbul] Lena: Channel archive code is KITE-CLEAR/CHAT-88A-0408.
+[2027-04-08 12:36 Europe/Istanbul] Bora: Sofia depot reported 22 open parking bays this morning.
+[2027-04-08 12:38 Europe/Istanbul] Lena: The Rotterdam scale lane handled 67 vehicles yesterday.
+[2027-04-08 12:40 Europe/Istanbul] Arda: KITE-CLEAR/TRK-214 has 14 ratchet straps in its equipment box.
+[2027-04-08 12:42 Europe/Istanbul] Bora: The cab carries route-map edition 2027-Q2.
+[2027-04-08 12:44 Europe/Istanbul] Lena: Ferry schedule revision 8 lists three evening departures.
+[2027-04-08 12:46 Europe/Istanbul] Arda: Dispatch printer KITE-CLEAR/DSP-4 has 412 sheets remaining.
+[2027-04-08 12:48 Europe/Istanbul] Bora: March tyre-pressure exceptions averaged 0.6 per vehicle.
+[2027-04-08 12:50 Europe/Istanbul] Lena: The channel retained 184 messages for the April lane review.

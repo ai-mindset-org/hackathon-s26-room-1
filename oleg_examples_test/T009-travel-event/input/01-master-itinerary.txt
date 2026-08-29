@@ -1,0 +1,37 @@
+ATLAS-EVENT/Lumen Arc Collective
+Travel packet: ATLAS-EVENT/TRIP-ORBIT-27
+Packet version: 3
+Issued: 5 September 2026, 09:40 EDT
+Traveler: Renata Silva
+Route: New York / Lisbon / New York
+Outbound: ATLAS-EVENT/AW204, New York (JFK) 20 October 2026 19:30 EDT.
+Arrival: Lisbon (LIS) 21 October 2026 07:25 WEST.
+Return: ATLAS-EVENT/AW219, Lisbon 24 October 2026 11:35 WEST.
+Seat request: aisle, forward cabin.
+Meal preference recorded in the traveler profile: vegetarian.
+Baggage allowance: one cabin case and one checked case up to 23 kg.
+The aircraft listed in this version has thirty-two rows.
+The transfer desk reported an average curb wait of eleven minutes in August.
+ATLAS-EVENT/TRANSFER-204 is booked for 21 October at 08:20 Lisbon time; ATLAS-EVENT/Travel Desk owns the booking.
+Driver meeting point: arrivals level, column C, beside the blue information panel.
+The car service reference is ATLAS-EVENT/CAR-7721.
+The quoted ride price is EUR 38.40, including the airport access fee.
+Hotel: ATLAS-EVENT/Cais Meridian Hotel, Rua da Bruma 18, Lisbon.
+The lodging profile lists a quiet-floor preference and a desk lamp request.
+The current rate comparison uses a three-night sample rather than a confirmed stay line.
+Breakfast runs from 06:30 to 10:30 on weekdays.
+The hotel lobby has a small worktable near the east window.
+ATLAS-EVENT/PREP-204 is planned for 21/10/2026 at 16:00 in Lisbon.
+Preparation location in this version: ATLAS-EVENT/Ribeira Forum, Sala Azul.
+ATLAS-EVENT/ORBIT-27 takes place 22/10/2026 from 15:00 to 18:00 in Lisbon.
+Public doors are expected to open thirty minutes before the programme.
+The programme note estimates 84 guests, compared with 79 at last year's gathering.
+Renata's talk title is “Ports, patterns, and patient systems”.
+The deck has 34 slides in draft version 6.
+The team discussed a paper handout but printed none for the previous edition.
+Suggested walking route from the hotel follows Rua da Bruma and the riverside path.
+October sunset in Lisbon is usually shortly before 19:00.
+Emergency contact label: ATLAS-EVENT/DESK-NY-7.
+This packet uses local time at each departure and arrival point.
+Prepared by ATLAS-EVENT/Travel Desk <travel@atlas-event.example>
+ATLAS-EVENT/Lumen Arc Collective | 14 Paper Harbor Way | New York

@@ -1,0 +1,43 @@
+Meeting: NORTHSTAR-INC/Operations-Sync
+Recorded: 2027-08-19 17:10–17:46 UTC
+Participants: Diego Rios, Mira Chen, Leena Park, Jonas Reed, Priya Shah
+Diego 17:10: The purpose today is to compare the two attachment reports and the West retry evidence.
+Priya 17:11: East was a renderer problem. The stored object was ready, and rollback 9.6.0 restored the preview.
+Mira 17:12: West was a retry-worker lease problem yesterday, and the late customer message says it returned this morning.
+Jonas 17:13: The alert cleared at 16:01 UTC because queue depth fell below the threshold.
+Diego 17:14: The customer email entered the ticket at 16:42 UTC, after that clear event.
+Leena 17:15: A clear alert describes one metric window; it does not change the customer report that arrived later.
+Priya 17:16: East has no duplicate retry keys and no worker-lease overlap.
+Mira 17:17: The similar phrase “attachments never appear” came from two different product paths.
+Jonas 17:18: West uses NORTHSTAR-INC/Relay-Attachments. East uses NORTHSTAR-INC/Relay-Email-Preview.
+Diego 17:19: We should keep the support histories separate when we summarize the week.
+Leena 17:20: The West worker accepted four retry keys on two leases; I want to compare lease ownership around reconnects.
+Mira 17:21: Yesterday’s recycle reduced queue age from 612 seconds to 81 seconds.
+Jonas 17:22: The morning sample is small, so 143 seconds is more useful than a percentile label.
+Priya 17:23: East stayed at zero preview errors through the same period.
+Diego 17:24: The NORTHSTAR-INC/7421 learning review is scheduled for August 21 at 10:00 PDT.
+Mira 17:25: A facilitator has not been assigned for that review.
+Leena 17:26: Leena Park will deliver the retry-key comparison by August 20 at 16:00 PDT.
+Jonas 17:27: The comparison can use the sanitized lease fields already in NORTHSTAR-INC/Trace-Export-51.
+Priya 17:28: The retry-key comparison uses West data; the East renderer logs cover a different path.
+Diego 17:29: The review agenda can cover lease ownership, customer communication, and status wording.
+Mira 17:30: The status correction is separate from the technical retry analysis.
+Leena 17:31: Trace export NORTHSTAR-INC/Trace-Export-51 is 864 KB and contains five sample chains.
+Jonas 17:32: Two chains begin before the worker recycle, and three begin after it.
+Priya 17:33: The email renderer rollback changed template 9.6.1 to 9.6.0.
+Diego 17:34: Nobody has reported a stored-object loss in either workspace.
+Mira 17:35: The customer can continue with fresh uploads while Diego examines retries.
+Leena 17:36: I will compare key acceptance time, lease owner, and completion callback order.
+Jonas 17:37: The callback counter rolls over at midnight UTC, which explains yesterday’s chart edge.
+Priya 17:38: The East digest runs every hour at minute forty, and the last one rendered seven attachments.
+Diego 17:39: Support volume is otherwise normal for a Thursday.
+Mira 17:40: The team lunch order was smaller than expected because two people worked remotely.
+Leena 17:41: The meeting room display still shows the old floor map.
+Jonas 17:42: NORTHSTAR-INC/Status-Theme 12.4 shipped last week and only changes presentation.
+Priya 17:43: The customer quote is short enough to keep verbatim in the support summary.
+Diego 17:44: We will use UTC in the technical timeline and show Pacific time beside customer commitments.
+Mira 17:45: The next shift needs the late-mail ordering called out clearly.
+Diego 17:46: I will write the handoff after the status correction publication appears.
+Appendix quoted from NORTHSTAR-INC/Operations-Sync on 2026-11-04:
+> Jonas prepared a cache-key chart for NORTHSTAR-INC/Legacy-55 by November 5.
+> That review ended after the chart was delivered and the legacy queue was retired.

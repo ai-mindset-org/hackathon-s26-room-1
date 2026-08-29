@@ -1,0 +1,35 @@
+# CIVIC-ORCHID/BA-2029-417 — digitaler Bauantrag
+Export der Einreichung bei CIVIC-ORCHID/Bezirksstelle-Ostbogen, Berlin.
+Eingangszeit: 04.06.2029, 08:42 Europe/Berlin.
+Eingereichte Fassung: CIVIC-ORCHID/BA-2029-417/V1.
+Vorhaben: Umbau des Innenhofzugangs CIVIC-ORCHID/HOF-17 für eine kleine Werkhalle.
+Antragstellerin: CIVIC-ORCHID/Orchid-Hofgemeinschaft, postfachbasierte Zustellung in Berlin.
+Planverfasserin und Kontakt: CIVIC-ORCHID/Mira-Falk, Büro CIVIC-ORCHID/Planatelier-Kiesel.
+Grundstückskennung: CIVIC-ORCHID/FLUR-88-17; Kartenstand 02.05.2029.
+Die Hoffläche bleibt in ihrer bisherigen Ausdehnung von 612 Quadratmetern erhalten.
+Der nördliche Durchgang ist im Bestandsplan 1,48 Meter breit, im Modell 1,50 Meter.
+Die Differenz stammt aus der Rundung des Laserscans vom 18.04.2029.
+Die Werkhalle hat weiterhin zwei Mietbereiche und eine gemeinsame Teeküche.
+Das Entwässerungsgefälle wurde gegenüber der Machbarkeitsstudie von 2027 nicht geändert.
+Für die Bauphase sind sechs mobile Absperrelemente und zwei Lagerboxen beschrieben.
+Der Lieferweg verläuft montags morgens über CIVIC-ORCHID/TOR-NORD.
+Die Hausverwaltung meldete im Mai durchschnittlich elf Fahrradbewegungen pro Stunde.
+In Tabelle 4 steht die Materialnummer 25-061; sie bezeichnet den vorhandenen Klinker.
+Der Dateiname „Plan_17-06_final“ stammt aus dem internen Ablageschema des Vorjahres.
+Die Kostenschätzung nennt 471.300,00 EUR einschließlich einer Reserve von 8 Prozent.
+Als Vergleichsakte ist CIVIC-ORCHID/BA-2029-471/V1 für CIVIC-ORCHID/HOF-71 aufgeführt.
+CIVIC-ORCHID/BA-2029-471/V1 betrifft ein Vordach an einem anderen Hof und eine andere Bauherrschaft.
+Die Vergleichsakte nutzt dieselbe Klinkerfamilie, aber die Pläne haben keine gemeinsamen Bauteile.
+Im Anhang liegt das Sitzungsprotokoll der Eigentümer vom 12.03.2029 mit neun Anwesenheiten.
+Die dort genannte Zielwoche 30 war eine interne Reihenfolge für die Materialbemusterung.
+Der Antrag enthält Grundriss, Schnitt, Brandschutzbeschreibung und einen Scan der Nachbaranlage.
+Die Upload-Prüfung meldete 16 Dateien, 184 Seiten und keine beschädigten Container.
+Die Empfangsnummer 417-0406 ist eine technische Quittungsnummer für diesen Export.
+Der Bearbeitungsstand am Exporttag lautet „eingegangen“.
+Die nächste automatische Portalspiegelung war für 04.06.2029 um 12:00 vorgesehen.
+Kontaktzeiten des Planateliers sind Dienstag bis Donnerstag, jeweils 09:30 bis 15:30 Uhr.
+Der Scanraum war bei der Aufnahme mit 21 Grad und 44 Prozent Luftfeuchte protokolliert.
+Die Bestandsfotos tragen fortlaufende Bildnummern von 001 bis 086.
+Im südlichen Mietbereich lag während der Begehung eine leere Transportpalette.
+Die Legende unterscheidet Bestand mit gestrichelter und Planung mit durchgezogener Linie.
+Das Archivformat des Modells ist IFC 4.3, ergänzt um eine PDF/A-Ansicht.

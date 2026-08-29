@@ -1,0 +1,65 @@
+Workspace: MERIDIAN-CLOSE/Close-Room
+Export convention: timestamps are MM/DD/YYYY HH:MM ET in America/New_York.
+Channel: #march-close-2028
+
+[04/02/2028 08:41 ET] Rowan Pike: Cash dashboard refreshed; bank coverage is 98.7%.
+[04/02/2028 08:44 ET] Mara Quill: The AP queue count fell from 31 to 24 overnight.
+[04/02/2028 08:49 ET] Oliver Crane: Workbook 3.8 opens cleanly with the 3.6 macros.
+[04/02/2028 09:17 ET] Lena Hart: The recurring control is MERIDIAN-CLOSE/ACCRUAL-IC, with period-specific rows.
+[04/02/2028 09:18 ET] Lena Hart: LH is my short name in the calendar and approval log.
+[04/02/2028 09:21 ET] Priya Stone: March has 12 entity tabs; April has 13 after the new branch joins.
+[04/02/2028 09:27 ET] Rowan Pike: The comment column now wraps at 80 characters.
+[04/02/2028 09:35 ET] Mara Quill: Two vendor statements arrived through the shared mailbox.
+[04/02/2028 09:43 ET] Owen Vale: EU cash file contains 226 rows and balances to EUR 4.812.090,33.
+[04/02/2028 10:02 ET] Lena Hart: Keep the dashboard labels aligned with the period names.
+[04/02/2028 10:18 ET] Oliver Crane: Rate set A contains 48 currencies; rate set B contains 11.
+[04/02/2028 10:31 ET] Priya Stone: The journal description field is limited to 32 characters.
+[04/02/2028 10:52 ET] Rowan Pike: The old printer queue still shows version 2.4.
+[04/02/2028 11:06 ET] Mara Quill: AP exported 64 open lines and 403 paid lines.
+[04/02/2028 11:23 ET] Owen Vale: Account suffixes 0441 and 0447 appear beside each other in the EU workbook.
+[04/02/2028 11:44 ET] Lena Hart: Use the full account suffix in comments because the descriptions are almost identical.
+[04/02/2028 12:16 ET] Priya Stone: Lunch coverage is already reflected in the rota.
+[04/02/2028 13:08 ET] Rowan Pike: The close-room board has 36 cards in the archive lane.
+[04/02/2028 14:25 ET] Oliver Crane: Historical March 2027 cards keep their original timestamps.
+[04/02/2028 15:49 ET] Mara Quill: The tax code report shows 7 domestic and 4 cross-border codes.
+
+[04/03/2028 08:32 ET] Rowan Pike: Overnight loader ended at 08:19 with zero rejected rows.
+[04/03/2028 08:40 ET] Lena Hart: Yesterday's calendar still shows the March accrual review at 04/04 5 PM ET.
+[04/03/2028 09:05 ET] Priya Stone: The controller pack is 71% complete; disclosure notes are the largest open section.
+[04/03/2028 09:28 ET] Mara Quill: MERIDIAN-CLOSE/INV-US-7743 is already paid in the export.
+[04/03/2028 09:31 ET] Mara Quill: MERIDIAN-CLOSE/INV-US-7742 is the neighboring held line.
+[04/03/2028 10:14 ET] Owen Vale: EU extract labels dates day/month/year and uses comma decimals.
+[04/03/2028 10:47 ET] Rowan Pike: Cover-sheet color moved from slate to navy in version 3.8.
+[04/03/2028 11:02 ET] Oliver Crane: The rate bridge is $18,402.17 before posting.
+[04/03/2028 11:39 ET] Priya Stone: Twelve explanations have supporting links; three are plain text.
+[04/03/2028 12:03 ET] Mara Quill: The invoice export groups paid rows after held rows.
+[04/03/2028 13:22 ET] Lena Hart: April's recurring occurrence remains on its May slot.
+[04/03/2028 14:11 ET] Rowan Pike: The room topic still says March Close / revision 3.8.
+[04/03/2028 15:03 ET] Owen Vale: The Paris team will use CEST in its minutes.
+[04/03/2028 16:31 ET] Lena Hart: Controller mail sent: only the March accrual occurrence moves to 04/05 noon ET.
+[04/03/2028 16:38 ET] Priya Stone: I see the March row updated and the April row unchanged.
+[04/03/2028 17:12 ET] Mara Quill: Tax validation for invoice 7742 has two attachments.
+
+[04/04/2028 08:11 ET] Rowan Pike: US ledger batch MERIDIAN-CLOSE/BATCH-US-409 posted 1,107 lines.
+[04/04/2028 08:33 ET] Oliver Crane: FX workpaper checksum list contains 48 entries.
+[04/04/2028 09:26 ET] Priya Stone: The commentary tab has no broken links.
+[04/04/2028 10:07 ET] Owen Vale: EU bank download is dated 04/04/2028 under its day/month convention.
+[04/04/2028 10:45 ET] Mara Quill: Paid invoice count is now 406.
+[04/04/2028 11:54 ET] Lena Hart: The March accrual source package is in archive route Q1/MARCH.
+[04/04/2028 13:29 ET] Rowan Pike: Close status is 84%; cash and payroll sections are green.
+[04/04/2028 15:17 ET] Priya Stone: The dashboard carries $124,880.50 as the vendor cover balance.
+[04/04/2028 16:02 ET] Owen Vale: Paris recon meeting begins tomorrow at 14:30 CEST.
+[04/04/2028 16:44 ET] Mara Quill: The 7742 hold reason still reads TAX-VALIDATE.
+
+[04/05/2028 09:12 ET] Lena Hart: LH has the March accrual package open now.
+[04/05/2028 10:26 ET] Priya Stone: I am using PS in the approval tool.
+[04/05/2028 11:08 ET] Rowan Pike: Metrics page shows 92% close completion.
+[04/05/2028 11:41 ET] Owen Vale: Paris minutes will distinguish 0441 from 0447 by suffix.
+[04/05/2028 12:18 ET] Lena Hart: MERIDIAN-CLOSE/ACCRUAL-IC/MAR-2028 is complete; I filed the signed review at 12:18 PM ET.
+[04/05/2028 13:35 ET] Oliver Crane: My old FX queue still caches the journal name after reassignment.
+[04/05/2028 13:47 ET] Priya Stone: The live queue shows MERIDIAN-CLOSE/JE-APR-17 under PS.
+[04/05/2028 16:19 ET] Mara Quill: AP retained both the hold note and the tax attachment.
+[04/05/2028 17:26 ET] Rowan Pike: Dashboard export took 19 seconds.
+
+Channel retention: 7 years under MERIDIAN-CLOSE/RET-7Y.
+Workspace help route: MERIDIAN-CLOSE/OPS-HELP.

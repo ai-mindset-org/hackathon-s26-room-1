@@ -1,0 +1,42 @@
+Calendar export: Paris Administrative Coordination
+Published: Sunday, 5 March 2028 17:20 Europe/Paris
+Default time zone: Europe/Paris
+Week display: Monday first; locale fr-FR
+Calendar owner: Coordination Harbor Paris
+Monday 6 March, 09:00–09:20 — reception opening huddle
+Agenda: badge stock, parcel shelf, lift notice, and desk cover for lunch.
+The huddle notes from 27 February record that the grey folders were delivered.
+Tuesday 7 March, 15:30–15:50 — supplier call about the foyer directory
+The supplier quotation is numbered 2028-0315 and remains valid for thirty days.
+Wednesday 8 March, 11:00–11:25 — portal typography review
+Discussion options: shorter labels, larger type, or one label on two lines.
+Thursday 9 March, 16:00–16:30 — February reception statistics
+The agenda includes average wait time, returned mail, and use of both entrances.
+Historical entry: Monthly signage review — 2 March 2028, 16:00–16:20.
+The signage minutes mention paint sample 14-A and frame size 20 × 48 cm.
+HARBOR-ADMIN/APPT-2047 — Accueil Ouest — 15 March 2028, 14:00–14:30 Europe/Paris.
+Calendar note: administrative file HARBOR-ADMIN/ADM-2047; bilingual confirmation queue.
+HARBOR-ADMIN/APPT-2048 — Accueil Est — 15 March 2028, 14:00–14:30 Europe/Paris.
+Calendar note: administrative file HARBOR-ADMIN/ADM-2048; east ledger.
+Both appointments use independent desk calendars and separate administrative files.
+HARBOR-ADMIN/ORI-55 — remote administrative orientation — 16 March 2028, 10:00–10:30 Europe/Paris.
+Host: Camille Durand; meeting language order: French, then English.
+Camille Durand will send the access link by 15 March 2028 at 12:00 Europe/Paris.
+The orientation room label in the directory is Virtual Room 5, revision 3.
+Friday 17 March, 09:15–09:35 — stationery count
+The count sheet uses columns for envelopes, visitor cards, clips, and label rolls.
+Team bulletin for the week of 13 March: foyer repaint samples are on the notice board.
+Question for the next calendar workshop: would colour categories help temporary desk cover?
+An older calendar export used UTC for remote meetings and confused the wall display.
+The current feed shows Europe/Paris beside every external appointment.
+Past entry: welcome-screen rehearsal — 23 February 2028, 10:15–10:35.
+The rehearsal notes say the second slide had too much text for the foyer monitor.
+Past entry: label-printer cleaning — 24 February 2028, 08:20–08:35.
+The printer log shows one jam and a completed roller check.
+The March bulletin uses a pale grey border chosen during the January workshop.
+An agenda draft mentions umbrella storage and the position of the parcel shelf.
+The facilities digest reports that both lifts passed their February inspection.
+The calendar team counted four duplicate colour labels in an archived feed.
+Calendar service account: calendar-paris@harbor-admin.example
+Calendar feed revision: HARBOR-ADMIN/CAL-2028-03-05-1720
+End of calendar export
