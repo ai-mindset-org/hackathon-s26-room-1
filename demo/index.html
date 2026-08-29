@@ -366,14 +366,15 @@ function scanDates(text, ref){
   const taken = [];
   const free = (a,b) => !taken.some(([x,y]) => a < y && b > x);
   const prepOf = i => {
-    const back = text.slice(Math.max(0, i-16), i).toLowerCase();
-    const m = back.match(new RegExp(NB + "(до|к|ко|на|в|во)\\s+(?:[а-яё]+\\s+)?$"));
-    return m ? (m[1] === "ко" ? "к" : m[1]) : "";
+    const back = text.slice(Math.max(0, i-18), i).toLowerCase();
+    const m = back.match(new RegExp(NB + "(до|к|ко|на|в|во)\\s+([а-яё]+\\s+)?$"));
+    if (!m) return {prep:"", via:""};
+    return {prep: m[1] === "ко" ? "к" : m[1], via: (m[2] || "").trim()};
   };
   const push = (m, obj) => {
     if (!free(m.index, m.index + m[0].length)) return;
     taken.push([m.index, m.index + m[0].length]);
-    found.push(Object.assign({raw:m[0].trim(), at:m.index, prep:prepOf(m.index)}, obj));
+    found.push(Object.assign({raw:m[0].trim(), at:m.index}, prepOf(m.index), obj));
   };
   const year = new Date(ref).getUTCFullYear();
   let m;
@@ -387,14 +388,14 @@ function scanDates(text, ref){
   while ((m = num.exec(text))) push(m, {when: m[3] ? D.make(+m[3], +m[2]-1, +m[1]) : nearest(ref, +m[2]-1, +m[1]), strength:2});
 
   // «двадцать пятого сентября», «пятого сентября»
-  const ordMonth = new RegExp(NB + "(?:(двадцать|тридцать)\\s+)?(" + ORD_RX + ")\\w*\\s+(" + MONTH_RX + ")\\w*", "gi");
+  const ordMonth = new RegExp(NB + "(?:(двадцать|тридцать)\\s+)?(" + ORD_RX + ")[а-яё]*\\s+(" + MONTH_RX + ")[а-яё]*", "gi");
   while ((m = ordMonth.exec(text))){
     const base = m[1] ? (m[1].toLowerCase() === "двадцать" ? 20 : 30) : 0;
     push(m, {when: nearest(ref, monthIdx(m[3]), base + ORD[m[2].toLowerCase()]), strength:2});
   }
 
   // «12 сентября», «5 сентября»
-  const numMonth = new RegExp("\\b(\\d{1,2})\\s+(" + MONTH_RX + ")\\w*", "gi");
+  const numMonth = new RegExp("\\b(\\d{1,2})\\s+(" + MONTH_RX + ")[а-яё]*", "gi");
   while ((m = numMonth.exec(text))) push(m, {when: nearest(ref, monthIdx(m[2]), +m[1]), strength:2});
 
   // «до десятого», «к первому»
@@ -405,7 +406,7 @@ function scanDates(text, ref){
   }
 
   // «до пятницы», «к понедельнику»
-  const wd = new RegExp(NB + "(?:до|к|ко|в|во)\\s+(" + WD_RX + ")\\w*", "gi");
+  const wd = new RegExp(NB + "(?:до|к|ко|в|во)\\s+(" + WD_RX + ")[а-яё]*", "gi");
   while ((m = wd.exec(text))) push(m, {when: nextWeekday(ref, wdIdx(m[1])), strength:1});
 
   // «завтра утром», «сегодня»
@@ -478,6 +479,7 @@ function findTwin(item, exclude){
   for (const c of state.items){
     if (c.status !== "open") continue;
     if (exclude && exclude.has(c.id)) continue;
+    if (item.kind && c.kind !== item.kind && (item.kind === "event" || c.kind === "event")) continue;
     let shared = 0;
     for (const t of item.tokens) if (c.tokens.has(t)) shared++;
     if (!shared) continue;
@@ -510,20 +512,21 @@ function analyze(raw, src, refDate, me){
   const hasMarker = MARKERS.some(m => low.includes(m));
   const hedged = HEDGES.some(h => low.includes(h));
 
-  if (!hasMarker && !dates.length) return null;
   if (text.length < 8) return null;
 
-  // явные операции над уже известным
+  // явные операции над уже известным — их ловим до отсева «не похоже на обязательство»
   if (CANCEL_MARKERS.some(m => low.includes(m))) return {op:"cancel", text, dates, src};
   if (DONE_MARKERS.some(m => low.includes(m)))   return {op:"done",   text, dates, src};
+
+  if (!hasMarker && !dates.length) return null;
 
   // @Павел с тебя … — владелец назван прямо
   const at = text.match(/@([А-ЯЁ][а-яё]+)/);
   if (at) owner = at[1];
   else if (!owner && new RegExp(NB + "я" + NA, "i").test(low)) owner = me;
 
-  const eventMention = dates.find(d => d.prep === "на");
-  const dueMention = dates.filter(d => d.prep !== "на")
+  const eventMention = dates.find(d => d.prep === "на" && looksLikeEventDate(d, low));
+  const dueMention = dates.filter(d => d !== eventMention)
     .sort((a,b) => (b.strength - a.strength) || (a.at - b.at))[0];
 
   const recurring = dates.some(d => d.recurring);
@@ -588,12 +591,15 @@ function analyze(raw, src, refDate, me){
 }
 
 function sentence(t){
-  let s = t.replace(/^(коллеги|ребята|привет|уважаемые\s+[а-яё]+)[,!:—-]\s*/i, "")
-           .replace(/^(также\s+)?(напоминаем|напоминаю)[:,]?\s*/i, "")
-           .replace(/^не\s+забываем\s*[—–-]\s*/i, "")
-           .replace(/^(и|а|ок|да|значит)[,\s]+/i, "")
-           .replace(/^апдейт:\s*/i, "")
-           .replace(/[.\s]+$/, "");
+  let s = t;
+  for (let i = 0; i < 2; i++){          // «и не забываем — …» чистится в два прохода
+    s = s.replace(/^(коллеги|ребята|привет|уважаемые\s+[а-яё]+)[,!:—-]\s*/i, "")
+         .replace(/^(и|а|ок|да|значит)[,\s]+/i, "")
+         .replace(/^(также\s+)?(напоминаем|напоминаю)[:,]?\s*/i, "")
+         .replace(/^не\s+забываем\s*[—–-]\s*/i, "")
+         .replace(/^апдейт:\s*/i, "");
+  }
+  s = s.replace(/[.\s]+$/, "");
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
@@ -602,6 +608,13 @@ function eventTitle(text, mention){
   if (after) return sentence(after[1]) + " " + D.human(mention.when);
   const head = text.split(/[—:,]/)[0].trim();
   return sentence(head || text) + " " + D.human(mention.when);
+}
+
+/* «на среду 02.09» — это перенос срока, а не событие; «зал на демо 25.09» — событие */
+function looksLikeEventDate(d, low){
+  if (d.via && WEEKDAYS.some(([w]) => d.via.startsWith(w))) return false;
+  if (/перенос|сдвиг|назнач|сдела/.test(low)) return false;
+  return !!d.via || /запис|брониру|бронь|встреч|собран|созвон/.test(low);
 }
 
 function basketOf(low){
