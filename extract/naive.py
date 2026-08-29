@@ -18,8 +18,8 @@ from __future__ import annotations
 import hashlib
 import re
 
-from core.graph import EVIDENCED_BY, Graph
-from core.model import EVENT, RECURRING, TASK, Chunk, Commitment
+from core.graph import EVIDENCED_BY, PREPARES, Graph
+from core.model import EVENT, RECURRING, TASK, Chunk, Commitment, Event
 
 # Маркеры долженствования
 MARKERS = (
@@ -49,6 +49,7 @@ DATE_WORD = re.compile(
     r"десятого|первого|второго|третьего|пятого)",
     re.IGNORECASE,
 )
+MENTION = re.compile(r"@([А-ЯЁ][а-яё]+)")
 CHAT_PREFIX = re.compile(r"^\[(\d{1,2}\.\d{2})\s+\d{1,2}:\d{2}\]\s*([^:]{1,20}):\s*")
 TRANSCRIPT_PREFIX = re.compile(r"^\s*[—–-]\s+")
 
@@ -109,6 +110,12 @@ def clean(text: str) -> tuple[str, str | None, str | None]:
         text = text[m.end():]
     else:
         text = TRANSCRIPT_PREFIX.sub("", text)
+
+    # «@Павел с тебя цифры» — владелец Павел, а не автор сообщения
+    mention = MENTION.search(text)
+    if mention:
+        owner = mention.group(1)
+
     return text.strip(), owner, said
 
 
@@ -159,4 +166,43 @@ def extract(chunks: list[Chunk], known_keys: list[str], today: str) -> Graph:
         g.add_node("chunk", ch)
         g.add_edge(c.id, EVIDENCED_BY, ch.id)
 
+        _link_prepared_event(g, c, ch.text)
+
     return g
+
+
+def _link_prepared_event(g: Graph, c: Commitment, text: str) -> None:
+    """Задача, готовящая событие: у задачи свой срок, у события своя дата.
+
+    «бронирую зал на демо двадцать пятого сентября» — 25.09 это дата ДЕМО,
+    а не срок брони. Разводим их структурой: ребро PREPARES, а не одно поле.
+    Правила ловят только явное «на <событие> <дата>»; общий случай — за моделью.
+    """
+    low = text.lower()
+    m = re.search(
+        r"на\s+(демо|собрание|встречу|созвон)\b(.{0,40})", low, re.IGNORECASE
+    )
+    if not m:
+        return
+    tail = m.group(2)
+    when = None
+    for rx in (DATE_MONTH, DATE_NUM):
+        found = rx.search(tail)
+        if found:
+            when = found.group(0)
+            break
+    if when is None:
+        found = re.search(
+            r"(двадцать\s+\w+|тридцать\s+\w+|\w+ого)\s+(\w+)", tail
+        )
+        when = found.group(0) if found else None
+    if when is None:
+        return
+
+    ev = Event(id=f"ev-{_id(m.group(1) + when)[2:]}", title=m.group(1), date=None)
+    g.add_node("event", ev)
+    g.add_edge(c.id, PREPARES, ev.id)
+    # дата события не должна утечь в срок задачи
+    if c.due_raw and when in c.due_raw:
+        c.due_raw = None
+        c.uncertainty.append(f"срок задачи не назван; {when} — дата события")

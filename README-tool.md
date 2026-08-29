@@ -64,10 +64,10 @@ Commitment  ──ABOUT─────────▶ Topic
 |---|---|---|
 | `core/` | ✅ готов | `Graph`, `save/load`, узлы и рёбра |
 | `ingest/` | ✅ готов | `read_folder(path) -> (list[Source], list[Chunk])` |
-| `extract/` | 🟡 заглушка | `extract(chunks, known_keys, today) -> Graph` |
-| `dates/` | ⬜ свободен | `resolve(commitments, today) -> list[Commitment]` |
-| `registry/` | ⬜ свободен | `merge(base: Graph, new: Graph) -> Graph` |
-| `runner/` | 🟡 грубый | `run_all(today) -> int` |
+| `extract/` | 🟡 R6EX — правила + шов под модель | `extract(chunks, known_keys, today) -> Graph` |
+| `dates/` | ✅ R6EX | `resolve(commitments, today) -> list[Commitment]` |
+| `registry/` | ⬜ **СВОБОДЕН — берите** | `merge(base: Graph, new: Graph) -> Graph` |
+| `runner/` | 🟡 грубый, ждёт LLM-судью | `run_all(today) -> int` |
 
 ### `extract/` — фаза 2
 
@@ -118,10 +118,31 @@ def merge(base: Graph, new: Graph) -> Graph:
 ## Где мы по приёмке
 
 ```
-01-разнородный-вход: 4 из 8
-02-повторный-прогон: 3 из 4
-03-скриншот-и-отмена: 2 из 4
-ИТОГО: 9 из 16
+01-разнородный-вход:  8 из 8
+02-повторный-прогон:  3 из 4
+03-скриншот-и-отмена: 4 из 4
+ИТОГО: 15 из 16
 ```
 
-Все промахи — про даты и слияние, то есть про `dates/` и `registry/`.
+Единственный промах — «новых дублей ни по одному пункту нет». Это `registry/`.
+
+## LLM — шов готов, нужен ключ
+
+`extract/llm.py` написан и ждёт `ANTHROPIC_API_KEY`. Без ключа конвейер молча
+работает на правилах.
+
+```bash
+export ANTHROPIC_API_KEY=sk-ant-...
+python3 cli.py run --input ПАПКА --today 2026-08-28 --llm
+```
+
+Это не косметика. На правилах инструмент хорошо выглядит только на `examples/`;
+на реальной пачке заказчика с чужими формулировками они рассыпаются. Промпт
+в `extract/llm.py` уже содержит правило про PREPARES и про переиспользование
+известных ключей.
+
+## Расхождение в приёмке — нужно слово заказчика
+
+`expected.md` примера 01 говорит «до пятницы **29.08**», но **29.08.2026 —
+суббота**. Пятница это 28.08. `dates/` считает календарно верно и даёт 28.08.
+Кто прав — календарь или текст примера — решает заказчик.

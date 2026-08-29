@@ -43,7 +43,7 @@ def expected_items(path: Path) -> list[str]:
 
 
 def keywords(item: str) -> list[str]:
-    words = re.findall(r"[А-Яа-яЁёA-Za-z]{5,}", item)
+    words = re.findall(r"[А-Яа-яЁёA-Za-z]{4,}", item)
     return [w.lower() for w in words if w.lower() not in STOP][:6]
 
 
