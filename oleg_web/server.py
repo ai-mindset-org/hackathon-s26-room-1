@@ -257,6 +257,22 @@ def _spawn(run: Run, cmd: List[str], cwd: Path, env: Dict[str, str]) -> None:
 app = FastAPI(title="Реестр обязательств — веб")
 
 
+@app.exception_handler(Exception)
+async def any_error(request: Request, exc: Exception) -> JSONResponse:
+    """Никогда не отдавать стектрейс: одна читаемая строка в JSON."""
+    return JSONResponse({"ok": False,
+                         "error": f"{type(exc).__name__}: {exc}"[:400]}, status_code=500)
+
+
+async def json_body(request: Request) -> Dict[str, Any]:
+    """Тело запроса или понятная ошибка вместо 500 на битом UTF-8/JSON."""
+    raw = await request.body()
+    try:
+        return json.loads(raw.decode("utf-8"))
+    except UnicodeDecodeError:
+        return json.loads(raw.decode("utf-8", "replace"))
+
+
 def effective_features(request: Optional[Request]) -> Dict[str, bool]:
     feats = dict(FEATURES)
 
@@ -327,7 +343,10 @@ def api_registry(path: str = "") -> JSONResponse:
 
 @app.post("/api/run")
 async def api_run(request: Request) -> JSONResponse:
-    body = await request.json()
+    try:
+        body = await json_body(request)
+    except (json.JSONDecodeError, ValueError) as exc:
+        return JSONResponse({"ok": False, "error": f"Тело запроса не разобрать как JSON: {exc}"}, status_code=400)
     inp = (body.get("input") or "").strip()
     if not inp:
         return JSONResponse({"ok": False, "error": "Не выбрана папка со входящими."}, status_code=400)
@@ -396,7 +415,7 @@ async def api_run_examples(request: Request) -> JSONResponse:
     if not effective_features(request).get("run_examples"):
         return JSONResponse({"ok": False, "error": "Функция «Прогнать примеры» выключена (FEATURES.run_examples)."},
                             status_code=403)
-    body = await request.json()
+    body = await json_body(request)
     ex = (body.get("examples") or "").strip()
     if not ex:
         return JSONResponse({"ok": False, "error": "Не выбрана папка примеров."}, status_code=400)
@@ -448,7 +467,7 @@ def api_run_status(run_id: str, since: int = 0) -> JSONResponse:
 async def api_save(request: Request) -> JSONResponse:
     if not effective_features(request).get("edit"):
         return JSONResponse({"ok": False, "error": "Редактирование выключено (FEATURES.edit)."}, status_code=403)
-    body = await request.json()
+    body = await json_body(request)
     p = Path(body.get("path") or DEFAULT_REGISTRY)
     if not p.is_absolute():
         p = (REPO_ROOT / p).resolve()
