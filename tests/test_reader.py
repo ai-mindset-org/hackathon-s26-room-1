@@ -43,6 +43,13 @@ def test_письмо_по_заголовку_От():
     assert detect_kind("От: Гимназия №14 <info@school.example>\nТема: собрание\n\nТекст.") == EMAIL
 
 
+def test_письмо_по_заголовку_From():
+    """.eml на английском — реальный кейс из oleg_examples_quick_untrusted/T001:
+    было PLAIN (только 'От:' узнавался), письмо резалось построчно вместо
+    как тело письма по предложениям."""
+    assert detect_kind("From: contracts@northlake.example\nSubject: Renewal\n\nText.") == EMAIL
+
+
 def test_чат_по_двум_и_более_строкам_с_таймстампом():
     assert detect_kind(
         "[27.08 14:02] Марина: статус нужен к понедельнику\n"
