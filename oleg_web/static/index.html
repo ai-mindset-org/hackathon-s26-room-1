@@ -185,19 +185,20 @@ function cmp(a,b){
   return String(a).localeCompare(String(b),"ru",{numeric:true}) * SORT.dir;
 }
 const CLOSED = s => s==="done"||s==="cancelled"||s==="superseded";
+const ST = o => o.status || "open";
 
 function render(){
   const tb = $("#tb"); tb.innerHTML="";
   const obs = (REG && REG.obligations) ? REG.obligations.slice() : [];
   // закрытые всегда внизу, внутри групп — выбранная сортировка
-  obs.sort((x,y)=>{ const cx=CLOSED(x.status)?1:0, cy=CLOSED(y.status)?1:0; return cx-cy || cmp(x,y); });
-  const open = obs.filter(o=>!CLOSED(o.status)).length;
+  obs.sort((x,y)=>{ const cx=CLOSED(ST(x))?1:0, cy=CLOSED(ST(y))?1:0; return cx-cy || cmp(x,y); });
+  const open = obs.filter(o=>!CLOSED(ST(o))).length;
   $("#count").textContent = obs.length ? `${obs.length} записей · ${open} открытых · ${obs.length-open} закрытых` : "";
   $("#empty").style.display = obs.length ? "none" : "";
   const feat = CFG.features||{};
   for(const ob of obs){
     const tr = document.createElement("tr");
-    tr.className = "ob" + (CLOSED(ob.status)?" closed":"");
+    tr.className = "ob" + (CLOSED(ST(ob))?" closed":"");
     const s0 = (ob.sources&&ob.sources[0])||{};
     const caret = feat.timeline ? `<span class="caret" data-id="${esc(ob.id)}">${OPEN.has(ob.id)?"▾":"▸"}</span>` : "";
     const ed = (field,val,ph) => feat.edit
@@ -213,8 +214,8 @@ function render(){
       `<td><span class="chip">${esc(ob.kind||"task")}</span></td>`+
       `<td>${feat.edit
           ? `<select class="ed" data-id="${esc(ob.id)}" data-f="status">`+
-            ["open","done","cancelled","superseded"].map(s=>`<option ${s===ob.status?"selected":""}>${s}</option>`).join("")+"</select>"
-          : `<span class="chip ${esc(ob.status)}">${esc(ob.status)}</span>`}</td>`+
+            ["open","done","cancelled","superseded"].map(s=>`<option ${s===ST(ob)?"selected":""}>${s}</option>`).join("")+"</select>"
+          : `<span class="chip ${esc(ST(ob))}">${esc(ST(ob))}</span>`}</td>`+
       `<td class="q"><span class="src" data-p="${esc(s0.path||"")}" data-q="${esc(s0.quote||"")}">${esc((s0.path||"—").split(/[\\/]/).pop())}</span>`+
       `<div class="quote">«${esc(s0.quote||"")}»</div>`+
       (ob.sources && ob.sources.length>1 ? `<div class="muted" style="font-size:11px">+ ещё ${ob.sources.length-1} источник(а)</div>`:"")+
