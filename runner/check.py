@@ -149,4 +149,4 @@ def run_all(today: str = "2026-08-28", llm: bool = False,
             else:
                 print(f"    ✗ {m[:100]}")
     print(f"\nИТОГО: {total_ok} из {total}")
-    return 0
+    return 0 if total_ok == total else 1
