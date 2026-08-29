@@ -22,22 +22,9 @@ from dates.resolve import resolve, sort_key
 from extract import llm as extract_llm
 from extract.naive import extract as extract_naive
 from ingest.reader import read_folder
+from registry import merge
 
 KIND_LABEL = {EVENT: "событие", RECURRING: "регулярное"}
-
-
-def merge_into(base: Graph, new: Graph) -> Graph:
-    """Фаза 1: вливаем по id, без умного слияния.
-
-    Умное слияние (обновить срок, не создать дубль, закрыть, отменить
-    с каскадом) — контракт registry.merge, фаза 3.
-    """
-    for kind, nodes in new.nodes.items():
-        for node_id, node in nodes.items():
-            base.nodes[kind][node_id] = node
-    for e in new.edges:
-        base.add_edge(e.src, e.type, e.dst)
-    return base
 
 
 def render(graph: Graph) -> str:
@@ -128,7 +115,7 @@ def cmd_run(args: argparse.Namespace) -> int:
 
     new = _extract(chunks, graph.known_keys(), args.today, args.llm)
     resolve(new.commitments(), args.today)
-    graph = merge_into(graph, new)
+    graph = merge(graph, new)
 
     save(graph, registry_path)
     text = render(graph)
