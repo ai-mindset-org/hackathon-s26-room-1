@@ -231,6 +231,44 @@ footer{
   max-width:900px;
 }
 footer b{color:var(--ink-2)}
+/* ── вкладка «настоящий реестр»: включается, только если рядом живёт demo/serve.py ── */
+.rr-bar{display:none; gap:10px; align-items:center; flex-wrap:wrap;
+  padding:10px clamp(16px,3vw,34px); border-bottom:1px solid var(--line);
+  background:var(--bg-2, #fff);}
+.rr-bar.on{display:flex}
+.rr-bar .rr-title{font-weight:600; margin-right:4px}
+.rr-bar .rr-note{color:var(--muted); font-size:11.5px; margin-left:auto}
+.rr-btn{font:inherit; font-size:12.5px; padding:6px 11px; border:1px solid var(--line);
+  border-radius:7px; background:#fff; cursor:pointer}
+.rr-btn:hover{border-color:var(--ink-2)}
+.rr-btn[disabled]{opacity:.5; cursor:progress}
+.rr-btn.on{background:var(--ink-2,#222); color:#fff; border-color:var(--ink-2,#222)}
+.rr-panel{display:none; padding:16px clamp(16px,3vw,34px) 40px}
+.rr-panel.on{display:block}
+.rr-sum{margin:0 0 12px; font-size:13px; line-height:1.7}
+.rr-sum b{font-variant-numeric:tabular-nums}
+.rr-cmd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11px;
+  color:var(--muted); word-break:break-all; margin:0 0 14px}
+.rr-err{border:1px solid #d33; background:#fff5f5; color:#a00; border-radius:8px;
+  padding:12px 14px; margin:0 0 14px; font-size:13px; line-height:1.6; white-space:pre-wrap}
+.rr-tbl{width:100%; border-collapse:collapse; font-size:13px}
+.rr-tbl th{text-align:left; font-size:11px; text-transform:uppercase; letter-spacing:.06em;
+  color:var(--muted); font-weight:600; padding:0 10px 7px; border-bottom:1px solid var(--line)}
+.rr-tbl td{padding:11px 10px; border-bottom:1px solid var(--line); vertical-align:top}
+.rr-tbl tr.upd td{background:#fffbe6}
+.rr-tbl tr.new td{background:#f2fbf3}
+.rr-what{font-weight:500; max-width:34em}
+.rr-due{white-space:nowrap; font-variant-numeric:tabular-nums}
+.rr-raw{color:var(--muted); font-size:11.5px; display:block}
+.rr-q{color:var(--muted); font-size:12px; max-width:30em}
+.rr-q em{font-style:normal; color:var(--ink-2,#333); font-weight:500}
+.rr-badge{display:inline-block; font-size:10.5px; padding:2px 7px; border-radius:999px;
+  border:1px solid var(--line); white-space:nowrap}
+.rr-badge.upd{background:#fdf0c3; border-color:#e2c94e}
+.rr-badge.new{background:#dff3e2; border-color:#8ac79a}
+.rr-badge.done{background:#e8e8e8}
+.rr-badge.cancelled{background:#f0e0e0; text-decoration:line-through}
+.rr-was{color:#8a6d00; font-size:11px; display:block}
 </style>
 </head>
 <body>
@@ -248,6 +286,18 @@ footer b{color:var(--ink-2)}
     <label class="field"><span>Кто «я»</span><input type="text" id="me" value="Я" maxlength="24"></label>
   </div>
 </header>
+
+<div class="rr-bar" id="rrBar">
+  <span class="rr-title">Настоящий реестр</span>
+  <button class="rr-btn" data-ex="01">Прогон 01 — разнородный вход</button>
+  <button class="rr-btn" data-ex="02">Прогон 02 поверх — повторный</button>
+  <button class="rr-btn" data-ex="03">Прогон 03 — скриншот и отмена</button>
+  <button class="rr-btn" id="rrReset">Сброс реестра</button>
+  <button class="rr-btn" id="rrBack">← к разбору в браузере</button>
+  <span class="rr-note">Запускает <code>cli.py run</code> по-настоящему, опорная дата 2026-08-28</span>
+</div>
+
+<section class="rr-panel" id="rrPanel"></section>
 
 <main class="layout">
   <section class="panel composer">
@@ -850,6 +900,114 @@ el.msg.addEventListener("keydown", e => {
 
 el.msg.value = SAMPLES[1][1];
 render();
+/* ── вкладка «настоящий реестр» ───────────────────────────────────────────────
+   Появляется, только когда страницу отдаёт demo/serve.py. Открытая двойным
+   кликом страница ведёт себя ровно как раньше: /api/health не отвечает,
+   панель остаётся скрытой, ни одна строчка ниже не выполняется. */
+(function realRegistry(){
+  const bar = document.getElementById("rrBar");
+  const panel = document.getElementById("rrPanel");
+  if (!bar || !panel) return;
+  const main = document.querySelector("main.layout");
+  const tray = document.getElementById("tray");
+  let prevCount = null;
+
+  const RU_STATUS = {open:"открыто", done:"сделано", cancelled:"снято"};
+  const RU_KIND = {task:"задача", event:"событие", recurring:"регулярное"};
+  const MARK = {period:" ~", fuzzy:" ?"};
+
+  const show = on => {
+    panel.classList.toggle("on", on);
+    if (main) main.style.display = on ? "none" : "";
+    if (tray && on) tray.style.display = "none";
+  };
+
+  const fmtDue = c => {
+    if (!c.due) return "<span class='rr-due'>срок ?</span>";
+    const [y,m,d] = c.due.split("-");
+    const mark = MARK[c.precision] || "";
+    const raw = c.due_raw ? `<span class="rr-raw">${esc(c.due_raw)}</span>` : "";
+    return `<span class="rr-due">${d}.${m}.${y}${mark}</span>${raw}`;
+  };
+
+  function table(data){
+    const cards = data.cards.slice().sort((a,b) => {
+      const rank = x => x.change === "updated" ? 0 : x.change === "new" ? 1 : 2;
+      return rank(a) - rank(b) || String(a.due||"9999").localeCompare(String(b.due||"9999"));
+    });
+    const upd = cards.filter(c => c.change === "updated");
+    const fresh = cards.filter(c => c.change === "new");
+    const sum = prevCount === null
+      ? `Записей <b>${data.count}</b> — первый прогон.`
+      : `Записей <b>${data.count}</b> (было <b>${prevCount}</b>) · обновлено <b>${upd.length}</b> · новых <b>${fresh.length}</b> · ` +
+        (data.count === prevCount + fresh.length
+          ? "<b>дублей нет</b> — повторный прогон обновил существующие записи."
+          : "<b>внимание: число записей не сходится</b>.");
+    const rows = cards.map(c => {
+      const cls = c.change === "updated" ? "upd" : c.change === "new" ? "new" : "";
+      const badge = c.change === "updated"
+        ? `<span class="rr-badge upd">обновлено</span>`
+        : c.change === "new" ? `<span class="rr-badge new">новое</span>` : "";
+      const was = (c.was && c.changed_fields || []).map(f =>
+        `<span class="rr-was">было ${f === "due" ? "срок" : "статус"}: ${esc(String(c.was[f] ?? "—"))}</span>`).join("");
+      const ev = (c.evidence || [])[0];
+      const more = (c.evidence || []).length > 1 ? ` <b>+${c.evidence.length - 1}</b>` : "";
+      const q = ev
+        ? `<em>${esc(ev.source)}</em> — «${esc(ev.quote.length > 150 ? ev.quote.slice(0,150) + "…" : ev.quote)}»${more}`
+        : "<span style='color:#c00'>нет цитаты — проверить EVIDENCED_BY</span>";
+      const doubt = (c.uncertainty || []).length
+        ? ` <span class="rr-badge">${c.uncertainty.map(esc).join(", ")}</span>` : "";
+      return `<tr class="${cls}">
+        <td class="rr-what">${esc(c.what)}${doubt}</td>
+        <td>${esc(c.owner || "не назначен")}</td>
+        <td>${fmtDue(c)}${was}</td>
+        <td><span class="rr-badge ${c.status}">${RU_STATUS[c.status] || esc(c.status||"?")}</span>
+            <span class="rr-raw">${RU_KIND[c.kind] || esc(c.kind||"")}</span></td>
+        <td class="rr-q">${q}</td>
+        <td>${badge}</td></tr>`;
+    }).join("");
+    prevCount = data.count;
+    return `<p class="rr-sum">${sum}</p>
+      <p class="rr-cmd">${esc(data.cmd || "")}</p>
+      <table class="rr-tbl"><thead><tr>
+        <th>Что</th><th>Владелец</th><th>Срок</th><th>Статус</th><th>Источник и цитата</th><th></th>
+      </tr></thead><tbody>${rows}</tbody></table>`;
+  }
+
+  async function call(path, label){
+    const btns = bar.querySelectorAll(".rr-btn");
+    btns.forEach(b => b.disabled = true);
+    panel.innerHTML = `<p class="rr-sum">${label}…</p>`;
+    show(true);
+    try {
+      const r = await fetch(path, {method:"POST"});
+      const data = await r.json().catch(() => null);
+      if (!r.ok || !data || !data.ok) {
+        const msg = (data && (data.error || data.trace)) || `HTTP ${r.status}`;
+        panel.innerHTML = `<div class="rr-err"><b>Прогон не удался.</b>\n${esc(msg)}</div>`;
+        return;
+      }
+      panel.innerHTML = table(data);
+    } catch (e) {
+      panel.innerHTML = `<div class="rr-err"><b>Сервер не ответил.</b>\n${esc(String(e))}
+\nЗапущен ли <code>python demo/serve.py</code>?</div>`;
+    } finally {
+      btns.forEach(b => b.disabled = false);
+    }
+  }
+
+  bar.addEventListener("click", e => {
+    const b = e.target.closest("button");
+    if (!b) return;
+    if (b.id === "rrBack") return show(false);
+    if (b.id === "rrReset") { prevCount = null; return call("/api/reset", "Сбрасываю реестр"); }
+    if (b.dataset.ex) return call(`/api/run?example=${b.dataset.ex}`, `Прогон ${b.dataset.ex}`);
+  });
+
+  fetch("/api/health").then(r => r.ok && r.json()).then(h => {
+    if (h && h.ok) bar.classList.add("on");
+  }).catch(() => {});
+})();
 </script>
 </body>
 </html>
