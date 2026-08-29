@@ -170,6 +170,11 @@ def _call(prompt: str, timeout: int = 90) -> str:
     return data["content"][0]["text"]
 
 
+def call(prompt: str, timeout: int = 90) -> str:
+    """Публичная точка входа для других модулей (например, судьи в runner/)."""
+    return _call(prompt, timeout)
+
+
 def _parse(raw: str) -> dict:
     raw = raw.strip()
     if raw.startswith("```"):

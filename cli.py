@@ -140,7 +140,7 @@ def cmd_run(args: argparse.Namespace) -> int:
 def cmd_check(args: argparse.Namespace) -> int:
     from runner.check import run_all
 
-    return run_all(today=args.today, llm=args.llm)
+    return run_all(today=args.today, llm=args.llm, use_judge=args.judge)
 
 
 def main() -> int:
@@ -162,6 +162,8 @@ def main() -> int:
                    help="опорная дата для примеров")
     c.add_argument("--llm", action="store_true",
                    help="извлекать моделью")
+    c.add_argument("--judge", action="store_true",
+                   help="сверять по смыслу LLM-судьёй, а не подстрокой")
     c.set_defaults(func=cmd_check)
 
     args = p.parse_args()
