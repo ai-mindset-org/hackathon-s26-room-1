@@ -79,7 +79,7 @@ def detect_kind(text: str) -> str:
     lines = [ln for ln in text.splitlines() if ln.strip()]
     if not lines:
         return PLAIN
-    if lines[0].startswith("От:"):
+    if lines[0].startswith(("От:", "From:")):
         return EMAIL
     if sum(bool(CHAT_LINE.match(ln)) for ln in lines) >= 2:
         return CHAT

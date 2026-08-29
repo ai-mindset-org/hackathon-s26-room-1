@@ -12,6 +12,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 import sys
 from pathlib import Path
 
@@ -110,20 +111,52 @@ def _line(graph: Graph, c) -> str:
     return "\n".join(out)
 
 
+# Правила (extract/naive.py) физически не умеют парсить дату вида
+# MM/DD/YYYY — DATE_NUM там ловит только «27.08». 0 обязательств на входе
+# без такой даты может быть корректным нулём (README корпуса gagebt прямо
+# запрещает «осторожный» список для сценариев без обязательств — ложная
+# тревога тут не менее вредна, чем потеря). А вот 0 при явном MM/DD/YYYY —
+# это не «нечего сообщить», а «правила не поняли формат даты», и молчать
+# об этом нельзя: та же потеря, что и с кодировкой в ingest/reader.py.
+# Ключевые слова («deadline», «please» и т.п.) сюда намеренно не берём —
+# они слишком легко ловят прошедшее время и информационные письма
+# (see T003-newsletter-zero-obligations: «deadline was 30 November» —
+# упоминание прошедшего срока, не обязательство).
+_US_DATE = re.compile(r"\b\d{1,2}/\d{1,2}/\d{2,4}\b")
+
+
+def _warn_if_quiet_zero(graph, chunks) -> None:
+    if graph.commitments() or not chunks:
+        return
+    if any(_US_DATE.search(c.text) for c in chunks):
+        print(
+            f"extract: правила не нашли ни одного обязательства из "
+            f"{len(chunks)} фрагментов, но во входе есть дата вида "
+            f"MM/DD/YYYY, которую правила не разбирают, — попробуйте --llm",
+            file=sys.stderr,
+        )
+
+
 def _extract(chunks, known_keys, today, want_llm: bool):
-    """Модель, если попросили и есть ключ. Иначе правила — молча и рабоче."""
+    """Модель, если попросили и есть ключ. Иначе правила — рабоче, но не молча."""
     if not want_llm:
-        return extract_naive(chunks, known_keys, today)
+        graph = extract_naive(chunks, known_keys, today)
+        _warn_if_quiet_zero(graph, chunks)
+        return graph
     if not extract_llm.available():
         print("ANTHROPIC_API_KEY не задан — работаю на правилах",
               file=sys.stderr)
-        return extract_naive(chunks, known_keys, today)
+        graph = extract_naive(chunks, known_keys, today)
+        _warn_if_quiet_zero(graph, chunks)
+        return graph
     try:
         return extract_llm.extract(chunks, known_keys, today)
     except Exception as exc:  # модель упала — приёмка не должна падать вместе
         print(f"модель недоступна ({exc}) — откатываюсь на правила",
               file=sys.stderr)
-        return extract_naive(chunks, known_keys, today)
+        graph = extract_naive(chunks, known_keys, today)
+        _warn_if_quiet_zero(graph, chunks)
+        return graph
 
 
 def cmd_run(args: argparse.Namespace) -> int:
