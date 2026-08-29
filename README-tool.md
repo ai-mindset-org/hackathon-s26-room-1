@@ -79,7 +79,7 @@ Commitment  ──ABOUT─────────▶ Topic
 Что должно появиться: рёбра `PREPARES` и `DERIVED_FROM`, различение
 `task|event|recurring`, владелец из контекста.
 
-### `dates/` — свободен
+### `dates/` — готов (R6EX)
 
 ```python
 def resolve(commitments: list[Commitment], today: str) -> list[Commitment]:
@@ -91,7 +91,7 @@ def resolve(commitments: list[Commitment], today: str) -> list[Commitment]:
 Неразрешимый срок оставляет запись живой с пометкой в `uncertainty`, а не
 выбрасывает её.
 
-### `registry/` — свободен, самый ценный
+### `registry/` — СВОБОДЕН, самый ценный кусок
 
 ```python
 def merge(base: Graph, new: Graph) -> Graph:

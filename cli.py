@@ -19,7 +19,8 @@ from core.graph import EVIDENCED_BY, Graph
 from core.model import CANCELLED, DONE, EVENT, RECURRING
 from core.store import DEFAULT_REGISTRY, load, save
 from dates.resolve import resolve
-from extract.naive import extract
+from extract import llm as extract_llm
+from extract.naive import extract as extract_naive
 from ingest.reader import read_folder
 
 KIND_LABEL = {EVENT: "событие", RECURRING: "регулярное"}
@@ -92,6 +93,22 @@ def _line(graph: Graph, c) -> str:
     return "\n".join(out)
 
 
+def _extract(chunks, known_keys, today, want_llm: bool):
+    """Модель, если попросили и есть ключ. Иначе правила — молча и рабоче."""
+    if not want_llm:
+        return extract_naive(chunks, known_keys, today)
+    if not extract_llm.available():
+        print("ANTHROPIC_API_KEY не задан — работаю на правилах",
+              file=sys.stderr)
+        return extract_naive(chunks, known_keys, today)
+    try:
+        return extract_llm.extract(chunks, known_keys, today)
+    except Exception as exc:  # модель упала — приёмка не должна падать вместе
+        print(f"модель недоступна ({exc}) — откатываюсь на правила",
+              file=sys.stderr)
+        return extract_naive(chunks, known_keys, today)
+
+
 def cmd_run(args: argparse.Namespace) -> int:
     registry_path = Path(args.registry)
     graph = load(registry_path)
@@ -100,7 +117,7 @@ def cmd_run(args: argparse.Namespace) -> int:
     for s in sources:
         graph.add_node("source", s)
 
-    new = extract(chunks, graph.known_keys(), args.today)
+    new = _extract(chunks, graph.known_keys(), args.today, args.llm)
     resolve(new.commitments(), args.today)
     graph = merge_into(graph, new)
 
@@ -136,6 +153,8 @@ def main() -> int:
     r.add_argument("--registry", default=str(DEFAULT_REGISTRY),
                    help="путь к реестру (по умолчанию вне репозитория)")
     r.add_argument("--out", help="куда положить markdown (по умолчанию stdout)")
+    r.add_argument("--llm", action="store_true",
+                   help="извлекать моделью (нужен ANTHROPIC_API_KEY)")
     r.set_defaults(func=cmd_run)
 
     c = sub.add_parser("check", help="прогнать приёмочные примеры")

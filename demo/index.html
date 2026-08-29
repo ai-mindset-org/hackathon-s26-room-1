@@ -307,7 +307,7 @@ const CANCEL_MARKERS = ["отменен","отменён","отменена","о
 
 const BASKET_MINE = ["школ","родител","кружок","робот","бассейн","врач","справк","квитанц","аренда","интернет",
   "страхов","авто","обслужив","платеж","ремонт","детс","семь"];
-const BASKET_WORK = ["проект","витрин","счёт","счет","подрядчик","отгруз","договор","юрист","зал","демо","статус",
+const BASKET_WORK = ["проект","витрин","счёт","счет","подрядчик","отгруз","договор","юрист","демо","статус",
   "клиент","отчёт","отчет","релиз","команд"];
 
 const MONTHS = [["январ",0],["феврал",1],["март",2],["апрел",3],["мая",4],["май",4],["июн",5],["июл",6],
@@ -464,18 +464,20 @@ function tokens(text){
     if (WEEKDAYS.some(([s]) => w.startsWith(s))) continue;
     if (new RegExp("^(" + ORD_RX + ")(ого|его|ому|ому|ый|ое|ая)?$").test(w)) continue;
     const stem = w.slice(0,5);
-    if (STOP.has(stem)) continue;
-    out.add(stem);
+    if (!STOP.has(stem)) out.add(stem);
+    const bare = w.replace(/^(за|подо?|при|про|от|пере)/, "");
+    if (bare !== w && bare.length >= 5 && !STOP.has(bare.slice(0,5))) out.add(bare.slice(0,5));
   }
   return out;
 }
 
 /* Похожесть по смыслу, а не по тексту: две общие основы, либо одна общая
    при совпавшем сроке, либо одна общая, когда у одной записи срока ещё нет. */
-function findTwin(item){
+function findTwin(item, exclude){
   let best = null, bestShared = 0;
   for (const c of state.items){
     if (c.status !== "open") continue;
+    if (exclude && exclude.has(c.id)) continue;
     let shared = 0;
     for (const t of item.tokens) if (c.tokens.has(t)) shared++;
     if (!shared) continue;
@@ -586,7 +588,9 @@ function analyze(raw, src, refDate, me){
 }
 
 function sentence(t){
-  let s = t.replace(/^(коллеги|ребята|привет|уважаемые\s+\w+)[,!:—-]\s*/i, "")
+  let s = t.replace(/^(коллеги|ребята|привет|уважаемые\s+[а-яё]+)[,!:—-]\s*/i, "")
+           .replace(/^(также\s+)?(напоминаем|напоминаю)[:,]?\s*/i, "")
+           .replace(/^не\s+забываем\s*[—–-]\s*/i, "")
            .replace(/^(и|а|ок|да|значит)[,\s]+/i, "")
            .replace(/^апдейт:\s*/i, "")
            .replace(/[.\s]+$/, "");
@@ -601,8 +605,8 @@ function eventTitle(text, mention){
 }
 
 function basketOf(low){
-  if (BASKET_WORK.some(w => low.includes(w))) return "work";
   if (BASKET_MINE.some(w => low.includes(w))) return "mine";
+  if (BASKET_WORK.some(w => low.includes(w))) return "work";
   return "unknown";
 }
 
@@ -643,8 +647,9 @@ function runPass(){
       continue;
     }
 
+    const sameChunk = new Set(res.items.map(i => i.id));
     for (const item of res.items){
-      const twin = findTwin(item);
+      const twin = findTwin(item, sameChunk);
       if (twin){
         if (item.due && item.due !== twin.due){ twin.due = item.due; twin.dueRaw = item.dueRaw; }
         if (item.owner && !twin.owner) twin.owner = item.owner;
