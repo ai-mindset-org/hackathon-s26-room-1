@@ -1,0 +1,6 @@
+[2027-07-05 09:00] Lead: Mei owns the single umbrella task “prepare launch materials” by 12 July.
+[2027-07-05 14:00] Lead: Replace that umbrella task with two concrete tasks; do not keep it active.
+[2027-07-05 14:01] Lead: Mei, localize the FAQ by 10 July.
+[2027-07-05 14:02] Lead: Jon, record the product demo by 11 July 16:00.
+[2027-07-05 14:03] Mei: Accepted the FAQ. Jon accepted the demo in the room.
+

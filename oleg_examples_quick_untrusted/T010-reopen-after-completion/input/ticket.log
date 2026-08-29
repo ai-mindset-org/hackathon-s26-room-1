@@ -1,0 +1,5 @@
+2027-01-11 09:00 CREATED OPS-314 Replace the loading-bay scanner battery. Owner=Evan Due=2027-01-12
+2027-01-11 16:40 COMPLETED OPS-314 Battery replaced by Evan.
+2027-01-12 08:15 QA_FAILED OPS-314 Scanner loses power under load.
+2027-01-12 08:20 REOPENED OPS-314 Evan must fit the high-capacity battery by 13 January 14:00.
+

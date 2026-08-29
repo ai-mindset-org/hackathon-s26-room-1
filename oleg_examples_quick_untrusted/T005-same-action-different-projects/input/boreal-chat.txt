@@ -1,0 +1,3 @@
+[2027-05-03 10:20] Ren: Mei, prepare the rollout checklist for Boreal by 8 May. Include the hardware inventory gate.
+[2027-05-03 10:21] Mei: Accepted for Boreal.
+

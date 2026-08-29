@@ -1,0 +1,4 @@
+[2027-06-01 10:00] Travel: Flight SP-204 is cancelled. Do not travel on that booking.
+[2027-06-01 10:02] Lead: Rina, choose a replacement flight by today 18:00.
+[2027-06-01 10:03] Rina: Accepted. Keep Hotel Cedar for now; do not cancel it unless the replacement moves past 4 June.
+

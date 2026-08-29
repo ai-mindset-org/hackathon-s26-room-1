@@ -1,0 +1,27 @@
+id,title,domain,channels,languages,lifecycle,scale,primary_trap,zero_obligations,source_files,required_records
+T001,US date and booked event,contracts,email,en-US,create plus event,focused,US versus EU numeric date,false,1,2
+T002,DST cross-timezone handoff,distributed software,chat plus email,en,dependency,medium,DST offset and relative window,false,2,2
+T003,Newsletter with no obligations,community,email,en,none,focused,informational dates and prices,true,1,0
+T004,Quoted closed thread,audit,email,en,closed history,focused,stale quoted instruction,true,1,0
+T005,Same action for two projects,software,two chats,en,two creates,medium,near duplicate that must stay separate,false,2,2
+T006,Paraphrase duplicate completed,procurement,email plus chat,en,complete,medium,cross-channel paraphrase duplicate,false,2,1
+T007,Disputed owner,security,chat,en,await assignment,focused,owner must remain unassigned,false,1,1
+T008,Rejected hypothesis,strategy,note,en,rejected condition,focused,conditional language and direct prohibition,true,1,0
+T009,Cancellation before creation in file order,facilities,email plus calendar,en,cancel,medium,file order differs from event order,false,2,2
+T010,Reopen after completion,field operations,ticket log,en,reopen,focused,completed state is not final,false,1,1
+T011,Reassign and reschedule,finance,meeting plus email,en,reassign plus reschedule,medium,one record across owner and deadline changes,false,2,1
+T012,Recurring skip and next date,infrastructure,policy plus email,en,recurrence exception,medium,holiday and skipped occurrence,false,2,1
+T013,Mixed-language deadline,distributed team,chat,ru plus en plus es,create plus event,focused,code switching and relative local time,false,1,2
+T014,Noisy OCR table,field maintenance,OCR text,en,create,focused,OCR substitutions and numeric identifiers,false,1,2
+T015,Boilerplate signature,operations,email,en,create,focused,one action inside legal boilerplate,false,1,1
+T016,Truncated fragment,unknown,chat fragment,en,none,focused,missing action owner and context,true,1,0
+T017,External dependency and group owner,compliance,email plus chat,en,dependency,medium,external actor versus internal owners,false,2,2
+T018,Event versus preparation deadlines,events,email plus chat,en,create plus event,medium,event date must not replace task deadlines,false,2,3
+T019,Civic permit and hearing,civic administration,email plus call note,en,create plus event,medium,paid fee and optional attendance,false,2,2
+T020,Healthcare administration,healthcare administration,office chat,en,create plus event,focused,administrative actions only,false,1,3
+T021,Field service dependency,logistics,field log plus chat,en,dependency,medium,ETA and measurements are not tasks,false,2,2
+T022,Support response versus resolution,customer support,email plus status log,en,complete plus open,medium,two SLA obligations with different states,false,2,2
+T023,Travel cancellation and replan,travel,email plus chat,en,cancel plus create,medium,cancelled booking and conditional hotel action,false,2,2
+T024,Split umbrella task,product launch,planning chat,en,split and supersede,focused,umbrella must not remain active,false,1,3
+T025,Many-file quarter close,finance and procurement,twelve mixed files,en,multiple lifecycle,scale-many-files,chronology duplicates cancellation and numeric noise,false,12,6
+T026,Long distributed launch thread,software launch,long chat,en,multiple lifecycle,scale-long-thread,near duplicates updates and dense noise,false,1,6

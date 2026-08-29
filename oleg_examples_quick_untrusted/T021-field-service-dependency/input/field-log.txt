@@ -1,0 +1,3 @@
+2027-09-14 07:20 SITE=K-9 Truck ETA 09:10. Temperature 17C. Sensor S-44 reports intermittent loss.
+2027-09-14 07:25 TECH=Niko Replace sensor S-44 before 14:00 after the spare arrives.
+

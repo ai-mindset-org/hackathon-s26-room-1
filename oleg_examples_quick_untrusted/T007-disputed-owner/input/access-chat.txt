@@ -1,0 +1,5 @@
+[2027-02-08 09:00] Priya: The access review still has to be completed this week.
+[2027-02-08 09:03] Alex: I thought Dana owned it.
+[2027-02-08 09:04] Dana: I do not own it. Leave it unassigned until the security chief assigns someone.
+[2027-02-08 09:05] Alex: Agreed. Nobody should start under Dana's name.
+

@@ -1,0 +1,6 @@
+Synthetic administration case; no real patient data.
+
+[2027-06-01 08:30] Coordinator: Benefits team must request prior authorization by 3 June.
+[2027-06-01 08:31] Coordinator: Zoë, book the Georgian interpreter by 4 June 12:00.
+[2027-06-01 08:32] Coordinator: The review appointment is already scheduled for 7 June 09:30.
+

@@ -1,0 +1,41 @@
+[01 2027-05-01 08:00] Lead: Orion launch channel is open. General chat is not an assignment.
+[02 2027-05-01 08:02] Lead: Rui, audit the Orion locale glossary by 3 May 17:00.
+[03 2027-05-01 08:03] Rui: Accepted for Orion.
+[04 2027-05-01 08:05] Lead: Amina, draft the Orion release note by 4 May.
+[05 2027-05-01 08:06] Amina: Accepted.
+[06 2027-05-01 08:08] Lead: Lila, update the Orion support macro by 4 May 17:00.
+[07 2027-05-01 08:09] Lila: Accepted.
+[08 2027-05-01 08:11] Lead: Dae, prepare the Orion rollback checklist by 5 May.
+[09 2027-05-01 08:12] Dae: Accepted.
+[10 2027-05-01 08:15] Bot: Build 2027.05.01.881 contains 312 files.
+[11 2027-05-01 08:18] Analyst: Checkout p95 is 3.2 seconds; informational only.
+[12 2027-05-01 08:22] Lead: The launch rehearsal is scheduled for 7 May at 15:00 UTC.
+[13 2027-05-01 08:25] Noor: I can observe the rehearsal but have no action yet.
+[14 2027-05-01 09:00] Asha: Vega also needs a locale glossary audit.
+[15 2027-05-01 09:01] Lead: Asha, audit the Vega locale glossary by 6 May 12:00.
+[16 2027-05-01 09:02] Asha: Accepted for Vega.
+[17 2027-05-01 10:00] Bot: Yesterday's incident INC-44 was closed.
+[18 2027-05-01 10:15] Chen: If traffic doubles, we might add a cache. Do not create that task yet.
+[19 2027-05-02 08:00] Lead: Amina's release-note deadline moves to 5 May 12:00.
+[20 2027-05-02 08:01] Amina: New deadline accepted.
+[21 2027-05-02 09:20] Lila: Orion support macro updated and published; complete.
+[22 2027-05-02 09:21] Bot: Macro page returned HTTP 200.
+[23 2027-05-02 11:00] Rui: Orion glossary audit completed; no missing terms.
+[24 2027-05-02 11:05] Analyst: Glossary has 884 entries.
+[25 2027-05-02 13:00] Dae: I will be unavailable after today.
+[26 2027-05-02 13:01] Lead: Noor replaces Dae as owner of the Orion rollback checklist.
+[27 2027-05-02 13:02] Lead: Move the rollback-checklist deadline to 6 May 09:00.
+[28 2027-05-02 13:03] Noor: Accepted the checklist.
+[29 2027-05-03 08:00] Bot: Forecast says 42,000 visits. No action requested.
+[30 2027-05-03 09:00] Lead: The 7 May rehearsal is cancelled because the room is unavailable.
+[31 2027-05-03 09:01] Lead: Reschedule the same Orion rehearsal to 8 May 16:00 UTC.
+[32 2027-05-03 09:02] Noor: Calendar updated.
+[33 2027-05-03 11:00] Amina: Release-note outline ready, final text still open.
+[34 2027-05-03 12:00] Asha: Vega glossary audit is in progress, not complete.
+[35 2027-05-03 14:00] Lead: Reminder: Orion and Vega glossary audits are different tasks.
+[36 2027-05-04 08:00] Bot: Old quoted note: "rotate staging keys by 2 May 2026".
+[37 2027-05-04 08:01] Lead: The quoted 2026 note is historical and must not reopen.
+[38 2027-05-04 09:00] Lila: No further macro work is needed.
+[39 2027-05-04 10:00] Analyst: Translation coverage is 97.4 percent.
+[40 2027-05-04 12:00] Lead: Current open work is the Orion release note, Orion rollback checklist, and Vega glossary audit.
+
