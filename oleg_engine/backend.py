@@ -24,14 +24,31 @@ def _executable(name: str) -> str:
 
 def _decode_json(text: str) -> dict[str, Any]:
     text = text.strip()
+    fence_start = text.find("```json")
+    if fence_start < 0:
+        fence_start = text.find("```")
+    if fence_start >= 0:
+        content_start = text.find("\n", fence_start)
+        fence_end = text.find("```", content_start + 1)
+        if content_start >= 0 and fence_end > content_start:
+            return _decode_json(text[content_start + 1 : fence_end])
     try:
         value = json.loads(text)
     except json.JSONDecodeError:
-        start = text.find("{")
-        end = text.rfind("}")
-        if start < 0 or end <= start:
+        decoder = json.JSONDecoder()
+        value = None
+        for start, character in enumerate(text):
+            if character != "{":
+                continue
+            try:
+                candidate, _ = decoder.raw_decode(text[start:])
+            except json.JSONDecodeError:
+                continue
+            if isinstance(candidate, dict):
+                value = candidate
+                break
+        if value is None:
             raise
-        value = json.loads(text[start : end + 1])
     if isinstance(value, dict) and isinstance(value.get("result"), str):
         return _decode_json(value["result"])
     if not isinstance(value, dict):
