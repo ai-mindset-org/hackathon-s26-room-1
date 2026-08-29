@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["pass", "reason", "facts"],
+  "properties": {
+    "pass": {"type": "boolean"},
+    "reason": {"type": "string"},
+    "facts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["fact", "ok"],
+        "properties": {
+          "fact": {"type": "string"},
+          "ok": {"type": "boolean"}
+        }
+      }
+    }
+  }
+}
