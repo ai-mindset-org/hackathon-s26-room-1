@@ -1,0 +1,855 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Реестр обязательств · демо маршрутизации</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBF9F5;
+  --paper-2:#F3EFE7;
+  --surface:#FFFFFF;
+  --ink:#1E1B16;
+  --ink-2:#5A5348;
+  --muted:#8C8375;
+  --line:#E7E1D6;
+  --line-2:#D9D2C4;
+
+  --calendar:#4C4BC4;
+  --tracker:#0E8F63;
+  --recurring:#B0620C;
+  --review:#B93055;
+
+  --r-lg:20px;
+  --r-md:14px;
+  --r-sm:10px;
+  --shadow:0 1px 2px rgba(30,27,22,.05), 0 8px 24px -18px rgba(30,27,22,.35);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1100px 520px at 12% -12%, #FFF7E8 0%, rgba(255,247,232,0) 62%),
+    radial-gradient(900px 480px at 92% -6%, #EEF2FF 0%, rgba(238,242,255,0) 60%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+  background-attachment:fixed;
+  min-height:100vh;
+  font-size:15px;
+  line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── шапка ─────────────────────────────────────────────── */
+.top{
+  position:sticky; top:0; z-index:20;
+  display:flex; flex-wrap:wrap; gap:16px; align-items:center; justify-content:space-between;
+  padding:14px clamp(16px,3vw,34px);
+  background:rgba(251,249,245,.82);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.brand{display:flex; align-items:center; gap:12px}
+.mark{
+  width:34px; height:34px; border-radius:11px; flex:none;
+  background:linear-gradient(145deg,#1E1B16,#4a4237);
+  color:#F7F2E8; display:grid; place-items:center;
+  font-size:15px; letter-spacing:.02em;
+  box-shadow:0 6px 16px -10px rgba(30,27,22,.9);
+}
+.brand h1{font-size:16px; font-weight:800; margin:0; letter-spacing:-.015em}
+.brand p{margin:1px 0 0; font-size:12.5px; color:var(--muted)}
+
+.settings{display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end}
+.field{display:flex; flex-direction:column; gap:3px}
+.field span{font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:600}
+.field input{
+  font:inherit; font-size:13px; color:var(--ink);
+  padding:7px 10px; border:1px solid var(--line-2); border-radius:var(--r-sm);
+  background:var(--surface); width:150px;
+}
+.field input:focus{outline:2px solid rgba(76,75,196,.28); outline-offset:1px; border-color:#b9b6e8}
+
+/* ── раскладка ─────────────────────────────────────────── */
+.layout{
+  display:grid; grid-template-columns:minmax(330px,380px) 1fr;
+  gap:22px; align-items:start;
+  padding:22px clamp(16px,3vw,34px) 10px;
+}
+@media (max-width:1080px){ .layout{grid-template-columns:1fr} }
+
+.panel{
+  background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg);
+  box-shadow:var(--shadow); padding:18px;
+}
+.composer{position:sticky; top:82px}
+@media (max-width:1080px){ .composer{position:static} }
+
+.panel h2{
+  margin:0 0 3px; font-size:14px; font-weight:800; letter-spacing:-.01em;
+}
+.panel .sub{margin:0 0 12px; font-size:12.5px; color:var(--muted)}
+
+textarea{
+  width:100%; min-height:172px; resize:vertical;
+  font:inherit; font-size:13.5px; line-height:1.55; color:var(--ink);
+  padding:13px 14px; border:1px solid var(--line-2); border-radius:var(--r-md);
+  background:#FDFCFA;
+}
+textarea:focus{outline:2px solid rgba(76,75,196,.25); outline-offset:1px; border-color:#b9b6e8; background:#fff}
+
+.samples{display:flex; flex-wrap:wrap; gap:6px; margin:12px 0 14px}
+.chip-btn{
+  font:inherit; font-size:12px; font-weight:600; color:var(--ink-2);
+  background:#FAF7F1; border:1px solid var(--line-2); border-radius:999px;
+  padding:5px 11px; cursor:pointer; transition:.16s ease;
+}
+.chip-btn:hover{background:#fff; border-color:#c3bbaa; color:var(--ink); transform:translateY(-1px)}
+
+.actions{display:flex; gap:8px; align-items:center}
+.btn{
+  font:inherit; font-size:13.5px; font-weight:700; cursor:pointer;
+  padding:11px 16px; border-radius:var(--r-md); border:1px solid transparent;
+  transition:.16s ease;
+}
+.btn.primary{background:var(--ink); color:#FBF7EF; flex:1; box-shadow:0 10px 20px -14px rgba(30,27,22,.9)}
+.btn.primary:hover{background:#332e26; transform:translateY(-1px)}
+.btn.ghost{background:transparent; color:var(--muted); border-color:var(--line-2)}
+.btn.ghost:hover{color:var(--ink); border-color:#c3bbaa}
+
+.hint{margin:11px 0 0; font-size:11.5px; color:var(--muted); line-height:1.5}
+
+.log{
+  margin-top:14px; padding-top:13px; border-top:1px dashed var(--line-2);
+  font-size:12.5px; color:var(--ink-2); display:none;
+}
+.log.on{display:block}
+.log b{font-weight:800}
+.log .row{display:flex; gap:8px; flex-wrap:wrap; align-items:baseline; margin-bottom:4px}
+.log .row:last-child{margin-bottom:0}
+.log .dim{color:var(--muted)}
+
+/* ── доска ─────────────────────────────────────────────── */
+.board{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
+@media (max-width:1500px){ .board{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:680px){ .board{grid-template-columns:1fr} }
+
+.col{
+  --tint:#4C4BC4;
+  background:color-mix(in srgb, var(--tint) 4%, var(--surface));
+  border:1px solid color-mix(in srgb, var(--tint) 16%, var(--line));
+  border-radius:var(--r-lg); padding:13px; min-height:190px;
+  display:flex; flex-direction:column; gap:10px;
+}
+.col.calendar{--tint:var(--calendar)}
+.col.tracker{--tint:var(--tracker)}
+.col.recurring{--tint:var(--recurring)}
+.col.review{--tint:var(--review)}
+
+.col-head{display:flex; gap:9px; align-items:flex-start}
+.col-ico{
+  width:26px; height:26px; flex:none; border-radius:9px; display:grid; place-items:center;
+  font-size:13px; color:var(--tint);
+  background:color-mix(in srgb, var(--tint) 12%, #fff);
+  border:1px solid color-mix(in srgb, var(--tint) 22%, #fff);
+}
+.col-title{flex:1; min-width:0}
+.col-title h3{margin:0; font-size:13.5px; font-weight:800; letter-spacing:-.01em}
+.col-title p{margin:1px 0 0; font-size:11px; color:var(--muted); line-height:1.35}
+.count{
+  font-size:11.5px; font-weight:800; color:var(--tint);
+  background:color-mix(in srgb, var(--tint) 11%, #fff);
+  border-radius:999px; padding:2px 8px; min-width:24px; text-align:center;
+}
+.dest{
+  font-size:10.5px; letter-spacing:.05em; text-transform:uppercase; font-weight:700;
+  color:color-mix(in srgb, var(--tint) 62%, var(--muted));
+  border-top:1px dashed color-mix(in srgb, var(--tint) 25%, var(--line));
+  padding-top:8px;
+}
+.stack{display:flex; flex-direction:column; gap:9px}
+
+.empty{
+  border:1px dashed color-mix(in srgb, var(--tint) 26%, var(--line));
+  border-radius:var(--r-md); padding:16px 12px; text-align:center;
+  font-size:11.5px; color:var(--muted);
+}
+
+/* ── карточка ──────────────────────────────────────────── */
+.card{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:var(--r-md); padding:11px 12px;
+  box-shadow:0 1px 1px rgba(30,27,22,.04);
+  transition:.18s ease;
+}
+.card:hover{box-shadow:var(--shadow); transform:translateY(-1px); border-color:var(--line-2)}
+.card .what{font-size:13.5px; font-weight:600; line-height:1.4; margin:0 0 8px; letter-spacing:-.005em}
+.card .meta{display:flex; flex-wrap:wrap; gap:5px; margin-bottom:8px}
+.chip{
+  font-size:11px; font-weight:700; border-radius:7px; padding:2px 7px;
+  border:1px solid var(--line); color:var(--ink-2); background:#FBF9F5; white-space:nowrap;
+}
+.chip.due{color:var(--tracker); background:rgba(14,143,99,.07); border-color:rgba(14,143,99,.2)}
+.chip.due.soft{color:var(--muted); background:#F7F4EE; border-color:var(--line)}
+.chip.owner{color:var(--ink); background:#F2EFE8}
+.chip.mine{color:#8A5A00; background:rgba(176,98,12,.08); border-color:rgba(176,98,12,.2)}
+.chip.work{color:var(--calendar); background:rgba(76,75,196,.07); border-color:rgba(76,75,196,.2)}
+.chip.warn{color:var(--review); background:rgba(185,48,85,.07); border-color:rgba(185,48,85,.22)}
+.chip.derived{color:var(--recurring); background:rgba(176,98,12,.07); border-color:rgba(176,98,12,.2)}
+.card blockquote{
+  margin:0; padding:5px 0 2px 9px; border-left:2px solid var(--line-2);
+  font-size:11.5px; color:var(--muted); line-height:1.45;
+}
+.card blockquote em{font-style:normal; color:var(--ink-2); font-weight:600}
+
+@keyframes drop{from{opacity:0; transform:translateY(-8px) scale(.985)} to{opacity:1; transform:none}}
+.card.new{animation:drop .32s cubic-bezier(.2,.8,.3,1)}
+.card.upd{animation:drop .32s cubic-bezier(.2,.8,.3,1); box-shadow:0 0 0 2px rgba(76,75,196,.28)}
+@media (prefers-reduced-motion:reduce){ .card.new,.card.upd{animation:none} .card:hover{transform:none} }
+
+/* ── лоток закрытого ───────────────────────────────────── */
+.tray{margin:6px clamp(16px,3vw,34px) 0; padding:14px 16px;
+  background:rgba(255,255,255,.6); border:1px solid var(--line); border-radius:var(--r-lg);
+}
+.tray h3{margin:0 0 9px; font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); font-weight:800}
+.tray .stack{flex-direction:row; flex-wrap:wrap}
+.dead{
+  font-size:12.5px; color:var(--muted); background:#FAF7F1;
+  border:1px solid var(--line); border-radius:999px; padding:5px 12px;
+}
+.dead s{color:#a89f8f}
+.dead .tag{font-weight:800; color:var(--review); margin-left:6px; font-size:11px}
+.dead .tag.done{color:var(--tracker)}
+
+footer{
+  padding:20px clamp(16px,3vw,34px) 34px; color:var(--muted); font-size:11.5px; line-height:1.6;
+  max-width:900px;
+}
+footer b{color:var(--ink-2)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div class="mark">◆</div>
+    <div>
+      <h1>Реестр обязательств</h1>
+      <p>демо: входящее сообщение → своя колонка</p>
+    </div>
+  </div>
+  <div class="settings">
+    <label class="field"><span>Опорная дата</span><input type="date" id="today" value="2026-08-28"></label>
+    <label class="field"><span>Кто «я»</span><input type="text" id="me" value="Я" maxlength="24"></label>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="panel composer">
+    <h2>Входящее</h2>
+    <p class="sub">Письмо, кусок чата, транскрипт, текст со скриншота — как есть.</p>
+    <textarea id="msg" spellcheck="false" placeholder="Вставьте сообщение…"></textarea>
+
+    <div class="samples" id="samples"></div>
+
+    <div class="actions">
+      <button class="btn primary" id="run">Разобрать и разложить</button>
+      <button class="btn ghost" id="reset">Сброс</button>
+    </div>
+
+    <p class="hint">Разбор идёт в браузере, наружу ничего не уходит. Относительные сроки считаются от опорной даты (или от даты сообщения, если она есть в тексте) — не от системных часов.</p>
+
+    <div class="log" id="log"></div>
+  </section>
+
+  <section class="board" id="board"></section>
+</main>
+
+<section class="tray" id="tray" style="display:none">
+  <h3>Закрытые и снятые</h3>
+  <div class="stack" id="trayStack"></div>
+</section>
+
+<footer>
+  <b>Что показывает эта страница.</b> Колонки — это будущие адресаты: календарь, трекер, регулярные напоминания.
+  Пока адресат один — сам реестр; интеграции появятся, когда реестру начнут доверять.
+  Повторный прогон обновляет запись, а не плодит вторую; отмена события гасит и производное от него обязательство.
+  Сомнение «обязательство ли это вообще» уезжает в отдельную колонку, сомнение в сроке или владельце остаётся
+  в записи пометкой <b>?</b> — задача с неясным сроком всё ещё задача.
+</footer>
+
+<script>
+"use strict";
+
+/* ─────────────────────────── колонки-адресаты ─────────────────────────── */
+
+const COLUMNS = [
+  {id:"calendar",  cls:"calendar",  ico:"◷", title:"Календарь",   hint:"события и даты, где надо просто быть", dest:"→ Google Calendar"},
+  {id:"tracker",   cls:"tracker",   ico:"✓", title:"Задачи",      hint:"что сделать · владелец · срок",        dest:"→ трекер"},
+  {id:"recurring", cls:"recurring", ico:"↻", title:"Регулярное",  hint:"повторяется само каждый месяц",        dest:"→ напоминания"},
+  {id:"review",    cls:"review",    ico:"?", title:"Проверь меня", hint:"не уверен, что это вообще обязательство", dest:"решает человек"},
+];
+
+/* ─────────────────────────── словари разбора ──────────────────────────── */
+
+const MARKERS = ["нужно","надо","прошу","просим","договорились","с тебя","с вас","оплатить","прислать",
+  "отправить","отправляю","забронировать","бронирую","бронируй","согласовать","продлить","подтвердить",
+  "собрать","соберу","не забываем","напоминаем","требуется","должен","должна","нужна","нужен"];
+const HEDGES = ["наверное","вроде","возможно","может быть","хотелось бы","подумать","обсудим","когда-нибудь","как-нибудь"];
+const EVENT_MARKERS = ["состоится","собрание","встреча","созвон","демо-день"];
+const DONE_MARKERS = ["готово","сделал","сделано","оплатил","оплачено","закрыто","закрыл","выполнено","уже отправил"];
+const CANCEL_MARKERS = ["отменен","отменён","отменена","отменено","отмена","отменяется","не состоится","снимаем","отказались"];
+
+const BASKET_MINE = ["школ","родител","кружок","робот","бассейн","врач","справк","квитанц","аренда","интернет",
+  "страхов","авто","обслужив","платеж","ремонт","детс","семь"];
+const BASKET_WORK = ["проект","витрин","счёт","счет","подрядчик","отгруз","договор","юрист","демо","статус",
+  "клиент","отчёт","отчет","релиз","команд"];
+
+const MONTHS = [["январ",0],["феврал",1],["март",2],["апрел",3],["мая",4],["май",4],["июн",5],["июл",6],
+  ["август",7],["сентябр",8],["октябр",9],["ноябр",10],["декабр",11]];
+const MONTH_RX = MONTHS.map(m => m[0]).join("|");
+const ORD = {"перв":1,"втор":2,"трет":3,"четверт":4,"пят":5,"шест":6,"седьм":7,"восьм":8,"девят":9,"десят":10,
+  "одиннадцат":11,"двенадцат":12,"тринадцат":13,"четырнадцат":14,"пятнадцат":15,"шестнадцат":16,
+  "семнадцат":17,"восемнадцат":18,"девятнадцат":19,"двадцат":20,"тридцат":30};
+const ORD_RX = Object.keys(ORD).sort((a,b)=>b.length-a.length).join("|");
+const WEEKDAYS = [["понедельник",1],["вторник",2],["сред",3],["четверг",4],["пятниц",5],["суббот",6],["воскресень",0]];
+const WD_RX = WEEKDAYS.map(w => w[0]).join("|");
+
+/* \b в JS считает словом только латиницу — для кириллицы нужны свои границы */
+const NB = "(?<![а-яёА-ЯЁa-zA-Z0-9_])";
+const NA = "(?![а-яёА-ЯЁa-zA-Z0-9_])";
+
+const STOP = new Set(["нужно","надо","также","колле","прошу","проси","будет","очень","уважа","чтобы","этого",
+  "тогда","потом","апдей","кстат","ещё","ваша","вашем","новая","значи"]);
+
+/* ─────────────────────────── даты ─────────────────────────────────────── */
+
+const D = {
+  parse: s => { const [y,m,d] = s.split("-").map(Number); return Date.UTC(y, m-1, d); },
+  iso:   t => new Date(t).toISOString().slice(0,10),
+  human: t => { const d = new Date(t); return String(d.getUTCDate()).padStart(2,"0") + "." + String(d.getUTCMonth()+1).padStart(2,"0"); },
+  make:  (y,m,d) => Date.UTC(y, m, d),
+  add:   (t,days) => t + days*86400000,
+  dow:   t => new Date(t).getUTCDay(),
+};
+
+/* Ближайшая дата dd.mm не раньше опорной (с переносом на следующий год). */
+function nearest(ref, month, day){
+  const y = new Date(ref).getUTCFullYear();
+  let t = D.make(y, month, day);
+  if (t < ref - 60*86400000) t = D.make(y+1, month, day);
+  return t;
+}
+function nextDayOfMonth(ref, day){
+  const d = new Date(ref), y = d.getUTCFullYear(), m = d.getUTCMonth();
+  const t = D.make(y, m, day);
+  return t >= ref ? t : D.make(y, m+1, day);
+}
+function nextWeekday(ref, dow){
+  const diff = (dow - D.dow(ref) + 7) % 7;   // включительно: «до пятницы» в пятницу — это сегодня
+  return D.add(ref, diff);
+}
+function endOfMonth(ref){
+  const d = new Date(ref);
+  return D.make(d.getUTCFullYear(), d.getUTCMonth()+1, 0);
+}
+
+/* Все упоминания дат в строке: чем ближе к тексту, тем надёжнее.
+   strength 2 — явная дата, 1 — словесная. prep — предлог перед упоминанием. */
+function scanDates(text, ref){
+  const found = [];
+  const taken = [];
+  const free = (a,b) => !taken.some(([x,y]) => a < y && b > x);
+  const prepOf = i => {
+    const back = text.slice(Math.max(0, i-18), i).toLowerCase();
+    const m = back.match(new RegExp(NB + "(до|к|ко|на|в|во)\\s+([а-яё]+\\s+)?$"));
+    if (!m) return {prep:"", via:""};
+    return {prep: m[1] === "ко" ? "к" : m[1], via: (m[2] || "").trim()};
+  };
+  const push = (m, obj) => {
+    if (!free(m.index, m.index + m[0].length)) return;
+    taken.push([m.index, m.index + m[0].length]);
+    found.push(Object.assign({raw:m[0].trim(), at:m.index}, prepOf(m.index), obj));
+  };
+  const year = new Date(ref).getUTCFullYear();
+  let m;
+
+  // «до 3 числа каждого месяца», «до 10 числа»
+  const rec = new RegExp("\\b(\\d{1,2})\\s+числа(\\s+каждого\\s+месяца)?", "gi");
+  while ((m = rec.exec(text))) push(m, {when: nextDayOfMonth(ref, +m[1]), strength:2, recurring:true, day:+m[1]});
+
+  // 14.09.2026 / 21.09
+  const num = /\b(\d{1,2})\.(\d{2})(?:\.(\d{4}))?\b/g;
+  while ((m = num.exec(text))) push(m, {when: m[3] ? D.make(+m[3], +m[2]-1, +m[1]) : nearest(ref, +m[2]-1, +m[1]), strength:2});
+
+  // «двадцать пятого сентября», «пятого сентября»
+  const ordMonth = new RegExp(NB + "(?:(двадцать|тридцать)\\s+)?(" + ORD_RX + ")[а-яё]*\\s+(" + MONTH_RX + ")[а-яё]*", "gi");
+  while ((m = ordMonth.exec(text))){
+    const base = m[1] ? (m[1].toLowerCase() === "двадцать" ? 20 : 30) : 0;
+    push(m, {when: nearest(ref, monthIdx(m[3]), base + ORD[m[2].toLowerCase()]), strength:2});
+  }
+
+  // «12 сентября», «5 сентября»
+  const numMonth = new RegExp("\\b(\\d{1,2})\\s+(" + MONTH_RX + ")[а-яё]*", "gi");
+  while ((m = numMonth.exec(text))) push(m, {when: nearest(ref, monthIdx(m[2]), +m[1]), strength:2});
+
+  // «до десятого», «к первому»
+  const ordOnly = new RegExp(NB + "(?:до|к|ко)\\s+(?:(двадцать|тридцать)\\s+)?(" + ORD_RX + ")(?:ого|его|ому|ему)" + NA, "gi");
+  while ((m = ordOnly.exec(text))){
+    const base = m[1] ? (m[1].toLowerCase() === "двадцать" ? 20 : 30) : 0;
+    push(m, {when: nextDayOfMonth(ref, base + ORD[m[2].toLowerCase()]), strength:1});
+  }
+
+  // «до пятницы», «к понедельнику»
+  const wd = new RegExp(NB + "(?:до|к|ко|в|во)\\s+(" + WD_RX + ")[а-яё]*", "gi");
+  while ((m = wd.exec(text))) push(m, {when: nextWeekday(ref, wdIdx(m[1])), strength:1});
+
+  // «завтра утром», «сегодня»
+  const rel = new RegExp(NB + "(послезавтра|завтра|сегодня)(\\s+утром|\\s+вечером|\\s+днём)?", "gi");
+  while ((m = rel.exec(text))){
+    const shift = {"сегодня":0,"завтра":1,"послезавтра":2}[m[1].toLowerCase()];
+    push(m, {when: D.add(ref, shift), strength:1});
+  }
+
+  // «до конца месяца»
+  const eom = new RegExp(NB + "до\\s+конца\\s+месяца", "gi");
+  while ((m = eom.exec(text))) push(m, {when: endOfMonth(ref), strength:1});
+
+  return found.sort((a,b) => a.at - b.at);
+}
+const monthIdx = w => (MONTHS.find(([s]) => w.toLowerCase().startsWith(s)) || ["",0])[1];
+const wdIdx    = w => (WEEKDAYS.find(([s]) => w.toLowerCase().startsWith(s)) || ["",1])[1];
+
+/* ─────────────────────────── нарезка входа ────────────────────────────── */
+
+const SRC_LABEL = {email:"письмо", chat:"чат", transcript:"транскрипт", screenshot:"скриншот", text:"текст"};
+const CHAT_LINE = /^\[(\d{1,2})\.(\d{2})\s+\d{1,2}:\d{2}\]\s*([^:]{1,24}):\s*/;
+const TRANSCRIPT_LINE = /^\s*[—–-]\s+/;
+
+function detectSource(text){
+  const lines = text.split("\n").filter(l => l.trim());
+  if (!lines.length) return "text";
+  if (/^От:/i.test(lines[0])) return "email";
+  if (lines.filter(l => CHAT_LINE.test(l)).length >= 2) return "chat";
+  if (lines.filter(l => TRANSCRIPT_LINE.test(l)).length >= 2) return "transcript";
+  if (lines.length >= 3 && lines.filter(l => /\.{3,}|…/.test(l)).length >= 2) return "screenshot";
+  return "text";
+}
+
+function cutChunks(text, src){
+  if (src === "email"){
+    const lines = text.split("\n");
+    let start = 0;
+    for (let i = 0; i < lines.length; i++) if (!lines[i].trim()){ start = i+1; break; }
+    const body = lines.slice(start).map(l => l.trim()).filter(Boolean).join(" ");
+    return body.split(/(?<=[.!?])\s+/).map(s => s.trim()).filter(Boolean);
+  }
+  return text.split("\n").map(l => l.trim()).filter(Boolean);
+}
+
+/* ─────────────────────────── ключ и сопоставление ─────────────────────── */
+
+function tokens(text){
+  const words = text.toLowerCase()
+    .replace(/[«»"'(),.!?:;—–\-\[\]]/g, " ")
+    .split(/\s+/).filter(Boolean);
+  const out = new Set();
+  for (const w of words){
+    if (w.length <= 3 || /\d/.test(w)) continue;
+    if (MONTHS.some(([s]) => w.startsWith(s))) continue;
+    if (WEEKDAYS.some(([s]) => w.startsWith(s))) continue;
+    if (new RegExp("^(" + ORD_RX + ")(ого|его|ому|ому|ый|ое|ая)?$").test(w)) continue;
+    const stem = w.slice(0,5);
+    if (!STOP.has(stem)) out.add(stem);
+    const bare = w.replace(/^(за|подо?|при|про|от|пере)/, "");
+    if (bare !== w && bare.length >= 5 && !STOP.has(bare.slice(0,5))) out.add(bare.slice(0,5));
+  }
+  return out;
+}
+
+/* Похожесть по смыслу, а не по тексту: две общие основы, либо одна общая
+   при совпавшем сроке, либо одна общая, когда у одной записи срока ещё нет. */
+function findTwin(item, exclude){
+  let best = null, bestShared = 0;
+  for (const c of state.items){
+    if (c.status !== "open") continue;
+    if (exclude && exclude.has(c.id)) continue;
+    if (item.kind && c.kind !== item.kind && (item.kind === "event" || c.kind === "event")) continue;
+    let shared = 0;
+    for (const t of item.tokens) if (c.tokens.has(t)) shared++;
+    if (!shared) continue;
+    const ok = shared >= 2
+      || (item.due && c.due && item.due === c.due)
+      || (!item.due || !c.due);
+    if (ok && shared > bestShared){ best = c; bestShared = shared; }
+  }
+  return best;
+}
+
+/* ─────────────────────────── разбор одного фрагмента ──────────────────── */
+
+function analyze(raw, src, refDate, me){
+  let text = raw, owner = null, ref = refDate;
+
+  const chat = raw.match(CHAT_LINE);
+  if (chat){
+    owner = chat[3].trim();
+    text = raw.slice(chat[0].length).trim();
+    // относительные сроки считаем от даты самого сообщения, если она есть
+    ref = nearest(refDate, +chat[2]-1, +chat[1]);
+  } else if (TRANSCRIPT_LINE.test(raw)){
+    text = raw.replace(TRANSCRIPT_LINE, "").trim();
+  }
+  text = text.replace(/\.{3,}/g, " — ").replace(/\s{2,}/g, " ").trim();
+
+  const low = text.toLowerCase();
+  const dates = scanDates(text, ref);
+  const hasMarker = MARKERS.some(m => low.includes(m));
+  const hedged = HEDGES.some(h => low.includes(h));
+
+  if (text.length < 8) return null;
+
+  // явные операции над уже известным — их ловим до отсева «не похоже на обязательство»
+  if (CANCEL_MARKERS.some(m => low.includes(m))) return {op:"cancel", text, dates, src};
+  if (DONE_MARKERS.some(m => low.includes(m)))   return {op:"done",   text, dates, src};
+
+  if (!hasMarker && !dates.length) return null;
+
+  // @Павел с тебя … — владелец назван прямо
+  const at = text.match(/@([А-ЯЁ][а-яё]+)/);
+  if (at) owner = at[1];
+  else if (!owner && new RegExp(NB + "я" + NA, "i").test(low)) owner = me;
+
+  const eventMention = dates.find(d => d.prep === "на" && looksLikeEventDate(d, low));
+  const dueMention = dates.filter(d => d !== eventMention)
+    .sort((a,b) => (b.strength - a.strength) || (a.at - b.at))[0];
+
+  const recurring = dates.some(d => d.recurring);
+  const isEvent = EVENT_MARKERS.some(m => low.includes(m)) && !hasMarker;
+
+  const item = {
+    id: "c" + (state.seq++),
+    what: sentence(text),
+    quote: raw.trim(),
+    src,
+    owner,
+    kind: recurring ? "recurring" : (isEvent ? "event" : "task"),
+    due: dueMention ? dueMention.when : (isEvent && eventMention ? eventMention.when : null),
+    dueRaw: dueMention ? dueMention.raw : null,
+    recurDay: recurring ? (dates.find(d => d.recurring) || {}).day : null,
+    basket: basketOf(low),
+    uncertainty: [],
+    status: "open",
+    parentId: null,
+    derived: false,
+  };
+  item.tokens = tokens(item.what);
+
+  const extra = [];
+
+  // «запись на 21.09», «зал на демо 25.09» — это ДАТА СОБЫТИЯ, а не срок дела
+  if (eventMention && !isEvent){
+    const title = eventTitle(text, eventMention);
+    const ev = {
+      id: "c" + (state.seq++), what: title, quote: raw.trim(), src,
+      owner: null, kind: "event", due: eventMention.when, dueRaw: eventMention.raw,
+      recurDay: null, basket: item.basket, uncertainty: [], status: "open",
+      parentId: null, derived: false,
+    };
+    ev.tokens = tokens(title + " " + text);
+    extra.push(ev);
+
+    // «подтвердить за 3 дня» — производное от события
+    const before = text.match(/за\s+(\d+)\s+дн/i);
+    if (before){
+      item.due = D.add(eventMention.when, -(+before[1]));
+      item.dueRaw = before[0] + " до " + D.human(eventMention.when);
+      item.parentId = ev.id;
+      item.derived = true;
+    }
+  }
+
+  if (!item.due) item.uncertainty.push("срок ?");
+  if (!item.owner && item.kind !== "event") item.uncertainty.push("владелец ?");
+  if (item.basket === "unknown") item.uncertainty.push("корзина ?");
+
+  // колонка-адресат
+  if (hedged || (!hasMarker && item.kind === "task")){
+    item.column = "review";
+    item.doubt = hedged ? "звучит как намерение, а не обещание" : "нет слова о долженствовании";
+  } else {
+    item.column = item.kind === "recurring" ? "recurring" : (item.kind === "event" ? "calendar" : "tracker");
+  }
+  for (const e of extra) e.column = "calendar";
+
+  return {op:"add", items:[item, ...extra]};
+}
+
+function sentence(t){
+  let s = t;
+  for (let i = 0; i < 2; i++){          // «и не забываем — …» чистится в два прохода
+    s = s.replace(/^(коллеги|ребята|привет|уважаемые\s+[а-яё]+)[,!:—-]\s*/i, "")
+         .replace(/^(и|а|ок|да|значит)[,\s]+/i, "")
+         .replace(/^(также\s+)?(напоминаем|напоминаю)[:,]?\s*/i, "")
+         .replace(/^не\s+забываем\s*[—–-]\s*/i, "")
+         .replace(/^апдейт:\s*/i, "");
+  }
+  s = s.replace(/[.\s]+$/, "");
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function eventTitle(text, mention){
+  const after = text.slice(0, mention.at).match(new RegExp(NB + "на\\s+([а-яёa-z]{3,})\\s*$", "i"));
+  if (after) return sentence(after[1]) + " " + D.human(mention.when);
+  const head = text.split(/[—:,]/)[0].trim();
+  return sentence(head || text) + " " + D.human(mention.when);
+}
+
+/* «на среду 02.09» — это перенос срока, а не событие; «зал на демо 25.09» — событие */
+function looksLikeEventDate(d, low){
+  if (d.via && WEEKDAYS.some(([w]) => d.via.startsWith(w))) return false;
+  if (/перенос|сдвиг|назнач|сдела/.test(low)) return false;
+  return !!d.via || /запис|брониру|бронь|встреч|собран|созвон/.test(low);
+}
+
+function basketOf(low){
+  if (BASKET_MINE.some(w => low.includes(w))) return "mine";
+  if (BASKET_WORK.some(w => low.includes(w))) return "work";
+  return "unknown";
+}
+
+/* ─────────────────────────── прогон ───────────────────────────────────── */
+
+const state = {items:[], seq:1, run:0};
+
+function runPass(){
+  const text = el.msg.value.trim();
+  if (!text) return;
+
+  const refDate = D.parse(el.today.value || "2026-08-28");
+  const me = (el.me.value || "Я").trim();
+  const src = detectSource(text);
+  const stat = {added:0, updated:0, closed:0, cancelled:0, skipped:0};
+  const touched = new Set(), fresh = new Set();
+
+  for (const raw of cutChunks(text, src)){
+    const res = analyze(raw, src, refDate, me);
+    if (!res){ stat.skipped++; continue; }
+
+    if (res.op === "cancel" || res.op === "done"){
+      const probe = {tokens: tokens(res.text), due: (res.dates[0] || {}).when || null};
+      const twin = findTwin(probe);
+      if (twin){
+        twin.status = res.op === "cancel" ? "cancelled" : "done";
+        twin.closedBy = res.text;
+        res.op === "cancel" ? stat.cancelled++ : stat.closed++;
+        // каскад: отмена события снимает и производное от него
+        for (const child of state.items){
+          if (child.parentId === twin.id && child.status === "open"){
+            child.status = twin.status;
+            child.closedBy = "снято вместе с «" + twin.what + "»";
+            res.op === "cancel" ? stat.cancelled++ : stat.closed++;
+          }
+        }
+      } else stat.skipped++;
+      continue;
+    }
+
+    const sameChunk = new Set(res.items.map(i => i.id));
+    for (const item of res.items){
+      const twin = findTwin(item, sameChunk);
+      if (twin){
+        if (item.due && item.due !== twin.due){ twin.due = item.due; twin.dueRaw = item.dueRaw; }
+        if (item.owner && !twin.owner) twin.owner = item.owner;
+        if (item.parentId) twin.parentId = item.parentId, twin.derived = true;
+        if (item.what.length > twin.what.length && item.kind === twin.kind) twin.what = item.what;
+        twin.basket = twin.basket === "unknown" ? item.basket : twin.basket;
+        twin.uncertainty = recomputeDoubt(twin);
+        twin.column = item.column === "review" ? twin.column : item.column;
+        for (const t of item.tokens) twin.tokens.add(t);
+        touched.add(twin.id); stat.updated++;
+      } else {
+        state.items.push(item);
+        fresh.add(item.id); stat.added++;
+      }
+    }
+  }
+
+  state.run++;
+  render(fresh, touched);
+  writeLog(src, stat);
+}
+
+function recomputeDoubt(c){
+  const out = [];
+  if (!c.due) out.push("срок ?");
+  if (!c.owner && c.kind !== "event") out.push("владелец ?");
+  if (c.basket === "unknown") out.push("корзина ?");
+  return out;
+}
+
+/* ─────────────────────────── отрисовка ────────────────────────────────── */
+
+const el = {
+  msg: document.getElementById("msg"),
+  today: document.getElementById("today"),
+  me: document.getElementById("me"),
+  board: document.getElementById("board"),
+  log: document.getElementById("log"),
+  tray: document.getElementById("tray"),
+  trayStack: document.getElementById("trayStack"),
+};
+
+const esc = s => String(s).replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));
+
+function render(fresh = new Set(), touched = new Set()){
+  const open = state.items.filter(c => c.status === "open");
+
+  el.board.innerHTML = COLUMNS.map(col => {
+    const cards = open.filter(c => c.column === col.id);
+    return `
+      <div class="col ${col.cls}">
+        <div class="col-head">
+          <div class="col-ico">${col.ico}</div>
+          <div class="col-title"><h3>${col.title}</h3><p>${col.hint}</p></div>
+          <div class="count">${cards.length}</div>
+        </div>
+        <div class="stack">
+          ${cards.length ? cards.map(c => cardHTML(c, fresh, touched)).join("") :
+            `<div class="empty">пусто</div>`}
+        </div>
+        <div class="dest">${col.dest}</div>
+      </div>`;
+  }).join("");
+
+  const closed = state.items.filter(c => c.status !== "open");
+  el.tray.style.display = closed.length ? "" : "none";
+  el.trayStack.innerHTML = closed.map(c => `
+    <div class="dead"><s>${esc(c.what)}</s>
+      <span class="tag ${c.status === "done" ? "done" : ""}">${c.status === "done" ? "сделано" : "снято"}</span>
+    </div>`).join("");
+}
+
+function cardHTML(c, fresh, touched){
+  const cls = fresh.has(c.id) ? " new" : (touched.has(c.id) ? " upd" : "");
+  const chips = [];
+
+  if (c.owner) chips.push(`<span class="chip owner">${esc(c.owner)}</span>`);
+  if (c.kind === "recurring" && c.recurDay)
+    chips.push(`<span class="chip due">каждое ${c.recurDay}-е · ближайшее ${D.human(c.due)}</span>`);
+  else if (c.due)
+    chips.push(`<span class="chip due">${c.kind === "event" ? "" : "до "}${D.human(c.due)}</span>`);
+  else
+    chips.push(`<span class="chip due soft">срок неясен</span>`);
+
+  if (c.basket === "mine") chips.push(`<span class="chip mine">личное</span>`);
+  if (c.basket === "work") chips.push(`<span class="chip work">рабочее</span>`);
+  if (c.derived) chips.push(`<span class="chip derived">производное</span>`);
+  for (const u of c.uncertainty) if (u !== "корзина ?") chips.push(`<span class="chip warn">${u}</span>`);
+  if (c.doubt) chips.push(`<span class="chip warn">${esc(c.doubt)}</span>`);
+
+  return `
+    <article class="card${cls}">
+      <p class="what">${esc(c.what)}</p>
+      <div class="meta">${chips.join("")}</div>
+      <blockquote><em>${SRC_LABEL[c.src]}</em> — «${esc(c.quote.length > 130 ? c.quote.slice(0,130) + "…" : c.quote)}»</blockquote>
+    </article>`;
+}
+
+function writeLog(src, s){
+  const parts = [];
+  if (s.added) parts.push(`добавлено <b>${s.added}</b>`);
+  if (s.updated) parts.push(`обновлено <b>${s.updated}</b>`);
+  if (s.closed) parts.push(`закрыто <b>${s.closed}</b>`);
+  if (s.cancelled) parts.push(`снято <b>${s.cancelled}</b>`);
+  if (!parts.length) parts.push("ничего не изменилось");
+
+  el.log.classList.add("on");
+  el.log.innerHTML = `
+    <div class="row"><b>Прогон ${state.run}</b><span class="dim">вход распознан как ${SRC_LABEL[src]}</span></div>
+    <div class="row">${parts.join(" · ")}</div>
+    <div class="row dim">не похоже на обязательство: ${s.skipped} ${plural(s.skipped, "строка","строки","строк")}</div>`;
+}
+const plural = (n, a, b, c) => {
+  const m = n % 100, k = n % 10;
+  return (m > 10 && m < 20) ? c : (k === 1 ? a : (k > 1 && k < 5 ? b : c));
+};
+
+/* ─────────────────────────── примеры входа ────────────────────────────── */
+
+const SAMPLES = [
+  ["Письмо школы",
+`От: Гимназия №14 <info@school.example>
+Тема: Родительское собрание и оплата кружка
+
+Уважаемые родители! 12 сентября в 18:30 состоится родительское собрание
+(актовый зал). Просим до 5 сентября оплатить кружок робототехники за первое
+полугодие и прислать скан квитанции классному руководителю.
+Также напоминаем: справка от врача для бассейна нужна к первому занятию 15.09.`],
+
+  ["Чат команды",
+`[27.08 14:02] Марина: коллеги, статус по проекту «Витрина» нужен к понедельнику 31.08 до обеда
+[27.08 14:05] Игорь: ок, соберу. @Павел с тебя цифры по отгрузкам до пятницы
+[27.08 14:06] Павел: принял
+[27.08 16:40] Марина: и не забываем — счёт подрядчику надо согласовать до конца месяца`],
+
+  ["Транскрипт созвона",
+`— Значит, договорились: я отправляю договор юристам завтра утром.
+— Да. И я тогда бронирую зал на демо двадцать пятого сентября.
+— Зал бронируй до десятого, потом разберут.
+— Понял, до десятого забронирую.`],
+
+  ["Скриншот расписания",
+`РАСПИСАНИЕ ПЛАТЕЖЕЙ (фото таблицы на стене офиса)
+Аренда офиса ....... до 3 числа каждого месяца
+Интернет ........... до 10 числа
+Страховка авто ..... продлить до 14.09.2026
+ТО автомобиля ...... запись на 21.09, подтвердить за 3 дня`],
+
+  ["Повторный прогон",
+`[28.08 09:12] Марина: апдейт: статус по «Витрине» переносим на среду 02.09
+[28.08 09:15] Игорь: цифры по отгрузкам уже отправил, закрыто`],
+
+  ["Отмена ТО",
+`От: СервисЦентр <box@service.example>
+Тема: Отмена записи на ТО
+
+Ваша запись на техническое обслуживание 21.09 отменена по вашему запросу.
+Новая дата не назначена.`],
+
+  ["Сомнительное",
+`[28.08 11:40] Лёша: по переезду — наверное надо будет что-то решить до 20.09
+[28.08 11:41] Лёша: и хотелось бы обсудить бюджет на осень`],
+];
+
+document.getElementById("samples").innerHTML =
+  SAMPLES.map((s,i) => `<button class="chip-btn" data-i="${i}">${s[0]}</button>`).join("");
+
+document.getElementById("samples").addEventListener("click", e => {
+  const b = e.target.closest("[data-i]");
+  if (!b) return;
+  el.msg.value = SAMPLES[+b.dataset.i][1];
+  el.msg.focus();
+});
+
+document.getElementById("run").addEventListener("click", runPass);
+document.getElementById("reset").addEventListener("click", () => {
+  state.items = []; state.run = 0; state.seq = 1;
+  el.msg.value = "";
+  el.log.classList.remove("on");
+  render();
+});
+el.msg.addEventListener("keydown", e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === "Enter") runPass();
+});
+
+el.msg.value = SAMPLES[1][1];
+render();
+</script>
+</body>
+</html>
