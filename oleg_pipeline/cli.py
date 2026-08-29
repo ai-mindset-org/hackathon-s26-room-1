@@ -22,10 +22,24 @@ CHAIN_RE = re.compile(
     r"поверх\s+реестра\s+из\s+примера\s+([A-Za-zА-Яа-я]?\d{1,3})",
     re.IGNORECASE,
 )
-REFERENCE_RE = re.compile(
-    r"(?:Опорное\s+время|Reference\s+(?:time|clock))[^\n\d]*(\d{4}-\d{2}-\d{2})",
-    re.IGNORECASE,
+REFERENCE_LINE_RE = re.compile(
+    r"^.*(?:Опорное\s+время|Reference\s+(?:time|clock)).*$",
+    re.IGNORECASE | re.MULTILINE,
 )
+MONTHS = {
+    "january": 1,
+    "february": 2,
+    "march": 3,
+    "april": 4,
+    "may": 5,
+    "june": 6,
+    "july": 7,
+    "august": 8,
+    "september": 9,
+    "october": 10,
+    "november": 11,
+    "december": 12,
+}
 
 
 @dataclasses.dataclass(frozen=True)
@@ -56,6 +70,31 @@ def _read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="replace")
 
 
+def extract_reference_date(expected: str) -> str:
+    line_match = REFERENCE_LINE_RE.search(expected)
+    if not line_match:
+        return dt.date.today().isoformat()
+    line = line_match.group(0)
+    iso_match = re.search(r"\b(\d{4}-\d{2}-\d{2})\b", line)
+    if iso_match:
+        return iso_match.group(1)
+    local_match = re.search(r"\b(\d{1,2})[./](\d{1,2})[./](\d{4})\b", line)
+    if local_match:
+        day, month, year = map(int, local_match.groups())
+        return dt.date(year, month, day).isoformat()
+    words_match = re.search(
+        r"\b(\d{1,2})\s+(" + "|".join(MONTHS) + r")\s+(\d{4})\b",
+        line,
+        re.IGNORECASE,
+    )
+    if words_match:
+        day = int(words_match.group(1))
+        month = MONTHS[words_match.group(2).casefold()]
+        year = int(words_match.group(3))
+        return dt.date(year, month, day).isoformat()
+    return dt.date.today().isoformat()
+
+
 def discover_scenarios(examples_dir: Path) -> list[Scenario]:
     if not examples_dir.is_dir():
         raise ValueError(f"каталог примеров не найден: {examples_dir}")
@@ -67,7 +106,6 @@ def discover_scenarios(examples_dir: Path) -> list[Scenario]:
             continue
         expected = _read_text(expected_path)
         chain_match = CHAIN_RE.search(expected)
-        reference_match = REFERENCE_RE.search(expected)
         scenarios.append(
             Scenario(
                 name=root.name,
@@ -76,7 +114,7 @@ def discover_scenarios(examples_dir: Path) -> list[Scenario]:
                 expected_path=expected_path,
                 expected=expected,
                 parent_token=chain_match.group(1) if chain_match else None,
-                now=reference_match.group(1) if reference_match else dt.date.today().isoformat(),
+                now=extract_reference_date(expected),
             )
         )
     if not scenarios:
@@ -389,20 +427,34 @@ def _escape_table(text: str) -> str:
 
 def write_report(results: list[Result], out_dir: Path, requested_judge: str) -> Path:
     passed = sum(result.passed for result in results)
+    if requested_judge == "none":
+        summary = [
+            "- Смысловая проверка: **отключена**",
+            f"- Движок: **успешно {passed} из {len(results)}**",
+        ]
+    else:
+        summary = [f"- Итог: **прошло {passed} из {len(results)}**"]
     lines = [
         "# Отчёт приёмочного pipeline",
         "",
         f"- Судья: `{requested_judge}`",
-        f"- Итог: **прошло {passed} из {len(results)}**",
+        *summary,
         "",
         "| Сценарий | Результат | Причина |",
         "|---|---|---|",
     ]
     for result in results:
-        mark = "PASS" if result.passed else "FAIL"
+        if requested_judge == "none":
+            mark = "ENGINE OK" if result.passed else "ENGINE FAIL"
+        else:
+            mark = "PASS" if result.passed else "FAIL"
         lines.append(f"| `{result.scenario.name}` | {mark} | {_escape_table(result.reason)} |")
     for result in results:
-        lines.extend(["", f"## {result.scenario.name}", "", f"- Вердикт: {'PASS' if result.passed else 'FAIL'}", f"- Причина: {result.reason}", f"- Судья: `{result.judge_backend}`", f"- Время движка: {result.engine_seconds:.2f} с"])
+        if requested_judge == "none":
+            detail_mark = "ENGINE OK" if result.passed else "ENGINE FAIL"
+        else:
+            detail_mark = "PASS" if result.passed else "FAIL"
+        lines.extend(["", f"## {result.scenario.name}", "", f"- Вердикт: {detail_mark}", f"- Причина: {result.reason}", f"- Судья: `{result.judge_backend}`", f"- Время движка: {result.engine_seconds:.2f} с"])
         if result.registry_path:
             lines.append(f"- Реестр: `{result.registry_path}`")
         if result.facts:
@@ -478,15 +530,19 @@ def run_pipeline(args: argparse.Namespace) -> int:
     results = [results_by_name[scenario.name] for scenario in selected]
     report = write_report(results, out_dir, args.judge)
     for result in results:
-        symbol = "PASS" if result.passed else "FAIL"
+        if args.judge == "none":
+            symbol = "ENGINE OK" if result.passed else "ENGINE FAIL"
+        else:
+            symbol = "PASS" if result.passed else "FAIL"
         print(f"{symbol} {result.scenario.name}: {result.reason}")
         if args.judge == "none" and result.registry_md_path and result.registry_md_path.is_file():
             print(f"\n--- {result.scenario.name}/registry.md ---\n{_read_text(result.registry_md_path).rstrip()}\n")
     passed = sum(result.passed for result in results)
-    denominator = len(results) if args.judge != "none" else 0
-    numerator = passed if args.judge != "none" else 0
-    print(f"прошло {numerator} из {denominator}")
     print(f"отчёт: {report}")
+    if args.judge == "none":
+        print(f"прошло 0 из 0 (судья отключен; движок успешно {passed} из {len(results)})")
+    else:
+        print(f"прошло {passed} из {len(results)}")
     return 0 if all(result.passed for result in results) else 1
 
 
