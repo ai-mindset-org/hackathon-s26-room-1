@@ -160,8 +160,11 @@ async function boot(){
   for(const e of CFG.examples){ const o=document.createElement("option"); o.value=e.path; o.textContent=e.name; sel.appendChild(o); }
   if(!CFG.examples.length){ const o=document.createElement("option"); o.textContent="(примеры не найдены)"; sel.appendChild(o); }
   const f = CFG.features;
+  const b = CFG.backends || {};
+  const bk = ["codex","claude"].map(n => `${n}=${b[n] ? "есть" : "НЕТ"}`).join(" · ");
   $("#hdr-feat").textContent = "FEATURES: " + Object.entries(f).map(([k,v])=>`${k}=${v?"вкл":"выкл"}`).join(" · ")
-    + (CFG.engine_available ? "" : " · движок не найден");
+    + " | бэкенды: " + bk + (CFG.engine_available ? "" : " | движок не найден");
+  if(!b.codex && !b.claude) setErr("ни codex, ни claude не видны из этого процесса — прогон движка упадёт");
   $("#runex").style.display = f.run_examples ? "" : "none";
   $("#runex").classList.remove("off");
   REG_PATH = CFG.registry_default;

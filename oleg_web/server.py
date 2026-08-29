@@ -304,6 +304,9 @@ def api_config(request: Request) -> JSONResponse:
         "pipeline_available": pd is not None,
         "repo_root": str(REPO_ROOT),
         "python": sys.executable,
+        # Видно ли подпроцессам сами бэкенды — проверяется тем же PATH, с которым
+        # запускается движок, поэтому это честный предпусковой признак.
+        "backends": {name: shutil.which(name) for name in ("codex", "claude")},
     })
 
 
