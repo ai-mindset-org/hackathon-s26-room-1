@@ -948,8 +948,14 @@ render();
       const badge = c.change === "updated"
         ? `<span class="rr-badge upd">обновлено</span>`
         : c.change === "new" ? `<span class="rr-badge new">новое</span>` : "";
+      const wasVal = (f, v) => {
+        if (v == null) return "—";
+        if (f === "status") return RU_STATUS[v] || String(v);
+        const [y,m,d] = String(v).split("-");
+        return d ? `${d}.${m}.${y}` : String(v);
+      };
       const was = (c.was && c.changed_fields || []).map(f =>
-        `<span class="rr-was">было ${f === "due" ? "срок" : "статус"}: ${esc(String(c.was[f] ?? "—"))}</span>`).join("");
+        `<span class="rr-was">было ${f === "due" ? "срок" : "статус"}: ${esc(wasVal(f, c.was[f]))}</span>`).join("");
       const ev = (c.evidence || [])[0];
       const more = (c.evidence || []).length > 1 ? ` <b>+${c.evidence.length - 1}</b>` : "";
       const q = ev
