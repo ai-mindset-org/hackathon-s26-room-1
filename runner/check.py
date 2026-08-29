@@ -57,7 +57,8 @@ def covered(item: str, registry_text: str) -> bool:
     return has_kw
 
 
-def run_one(example: Path, today: str, llm: bool = False) -> tuple[int, int, list[str]]:
+def run_one(example: Path, today: str, llm: bool = False,
+            use_judge: bool = False) -> tuple[int, int, list[str]]:
     expected = example / "expected.md"
     inputs = example / "input"
     if not expected.exists() or not inputs.exists():
@@ -78,20 +79,45 @@ def run_one(example: Path, today: str, llm: bool = False) -> tuple[int, int, lis
         text = out.read_text(encoding="utf-8") if out.exists() else ""
 
     items = expected_items(expected)
+
+    if use_judge:
+        from runner.judge import judge
+        verdicts = judge(items, text)
+        if verdicts:  # пусто = судья не сработал, откатываемся на grep
+            missed = [
+                f"{it}" + (f"  — {why}" if why else "")
+                for it, (ok, why) in zip(items, verdicts) if not ok
+            ]
+            return len(items) - len(missed), len(items), missed
+        print("    (судья не ответил — грубая сверка)")
+
     missed = [it for it in items if not covered(it, text)]
     return len(items) - len(missed), len(items), missed
 
 
-def run_all(today: str = "2026-08-28", llm: bool = False) -> int:
+def run_all(today: str = "2026-08-28", llm: bool = False,
+            use_judge: bool = False) -> int:
+    from runner.judge import available as judge_available
+
+    if use_judge and not judge_available():
+        print("нет ключа — сверка грубая, счёт занижен\n")
+        use_judge = False
+    print("сверка: " + ("по смыслу, LLM-судья" if use_judge
+                        else "грубая, по подстроке") + "\n")
     total_ok = total = 0
     for example in sorted(EXAMPLES.iterdir()):
         if not example.is_dir():
             continue
-        ok, n, missed = run_one(example, today, llm)
+        ok, n, missed = run_one(example, today, llm, use_judge)
         total_ok += ok
         total += n
         print(f"{example.name}: прошло {ok} из {n}")
         for m in missed:
-            print(f"    ✗ {m[:100]}")
+            if "  — " in m:
+                item, why = m.split("  — ", 1)
+                print(f"    ✗ {item[:80]}")
+                print(f"      причина: {why}")
+            else:
+                print(f"    ✗ {m[:100]}")
     print(f"\nИТОГО: {total_ok} из {total}")
     return 0
