@@ -1,0 +1,350 @@
+{
+  "version": 1,
+  "now": "2026-08-29",
+  "sources": [
+    {
+      "sha256": "c351e8cb34bd56a5",
+      "path": "examples/01-разнородный-вход/input/письмо-школа.txt",
+      "channel": "email",
+      "size": 655,
+      "ingested_at": "2026-08-29T11:00:00Z"
+    },
+    {
+      "sha256": "01d120e6379dc6ab",
+      "path": "examples/01-разнородный-вход/input/транскрипт-созвона.txt",
+      "channel": "transcript",
+      "size": 378,
+      "ingested_at": "2026-08-29T11:00:00Z"
+    },
+    {
+      "sha256": "bbb679a8f396adf6",
+      "path": "examples/01-разнородный-вход/input/чат-экспорт.txt",
+      "channel": "chat",
+      "size": 473,
+      "ingested_at": "2026-08-29T11:00:00Z"
+    },
+    {
+      "sha256": "c3ca7786fea25d6b",
+      "path": "examples/02-повторный-прогон/input/чат-дополнение.txt",
+      "channel": "chat",
+      "size": 696,
+      "ingested_at": "2026-08-29T11:20:00Z"
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "demo_0001",
+      "ts": "2026-08-29T11:00:00Z",
+      "mode": "parallel",
+      "backend": "codex",
+      "model": "gpt-5.6-sol",
+      "coverage": {
+        "examples/01-разнородный-вход/input/письмо-школа.txt": {
+          "chunks_total": 1,
+          "chunks_sent": 1
+        },
+        "examples/01-разнородный-вход/input/транскрипт-созвона.txt": {
+          "chunks_total": 1,
+          "chunks_sent": 1
+        },
+        "examples/01-разнородный-вход/input/чат-экспорт.txt": {
+          "chunks_total": 1,
+          "chunks_sent": 1
+        }
+      }
+    },
+    {
+      "run_id": "demo_0002",
+      "ts": "2026-08-29T11:20:00Z",
+      "mode": "parallel",
+      "backend": "codex",
+      "model": "gpt-5.6-sol",
+      "coverage": {
+        "examples/02-повторный-прогон/input/чат-дополнение.txt": {
+          "chunks_total": 1,
+          "chunks_sent": 1
+        }
+      }
+    }
+  ],
+  "obligations": [
+    {
+      "id": "ob_0001",
+      "what": "Оплатить кружок робототехники и прислать скан квитанции классному руководителю",
+      "owner": "родитель",
+      "due": "2026-09-05",
+      "due_text": "до 5 сентября",
+      "kind": "task",
+      "recurrence": null,
+      "status": "open",
+      "derived_from": null,
+      "manual": false,
+      "sources": [
+        {
+          "sha256": "c351e8cb34bd56a5",
+          "path": "examples/01-разнородный-вход/input/письмо-школа.txt",
+          "quote": "Просим до 5 сентября оплатить кружок робототехники за первое",
+          "line_start": 5,
+          "line_end": 6
+        }
+      ],
+      "history": [
+        {
+          "run_id": "demo_0001",
+          "ts": "2026-08-29T11:00:00Z",
+          "change": "created",
+          "from": null,
+          "to": "2026-09-05",
+          "source_path": "examples/01-разнородный-вход/input/письмо-школа.txt"
+        }
+      ]
+    },
+    {
+      "id": "ob_0002",
+      "what": "Справка от врача для бассейна",
+      "owner": "родитель",
+      "due": "2026-09-15",
+      "due_text": "к первому занятию 15.09",
+      "kind": "task",
+      "recurrence": null,
+      "status": "open",
+      "derived_from": null,
+      "manual": false,
+      "sources": [
+        {
+          "sha256": "c351e8cb34bd56a5",
+          "path": "examples/01-разнородный-вход/input/письмо-школа.txt",
+          "quote": "справка от врача для бассейна нужна к первому занятию 15.09",
+          "line_start": 7,
+          "line_end": 7
+        }
+      ],
+      "history": [
+        {
+          "run_id": "demo_0001",
+          "ts": "2026-08-29T11:00:00Z",
+          "change": "created",
+          "from": null,
+          "to": "2026-09-15",
+          "source_path": "examples/01-разнородный-вход/input/письмо-школа.txt"
+        }
+      ]
+    },
+    {
+      "id": "ob_0003",
+      "what": "Родительское собрание, актовый зал, 12.09 в 18:30 (действий по подготовке нет)",
+      "owner": null,
+      "due": "2026-09-12",
+      "due_text": "12 сентября в 18:30",
+      "kind": "event",
+      "recurrence": null,
+      "status": "open",
+      "derived_from": null,
+      "manual": false,
+      "sources": [
+        {
+          "sha256": "c351e8cb34bd56a5",
+          "path": "examples/01-разнородный-вход/input/письмо-школа.txt",
+          "quote": "12 сентября в 18:30 состоится родительское собрание",
+          "line_start": 4,
+          "line_end": 4
+        }
+      ],
+      "history": [
+        {
+          "run_id": "demo_0001",
+          "ts": "2026-08-29T11:00:00Z",
+          "change": "created",
+          "from": null,
+          "to": "2026-09-12",
+          "source_path": "examples/01-разнородный-вход/input/письмо-школа.txt"
+        }
+      ]
+    },
+    {
+      "id": "ob_0004",
+      "what": "Статус по проекту «Витрина»",
+      "owner": "Игорь",
+      "due": "2026-09-02",
+      "due_text": "переносим на среду 02.09",
+      "kind": "task",
+      "recurrence": null,
+      "status": "open",
+      "derived_from": null,
+      "manual": false,
+      "sources": [
+        {
+          "sha256": "bbb679a8f396adf6",
+          "path": "examples/01-разнородный-вход/input/чат-экспорт.txt",
+          "quote": "статус по проекту «Витрина» нужен к понедельнику 31.08 до обеда",
+          "line_start": 1,
+          "line_end": 1
+        },
+        {
+          "sha256": "c3ca7786fea25d6b",
+          "path": "examples/02-повторный-прогон/input/чат-дополнение.txt",
+          "quote": "апдейт: статус по «Витрине» переносим на среду 02.09",
+          "line_start": 5,
+          "line_end": 5
+        }
+      ],
+      "history": [
+        {
+          "run_id": "demo_0001",
+          "ts": "2026-08-29T11:00:00Z",
+          "change": "created",
+          "from": null,
+          "to": "2026-08-31",
+          "source_path": "examples/01-разнородный-вход/input/чат-экспорт.txt"
+        },
+        {
+          "run_id": "demo_0002",
+          "ts": "2026-08-29T11:20:00Z",
+          "change": "due_changed",
+          "from": "2026-08-31",
+          "to": "2026-09-02",
+          "source_path": "examples/02-повторный-прогон/input/чат-дополнение.txt"
+        }
+      ]
+    },
+    {
+      "id": "ob_0005",
+      "what": "Цифры по отгрузкам",
+      "owner": "Павел",
+      "due": "2026-08-29",
+      "due_text": "до пятницы 29.08",
+      "kind": "task",
+      "recurrence": null,
+      "status": "done",
+      "derived_from": null,
+      "manual": false,
+      "sources": [
+        {
+          "sha256": "bbb679a8f396adf6",
+          "path": "examples/01-разнородный-вход/input/чат-экспорт.txt",
+          "quote": "@Павел с тебя цифры по отгрузкам до пятницы",
+          "line_start": 2,
+          "line_end": 2
+        },
+        {
+          "sha256": "c3ca7786fea25d6b",
+          "path": "examples/02-повторный-прогон/input/чат-дополнение.txt",
+          "quote": "цифры по отгрузкам уже отправил, закрыто",
+          "line_start": 6,
+          "line_end": 6
+        }
+      ],
+      "history": [
+        {
+          "run_id": "demo_0001",
+          "ts": "2026-08-29T11:00:00Z",
+          "change": "created",
+          "from": null,
+          "to": "2026-08-29",
+          "source_path": "examples/01-разнородный-вход/input/чат-экспорт.txt"
+        },
+        {
+          "run_id": "demo_0002",
+          "ts": "2026-08-29T11:20:00Z",
+          "change": "done",
+          "from": "open",
+          "to": "done",
+          "source_path": "examples/02-повторный-прогон/input/чат-дополнение.txt"
+        }
+      ]
+    },
+    {
+      "id": "ob_0006",
+      "what": "Согласовать счёт подрядчику",
+      "owner": "Марина",
+      "due": "2026-08-31",
+      "due_text": "до конца месяца",
+      "kind": "task",
+      "recurrence": null,
+      "status": "open",
+      "derived_from": null,
+      "manual": false,
+      "sources": [
+        {
+          "sha256": "bbb679a8f396adf6",
+          "path": "examples/01-разнородный-вход/input/чат-экспорт.txt",
+          "quote": "счёт подрядчику надо согласовать до конца месяца",
+          "line_start": 4,
+          "line_end": 4
+        }
+      ],
+      "history": [
+        {
+          "run_id": "demo_0001",
+          "ts": "2026-08-29T11:00:00Z",
+          "change": "created",
+          "from": null,
+          "to": "2026-08-31",
+          "source_path": "examples/01-разнородный-вход/input/чат-экспорт.txt"
+        }
+      ]
+    },
+    {
+      "id": "ob_0007",
+      "what": "Отправить договор юристам",
+      "owner": "спикер 1",
+      "due": "2026-08-30",
+      "due_text": "завтра утром",
+      "kind": "task",
+      "recurrence": null,
+      "status": "open",
+      "derived_from": null,
+      "manual": false,
+      "sources": [
+        {
+          "sha256": "01d120e6379dc6ab",
+          "path": "examples/01-разнородный-вход/input/транскрипт-созвона.txt",
+          "quote": "я отправляю договор юристам завтра утром",
+          "line_start": 1,
+          "line_end": 1
+        }
+      ],
+      "history": [
+        {
+          "run_id": "demo_0001",
+          "ts": "2026-08-29T11:00:00Z",
+          "change": "created",
+          "from": null,
+          "to": "2026-08-30",
+          "source_path": "examples/01-разнородный-вход/input/транскрипт-созвона.txt"
+        }
+      ]
+    },
+    {
+      "id": "ob_0008",
+      "what": "Забронировать зал на демо 25.09 (бронь — до 10.09)",
+      "owner": "спикер 2",
+      "due": "2026-09-10",
+      "due_text": "до десятого",
+      "kind": "task",
+      "recurrence": null,
+      "status": "open",
+      "derived_from": null,
+      "manual": false,
+      "sources": [
+        {
+          "sha256": "01d120e6379dc6ab",
+          "path": "examples/01-разнородный-вход/input/транскрипт-созвона.txt",
+          "quote": "Зал бронируй до десятого, потом разберут.",
+          "line_start": 3,
+          "line_end": 3
+        }
+      ],
+      "history": [
+        {
+          "run_id": "demo_0001",
+          "ts": "2026-08-29T11:00:00Z",
+          "change": "created",
+          "from": null,
+          "to": "2026-09-10",
+          "source_path": "examples/01-разнородный-вход/input/транскрипт-созвона.txt"
+        }
+      ]
+    }
+  ]
+}
