@@ -1,0 +1,43 @@
+STONEBRIDGE-FM/WAW-CAMPUS — inspection calendar export
+Calendar zone: Europe/Warsaw
+Exported: Monday 7 September 2026 at 12:20 local time
+Working calendar used by Facilities: Monday through Friday
+
+Series UID: STONEBRIDGE-FM/VISIT-E17A
+Title: East plant-room drainage inspection
+Location: STONEBRIDGE-FM/ZONE-E17A
+Coordinator: Alicja Krawiec
+Pattern: weekly on Wednesday, three occurrences
+Occurrence 1: Wednesday 9 September 2026, 09:00-10:30 Europe/Warsaw
+Occurrence 2: Wednesday 16 September 2026, 09:00-10:30 Europe/Warsaw
+Occurrence 3: Wednesday 23 September 2026, 09:00-10:30 Europe/Warsaw
+Linked access request for occurrence 2: STONEBRIDGE-FM/PERMIT-E17A-0916; preparation cut-off Tuesday 15 September 2026, 12:00 Europe/Warsaw; coordinator Jakub Wrona.
+Description: review drain edge, expansion joint, grille clearance, and photographic log.
+Attendees listed: Facilities coordination, Vistula Build inspector, ventilation representative.
+
+Other calendar entries in the same export:
+Monday 7 September, 08:00-08:20 — weekday gate briefing, Gate B office.
+Monday 7 September, 11:30-12:00 — canteen stock count, service kitchen.
+Tuesday 8 September, 09:30-10:00 — lift contractor arrival window, loading bay 1.
+Tuesday 8 September, 14:00-15:00 — archive shelving walk-through, level B1.
+Wednesday 9 September, 12:00-12:30 — landscape irrigation review, north yard.
+Thursday 10 September, 08:45-09:15 — waste route coordination, reception call.
+Friday 11 September, 09:30-10:00 — weekly subcontractor briefing, room C.
+Friday 11 September, 13:00-14:00 — fire-door sample check, west stair.
+Monday 14 September, 10:00-11:30 — loading bay reservation for valve-kit delivery.
+Monday 14 September, 15:00-15:30 — reception rota review, online meeting.
+Tuesday 15 September, 08:30-09:00 — meter photograph round, utilities corridor.
+Tuesday 15 September, 12:30-13:00 — desk move planning, level 2 breakout area.
+Wednesday 16 September, 07:00-18:00 — ventilation shutdown window, east plant room.
+Thursday 17 September, 10:00-10:20 — washroom consumables count, stores.
+Friday 18 September, 16:00-16:30 — weekly diary close, facilities office.
+
+Calendar guidance shown in the export footer:
+Visitors sign in at the gate named in the booking.
+Coordinators update attendee lists before security prints visitor cards.
+Room reservations release after fifteen minutes when nobody checks in.
+Vehicle height above 3.2 m requires the loading-bay route.
+Recurring bookings keep one series UID and retain occurrence dates in the audit view.
+
+Calendar support: calendar.ops@stonebridge-fm.example
+Tenant: STONEBRIDGE-FM/WAW-CAMPUS

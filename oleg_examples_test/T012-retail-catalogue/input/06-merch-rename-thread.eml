@@ -1,0 +1,48 @@
+From: Aiko Mori <aiko.mori@mosaic-cat.example>
+To: catalogue-ops@mosaic-cat.example
+Date: Sat, 17 Apr 2027 13:20:00 +0900
+Message-ID: <MOSAIC-CAT/MSG-REN-410-01@mosaic-cat.example>
+Subject: MOSAIC-CAT/SKU-KN-410 spring name alignment
+
+Team,
+
+The spring shelf copy now uses the glaze family name across both languages.
+MOSAIC-CAT/SKU-KN-410の英語名を「Celadon Glaze Mug 410」、日本語名を「青磁釉マグ 410」に変更します。
+森愛子が英語と日本語の両方のコピー更新を担当します。
+初回締切は2027年4月18日16:00 JSTです。
+
+The stable SKU and barcode remain MOSAIC-CAT/SKU-KN-410 and MOSAIC-CAT/JAN-4580000410410.
+The rename does not change capacity, carton dimensions, tax family, or store allocation.
+The English short line should stay under 42 characters.
+The Japanese tile has room for one additional full-width character.
+The old shelf card can remain in stores until the next overnight feed.
+Photography uses the same front and detail assets.
+The spring tone guide calls this finish blue-green rather than mint.
+Last season used a shorter family name on mobile.
+The product team measured the handle clearance again this morning.
+Tokyo still has 184 units available.
+Osaka still has 96 units available.
+Fukuoka still has 48 units available.
+The replenishment shipment remains scheduled for 2027-05-08.
+The email preview wrapped the Japanese name after the eighth character.
+The desktop preview kept the name on one line.
+Please retain the model number at the end in both languages.
+
+Aiko Mori
+MOSAIC-CAT/CAM-SPR-27 Merchandising
+Standard routing: catalogue -> localization -> QA -> publish.
+Archive label: MOSAIC-CAT/MAIL-SPR-27
+
+From: Aiko Mori <aiko.mori@mosaic-cat.example>
+To: catalogue-ops@mosaic-cat.example
+Date: Sun, 18 Apr 2027 10:15:00 +0900
+Message-ID: <MOSAIC-CAT/MSG-REN-410-02@mosaic-cat.example>
+Subject: Re: MOSAIC-CAT/SKU-KN-410 spring name alignment
+
+The localization queue lost its morning slot after the price feed ran long.
+MOSAIC-CAT/SKU-KN-410の新しい締切は2027-04-19T08:30:00Zです。
+森愛子の担当は変わりません。
+The barcode, copy pair, and campaign remain unchanged.
+Mobile preview is now 39 characters in English.
+The Tokyo and Osaka shelf teams have the revised preview.
+The mail archive shows both messages under MOSAIC-CAT/MAIL-SPR-27.

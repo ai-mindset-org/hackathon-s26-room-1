@@ -1,0 +1,39 @@
+FRACTURE-ZERO/TABLE-DUMP-2019-11
+Export profile: es-ES; decimal comma; date view dd/MM/yyyy; site zone Europe/Madrid.
+Source screen: FRACTURE-ZERO/LEXICON-2019, archived field dictionary.
+Columns seen before wrap: code | display term | sample value | note | screen order
+--- page 1 of 3, left edge intact ---
+FRACTURE-ZERO/FIELD-01 | RESPONSABLE | Noelia R. | ejemplo de etiqueta | 04
+FRACTURE-ZERO/FIELD-02 | FECHA | 14/09/2019 | ejemplo de fecha | 05
+FRACTURE-ZERO/FIELD-03 | ENVIAR | SEND | traducción de botón | 06
+FRACTURE-ZERO/FIELD-04 | REVISAR | REVIEW | traducción de botón | 07
+FRACTURE-ZERO/FIELD-05 | IMPORTE | 1.409,00 | ejemplo numérico | 08
+FRACTURE-ZERO/FIELD-06 | VERSIÓN | 4.11 | lector antiguo | 09
+--- row wraps begin; vertical bars missing in scan ---
+FRACTURE-ZERO/ARC-17 || REVISAR || 14/09 || Noelia? || ejemplo_de_columna
+FRACTURE-ZERO/BOX-17  PESO  14,09 kg  ESTANTE ESTE  etiqueta gris
+FRACTURE-ZERO/PAGE-17 | SEND | owner | date | sample headings, order uncertain
+FRACTURE-ZERO/LABEL-22 || VIERNES || nombre_de_día || casilla 11
+FRACTURE-ZERO/LABEL-23 || MAÑANA || palabra_de_prueba || casilla 12
+FRACTURE-ZERO/LABEL-24 || DUE || encabezado inglés || casilla 13
+FRACTURE-ZERO/LABEL-25 || OWNER || encabezado inglés || casilla 14
+--- page 2 of 3, right edge shifted one cell ---
+row 018 | 22/11/2019 | FRACTURE-ZERO/FORM-A | archived screenshot | 188,40
+row 019 | 23/11/2019 | FRACTURE-ZERO/FORM-B | archived screenshot | 203,05
+row 020 | 24/11/2019 | FRACTURE-ZERO/FORM-C | archived screenshot | 19,00
+row 021 | 4.11 | FRACTURE-ZERO/READER | release label | build 906
+row 022 | 04.11 | FRACTURE-ZERO/READER | paper manual | section 9
+row 023 | 411 | FRACTURE-ZERO/READER | inventory sticker | shelf 6
+control total shown on footer: 1.819,45
+page count shown on footer: 3
+language selector shown on footer: Español (España)
+site selector shown on footer: Madrid
+--- page 3 of 3, first two columns absent ---
+... | 09:00 | orientation sample | FRACTURE-ZERO/CLOCK-EXAMPLE
+... | Friday | weekday sample | FRACTURE-ZERO/DAY-EXAMPLE
+... | Lina | person-name sample | FRACTURE-ZERO/NAME-EXAMPLE
+... | accepted? | punctuation sample | FRACTURE-ZERO/STATE-EXAMPLE
+... | 2020-01-03 | ISO sample | FRACTURE-ZERO/DATE-EXAMPLE
+footer checksum visible: 8F-17-14-09
+footer record count visible: 00035
+[table ends before the legend for question marks]

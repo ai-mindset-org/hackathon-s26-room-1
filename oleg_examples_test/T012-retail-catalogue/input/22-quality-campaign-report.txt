@@ -1,0 +1,39 @@
+MOSAIC-CAT/QA-CAM-20270421
+Generated: 2027-04-21T00:05:00Z
+Campaign: MOSAIC-CAT/CAM-SPR-27
+Review event: MOSAIC-CAT/EV-CAM-SPR-27-REVIEW
+Checklist: MOSAIC-CAT/CHK-SPR-27-IC
+Preview target: MOSAIC-CAT/PREVIEW-TYO-4
+
+CHECKLIST ITEM | RESULT
+hero image sample | reviewed
+Japanese title sample | reviewed
+English title sample | reviewed
+campaign price sample | reviewed
+mobile crop sample | reviewed
+desktop grid sample | reviewed
+stable SKU sample | reviewed
+barcode sample | reviewed
+store allocation sample | reviewed
+overnight feed sample | reviewed
+
+MOSAIC-CAT/CHK-SPR-27-IC was completed at 2027-04-20T23:45:00Z by Kota Endo.
+The checklist file contains 68 primary rows.
+The companion-colour annex contains 14 rows.
+The hero image sample included four categories.
+The Japanese title sample included 12 rows.
+The English title sample included 12 rows.
+The campaign price sample included MOSAIC-CAT/SKU-GL-220.
+The pending price state remains visible in the approval view.
+The mobile crop sample used a standard handset width.
+The desktop grid sample used the campaign breakpoint.
+The review room remains MOSAIC-CAT/ROOM-CAT-2.
+The organizer remains Yui Kondo.
+The review calendar now carries sequence 1.
+The review deck remains revision 6.
+The archive package is MOSAIC-CAT/ARCH-SPR-27.
+The store preview briefing remains tentative.
+The routine feed window follows the review.
+The overnight feed uses MOSAIC-CAT/STORE-OVERNIGHT.
+The report has no customer-level fields.
+The report checksum is MOSAIC-CAT/QA-CHK-CAM-91c0.

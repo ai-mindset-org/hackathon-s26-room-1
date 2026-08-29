@@ -1,0 +1,50 @@
+2026-11-16T10:00:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 created: rollback rehearsal for AURORA-R7/REL-204-EU; assignee AURORA-R7/OWNER-PIOTR-NOWAK; due 2026-11-18 16:00 CET.
+2026-11-16T10:03:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 label set includes rollback, rehearsal, and EU-blue.
+2026-11-16T10:06:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 attachment AURORA-R7/FILE-RB-7811 has 96 checksum rows.
+2026-11-16T10:09:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 comment: sandbox restore rate measured 486 MB/s.
+2026-11-16T10:12:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 status changed from queued to open.
+2026-11-16T10:15:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7824 created: file the signed checksum attestation for AURORA-R7/REL-204-EU by 2026-11-20 17:00 CET; assignee remains unassigned.
+2026-11-16T10:18:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7824 has template revision 4.8 and evidence slot count 12.
+2026-11-16T10:21:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7824 watcher list contains AURORA-R7/OWNER-MAYA-ITO and AURORA-R7/OWNER-NORA-VALE.
+2026-11-16T10:24:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7824 comment: watcher status does not assign the ticket.
+2026-11-16T10:27:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7824 status remains open.
+2026-11-16T10:30:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7852 created: publish regional release note; assignee AURORA-R7/OWNER-KASIA-WROBEL; due 2026-11-20 10:00 CET.
+2026-11-16T10:33:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7852 language list contains en-GB, pl-PL, and the shared diagram captions.
+2026-11-16T10:36:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7852 attachment AURORA-R7/FILE-NOTE-19 is 438 KB.
+2026-11-16T10:39:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7852 status changed from queued to open.
+2026-11-16T10:42:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7852 comment: two glossary notes remain under review.
+2026-11-16T10:45:00Z | AURORA-R7/TICKETS | AURORA-R7/CHG-448 created: run and record the thirty-minute telemetry watch after AURORA-R7/REL-204-EU; owner AURORA-R7/OWNER-LENA-KOVAC; target 2026-11-18 21:45 UTC.
+2026-11-16T10:48:00Z | AURORA-R7/TICKETS | AURORA-R7/CHG-448 watches AURORA-R7/METRIC-EDGE, AURORA-R7/METRIC-CHECKOUT, and AURORA-R7/METRIC-LOGIN.
+2026-11-16T10:51:00Z | AURORA-R7/TICKETS | AURORA-R7/CHG-448 sample interval is 60 seconds.
+2026-11-16T10:54:00Z | AURORA-R7/TICKETS | AURORA-R7/CHG-448 status changed from draft to scheduled.
+2026-11-16T10:57:00Z | AURORA-R7/TICKETS | AURORA-R7/CHG-448 dashboard pack revision is 31.6.
+2026-11-17T14:00:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 comment: certificate review completed without a chain mismatch.
+2026-11-17T14:04:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 comment: four test retries came from a disconnected terminal.
+2026-11-17T14:08:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 comment: restore archive expands to 6.8 GB.
+2026-11-17T14:12:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 priority remains normal.
+2026-11-17T14:16:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7824 comment: evidence slot 7 has a formatting defect in the preview.
+2026-11-17T14:20:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7824 assignee field is still empty; watchers have not accepted ownership.
+2026-11-17T14:24:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7824 due value remains 2026-11-20 17:00 CET.
+2026-11-17T14:28:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7852 comment: the Polish heading now fits the card.
+2026-11-17T14:32:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7852 comment: legal footer revision 5.3 applied.
+2026-11-17T14:36:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7852 priority remains normal.
+2026-11-18T08:00:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 comment: AURORA-R7/OWNER-PIOTR-NOWAK reports a building network test during cleanup.
+2026-11-18T08:04:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 ownership changed from AURORA-R7/OWNER-PIOTR-NOWAK to AURORA-R7/OWNER-ELENA-PARK; Elena accepted the rehearsal.
+2026-11-18T08:08:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 due changed from 2026-11-18 16:00 CET to 2026-11-19 12:00 CET, 11:00 UTC.
+2026-11-18T08:12:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 status remains open under the new assignee.
+2026-11-18T08:16:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 attachment count increased from 3 to 4.
+2026-11-18T08:20:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7824 preview defect in evidence slot 7 is corrected.
+2026-11-18T08:24:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7824 assignee remains unassigned after the morning triage.
+2026-11-18T08:28:00Z | AURORA-R7/TICKETS | AURORA-R7/TKT-7852 comment: English copy is 418 words.
+2026-11-18T08:32:00Z | AURORA-R7/TICKETS | AURORA-R7/CHG-448 comment: baseline archive contains 86,400 samples per series.
+2026-11-18T08:36:00Z | AURORA-R7/TICKETS | AURORA-R7/CHG-448 remains scheduled against the current EU window.
+2026-11-19T10:42:00+01:00 | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 rehearsal completed successfully; final restore checksum matched AURORA-R7/FILE-RB-7811.
+2026-11-19T10:46:00+01:00 | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 status changed from open to completed.
+2026-11-19T10:50:00+01:00 | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 assignee remains AURORA-R7/OWNER-ELENA-PARK.
+2026-11-19T10:54:00+01:00 | AURORA-R7/TICKETS | AURORA-R7/TKT-7811 elapsed active time was 37 minutes.
+2026-11-19T10:58:00+01:00 | AURORA-R7/TICKETS | AURORA-R7/TKT-7824 status remains open with no assignee.
+2026-11-19T11:02:00+01:00 | AURORA-R7/TICKETS | AURORA-R7/TKT-7852 localization review count is now zero.
+2026-11-19T11:06:00+01:00 | AURORA-R7/TICKETS | AURORA-R7/TKT-7852 status remains open pending publication.
+2026-11-19T11:10:00+01:00 | AURORA-R7/TICKETS | AURORA-R7/CHG-448 still points to AURORA-R7/REL-204-EU, not AURORA-R7/REL-204-JP.
+2026-11-19T11:14:00+01:00 | AURORA-R7/TICKETS | AURORA-R7/CHG-448 owner remains AURORA-R7/OWNER-LENA-KOVAC.
+2026-11-19T11:18:00+01:00 | AURORA-R7/TICKETS | Export batch AURORA-R7/EXPORT-991 completed with 50 ticket events.

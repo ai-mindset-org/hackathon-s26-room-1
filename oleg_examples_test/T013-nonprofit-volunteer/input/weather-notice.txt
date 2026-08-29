@@ -1,0 +1,29 @@
+COMMON-GOOD/Météo-Quartier fictional service bulletin
+Issued: Thursday 16 September 2027 at 16:00 America/Toronto
+Area: Montréal central-west community corridor
+Bulletin number: COMMON-GOOD/WX-2027-259-B
+Saturday 18 September outlook, 06:00–11:00: orange rain level maintained.
+Expected rain total for that window: 28–36 mm.
+Peak hourly estimate: 9 mm between 08:00 and 09:00.
+Wind: east 24 km/h, with gusts near 39 km/h.
+Temperature near 08:00: 15°C.
+Pavement temperature remains above the early-frost threshold.
+The highest ponding probability is on low sections beside underpasses.
+The fictional COMMON-GOOD/Pont-des-Lucioles sensor reported 17 mm during Tuesday's test cycle.
+Technicians generated that reading with the calibration pump during Tuesday's test cycle.
+Saturday 18 September outlook, 12:00–16:00: yellow rain level, easing through the afternoon.
+Expected rain total for the afternoon window: 6–12 mm.
+Sunday 19 September outlook, 09:00–14:00: green level with isolated light showers.
+Community sites may choose indoor entrances, delay outdoor setup, or reduce early staffing according to local conditions.
+Program decisions remain with each site's coordinator.
+Would temporary floor runners reduce slipping where old tile meets the entrance mat?
+The service has seen that arrangement help at some buildings, depending on doorway width.
+The map layer labelled 2027.09 is the September cartographic release.
+The colour legend changed from version 5 to version 6 in March.
+Rain gauges transmit at ten-minute intervals and may show gaps during maintenance.
+Next scheduled bulletin: Friday 17 September at 07:00.
+Historical comparison: the 6 August orange window recorded 31 mm over four hours.
+Leaves can cover curb drains quickly after the first strong September wind.
+Some neighbourhood teams keep spare absorbent mats beside indoor entrances during autumn.
+The bulletin map uses pale grey for areas outside the fictional service corridor.
+End of bulletin COMMON-GOOD/WX-2027-259-B.

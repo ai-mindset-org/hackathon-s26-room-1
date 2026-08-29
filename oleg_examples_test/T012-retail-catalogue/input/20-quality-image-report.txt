@@ -1,0 +1,38 @@
+MOSAIC-CAT/QA-IMG-20270418
+Generated: 2027-04-18T02:05:00Z
+Campaign: MOSAIC-CAT/CAM-SPR-27
+Asset manifest: MOSAIC-CAT/ASSET-MAN-417
+Reviewer pool: MOSAIC-CAT/QA-IMG-JP
+Sample size: 24 primary tiles
+
+MOSAIC-CAT/SKU-KN-410 | main=MOSAIC-CAT/IMG-KN410-front-v12.jpg | crop=pass | tone=pass
+MOSAIC-CAT/SKU-KN-401 | main=MOSAIC-CAT/IMG-KN401-front-v12.jpg | crop=pass | tone=soft-warning
+MOSAIC-CAT/SKU-GL-220 | main=MOSAIC-CAT/IMG-GL220-front-v08.jpg | crop=pass | tone=pass
+MOSAIC-CAT/SKU-CT-305 | main=MOSAIC-CAT/IMG-CT305-back-v09.jpg | crop=pass | angle=fail
+MOSAIC-CAT/SKU-WD-118 | main=MOSAIC-CAT/IMG-WD118-front-v05.jpg | crop=pass | tone=pass
+MOSAIC-CAT/SKU-LN-144 | main=MOSAIC-CAT/IMG-LN144-front-v07.jpg | crop=soft-warning | tone=pass
+MOSAIC-CAT/SKU-PN-087 | main=MOSAIC-CAT/IMG-PN087-front-v04.jpg | crop=pass | tone=pass
+MOSAIC-CAT/SKU-ST-602 | main=MOSAIC-CAT/IMG-ST602-front-v06.jpg | crop=pass | tone=pass
+MOSAIC-CAT/SKU-GR-052 | main=MOSAIC-CAT/IMG-GR052-front-v09.jpg | crop=pass | tone=pass
+MOSAIC-CAT/SKU-BR-330 | main=MOSAIC-CAT/IMG-BR330-front-v03.jpg | crop=pass | tone=pass
+MOSAIC-CAT/SKU-PL-204 | main=MOSAIC-CAT/IMG-PL204-front-v08.jpg | crop=pass | tone=pass
+MOSAIC-CAT/SKU-FB-711 | main=MOSAIC-CAT/IMG-FB711-front-v02.jpg | crop=pass | tone=pass
+
+MOSAIC-CAT/SKU-CT-305のメイン画像は背面写真です。正面画像への差し替えが必要です。
+担当: 未登録
+修正期限: 未登録
+The selected back view shows the care label and handle join.
+The available front view has the correct silhouette.
+Both assets use the linen 2 background.
+The side pocket is visible in each view.
+The front view shadow stays within the crop.
+The mobile tile uses a 4:5 crop.
+The desktop card uses the same asset field.
+If an image checksum changes, the reviewer compares both thumbnails.
+The image procedure records crop and tone as separate fields.
+The standard export keeps asset paths case-sensitive.
+The report footer includes the sample count.
+The manifest contains 236 assets.
+Two soft crop warnings remain outside CT-305.
+Broken preview row: MOSAIC-CAT/SKU-KN-4I0 | ?? | 4/19
+Report checksum: MOSAIC-CAT/QA-CHK-IMG-8831

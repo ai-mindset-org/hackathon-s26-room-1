@@ -1,0 +1,41 @@
+MOSAIC-CAT/QA-COPY-20270420
+Generated: 2027-04-20T02:15:00Z
+Campaign: MOSAIC-CAT/CAM-SPR-27
+Localization revision: MOSAIC-CAT/LOC-R19
+Price revision: MOSAIC-CAT/PL-SPR-27 approval-view-4
+Preview target: MOSAIC-CAT/PREVIEW-TYO-4
+
+CHECK | COUNT
+primary SKU rows | 68
+companion colour rows | 14
+Japanese title rows | 82
+English title rows | 82
+mobile title wraps | 0
+missing stable SKU | 0
+price rows pending | 1
+capacity conflicts | 1
+main-image angle failures | 1
+soft crop warnings | 2
+
+MOSAIC-CAT/SKU-KN-410 | ja=青磁釉マグ 410 | en=Celadon Glaze Mug 410 | copy=pass
+MOSAIC-CAT/SKU-KN-401 | ja=青磁釉マグ 401 | en=Celadon Glaze Mug 401 | capacity=review
+MOSAIC-CAT/SKU-GL-220 | ja=折りガラストレー 220 | en=Folded Glass Tray 220 | price=pending
+MOSAIC-CAT/SKU-CT-305 | ja=コットン収納キャディ 305 | en=Cotton Storage Caddy 305 | image=review
+
+The KN-410 copy matches localization revision MOSAIC-CAT/LOC-R19.
+The KN-401 Japanese capacity cell still shows 410 mL.
+The GL-220 amount is JPY 3,240 in both price exports.
+The CT-305 copy matches its material certificate.
+The title grid shows KN-410 and KN-401 on adjacent rows.
+The stable identifiers and barcodes remain different.
+The mobile preview uses two columns.
+The desktop preview uses four columns.
+The Japanese font fallback loaded in 38 ms.
+The English font fallback loaded in 21 ms.
+The preview cache age was seven minutes.
+The copy export uses UTF-8.
+The price export uses whole-yen fields.
+The footer template is MOSAIC-CAT/QA-TPL-02 v9.
+Quoted old subject: MOSAIC-CAT/SKU-KN-410 spring name alignment.
+The next scheduled preview refresh is 2027-04-20T03:00:00Z.
+Report checksum: MOSAIC-CAT/QA-CHK-COPY-441e

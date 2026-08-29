@@ -1,0 +1,60 @@
+CEDAR-FIELD/INSPECTION-911 — ACTA DE INSPECCIÓN DE CAMPO
+Sitio: CEDAR-FIELD/TORRE-ARCE
+Fecha de inspección: 01/09/2026
+Hora local: 07:18–09:46 America/Bogota
+Redactora: Camila Ríos
+
+1. Alcance observado
+Se revisaron externamente CEDAR-FIELD/UNIT-CH-17 y CEDAR-FIELD/UNIT-CH-71.
+La guarda de cada equipo permaneció instalada durante las mediciones.
+El personal del edificio acompañó la entrada, pero no permaneció en la sala.
+La ruta occidental estaba libre; la ruta oriental tenía dos cajas contra la pared.
+
+2. CEDAR-FIELD/UNIT-CH-17
+La placa termina en 17 y está situada en el costado occidental.
+La unidad operaba a 62 % de carga cuando comenzó el registro.
+El valor axial estable fue 2,10 mm/s.
+Hubo un pico de 4,75 mm/s durante once segundos al cambiar la compuerta.
+La temperatura del alojamiento fue 41,3 °C.
+El sonido percibido en el pasillo disminuyó al cerrar la puerta interior.
+No se observó fuga, olor, humo ni cambio de color en la carcasa.
+La etiqueta inferior tiene desgaste superficial, pero los caracteres principales se leen.
+Se tomaron catorce fotografías y tres clips para el expediente.
+La foto 08 contiene la placa completa; la foto 07 tiene reflejo.
+Se recomienda comparar la tendencia durante una visita posterior con el equipo a carga similar.
+
+3. CEDAR-FIELD/UNIT-CH-71
+La placa termina en 71 y está situada en el costado oriental.
+El valor axial varió entre 3,18 y 3,21 mm/s sin picos.
+El soporte derecho fue sustituido en marzo con lote CEDAR-FIELD/RB-209.
+No se encontró grieta visible en el caucho.
+Una caja de herramientas del cliente ocupa parte del espacio frontal.
+El acceso por recepción es más corto que el acceso por la bahía.
+La imagen de la placa es legible y está separada del expediente de la unidad occidental.
+
+4. Datos ambientales
+Temperatura de sala: 21,8 °C al inicio y 22,1 °C al final.
+Humedad relativa: 56 % al inicio y 55 % al final.
+Presión mostrada por el panel: 118 kPa.
+Contador de CEDAR-FIELD/UNIT-CH-17: 18.442 h.
+Contador de CEDAR-FIELD/UNIT-CH-71: 17.908 h.
+
+5. Registro fotográfico
+Archivos 001–009: CEDAR-FIELD/UNIT-CH-17.
+Archivos 010–014: pasillo, tarjeta temporal y panel general.
+Archivos 015–019: CEDAR-FIELD/UNIT-CH-71.
+El nombre automático de la foto 011 quedó “IMG_20260901_0817”.
+La cámara conserva la hora correcta, pero no guarda el nombre del activo.
+
+6. Observaciones de cierre
+La tarjeta temporal 0417 fue devuelta a recepción.
+Se consumieron dos paños y una funda para calzado.
+CEDAR-FIELD/METER-22 regresó a la base sin golpes visibles.
+Las dos cajas del frente oriental estaban alineadas contra la pared y dejaban libre el recorrido de Carlos.
+El informe usa coma decimal en las lecturas, según la configuración regional del equipo.
+
+Tabla recuperada del exportador móvil:
+unidad|axial|temp|foto
+CEDAR-FIELD/UNIT-CH-17|4,75? pico|41,3|008 OK
+CEDAR-FIELD/UNIT-CH-71|3,2l estable|40,9|019 OK
+pasillo|--|2l,8|0ll

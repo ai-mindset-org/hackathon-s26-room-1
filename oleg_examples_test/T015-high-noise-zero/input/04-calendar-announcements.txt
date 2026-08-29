@@ -1,0 +1,40 @@
+ECHO-ZERO Cooperative calendar bulletin
+Exported: 2028-03-12 18:40:00Z
+Feed: ECHO-ZERO/Calendar-Notices
+
+New York calendar convention: month/day/year, Eastern time, US number formatting.
+Brussels calendar convention: day/month/year, Central European time, EU number formatting.
+
+[DECLINED] ECHO-ZERO/Willow monthly room hold
+Displayed date: 04/12/2028 10:00-11:00 America/New_York
+The host declined the series after the visitor workshop was retired.
+The export retains the original date so former invitees can identify the notice.
+Room: ECHO-ZERO/New-York-3B; estimated seats: 24; catering estimate: $180.00.
+
+[CANCELED] ECHO-ZERO/Beacon acoustic review replay
+Displayed date: 12/04/2028 16:00-17:00 Europe/Brussels
+In this Brussels feed, 12/04/2028 means 12 April 2028.
+The replay was removed when the archived recording passed its retention limit.
+Room: ECHO-ZERO/Brussels-2; former captioning estimate: EUR 180,00.
+
+[REMOVED SERIES] ECHO-ZERO/Quartz late-shift study hold
+Former occurrences: 03/29/2028, 04/05/2028, and 04/12/2028, all Eastern time.
+The series owner removed every occurrence after the 2026 study proposal was declined.
+Calendar search can continue to show occurrence stubs until the weekly index refresh.
+Series identifier: ECHO-ZERO/Calendar/Quartz-OLD-77.
+
+[PAST NOTICE] ECHO-ZERO/Harbor archive room closure
+Displayed date: 11/18/2026 08:00-18:00 America/New_York
+This notice covered the final day of the closed archive scan described in the history report.
+The room reopened on 11/21/2026 and the notice expired in the same week.
+Access counter for that day: 1,204 entries.
+
+[DECLINED] ECHO-ZERO/Pulse dashboard discussion
+Displayed date: 15/03/2028 14:30-15:00 Europe/Brussels
+The organizer declined the hold when the dashboard vendor demonstration was withdrawn.
+No replacement invitation appears in this export.
+Room rate shown by the old booking estimate: EUR 1.204,50.
+
+Calendar bulletin footer: exported entries can include declined, canceled, and past items.
+ECHO-ZERO/Calendar-Notices retains history for 18 months after an entry changes state.
+Help desk extension 2210 is staffed during the regional building-service window.

@@ -1,0 +1,77 @@
+item_id,period,category,date,amount,currency,recorded_by,detail
+ATLAS-EVENT/EXP-2025-001,2025,rail,2025-08-12,18.40,EUR,Joana Reis,airport line comparison from prior season
+ATLAS-EVENT/EXP-2025-002,2025,taxi,2025-08-12,41.30,EUR,Joana Reis,rain route from prior season
+ATLAS-EVENT/EXP-2025-003,2025,coffee,2025-08-13,20.40,EUR,Joana Reis,nine-person organizer tray
+ATLAS-EVENT/EXP-2025-004,2025,printing,2025-08-14,204.20,EUR,Joana Reis,archive poster batch
+ATLAS-EVENT/EXP-2025-005,2025,venue,2025-08-15,4310.00,EUR,Joana Reis,closed prior programme invoice
+ATLAS-EVENT/EXP-2025-006,2025,hotel,2025-08-16,413.00,EUR,Joana Reis,meeting room comparison
+ATLAS-EVENT/EXP-2025-007,2025,meal,2025-08-16,77.25,EUR,Joana Reis,late arrival dinner
+ATLAS-EVENT/EXP-2025-008,2025,cable,2025-08-17,31.08,EUR,Joana Reis,adapter replacement
+ATLAS-EVENT/EXP-2026-EST-01,2026,flight,2026-09-03,684.70,USD,Joana Reis,estimate for ATLAS-EVENT/AW204
+ATLAS-EVENT/EXP-2026-EST-02,2026,hotel,2026-09-03,672.00,EUR,Joana Reis,three-night estimate
+ATLAS-EVENT/EXP-2026-EST-03,2026,transfer,2026-09-03,38.40,EUR,Joana Reis,arrival car estimate
+ATLAS-EVENT/EXP-2026-EST-04,2026,venue,2026-09-03,4310.00,EUR,Joana Reis,Sala Azul base estimate
+ATLAS-EVENT/EXP-2026-EST-05,2026,av,2026-09-03,986.50,EUR,Joana Reis,projector and four microphones
+ATLAS-EVENT/EXP-2026-EST-06,2026,hotel-room,2026-09-03,413.00,EUR,Joana Reis,ATLAS-EVENT/BOOK-413 estimate
+ATLAS-EVENT/EXP-2026-EST-07,2026,coffee,2026-09-03,42.60,EUR,Joana Reis,hotel tray estimate
+ATLAS-EVENT/EXP-2026-EST-08,2026,badges,2026-09-04,96.00,USD,Joana Reis,white stock refill option
+ATLAS-EVENT/EXP-2026-EST-09,2026,shipping,2026-09-04,118.00,USD,Joana Reis,lectern case scenario
+ATLAS-EVENT/EXP-2026-EST-10,2026,data,2026-09-04,24.00,USD,Joana Reis,traveler eSIM scenario
+ATLAS-EVENT/EXP-2026-EST-11,2026,metro,2026-09-04,1.80,EUR,Joana Reis,single airport fare sample
+ATLAS-EVENT/EXP-2026-EST-12,2026,meal,2026-09-04,29.00,EUR,Joana Reis,speaker dinner estimate
+ATLAS-EVENT/EXP-2026-EST-13,2026,printing,2026-09-04,0.00,EUR,Joana Reis,digital programme selected
+ATLAS-EVENT/EXP-2026-EST-14,2026,storage,2026-09-04,84.00,EUR,Joana Reis,cable case overnight estimate
+ATLAS-EVENT/EXP-2026-EST-15,2026,contingency,2026-09-04,250.00,EUR,Joana Reis,planning reserve
+ATLAS-EVENT/EXP-2026-EST-16,2026,return-flight,2026-09-05,0.00,USD,Joana Reis,covered by round-trip fare
+ATLAS-EVENT/EXP-2026-EST-17,2026,seat,2026-09-05,32.00,USD,Joana Reis,aisle selection estimate
+ATLAS-EVENT/EXP-2026-EST-18,2026,baggage,2026-09-05,0.00,USD,Joana Reis,one checked case included
+ATLAS-EVENT/EXP-2026-EST-19,2026,tram,2026-09-05,3.20,EUR,Joana Reis,two-ride sample
+ATLAS-EVENT/EXP-2026-EST-20,2026,water,2026-09-05,12.00,EUR,Joana Reis,reusable bottle service
+ATLAS-EVENT/EXP-2026-EST-21,2026,insurance,2026-09-05,46.90,USD,Joana Reis,quote revision 3
+ATLAS-EVENT/EXP-2026-EST-22,2026,misc,2026-09-05,27.00,EUR,Joana Reis,unallocated estimate bucket
+ATLAS-EVENT/EXP-2024-001,2024,rail,2024-07-08,17.80,EUR,Joana Reis,archive airport sample
+ATLAS-EVENT/EXP-2024-002,2024,taxi,2024-07-08,39.60,EUR,Joana Reis,archive evening sample
+ATLAS-EVENT/EXP-2024-003,2024,coffee,2024-07-09,18.90,EUR,Joana Reis,eight-person archive tray
+ATLAS-EVENT/EXP-2024-004,2024,printing,2024-07-09,186.00,EUR,Joana Reis,archive poster batch
+ATLAS-EVENT/EXP-2024-005,2024,venue,2024-07-10,3980.00,EUR,Joana Reis,closed summer forum invoice
+ATLAS-EVENT/EXP-2024-006,2024,hotel,2024-07-10,388.00,EUR,Joana Reis,archive room comparison
+ATLAS-EVENT/EXP-2024-007,2024,meal,2024-07-11,68.40,EUR,Joana Reis,archive organizer dinner
+ATLAS-EVENT/EXP-2024-008,2024,cable,2024-07-11,28.70,EUR,Joana Reis,archive adapter receipt
+ATLAS-EVENT/EXP-2024-009,2024,badges,2024-07-12,82.00,EUR,Joana Reis,archive paper stock
+ATLAS-EVENT/EXP-2024-010,2024,storage,2024-07-12,71.00,EUR,Joana Reis,archive case locker
+ATLAS-EVENT/EXP-2026-EST-23,2026,notebook,2026-09-06,36.00,EUR,Joana Reis,twelve recycled notebooks
+ATLAS-EVENT/EXP-2026-EST-24,2026,pencils,2026-09-06,9.60,EUR,Joana Reis,twelve graphite pencils
+ATLAS-EVENT/EXP-2026-EST-25,2026,labels,2026-09-06,14.80,EUR,Joana Reis,drawer label sample
+ATLAS-EVENT/EXP-2026-EST-26,2026,lanyards,2026-09-06,54.00,EUR,Joana Reis,white lanyard estimate
+ATLAS-EVENT/EXP-2026-EST-27,2026,folders,2026-09-06,22.50,EUR,Joana Reis,six organizer folders
+ATLAS-EVENT/EXP-2026-EST-28,2026,fruit,2026-09-06,31.20,EUR,Joana Reis,briefing snack sample
+ATLAS-EVENT/EXP-2026-EST-29,2026,ice,2026-09-06,8.00,EUR,Joana Reis,small cooler estimate
+ATLAS-EVENT/EXP-2026-EST-30,2026,tape,2026-09-06,6.90,EUR,Joana Reis,gaffer tape sample
+ATLAS-EVENT/EXP-2026-EST-31,2026,batteries,2026-09-06,11.40,EUR,Joana Reis,AAA four-pack estimate
+ATLAS-EVENT/EXP-2026-EST-32,2026,umbrellas,2026-09-06,48.00,EUR,Joana Reis,six loan umbrellas
+ATLAS-EVENT/EXP-2026-EST-33,2026,flowers,2026-09-06,35.00,EUR,Joana Reis,foyer vase sample
+ATLAS-EVENT/EXP-2026-EST-34,2026,cloths,2026-09-06,12.80,EUR,Joana Reis,screen cleaning cloths
+ATLAS-EVENT/EXP-2026-EST-35,2026,markers,2026-09-06,17.60,EUR,Joana Reis,eight marker estimate
+ATLAS-EVENT/EXP-2026-EST-36,2026,postcards,2026-09-06,26.00,EUR,Joana Reis,river illustration sample
+ATLAS-EVENT/EXP-2023-001,2023,rail,2023-06-19,16.20,EUR,Joana Reis,archive airport sample
+ATLAS-EVENT/EXP-2023-002,2023,taxi,2023-06-19,36.80,EUR,Joana Reis,archive traffic sample
+ATLAS-EVENT/EXP-2023-003,2023,coffee,2023-06-20,17.40,EUR,Joana Reis,seven-person archive tray
+ATLAS-EVENT/EXP-2023-004,2023,printing,2023-06-20,172.00,EUR,Joana Reis,archive leaflet batch
+ATLAS-EVENT/EXP-2023-005,2023,venue,2023-06-21,3760.00,EUR,Joana Reis,closed hall invoice
+ATLAS-EVENT/EXP-2023-006,2023,hotel,2023-06-21,361.00,EUR,Joana Reis,archive room comparison
+ATLAS-EVENT/EXP-2023-007,2023,meal,2023-06-22,64.10,EUR,Joana Reis,archive organizer meal
+ATLAS-EVENT/EXP-2023-008,2023,cable,2023-06-22,24.90,EUR,Joana Reis,archive connector receipt
+ATLAS-EVENT/EXP-2023-009,2023,badges,2023-06-23,76.00,EUR,Joana Reis,archive blue stock
+ATLAS-EVENT/EXP-2023-010,2023,storage,2023-06-23,68.00,EUR,Joana Reis,archive cabinet use
+ATLAS-EVENT/EXP-2026-EST-37,2026,soap,2026-09-07,7.40,EUR,Joana Reis,backstage sink sample
+ATLAS-EVENT/EXP-2026-EST-38,2026,tissues,2026-09-07,5.80,EUR,Joana Reis,two box estimate
+ATLAS-EVENT/EXP-2026-EST-39,2026,clips,2026-09-07,4.20,EUR,Joana Reis,binder clip sample
+ATLAS-EVENT/EXP-2026-EST-40,2026,envelopes,2026-09-07,13.00,EUR,Joana Reis,twenty envelope estimate
+ATLAS-EVENT/EXP-2026-EST-41,2026,signs,2026-09-07,19.50,EUR,Joana Reis,three foam signs
+ATLAS-EVENT/EXP-2026-EST-42,2026,cords,2026-09-07,15.60,EUR,Joana Reis,two extension cords
+ATLAS-EVENT/EXP-2026-EST-43,2026,cloth,2026-09-07,21.00,EUR,Joana Reis,lectern cover sample
+ATLAS-EVENT/EXP-2026-EST-44,2026,tray,2026-09-07,18.30,EUR,Joana Reis,badge tray sample
+ATLAS-EVENT/EXP-2026-EST-45,2026,baskets,2026-09-07,23.80,EUR,Joana Reis,two cable baskets
+ATLAS-EVENT/EXP-2026-EST-46,2026,mints,2026-09-07,10.20,EUR,Joana Reis,foyer bowl sample
+ATLAS-EVENT/EXP-2026-EST-47,2026,stamps,2026-09-07,8.60,EUR,Joana Reis,archive mail sample
+ATLAS-EVENT/EXP-2026-EST-48,2026,twine,2026-09-07,3.90,EUR,Joana Reis,parcel twine sample

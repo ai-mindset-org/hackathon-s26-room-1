@@ -1,0 +1,69 @@
+Mailbox: MERIDIAN-CLOSE/Controller-US
+Source convention: US dates are MM/DD/YYYY; amounts use comma thousands and decimal point.
+Source time zone: America/New_York. ET in this mailbox means local New York time.
+Export generated: 04/06/2028 07:40 AM ET
+
+From: Lena Hart <lena.hart@meridian-close.example>
+To: MERIDIAN-CLOSE/Close-Team <close-team@meridian-close.example>
+Sent: 04/02/2028 09:12 AM ET
+Subject: March close map and recurring controls
+
+The March close is tracking at 71% against the internal map.
+Treasury loaded the morning cash view before the 08:30 refresh.
+The west ledger has 1,842 posted lines and 19 lines in review.
+The east ledger has 1,801 posted lines and 23 lines in review.
+The recurring intercompany accrual review is MERIDIAN-CLOSE/ACCRUAL-IC.
+Lena Hart (LH) owns both listed occurrences.
+For the March 2028 occurrence, finish by 04/04/2028 5:00 PM ET.
+The April 2028 occurrence remains due 05/03/2028 5:00 PM ET.
+The recurring control notes use the period suffix, not the meeting date.
+We will keep the same workbook tabs used during the February close.
+The blue tab contains entity totals; the amber tab contains explanations.
+Archive route: MERIDIAN-CLOSE/FIN-ARCHIVE/2028/Q1/MARCH.
+
+Regards,
+Lena Hart | Controller, MERIDIAN-CLOSE/Controller-US
+Quarter-close mailbox: close-team@meridian-close.example
+Message retention code: MERIDIAN-CLOSE/RET-7Y
+
+From: Lena Hart <lena.hart@meridian-close.example>
+To: MERIDIAN-CLOSE/Close-Team <close-team@meridian-close.example>
+Sent: 04/03/2028 04:26 PM ET
+Subject: March accrual exception and invoice hold
+
+The supplier feed arrived later than the window used in yesterday's map.
+Move only MERIDIAN-CLOSE/ACCRUAL-IC/MAR-2028 to 04/05/2028 12:00 PM ET.
+LH remains the owner of that March occurrence.
+Do not move the April occurrence; MERIDIAN-CLOSE/ACCRUAL-IC/APR-2028 stays at 05/03/2028 5:00 PM ET.
+Mara Quill owns release of MERIDIAN-CLOSE/INV-US-7742 after tax validation.
+Complete that release by 04/06/2028 3:00 PM ET.
+The vendor balance shown on the cover sheet is $124,880.50.
+The held line itself is $1,240.50 in the US invoice export.
+The controller summary version is 3.8, while the workbook template remains 3.6.
+The cover sheet rounds display totals to whole dollars.
+The detailed export keeps two decimal places.
+The AP group has already cleared the freight-code queue.
+
+From: Priya Stone <priya.stone@meridian-close.example>
+To: Lena Hart <lena.hart@meridian-close.example>
+Sent: 04/05/2028 06:54 PM ET
+Subject: FX journal handoff
+
+MERIDIAN-CLOSE/JE-APR-17 was in Oliver Crane's queue with a 04/05/2028 2:00 PM ET deadline.
+Lena reassigned MERIDIAN-CLOSE/JE-APR-17 to me, Priya Stone (PS), at 04/05/2028 1:35 PM ET.
+The revised deadline is 04/06/2028 10:00 AM ET.
+The journal uses rate set MERIDIAN-CLOSE/RATE-APR-A, revision 17.
+The supporting schedule has 48 currency rows.
+The prior-month schedule had 47 rows because the test currency was absent.
+The net journal value is $18,402.17.
+
+----- Original Message -----
+From: MERIDIAN-CLOSE/Policy-Desk <policy@meridian-close.example>
+Sent: 03/28/2027 11:20 AM ET
+Subject: 2027 close reminder
+Please send the old consolidation cover by 03/31/2027 at noon ET.
+The 2027 archive used MERIDIAN-CLOSE/LEGACY-COVER/12.
+----- End Original Message -----
+
+Standard footer: MERIDIAN-CLOSE mail may be retained with close evidence.
+Routing label: MERIDIAN-CLOSE/MAIL-US/0428-06

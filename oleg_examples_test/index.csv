@@ -1,0 +1,17 @@
+id,folder,family,tier,languages,input_files,input_bytes,nonblank_lines,expected_records,positive_checks,negative_checks
+T001,T001-distributed-release,distributed_release,scale,en+pl+ja,10,63551,500,6,12,10
+T002,T002-supplier-customs,supplier_customs,standard,en+tr,7,23544,393,7,14,12
+T003,T003-finance-close,finance_close,standard,en,6,21024,319,7,13,11
+T004,T004-support-incident,support_incident,standard,en+es,7,22814,277,7,12,12
+T005,T005-field-repair,field_repair,standard,es+en,7,20171,284,6,12,12
+T006,T006-hr-onboarding,hr_onboarding,standard,en+fr,7,22421,364,6,12,12
+T007,T007-healthcare-administration,healthcare_administration,standard,fr+en,7,19265,276,7,12,10
+T008,T008-civic-permit,civic_permit,standard,de+en,7,18340,239,5,12,10
+T009,T009-travel-event,travel_event,standard,pt+en,8,24631,338,9,16,13
+T010,T010-research-grant,research_grant,standard,en+de,7,21908,309,8,11,10
+T011,T011-construction-facilities,construction_facilities,standard,en+pl,7,20644,271,7,12,10
+T012,T012-retail-catalogue,retail_catalogue,scale,ja+en,22,43903,907,8,18,12
+T013,T013-nonprofit-volunteer,nonprofit_volunteer,standard,en+fr,7,22917,266,6,12,12
+T014,T014-multilingual-operations,multilingual_operations,standard,ru+en+es,8,18719,227,5,14,9
+T015,T015-high-noise-zero,high_noise_zero,zero,en,8,21687,285,0,0,21
+T016,T016-damaged-export-zero,damaged_export_zero,zero,en+es,7,17741,292,0,0,19

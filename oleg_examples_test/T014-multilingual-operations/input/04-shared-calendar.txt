@@ -1,0 +1,26 @@
+POLYGLOT-OPS shared calendar text export
+Export created: 29.08.2026 09:30 Asia/Tbilisi
+Calendar display locales: ka-GE, en-GB, es-MX
+26.08.2026 09:00–09:20 Asia/Tbilisi | morning capacity review | room Mtkvari
+Notes: the review covered the previous day’s gate totals and closed at 09:18.
+26.08.2026 14:00–14:30 Europe/London | printer vendor visit | London reception
+Notes: technician replaced the tray roller; ticket was signed at reception.
+27/08/2026 08:30–09:00 America/Mexico_City | safety briefing | patio norte
+Notes: attendance reached 21; the drill ended before the first inbound vehicle.
+27/08/2026 16:00–16:15 Europe/London | lane board review | control room
+Notes: build 27.08.44 was displayed on both panels.
+28.08.2026 10:00–10:30 Asia/Tbilisi | archive shelf count | records room
+Notes: team counted 184 binders and replaced two damaged labels.
+28/08/2026 11:00–11:25 America/Mexico_City | weekly fuel review | sala azul
+Notes: the graph used litres and pesos in separate columns.
+28/08/2026 15:30–16:00 Europe/London | closed-loop radio test | berth office
+Notes: audio was clear at the west gate; the test log is already signed.
+01.09.2026 15:00–15:45 Asia/Tbilisi | POLYGLOT-OPS/COPPER-TBS | llamada de proveedor / vendor call | sala Narikala
+Description: compare August seal samples and the revised packing diagram.
+Organizer:
+Attendees: supplier desk; Tbilisi operations
+Local display in London: 01/09/2026 12:00–12:45 Europe/London
+Local display in Mexico City: 01/09/2026 05:00–05:45 America/Mexico_City
+Room note: Narikala seats eight and has one wall display.
+Calendar revision: 6
+Export checksum label: CAL-0901-1500

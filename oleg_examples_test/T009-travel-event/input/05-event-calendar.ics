@@ -1,0 +1,49 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ATLAS-EVENT/Lumen Arc Collective//Calendar Export 6.2//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:ATLAS-EVENT/ORBIT-27 operations
+X-WR-TIMEZONE:Europe/Lisbon
+X-ATLAS-EVENT-EXPORT-TIME:20260914T180500
+X-ATLAS-EVENT-CALENDAR-COLOR:teal-7
+X-ATLAS-EVENT-ROOM-NOTE:Sala Azul has 96 theatre seats
+X-ATLAS-EVENT-FOYER-NOTE:Public doors usually open thirty minutes before programme time
+X-ATLAS-EVENT-MAP-NOTE:Riverside route revision 4 is attached in the workspace
+BEGIN:VEVENT
+UID:ATLAS-EVENT/ORBIT-27@calendar.atlas-event.example
+DTSTAMP:20260914T170500Z
+DTSTART;TZID=Europe/Lisbon:20261022T150000
+DTEND;TZID=Europe/Lisbon:20261022T180000
+SUMMARY:ATLAS-EVENT/ORBIT-27 public programme
+LOCATION:ATLAS-EVENT/Ribeira Forum - Sala Azul
+ORGANIZER;CN=Sofia Mendes:mailto:sofia@atlas-event.example
+SEQUENCE:2
+STATUS:CONFIRMED
+DESCRIPTION:Doors 14:30. Panel order revision 6. The 2024 archive counted 88 occupied seats.
+END:VEVENT
+BEGIN:VEVENT
+UID:ATLAS-EVENT/PREP-204@calendar.atlas-event.example
+DTSTAMP:20260914T164000Z
+DTSTART;TZID=Europe/Lisbon:20261021T160000
+DTEND;TZID=Europe/Lisbon:20261021T170000
+SUMMARY:ATLAS-EVENT/PREP-204 speaker preparation
+LOCATION:ATLAS-EVENT/Ribeira Forum - Sala Azul
+ATTENDEE;CN=Renata Silva:mailto:renata@atlas-event.example
+SEQUENCE:2
+STATUS:CANCELLED
+DESCRIPTION:Wednesday slot removed after the carrier change.
+END:VEVENT
+BEGIN:VEVENT
+UID:ATLAS-EVENT/PREP-204@calendar.atlas-event.example
+DTSTAMP:20260914T170500Z
+DTSTART;TZID=Europe/Lisbon:20261022T121500
+DTEND;TZID=Europe/Lisbon:20261022T130000
+SUMMARY:ATLAS-EVENT/PREP-204 speaker preparation
+LOCATION:ATLAS-EVENT/Ribeira Forum - Sala Azul
+ATTENDEE;CN=Renata Silva:mailto:renata@atlas-event.example
+SEQUENCE:3
+STATUS:CONFIRMED
+DESCRIPTION:Replacement slot after morning arrival. Microphone order remains hand-held first.
+END:VEVENT
+END:VCALENDAR

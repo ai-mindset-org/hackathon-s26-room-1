@@ -1,0 +1,36 @@
+CEDAR-FIELD/SMS-GATEWAY — exportación de conversación
+Zona de las marcas de tiempo: America/Bogota
+Hilo: CEDAR-FIELD/THREAD-4821
+Participantes: Lucía Fajardo, Camila Ríos, Diego Orduz, recepción CEDAR-FIELD/TORRE-ARCE
+
+[02/09/2026 16:48] Lucía: Cami, recepción ya tiene tu nombre completo y la placa de CEDAR-FIELD/VAN-06.
+[02/09/2026 16:50] Cami: Gracias. El medidor azul sigue cargando; quedó en 82 % al terminar el turno.
+[02/09/2026 16:52] Recepción: La rampa sur sigue cerrada. El ingreso de técnicos será por la puerta norte.
+[02/09/2026 16:54] Lucía: Entendido. Carlos entrará por recepción el lunes para la otra enfriadora.
+[02/09/2026 17:03] Diego: Encontré las fotos del diagnóstico del 01/09; son 14 archivos y pesan 63 MB.
+[02/09/2026 17:05] Cami: La toma de la placa de CEDAR-FIELD/UNIT-CH-17 está en la carpeta “oeste”.
+[02/09/2026 17:08] Diego: La carpeta “este” corresponde a CEDAR-FIELD/UNIT-CH-71; no están mezcladas.
+
+[03/09/2026 08:12] Recepción: El cliente solicita mover la intervención del ala occidental por una prueba de evacuación.
+[03/09/2026 08:15] Lucía: Reprogramamos CEDAR-FIELD/VISIT-4821 del 04/09 a las 08:30 al sábado 05/09 a las 10:00, hora de Bogotá.
+[03/09/2026 08:16] Cami: Aceptado, mantengo CEDAR-FIELD/UNIT-CH-17 en mi ruta del sábado.
+[03/09/2026 08:18] Lucía: Yo confirmaré CEDAR-FIELD/CONF-4821 con recepción el viernes 04/09 antes de las 16:00.
+[03/09/2026 08:21] Recepción: El sábado la puerta norte abre a las 09:40 y el ascensor estará reservado a las 10:05.
+[03/09/2026 08:24] Cami: Las dos bases magnéticas de la ruta ya están separadas; una tiene cinta amarilla.
+[03/09/2026 08:27] Diego: El archivo de tendencias tiene 1.204 muestras, desde 05:58 hasta 06:19.
+[03/09/2026 08:31] Lucía: El registro de visitantes conserva el teléfono anterior de la base; la ficha general ya muestra el número actual.
+
+[03/09/2026 10:42] Cami: Hoy estaré en CEDAR-FIELD/PARQUE-LINO hasta las 17:30 y no podré subir los archivos grandes.
+[03/09/2026 10:45] Lucía: Diego Orduz toma CEDAR-FIELD/PHOTO-4821 en lugar de Cami y subirá las fotos mañana antes del mediodía.
+[03/09/2026 10:47] Diego: Recibido. Usaré los 14 archivos de la inspección del 01/09.
+[03/09/2026 10:49] Cami: La foto 07 está oscura, pero la 08 muestra la placa completa.
+[03/09/2026 10:52] Diego: El portal acepta lotes de hasta 100 MB, así que haré una sola carga.
+
+Mensaje reenviado por el sistema desde el archivo de agosto:
+[14/08/2026 07:12] Lucía: Cami, vuelve a CEDAR-FIELD/TORRE-ARCE a las 15:00 para recoger la pinza roja.
+[14/08/2026 07:13] Cami: La recogí ayer; ese mensaje llegó tarde al teléfono de respaldo.
+
+[03/09/2026 11:06] Recepción: El simulacro usa las puertas 2 y 3; la cafetería permanece abierta.
+[03/09/2026 11:09] Diego: En la base quedaron 17 etiquetas, cinco sobres y un rollo de cinta transparente.
+[03/09/2026 11:11] Lucía: El promedio de cierre de las rutas del miércoles fue 46 minutos.
+[03/09/2026 11:14] Cami: Mi teléfono muestra “VISlT-482l” en una notificación antigua; el portal correcto abre CEDAR-FIELD/VISIT-4821.

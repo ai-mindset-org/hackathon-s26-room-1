@@ -1,0 +1,76 @@
+KITE-CLEAR/PO-7843 — purchase and shipment schedule
+Issued: 2027-04-02 09:15 Europe/Istanbul
+Buyer: KITE-CLEAR/Delta Retail Systems
+Supplier: KITE-CLEAR/Anatolia Components
+Delivery programme: KITE-CLEAR/SPRING-GATE
+Currency: EUR
+Commercial contact: Ozan Erdem
+
+Order line 10: KITE-CLEAR/VALVE-42, revision C, quantity 480.
+Order line 20: KITE-CLEAR/SEAL-42, revision B, quantity 960.
+Order line 30: reusable corner protectors, quantity 120.
+Unit price for line 10: EUR 18.40.
+Unit price for line 20: EUR 2.15.
+Freight allowance: EUR 1,880.00.
+Invoice total before freight: EUR 10,896.00.
+Payment terms: 30 days after accepted invoice.
+The February purchase used revision B of KITE-CLEAR/VALVE-42.
+The April order uses revision C after the handle-strength review.
+The blue label marks export cartons and the grey label marks local stock.
+Pallet boards are heat-treated and carry the KITE-CLEAR/HT-77 mark.
+Revision C increased the handle-wall thickness by 0.4 mm.
+The salt-spray sample ran for 96 hours in the March qualification.
+Line 20 seal colour is graphite, matching sample KITE-CLEAR/SWATCH-18.
+The order carton uses six inner trays with eight units per tray.
+Returnable tray stock stood at 614 after the March count.
+January scrap for the valve line was 1.7% by unit count.
+The supplier's March energy report recorded 18.2 MWh for assembly hall 2.
+The order has no tooling charge because the mould belongs to KITE-CLEAR/SPRING-GATE.
+
+Shipment split
+KITE-CLEAR/LT-88A contains order line 10 and 480 sets of line 20.
+KITE-CLEAR/LT-88B contains the remaining 480 sets of line 20 and the corner protectors.
+KITE-CLEAR/LT-88A planned gross weight: 4,820 kg.
+KITE-CLEAR/LT-88B planned gross weight: 1,940 kg.
+KITE-CLEAR/LT-88A invoice value: EUR 9,864.00.
+KITE-CLEAR/LT-88B invoice value: EUR 2,912.00.
+Both lots use the same carton artwork version 2027.3.
+The lots have separate inspection and transport bookings.
+
+Export actions
+Derya Aksu will send the signed A.TR origin declaration for KITE-CLEAR/LT-88A by 10.04.2027 12:00 Europe/Istanbul.
+KITE-CLEAR/Harbor Broker Desk will submit the import pre-declaration for KITE-CLEAR/LT-88A by 12.04.2027 10:00 Europe/Amsterdam, after the signed A.TR arrives.
+The first carrier plan places the KITE-CLEAR/LT-88A pickup at 2027-04-13 09:00 Europe/Istanbul.
+Mert Kaya will send the loading release for KITE-CLEAR/LT-88A by 13.04.2027 08:00 Europe/Istanbul.
+Selin Demir owns the packaging inspection for KITE-CLEAR/LT-88B at 14.04.2027 11:00 Europe/Istanbul.
+
+Packing terms
+Each export pallet uses two steel straps and four edge guards.
+Record the seal on the dispatch copy at each custody change.
+Compare pallet count with the signed packing list before gate release.
+Use blue ink for corrections on an A.TR form.
+Retain customs documents with the order archive for seven years.
+The driver receives one paper copy in a weatherproof sleeve.
+
+Routing
+Requested lane: Istanbul consolidation hub to Rotterdam bonded terminal.
+Preferred crossing: Kapikule, with an alternate route through Hamzabeyli.
+The buyer accepts a curtain-side vehicle with a clean and dry deck.
+The route plan from February showed 2,681 km.
+Average February transit: 6.8 days.
+February lane performance was 92% within the booked delivery window.
+March border data showed a 104-minute median queue at the main crossing.
+The alternate crossing carried 18% of the lane's March vehicle volume.
+Curtain-side equipment represented 71% of the approved carrier pool.
+The bonded terminal processed 312 KITE-CLEAR lane pallets in March.
+The February fuel surcharge index was 121.4.
+Route-sheet revision 5 used the same Rotterdam terminal as revision 6.
+Winter tyre restrictions ended before this order was issued.
+The carrier's cargo-liability certificate runs through 2027-12-31.
+
+Approval trail
+Commercial approval: KITE-CLEAR/Delta Retail Systems buying desk, 2027-03-31.
+Specification approval: KITE-CLEAR/SPRING-GATE engineering, 2027-04-01.
+Purchase order revision: 4.
+Previous revision date: 2027-03-30.
+Document routing code: KITE-CLEAR/PO-7843-R4-IST.

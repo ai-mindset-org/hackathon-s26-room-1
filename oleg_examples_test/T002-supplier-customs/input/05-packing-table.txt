@@ -1,0 +1,47 @@
+KITE-CLEAR/PO-7843 FINAL PACKING WORKSHEET
+Worksheet revision: 7
+Exported: 2027-04-08 11:45 Europe/Istanbul
+Dimensions are centimetres; weights are kilograms.
+
+LOT | PALLET | CARTONS | NET | GROSS | HEIGHT | LABEL PRINTED | ARTWORK
+KITE-CLEAR/LT-88A | A01 | 40 | 371 | 402 | 118 | 03.04.2027 | 2027.3
+KITE-CLEAR/LT-88A | A02 | 40 | 369 | 400 | 118 | 03.04.2027 | 2027.3
+KITE-CLEAR/LT-88A | A03 | 40 | 372 | 403 | 119 | 03.04.2027 | 2027.3
+KITE-CLEAR/LT-88A | A04 | 40 | 370 | 401 | 118 | 03.04.2027 | 2027.3
+KITE-CLEAR/LT-88A | A05 | 40 | 371 | 402 | 120 | 04.04.2027 | 2027.3
+KITE-CLEAR/LT-88A | A06 | 40 | 368 | 399 | 118 | 04.04.2027 | 2027.3
+KITE-CLEAR/LT-88A | A07 | 40 | 370 | 401 | 119 | 04.04.2027 | 2027.3
+KITE-CLEAR/LT-88A | A08 | 40 | 371 | 402 | 118 | 04.04.2027 | 2027.3
+KITE-CLEAR/LT-88A | A09 | 40 | 369 | 400 | 117 | 04.04.2027 | 2027.3
+KITE-CLEAR/LT-88A | A10 | 40 | 370 | 401 | 119 | 05.04.2027 | 2027.3
+KITE-CLEAR/LT-88A | A11 | 40 | 369 | 400 | 118 | 05.04.2027 | 2027.3
+KITE-CLEAR/LT-88A | A12 | 40 | 371 | 409 | 121 | 05.04.2027 | 2027.3
+KITE-CLEAR/LT-88B | B01 | 48 | 447 | 481 | 116 | 05.04.2027 | 2027.3
+KITE-CLEAR/LT-88B | B02 | 48 | 449 | 483 | 117 | 05.04.2027 | 2027.3
+KITE-CLEAR/LT-88B | B03 | 48 | 446 | 480 | 116 | 06.04.2027 | 2027.3
+KITE-CLEAR/LT-88B | B04 | 48 | 447 | 481 | 118 | 06.04.2027 | 2027.3
+
+KITE-CLEAR/LT-88A planned total gross: 4,820 kg.
+KITE-CLEAR/LT-88B planned total gross: 1,940 kg.
+Tolerance for a pallet gross weight: plus or minus 3 kg.
+Corner protectors use stock code KITE-CLEAR/EDGE-14.
+Blue labels use printer profile KITE-CLEAR/LP-203.
+Printer calibration date: 02.04.2027.
+Scale verification date: 2027-03-28.
+Next scale service month: 2027-09.
+Carton ink batch: KITE-CLEAR/INK-501.
+The two scuffed labels were replaced before this worksheet revision.
+All twelve A pallets carry heat-treatment mark KITE-CLEAR/HT-77.
+
+Nil Kara will upload the final packing list for KITE-CLEAR/LT-88A by 11.04.2027 17:00 Europe/Istanbul.
+The upload folder is KITE-CLEAR/CUS-88A/packing.
+The signature block uses worksheet revision 7.
+The packing list shows KITE-CLEAR/LT-88A only.
+KITE-CLEAR/LT-88B remains on worksheet KITE-CLEAR/PACK-88B-4.
+
+Revision history
+Revision 4 on 2027-04-03 added pallet-height columns.
+Revision 5 on 2027-04-04 corrected artwork batch on A05.
+Revision 6 on 2027-04-06 replaced two outer labels.
+Revision 7 on 2027-04-08 reconciled the planned gross total.
+Prepared by KITE-CLEAR/Anatolia Components packing office.

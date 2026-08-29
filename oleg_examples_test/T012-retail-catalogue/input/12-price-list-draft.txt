@@ -1,0 +1,47 @@
+MOSAIC-CAT/PL-SPR-27
+EXPORT=draft-3
+GENERATED=2027-04-16T22:55:00Z
+CURRENCY=JPY
+TAX_MODE=separate
+ROUNDING=whole-yen
+
+SKU | STANDARD | CAMPAIGN | WHOLESALE | MARGIN_MODEL
+MOSAIC-CAT/SKU-KN-410 | 4200 | 3780 | 2420 | MOSAIC-CAT/MARGIN-A3
+MOSAIC-CAT/SKU-KN-401 | 3980 | 3580 | 2290 | MOSAIC-CAT/MARGIN-A3
+MOSAIC-CAT/SKU-GL-220 | 3600 | 3240 | 2070 | MOSAIC-CAT/MARGIN-B4
+MOSAIC-CAT/SKU-CT-305 | 4200 | 3780 | 2410 | MOSAIC-CAT/MARGIN-C2
+MOSAIC-CAT/SKU-WD-118 | 2800 | 2520 | 1610 | MOSAIC-CAT/MARGIN-B2
+MOSAIC-CAT/SKU-LN-144 | 5200 | 4680 | 2990 | MOSAIC-CAT/MARGIN-C1
+MOSAIC-CAT/SKU-PN-087 | 1600 | 1440 | 920 | MOSAIC-CAT/MARGIN-A1
+MOSAIC-CAT/SKU-ST-602 | 7400 | 6660 | 4250 | MOSAIC-CAT/MARGIN-D2
+MOSAIC-CAT/SKU-GR-052 | 2100 | 1890 | 1210 | MOSAIC-CAT/MARGIN-A2
+MOSAIC-CAT/SKU-BR-330 | 4500 | 4050 | 2590 | MOSAIC-CAT/MARGIN-C3
+MOSAIC-CAT/SKU-PL-204 | 3300 | 2970 | 1900 | MOSAIC-CAT/MARGIN-B3
+MOSAIC-CAT/SKU-FB-711 | 6100 | 5490 | 3510 | MOSAIC-CAT/MARGIN-D1
+
+March FX snapshot: 2027-03-31, rate column 149.80.
+March reconciliation total: JPY 18,420,600.
+March rounding difference: JPY 0.
+Store allocation file: MOSAIC-CAT/ALLOC-W17.
+Price tile width: four whole-yen digits.
+Wholesale values remain in the internal export.
+Campaign values are displayed beside struck standard values.
+Tax values are joined by MOSAIC-CAT/TAX-JP-STD.
+The desk-tray group uses margin model B4.
+Tableware rows use margin model A3.
+Storage rows use margin model C2.
+Previous export revision: draft-2.
+Current checksum: 9ad2-27-d3.
+Archive partition: MOSAIC-CAT/PRICE-ARCH-2027-04.
+
+STORE MIX SNAPSHOT
+MOSAIC-CAT/ST-TYO-04 | tableware=34 | desk=22 | storage=18
+MOSAIC-CAT/ST-OSA-02 | tableware=28 | desk=19 | storage=15
+MOSAIC-CAT/ST-FUK-03 | tableware=21 | desk=14 | storage=12
+The counts describe displayed catalogue rows, not inventory units.
+The spring grid keeps companion colours after each primary item.
+The allocation export and the price export use different sort orders.
+The mobile renderer reads only the standard and campaign columns.
+The store workbook also carries internal wholesale values.
+The archive retains prior revisions for monthly reconciliation.
+The April sheet uses the same whole-yen rounding as March.

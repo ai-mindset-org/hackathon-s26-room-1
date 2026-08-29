@@ -1,0 +1,47 @@
+From: juliana.mena@cedar-field.example
+To: field.dispatch@cedar-field.example
+Date: 01/09/2026 11:26 -0500
+Subject: CEDAR-FIELD/PART-7742 confirmed for CEDAR-FIELD/UNIT-PM-42
+
+Hello dispatch,
+
+The parts portal accepted order CEDAR-FIELD/PART-7742 for pump CEDAR-FIELD/UNIT-PM-42 at CEDAR-FIELD/PLANTA-MIRTO.
+This is the belt kit requested under CEDAR-FIELD/WO-4799, package code CEDAR-FIELD/KIT-B42.
+It is not a component for either chiller at CEDAR-FIELD/TORRE-ARCE.
+I, Juliana Mena, will track the delivery and receive it at CEDAR-FIELD/BASE-BOG-NORTE.
+Portal commitment: “Expected delivery: 08/09/2026 by 15:00 America/Bogota.”
+Current portal state: Ordered; carrier label has not been printed yet.
+
+The carton should measure about 48 × 31 × 18 cm.
+Gross weight in the catalogue is 7.6 kg; the old catalogue listed 7.4 kg.
+Our shelf B-14 has room after yesterday’s filter pickup.
+Stock nearby shows 17 oil pads and nine small clamps.
+The intake desk closes for lunch from 12:30 to 13:15.
+Drivers use the blue door because the grey door has a loose handle.
+The receiving tablet was updated to portal build 5.14.2 this morning.
+The scanner sometimes changes the digit 1 to the letter I on narrow labels.
+
+Portal details copied below:
+Order: CEDAR-FIELD/PART-7742
+Asset: CEDAR-FIELD/UNIT-PM-42
+Site: CEDAR-FIELD/PLANTA-MIRTO
+SKU: CEDAR-FIELD/KIT-B42
+Quantity: 1
+Unit price: COP 684,200
+Tax reference: 19
+Expected delivery: 08/09/2026 by 15:00 America/Bogota
+Warehouse owner: Juliana Mena
+State: Ordered
+
+The supplier packed two similar kits last month. CEDAR-FIELD/KIT-B24 has a shorter belt and remains on shelf C-03.
+The photo attached to the catalogue uses the same black housing for both kits.
+The pump plate ends in 42; the chiller plates at the other site end in 17 and 71.
+
+Quoted history from an older thread:
+> On 14/08/2026 at 09:10, purchasing wrote: Could you reserve CEDAR-FIELD/PART-7310 for CEDAR-FIELD/UNIT-PM-24?
+> On 14/08/2026 at 09:44, Juliana wrote: CEDAR-FIELD/PART-7310 was collected this morning and the shelf is free.
+
+Regards,
+Juliana Mena
+CEDAR-FIELD/BODEGA-NORTE
+Extension 214

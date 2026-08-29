@@ -1,0 +1,46 @@
+CEDAR-FIELD/OPERACIONES — ORDEN DE TRABAJO CONSOLIDADA
+Exportación: 01/09/2026 09:05, Bogotá
+Centro de servicio: CEDAR-FIELD/BASE-BOG-NORTE
+Sitio: CEDAR-FIELD/TORRE-ARCE, dirección ficticia Avenida Cedro 118, Bogotá
+Coordinadora de turno: Lucía Fajardo
+
+ORDEN CEDAR-FIELD/WO-4821
+Activo: CEDAR-FIELD/UNIT-CH-17, enfriadora del ala occidental
+Motivo: vibración intermitente reportada después del arranque de las 06:00.
+La lectura remota mostró 4,75 mm/s durante once segundos y volvió a 2,10 mm/s.
+El cliente dijo que el ruido se oye más en el pasillo que dentro de la sala.
+La rejilla norte conserva polvo fino del trabajo de pintura de agosto.
+No hubo pérdida de caudal ni alarma de alta presión.
+La versión visible del controlador es 3.8.12 y el panel conserva el idioma español.
+El contador del compresor marca 18.442 horas.
+Asignación: Camila Ríos, conocida en la cuadrilla como “Cami”.
+Programar CEDAR-FIELD/VISIT-4821 para el 04/09/2026 a las 08:30, hora de Bogotá.
+Lucía Fajardo debe confirmar con recepción el acceso CEDAR-FIELD/CONF-4821 antes del 03/09/2026 a las 14:00.
+El vehículo sugerido es CEDAR-FIELD/VAN-06 porque lleva el medidor de vibración azul.
+La bahía de carga abre a las 07:45 y la rampa sur sigue cerrada por pintura.
+El guardia de la mañana usa una lista impresa; recepción pidió nombres completos.
+El ascensor de servicio admite 450 kg y su puerta tarda catorce segundos en cerrar.
+El cliente mantiene una escalera de seis peldaños junto al tablero secundario.
+La visita anterior del 18/08 terminó en 52 minutos y consumió dos paños absorbentes.
+El filtro instalado tiene etiqueta gris; la foto antigua mostraba una etiqueta verde.
+
+ORDEN CEDAR-FIELD/WO-4827
+Activo: CEDAR-FIELD/UNIT-CH-71, enfriadora del ala oriental del mismo sitio.
+Motivo: revisión del soporte derecho después de una lectura estable de 3,20 mm/s.
+El número se parece al de CEDAR-FIELD/UNIT-CH-17, pero la placa física termina en 71.
+Asignación: Carlos Peña.
+Programar CEDAR-FIELD/VISIT-4827 para el lunes 07/09/2026 a las 09:30, hora de Bogotá.
+El acta CEDAR-FIELD/ACT-4827 debe cargarse el 08/09/2026 antes de las 17:00; la orden todavía no nombra responsable.
+La caja de herramientas del ala oriental ya está en el cuarto de máquinas.
+El cliente prefiere que el técnico entre por recepción y no por la bahía.
+La lectura del sensor B fue 3,18; la del sensor C fue 3,21.
+El soporte de caucho se cambió en marzo y conserva el lote CEDAR-FIELD/RB-209.
+La última fotografía de la placa quedó nítida y no requiere repetición.
+Ambas órdenes comparten sitio y familia de equipo, pero tienen placas y números distintos.
+
+Notas de ruta
+La salida desde CEDAR-FIELD/BASE-BOG-NORTE suele tomar 35 minutos antes de las 07:00.
+Entre 07:20 y 08:10 el mismo trayecto promedió 58 minutos durante agosto.
+La calle lateral tiene giro restringido para vehículos de más de 3,5 toneladas.
+CEDAR-FIELD/VAN-06 recibió combustible el 31/08: 42,6 litros, odómetro 61.904 km.
+El equipo de turno dejó cuatro conos, dos chalecos y una linterna en el compartimento trasero.

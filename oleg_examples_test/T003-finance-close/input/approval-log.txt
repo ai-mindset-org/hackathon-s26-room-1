@@ -1,0 +1,48 @@
+System: MERIDIAN-CLOSE/APPROVAL-EU
+Export locale: en-IE; dates DD/MM/YYYY; amounts use dot thousands and decimal comma.
+System time zone: Europe/Paris
+Generated: 06/04/2028 08:10 CEST
+Format: timestamp | object | actor | transition | note
+
+05/04/2028 14:51 CEST | MERIDIAN-CLOSE/BANK-EU-0441 | OV | SUBMITTED | payroll clearing match 12.779,42 EUR
+05/04/2028 15:03 CEST | MERIDIAN-CLOSE/BANK-EU-0441 | Celia Moss | RETURNED | attachment label lacked account suffix
+05/04/2028 15:18 CEST | MERIDIAN-CLOSE/BANK-EU-0441 | OV | RESUBMITTED | label corrected to suffix 0441
+05/04/2028 15:42 CEST | MERIDIAN-CLOSE/BANK-EU-0441 | Celia Moss | APPROVED | reconciliation complete
+05/04/2028 15:47 CEST | MERIDIAN-CLOSE/RECON-INDEX | Celia Moss | UPDATED | 0441 linked to bank file B
+05/04/2028 15:53 CEST | MERIDIAN-CLOSE/RECON-INDEX | Celia Moss | UPDATED | workbook build 6.4 recorded
+05/04/2028 16:01 CEST | MERIDIAN-CLOSE/RECON-INDEX | Owen Vale | VIEWED | row count 226
+
+05/04/2028 19:35 CEST | MERIDIAN-CLOSE/JE-APR-17 | Lena Hart | REASSIGNED | Oliver Crane to Priya Stone (PS); effective 05/04/2028 13:35 ET
+05/04/2028 19:36 CEST | MERIDIAN-CLOSE/JE-APR-17 | Lena Hart | RESCHEDULED | from 05/04/2028 14:00 ET to 06/04/2028 10:00 ET
+06/04/2028 15:22 CEST | MERIDIAN-CLOSE/JE-APR-17 | PS | SUBMITTED | FX rate set MERIDIAN-CLOSE/RATE-APR-A revision 17
+06/04/2028 15:31 CEST | MERIDIAN-CLOSE/JE-APR-17 | Lena Hart | APPROVED | journal posted; complete
+06/04/2028 15:34 CEST | MERIDIAN-CLOSE/JOURNAL-INDEX | Lena Hart | UPDATED | 48 currency rows
+06/04/2028 15:38 CEST | MERIDIAN-CLOSE/JOURNAL-INDEX | Priya Stone | VIEWED | net 18.402,17 USD equivalent
+
+05/04/2028 18:18 CEST | MERIDIAN-CLOSE/ACCRUAL-IC/MAR-2028 | LH | COMPLETED | signed review filed at 05/04/2028 12:18 ET
+05/04/2028 18:21 CEST | MERIDIAN-CLOSE/ACCRUAL-INDEX | LH | UPDATED | March period link added
+05/04/2028 18:23 CEST | MERIDIAN-CLOSE/ACCRUAL-INDEX | Rowan Pike | VIEWED | workbook version 3.8
+
+SYSTEM NOTES
+Actor aliases come from MERIDIAN-CLOSE/PEOPLE-DIRECTORY/4.
+OV resolves to Owen Vale.
+PS resolves to Priya Stone.
+LH resolves to Lena Hart.
+Displayed USD equivalents use the daily controller rate.
+Approval timestamps keep the system zone even when a note quotes ET.
+Object names retain their period or account suffix.
+The log stores every transition as a separate row.
+Returned items remain visible after a later approval.
+Index updates are generated from completed workflow rows.
+
+Approval checklist template:
+Confirm that the object identifier matches the support file.
+Confirm that the period or account suffix is visible.
+Confirm that preparer and reviewer are different people.
+Confirm that the source date convention is recorded.
+Confirm that the amount uses the source decimal convention.
+Confirm that the final comment identifies the evidence path.
+
+Log footer: MERIDIAN-CLOSE/APPROVAL-EU build 8.9.
+Archive route: MERIDIAN-CLOSE/FIN-ARCHIVE/2028/APPROVALS.
+Rows in export: 17 workflow rows plus system notes.

@@ -1,0 +1,26 @@
+POLYGLOT-OPS CRM plain-text export
+generated_at=29/08/2026 10:05 America/Mexico_City
+export_profile=regional-open-items-v3
+columns=id|workspace|subject|owner|state|due
+C-4421|POLYGLOT-OPS/RIO-MX|Enviar fotos de los sellos faltantes|Lucía Andrade|OPEN|due=
+C-4478|POLYGLOT-OPS/ATLAS-MX|Confirmar dos espacios de vehículo|Diego Serrano|OPEN|due=29/08/2026 12:00 America/Mexico_City
+account_summary|Mexico region|active accounts=14|open conversations=6
+queue_summary|oldest reply age=00:47|median reply age=00:12
+warehouse_summary|north lot=17|south lot=9|overflow=0
+currency_view|MXN 31,080.44|comparison period=August week 4
+template_version|31/08|renderer=11.30|locale=es-MX
+search_preview|POLYGLOT-OPS/ATLAS-??|M4ya B.|dock note|31.08
+search_preview_tail|source title clipped after 24 characters
+row_recovery|segment 08|crc mismatch|preview retained
+history_count|C-4421|messages=7|attachments=4
+history_count|C-4478|messages=3|attachments=0
+agent_presence|Lucía Andrade|available
+agent_presence|Diego Serrano|in yard
+agent_presence|Eva Cornejo|available
+saved_filter|Atlas|matches=2|regions=Tbilisi,Mexico City
+saved_filter|seal photos|matches=1|region=Mexico City
+dashboard_note|the Atlas label is shared by two regional workspaces
+dashboard_note|full workspace keys remain distinct in this export
+last_closed_item|C-4380|closed=27/08/2026 16:22 America/Mexico_City
+last_closed_subject|C-4380|Actualizar mapa del patio sur
+footer|page 1 of 1|encoding UTF-8

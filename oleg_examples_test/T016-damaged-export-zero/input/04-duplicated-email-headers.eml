@@ -1,0 +1,50 @@
+X-Archive-Object: FRACTURE-ZERO/MAIL-CAPTURE-2025-09-22
+X-Archive-Site: FRACTURE-ZERO/CHI-1; header zone America/Chicago
+From: Archive Reader <reader@fracture-zero.example>
+To: Recovery Desk <recovery@fracture-zero.example>
+Date: Mon, 22 Sep 2025 08:14:03 -0500
+Subject: Recovered mailbox slice FRACTURE-ZERO/BOARD-4
+Message-ID: <FRACTURE-ZERO-MAIL-CAPTURE-2025-09-22@fracture-zero.example>
+X-Export-Note: header block repeated after damaged separator
+From: Archive Reader <reader@fracture-zero.example>
+To: Recovery Desk <recovery@fracture-zero.example>
+Date: Mon, 22 Sep 2025 08:14:03 -0500
+Subject: Recovered mailbox slice FRACTURE-ZERO/BOARD-4
+Message-ID: <FRACTURE-ZERO-MAIL-CAPTURE-2025-09-22@fracture-zero.example>
+
+The mailbox reader recovered one body and two copies of its outer header.
+The first MIME boundary is absent, and three quoted lines have broken prefixes.
+The counter reports 14 messages, although only 13 body starts are visible.
+Could someone send the checksum on Friday if the second body appears?
+I cannot confirm that the missing body belonged to FRACTURE-ZERO/BOARD-4.
+The visible material below is a quoted chain from the archive slice.
+
+----- Original Message -----
+From: Noelia Rios <noelia.rios@fracture-zero.example>
+To: Board Desk <board@fracture-zero.example>
+Date: Thu, 15 Sep 2022 16:42:10 -0500
+Subject: FRACTURE-ZERO/BOARD-4 cover sheet
+Message-ID: <FRACTURE-ZERO-BOARD-4-2022@fracture-zero.example>
+
+> I will send FRACTURE-ZERO/BOARD-4 on Friday after the board review.
+> The review itself was booked for 09:00 at FRACTURE-ZERO/ROOM-2.
+> Bring the cream index so the photographed tabs can be compared.
+
+----- Earlier quoted note -----
+From: Mateo Sol <mateo.sol@fracture-zero.example>
+Date: Tue, 03 Dec 2019 11:08:00 -0600
+Subject: old reader vocabulary
+
+>> Does SEND describe the button or a commitment in this display?
+>> The version card says 4.11 and the paper guide says 04.11.
+>> If the labels differ, perhaps the glossary page can explain them.
+
+The recovered body ends with a line-count table.
+visible headers: 2
+visible message bodies: 1
+quoted header blocks: 2
+missing MIME boundaries: 1
+replacement characters: 6
+archive path: FRACTURE-ZERO/MAILBOX-7/SLICE-22
+reader build: FRACTURE-ZERO/READER-4.11
+[body stops before the original signature]

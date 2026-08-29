@@ -1,0 +1,47 @@
+MOSAIC-CAT/PL-SPR-27
+EXPORT=approval-view-4
+GENERATED=2027-04-20T00:12:00Z
+CURRENCY=JPY
+TAX_MODE=separate
+ROUNDING=whole-yen
+
+SKU | STANDARD | CAMPAIGN | APPROVAL_STATE | OWNER_FIELD
+MOSAIC-CAT/SKU-KN-410 | 4200 | 3780 | carried | MOSAIC-CAT/PRICE-RULE-A3
+MOSAIC-CAT/SKU-KN-401 | 3980 | 3580 | carried | MOSAIC-CAT/PRICE-RULE-A3
+MOSAIC-CAT/SKU-GL-220 | 3600 | 3240 | pending | Naomi Seki
+MOSAIC-CAT/SKU-CT-305 | 4200 | 3780 | carried | MOSAIC-CAT/PRICE-RULE-C2
+MOSAIC-CAT/SKU-WD-118 | 2800 | 2520 | carried | MOSAIC-CAT/PRICE-RULE-B2
+MOSAIC-CAT/SKU-LN-144 | 5200 | 4680 | carried | MOSAIC-CAT/PRICE-RULE-C1
+MOSAIC-CAT/SKU-PN-087 | 1600 | 1440 | carried | MOSAIC-CAT/PRICE-RULE-A1
+MOSAIC-CAT/SKU-ST-602 | 7400 | 6660 | carried | MOSAIC-CAT/PRICE-RULE-D2
+MOSAIC-CAT/SKU-GR-052 | 2100 | 1890 | carried | MOSAIC-CAT/PRICE-RULE-A2
+MOSAIC-CAT/SKU-BR-330 | 4500 | 4050 | carried | MOSAIC-CAT/PRICE-RULE-C3
+MOSAIC-CAT/SKU-PL-204 | 3300 | 2970 | carried | MOSAIC-CAT/PRICE-RULE-B3
+MOSAIC-CAT/SKU-FB-711 | 6100 | 5490 | carried | MOSAIC-CAT/PRICE-RULE-D1
+
+Rebate worksheet: MOSAIC-CAT/REBATE-GL220-R2.
+Pack cost snapshot: 2027-04-17T22:00:00Z.
+Display allocation snapshot: MOSAIC-CAT/ALLOC-W17.
+Tokyo display units for GL-220: 38.
+Osaka display units for GL-220: 24.
+Fukuoka display units for GL-220: 16.
+The standard price remains unchanged.
+The campaign price remains unchanged from draft-3.
+The approval column stores current workflow state.
+The owner field changed after the supplier rebate arrived.
+The feed has not yet published the pending row.
+The store export waits for the scheduled catalogue run.
+Current checksum: 02bc-27-a4.
+Archive partition: MOSAIC-CAT/PRICE-ARCH-2027-04.
+
+DISPLAY CHECK SNAPSHOT
+MOSAIC-CAT/ST-TYO-04 | four-digit tiles=31 | five-digit tiles=0
+MOSAIC-CAT/ST-OSA-02 | four-digit tiles=26 | five-digit tiles=0
+MOSAIC-CAT/ST-FUK-03 | four-digit tiles=19 | five-digit tiles=0
+The snapshot counts visible campaign tiles in the preview.
+The pending approval row remains present in the internal workbook.
+The store preview reads the last published feed, not this workbook view.
+The wholesale column remains hidden from the campaign tile.
+The tax join completed for all 82 rows in the previous feed.
+The April archive keeps draft-2, draft-3, and approval-view-4.
+The campaign grid has enough width for every listed amount.

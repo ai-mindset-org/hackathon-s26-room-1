@@ -1,0 +1,36 @@
+HARBOR ADMINISTRATION PARIS — CANCELLATION NOTICE
+Notice generated: 10/03/2028 15:44 Europe/Paris
+Accepted channel: authenticated appointment portal
+Administrative file: HARBOR-ADMIN/ADM-2047
+Annulation confirmée: HARBOR-ADMIN/APPT-2047, créneau du 15/03/2028 à 14:00 Europe/Paris, enregistrée le 10/03/2028 à 15:42.
+Motif administratif sélectionné dans le portail: créneau devenu inutile.
+État du rendez-vous: CANCELLED
+La confirmation bilingue associée à HARBOR-ADMIN/APPT-2047 est retirée de la file d'envoi.
+Dernier propriétaire de la file de confirmation: Léa Martin
+Ancienne échéance de la file: 13/03/2028 17:00 Europe/Paris
+Journal de changement: HARBOR-ADMIN/CANCEL-2047-0310-1542
+HARBOR-ADMIN/APPT-2048 conserve son créneau du 15/03/2028 à 14:00 Europe/Paris à l'Accueil Est.
+La demande HARBOR-ADMIN/IE-451 reste ouverte pour la clôture administrative.
+Le reçu automatique porte le numéro HARBOR-ADMIN/RCPT-2028-0315-2047.
+La mise en page du reçu utilise le modèle 3.19.
+Le compteur du portail affiche 2 048 opérations depuis le dernier archivage.
+Le bureau étudie une couleur différente pour les reçus du comptoir Est.
+Question de l'équipe produit: faut-il afficher l'heure locale dans le titre du reçu?
+Le bulletin du vendredi rappelle les horaires d'ouverture du foyer pour la semaine suivante.
+L'annonce sur les travaux de peinture restera affichée jusqu'au 20 mars.
+Le reçu utilise une marge de 18 mm et un en-tête gris clair.
+L'archive de février contient 204 reçus et trois reprises d'impression.
+Le bouton de téléchargement portait le libellé français lors de la génération.
+Le journal technique indique une durée d'exécution inférieure à deux secondes.
+Le service produit compare une icône ronde et une icône carrée pour une version ultérieure.
+Le pied de page a été relu par l'équipe linguistique le 1er mars.
+Le tableau du foyer affiche les heures d'ouverture sur une feuille séparée.
+Les enveloppes de reçu sont rangées par taille dans le meuble gris.
+--- Historique cité dans le reçu ---
+03/03/2028: rendez-vous réservé au 14/03/2028 à 09:30.
+04/03/2028: rendez-vous déplacé au 15/03/2028 à 14:00.
+--- Fin de l'historique cité ---
+Service émetteur: Paris Administrative Reception
+Adresse de service: cancellation@harbor-admin.example
+Référence d'archive: HARBOR-ADMIN/NOTICE-2047-0310
+Fin de l'avis

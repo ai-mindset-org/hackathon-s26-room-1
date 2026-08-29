@@ -1,0 +1,41 @@
+From: Léa Martin <lea.martin@harbor-admin.example>
+To: Paris Reception West <reception-ouest@harbor-admin.example>
+Cc: Camille Durand <camille.durand@harbor-admin.example>
+Date: Friday, 3 March 2028 08:46:12 +0100
+Subject: Accueil Ouest — dossiers administratifs de la quinzaine
+Bonjour,
+Le comptoir a ouvert avec neuf dossiers en attente et trois enveloppes revenues par courrier.
+La livraison de badges visiteurs porte le bordereau HARBOR-ADMIN/SHIP-2028-0319.
+Le fournisseur indique 19,00 EUR de frais de port sur la prochaine facture.
+Le rendez-vous administratif HARBOR-ADMIN/APPT-2047 est réservé le mardi 14 mars 2028 à 09 h 30, heure de Paris.
+Le dossier anonyme associé est HARBOR-ADMIN/ADM-2047 et le point d'accueil est Accueil Ouest.
+Léa, merci d'envoyer la confirmation bilingue avant le lundi 13 mars à 17 h.
+La version française doit précéder la version anglaise dans le même message.
+Nous avons encore du papier à en-tête de la série 2047-B dans l'armoire du fond.
+Le lecteur de badges affiche parfois 03/14 pendant son autocontrôle; le service bâtiment suit ce point.
+Le tableau d'affluence de février sera présenté lors de la réunion d'équipe du 9 mars.
+Camille propose de déplacer la corbeille des courriers près de la fenêtre si le passage reste dégagé.
+Le comptoir Est utilise désormais des pochettes bleues et le comptoir Ouest des pochettes grises.
+La machine d'affranchissement a totalisé 2 048 plis depuis son remplacement.
+Le nouveau plan de salle porte la version 3.19.4 et sera imprimé après validation des couleurs.
+--- Message cité du 27 février 2028 ---
+From: Scheduling Questions <questions@harbor-admin.example>
+Could we move HARBOR-ADMIN/APPT-2047 to 03/14 at 11:00 instead?
+Would the requester prefer the east desk if a window seat becomes available?
+--- Fin du message cité ---
+La permanence téléphonique du mercredi a reçu surtout des questions sur l'accès au bâtiment.
+Le stock de porte-documents suffit jusqu'à la fin du mois selon le relevé de jeudi.
+Merci de mettre le registre papier dans le tiroir fermé pendant la pause de midi.
+Le relevé des clés de février est complet et signé dans le registre de fermeture.
+Le tapis du sas a été remplacé le 24 février après la livraison du matin.
+Les casiers 14 et 19 contiennent des brochures de bienvenue de l'ancienne série.
+La lumière du présentoir s'éteint automatiquement à 18 h 30.
+Le groupe accueil a comparé trois tailles de police pendant l'atelier de janvier.
+Une idée pour avril consiste à ajouter un pictogramme près de la boîte aux lettres.
+Le compte rendu de la dernière visite des locaux mentionne le bruit du chariot à roulettes.
+La cafetière de la salle d'équipe porte une étiquette de contrôle datée du 28 février.
+Cordialement,
+Léa Martin | Coordinatrice d'accueil administratif
+Harbor Administration Paris | 18 avenue de l'Archive, 75000 Paris
+Standard: +33 1 00 00 00 00 | harbor-admin.example
+Ce courriel peut contenir des échanges administratifs destinés aux personnes indiquées en en-tête.

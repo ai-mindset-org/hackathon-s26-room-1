@@ -1,0 +1,35 @@
+[2027年4月18日 08:42 JST] Aiko: Localization room MOSAIC-CAT/LOC-SPR-27 is open.
+[08:43] Lin: The Japanese source sheet has 68 primary rows.
+[08:44] Aiko: Fourteen companion-colour rows follow the primary rows.
+[08:45] Lin: The English export preserved every stable SKU.
+[08:46] Aiko: MOSAIC-CAT/SKU-KN-410 is the same item as Japanese 青磁釉マグ 410 and English Celadon Glaze Mug 410.
+[08:47] Lin: The stable barcode for that row is MOSAIC-CAT/JAN-4580000410410.
+[08:48] Aiko: 森愛子 / Aiko Mori owns the bilingual copy update for MOSAIC-CAT/SKU-KN-410.
+[08:49] Lin: The model number stays at the end of both names.
+[08:50] Aiko: The English line is 39 characters in the mobile preview.
+[08:51] Lin: The Japanese line remains on one row.
+[08:52] Aiko: MOSAIC-CAT/SKU-KN-401 appears immediately below it.
+[08:53] Lin: KN-401 has barcode MOSAIC-CAT/JAN-4580000410401.
+[08:54] Aiko: Its English name ends in 401, not 410.
+[08:55] Lin: The two rows share the celadon colour profile.
+[08:56] Aiko: Their capacities and carton dimensions differ.
+[08:57] Lin: The file sort used display name, so the rows look adjacent.
+[08:58] Aiko: The asset manifest sort used stable SKU.
+[08:59] Lin: The old export still says Celadon Mug 410 in quoted history.
+[09:00] Aiko: Quoted from 2026: retire the navy wrap after Golden Week.
+[09:01] Lin: That archive line belongs to MOSAIC-CAT/MAIL-ARCH-2026.
+[09:02] Aiko: Today's copy sheet is revision MOSAIC-CAT/LOC-R18.
+[09:03] Lin: The glossary maps glaze to 釉 for this category.
+[09:04] Aiko: The glossary leaves model numbers unchanged.
+[09:05] Lin: Punctuation uses full-width brackets in the Japanese long copy.
+[09:06] Aiko: The short copy has no brackets.
+[09:07] Lin: The store card uses the short copy.
+[09:08] Aiko: The web detail page uses the long copy.
+[09:09] Lin: The mobile preview did not clip either name.
+[09:10] Aiko: The desk-tray group follows tableware.
+[09:11] Lin: Storage items follow the desk-tray group.
+[09:12] Aiko: The source sheet has two empty marketing-note cells.
+[09:13] Lin: Both cells belong to discontinued colour companions.
+[09:14] Aiko: The export checksum ends in 6c41.
+[09:15] Lin: The next localization sync is at 11:30 JST.
+[09:16] Aiko: I will compare the generated preview after that sync.

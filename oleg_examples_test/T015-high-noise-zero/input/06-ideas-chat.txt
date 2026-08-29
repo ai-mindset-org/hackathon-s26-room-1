@@ -1,0 +1,38 @@
+ECHO-ZERO/Ideas channel export
+Thread window: 2028-03-16 09:00 through 2028-03-17 17:30 America/New_York
+Exported by: ECHO-ZERO/Chat-Archive
+
+[03/16/2028 09:12 ET] Lena Ortiz: The lobby is quieter since the old floor strip came up.
+[03/16/2028 09:18 ET] Marcus Bell: I still like the large wall map from the 2026 pilot.
+[03/16/2028 09:24 ET] Lena Ortiz: Could we publish an ECHO-ZERO/Willow visitor route card for occasional guests?
+[03/16/2028 09:27 ET] Priya Nordin: Would that be easier to read than updating the wall map?
+[03/16/2028 09:31 ET] Marcus Bell: Maybe a folded version, although A6 sounds cramped.
+[03/16/2028 09:38 ET] Lena Ortiz: The old quote used 5,000 copies, which seems excessive now.
+[03/16/2028 09:44 ET] Priya Nordin: The reception counter was 1,180 visitors in October 2026.
+[03/16/2028 09:51 ET] Marcus Bell: I wonder whether a digital map would age better than paper.
+[03/16/2028 10:02 ET] Chat Archive: 7 reactions were added to messages in this thread.
+
+[03/16/2028 14:06 ET] Hana Voigt: Brussels used EUR 1.245,50 as a paper example last year.
+[03/16/2028 14:10 ET] Lena Ortiz: New York wrote the similar number as $1,245.50.
+[03/16/2028 14:14 ET] Hana Voigt: Different currencies and paper stocks, so the figures are not comparable.
+[03/16/2028 14:22 ET] Priya Nordin: Could the handbook show both styles beside one another?
+[03/16/2028 14:31 ET] Hana Voigt: It already does in the regional-records section.
+[03/16/2028 14:39 ET] Chat Archive: Link preview expanded for ECHO-ZERO/Handbook edition 2028-02.
+
+[03/17/2028 11:05 ET] Marcus Bell: If ECHO-ZERO/Quartz enters a future planning cycle, would night staff join interviews?
+[03/17/2028 11:11 ET] Priya Nordin: The 2026 panel declined that study, according to the historical report.
+[03/17/2028 11:16 ET] Lena Ortiz: A different question could be how late visitors find the side entrance.
+[03/17/2028 11:23 ET] Marcus Bell: That sounds broader than the old late-shift proposal.
+[03/17/2028 11:28 ET] Hana Voigt: We would need sponsorship before comparing formats or audiences.
+[03/17/2028 11:33 ET] Priya Nordin: Could a future survey use five questions rather than twelve?
+[03/17/2028 11:41 ET] Chat Archive: Topic label ECHO-ZERO/Quartz added by keyword grouping.
+
+[03/17/2028 16:02 ET] Hana Voigt: The calendar search still shows the declined Willow room hold.
+[03/17/2028 16:09 ET] Marcus Bell: That is probably why the automated summary paired Willow with April.
+[03/17/2028 16:16 ET] Lena Ortiz: The old workshop series ended when the visitor pilot was retired.
+[03/17/2028 16:22 ET] Priya Nordin: Is there a way to hide declined holds from the default search?
+[03/17/2028 16:29 ET] Hana Voigt: The FAQ says history remains visible for access-log questions.
+[03/17/2028 16:35 ET] Chat Archive: Thread marked quiet after 24 hours without a new message.
+
+Channel description: informal questions and early comparisons from fictional ECHO-ZERO staff.
+Retention label: ECHO-ZERO/Chat/18M; export page 1 of 1; checksum field omitted from text view.

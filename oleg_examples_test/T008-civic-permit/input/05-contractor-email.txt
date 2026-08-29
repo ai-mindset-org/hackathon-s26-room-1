@@ -1,0 +1,36 @@
+From: CIVIC-ORCHID/Nora-Stein <nora@orchidbau-planung.example>
+To: CIVIC-ORCHID/Mira-Falk; CIVIC-ORCHID/Leon-Brandt; CIVIC-ORCHID/Jonas-Reeve
+Date: 13.06.2029 18:06 Europe/Berlin
+Subject: Planpakete 417 und 471 getrennt halten
+Hallo zusammen,
+für CIVIC-ORCHID/BA-2029-417/V2 übernimmt CIVIC-ORCHID/Leon-Brandt zunächst die Zugangsskizze für die Anhörung.
+CIVIC-ORCHID/Leon-Brandt lädt die Zugangsskizze bis 27.06.2029, 16:00 Uhr, in CIVIC-ORCHID/ROOM-417 hoch.
+Für CIVIC-ORCHID/BA-2029-471/V1 liefert CIVIC-ORCHID/Emil-Hart das Farbblatt bis 26.06.2029, 12:00 Uhr.
+Bitte nutzt für das Farbblatt den eigenen Raum CIVIC-ORCHID/ROOM-471 und die Kennung CIVIC-ORCHID/COLOR-471.
+Die beiden Aktennummern stehen in unserer Wochenliste direkt untereinander.
+CIVIC-ORCHID/HOF-17 hat einen Nordzugang, CIVIC-ORCHID/HOF-71 einen Westzugang.
+Beide Modelle verwenden dieselbe Texturdatei „klinker_orchid_06“, aber mit anderer Fugenfarbe.
+Im Modell 417 sind 36 Türsymbole sichtbar; vier davon liegen in ausgeblendeten Bestandslayern.
+Im Modell 471 enthält die Vordachkante 22 Stützpunkte und eine Rundung mit Radius 1,20 Meter.
+Der Plotter verbrauchte beim letzten Lauf 47 Meter Rollenpapier und meldete danach 31 Prozent Restbestand.
+Der Kurier holt dienstags und donnerstags zwischen 15:00 und 16:00 Uhr ab.
+Könnten wir vorsorglich eine Hebebühne für die Juliwoche reservieren, falls der Ortstermin zustande kommt?
+Wenn das Herbstprogramm bewilligt wird, könnten wir später eine begrünte Dachkante untersuchen.
+Die Skizzenlegende nutzt Deutsch auf Blatt 1 und Englisch auf Blatt 2.
+Der Ordner „417_alt_2028“ enthält Fotos aus einer verworfenen Machbarkeitsstudie.
+Darin steht noch „Abgabe 30.09.2028“, weil dies der damalige Förderstichtag war.
+Der aktuelle Scan der Hofkante hat eine Punktdichte von 5 Millimetern.
+Unsere interne Besprechung am 18.06. beginnt um 09:45 und dauert voraussichtlich 25 Minuten.
+Für Rückfragen bin ich nach 14:00 Uhr über den Projektraum erreichbar.
+Viele Grüße
+CIVIC-ORCHID/Nora-Stein
+CIVIC-ORCHID/Orchidbau-Planung | Modellkoordination
+Projektpostfach CIVIC-ORCHID/MAILBOX-OBP-4 | Ablagefrist nach Bürostandard: 36 Monate
+----- Zitierte Nachricht vom 22.05.2029 -----
+„CIVIC-ORCHID/Leon-Brandt könnte im Juni die erste interne Wegeskizze prüfen, sofern Kapazität frei wird.“
+„Für CIVIC-ORCHID/BA-2029-471 war damals noch kein Farbton ausgewählt.“
+Die Modellbibliothek enthält 14 Türtypen und fünf Geländerkategorien.
+Beim letzten Abgleich waren alle externen Referenzen relativ zum Projektordner verknüpft.
+Der Besprechungsraum des Büros hat einen fest montierten Bildschirm mit 65 Zoll Diagonale.
+Die Zeiterfassung führt Modellpflege und Planprüfung als getrennte Kostenstellen.
+Der wöchentliche Sicherungslauf belegte zuletzt 8,6 GB komprimierten Speicher.

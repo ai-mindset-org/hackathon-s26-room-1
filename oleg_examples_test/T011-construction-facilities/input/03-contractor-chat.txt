@@ -1,0 +1,37 @@
+STONEBRIDGE-FM/VISTULA-BUILD — contractor channel export
+Channel: Warsaw campus coordination
+Times: Europe/Warsaw local time (CEST during this export)
+
+[2026-09-08 07:54] Alicja Krawiec: Dzień dobry. Brama B jest dziś wolna od 08:30; proszę nie blokować zatoki 2.
+[2026-09-08 08:01] Piotr Malec: Jesteśmy w drodze. Samochód ma numer floty STONEBRIDGE-FM/VAN-12.
+[2026-09-08 08:06] Lena Nowak: Mam sześć kartuszy FS31 i dwa zapasowe pistolety.
+[2026-09-08 08:12] Piotr Malec: Przekazuję STONEBRIDGE-FM/WR-418 Lenie Nowak; ona przejmuje uszczelnienie w STONEBRIDGE-FM/ZONE-E17A.
+[2026-09-08 08:16] Lena Nowak: Przyjmuję STONEBRIDGE-FM/WR-418. Przesuńcie termin o trzy warszawskie dni robocze po wtorku 15 września.
+[2026-09-08 08:19] Alicja Krawiec: Zapisane. Sprawdzę dostęp wentylacji na piątek.
+[2026-09-08 08:24] Marek Sowa: Wózek nożycowy wrócił z przeglądu, ale zajmuje go elektryka do południa.
+[2026-09-08 08:37] Karol Bednar: To dotyczy czujnika w STONEBRIDGE-FM/ZONE-E17B. Czekam na część OS18.
+[2026-09-08 08:44] Lena Nowak: Mój miernik wilgotności ma kalibrację ważną do 2027-02-28.
+[2026-09-08 09:02] Alicja Krawiec: Dostawa kawy jedzie przez bramę A, więc nie koliduje z ekipą.
+[2026-09-08 09:18] Marek Sowa: Poziom hałasu przy sprężarce wyniósł rano 72 dB.
+[2026-09-08 09:41] Piotr Malec: Cytuję wczorajszy wpis: "east joint about 1.8 m". Zostawcie zapas na narożnik.
+[2026-09-08 10:05] Lena Nowak: Rozumiem. Zdjęcia przed pracą będą w albumie WR-418.
+[2026-09-08 10:32] Alicja Krawiec: Padać ma dopiero wieczorem; prace są wewnątrz budynku.
+[2026-09-08 11:14] Karol Bednar: Paczka OS18 ma numer śledzenia STONEBRIDGE-FM/TRACK-7710-44-PL, planowany odbiór jutro.
+[2026-09-08 12:03] Marek Sowa: Zatoka 2 jest pusta po odbiorze papieru.
+[2026-09-08 13:28] Piotr Malec: Protokół narzędzi podpisany, wersja 4.1.
+[2026-09-08 15:16] Lena Nowak: W piątek potrzebuję tylko zwykłego dostępu serwisowego.
+
+[2026-09-10 14:48] Alicja Krawiec: Mamy potwierdzony postój wentylacji w E17A na środę 16 września.
+[2026-09-10 15:03] Lena Nowak: W takim razie inspekcja środowa nie może wejść do pomieszczenia.
+[2026-09-10 15:17] Jakub Wrona: Przepustka STONEBRIDGE-FM/PERMIT-E17A-0916 jest jeszcze w kolejce do wydania.
+[2026-09-10 15:42] Alicja Krawiec: Cancel only the Wednesday 16 September visit in STONEBRIDGE-FM/VISIT-E17A and withdraw STONEBRIDGE-FM/PERMIT-E17A-0916.
+[2026-09-10 15:46] Alicja Krawiec: Keep the Wednesday 23 September occurrence at 09:00; the 9 September occurrence is already closed.
+[2026-09-10 15:51] Karol Bednar: E17B nie jest objęta postojem; czujnik nadal robię we wtorek.
+[2026-09-10 16:04] Jakub Wrona: Wycofam wniosek 0916 przed wydrukiem karty gościa.
+[2026-09-10 16:18] Marek Sowa: Ścieżka dla wózków przez dziedziniec jest otwarta do 18:00.
+[2026-09-10 16:31] Lena Nowak: Odebrałam jeszcze jedną paczkę sznura dylatacyjnego, seria STONEBRIDGE-FM/BR-22.
+[2026-09-10 16:45] Alicja Krawiec: Jutro o 09:30 jest zwykła odprawa podwykonawców w sali C.
+[2026-09-10 16:57] System export: 31 messages retained; reactions and profile images omitted from this text view.
+
+Channel owner: STONEBRIDGE-FM/WAW-CAMPUS facilities coordination
+Retention label: operational correspondence / 24 months

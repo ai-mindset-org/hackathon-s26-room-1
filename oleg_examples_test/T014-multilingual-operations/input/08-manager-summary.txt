@@ -1,0 +1,24 @@
+POLYGLOT-OPS resumen regional de la gerencia
+Publicado: 29/08/2026 13:15 America/Mexico_City
+Periodo cubierto: turnos de Tbilisi, London y Ciudad de México
+El volumen combinado quedó dentro del rango previsto para un sábado.
+Tbilisi despejó la cola matinal antes de que aumentara el viento.
+London mantuvo el acceso oeste abierto durante la lluvia ligera.
+Ciudad de México procesó el lote del patio norte sin usar la zona de desborde.
+Las dos operaciones llamadas Atlas conservan claves regionales diferentes en el tablero.
+POLYGLOT-OPS/ATLAS-TBS: M. Bekauri mantiene la entrega del paquete; el nuevo vencimiento es 01/09/2026 a las 11:30, hora de Tbilisi.
+Este cambio sustituye la hora del 31.08 que figuraba en el chat de Tbilisi.
+POLYGLOT-OPS/ATLAS-MX cerró después de la confirmación de Diego sobre dos espacios de vehículo.
+El flujo de México pertenece al patio y no al paquete documental de Tbilisi.
+POLYGLOT-OPS/EMBER-LDN sigue abierto con Priya Holt y la hora revisada de las 16:30 en London.
+La lluvia no cambió el orden de los buques, aunque sí retrasó la lectura del tablero.
+POLYGLOT-OPS/RIO-MX sigue abierto con Lucía Andrade; el resumen no añade una fecha a las fotos.
+El calendario compartido conserva la llamada de POLYGLOT-OPS/COPPER-TBS en hora de Tbilisi.
+La sala Narikala tiene capacidad suficiente para los asistentes indicados.
+El gráfico de combustible usa tres escalas regionales y redondea a una cifra decimal.
+La etiqueta 31.08 del panel de Tbilisi corresponde a una compilación anterior.
+El total 11.30 de ese panel era una hora de despliegue, no el vencimiento revisado.
+Las extensiones 118 y 204 siguen siendo rutas internas de los escritorios.
+El turno de tarde comparará las métricas con la semana anterior.
+La próxima revisión de gerencia será el lunes en el horario habitual.
+Fin del resumen regional.

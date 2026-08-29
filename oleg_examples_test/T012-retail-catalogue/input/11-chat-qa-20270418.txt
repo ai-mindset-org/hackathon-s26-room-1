@@ -1,0 +1,35 @@
+[2027年4月18日 13:48 JST] Mei: MOSAIC-CAT/QA-SPR-27の午後確認を始めます。
+[13:49] Ren: tableware groupは18件です。
+[13:50] Kota: 画像checksumは全行にあります。
+[13:51] Naomi: GL-220の価格はdraft列とapproved列が別です。
+[13:52] Aiko: KN-410の新名称はpreviewに入りました。
+[13:53] Ren: KN-401の容量表示だけ設計値と一致しません。
+[13:54] Mei: 行を開いてSKUとJANを読み上げてください。
+[13:55] Ren: MOSAIC-CAT/SKU-KN-401、MOSAIC-CAT/JAN-4580000410401です。
+[13:56] Kota: 410側はMOSAIC-CAT/JAN-4580000410410です。
+[13:57] Ren: 伊藤蓮がMOSAIC-CAT/SKU-KN-401の容量表記を「401 mL」に修正し、2027年4月22日15:00 JSTまでに再提出します。
+[13:58] Mei: 修正シートはMOSAIC-CAT/QA-COPY-27へ置きます。
+[13:59] Aiko: 日本語名は青磁釉マグ 401のままです。
+[14:00] Kota: front assetはKN401-front-v12です。
+[14:01] Naomi: 店頭価格はこの修正では変わりません。
+[14:02] Ren: carton寸法も変わりません。
+[14:03] Mei: 設計容量列は401 mLです。
+[14:04] Kota: 画像上の刻印は小さく、mobileでは読めません。
+[14:05] Aiko: 商品詳細の仕様表には容量を表示します。
+[14:06] Naomi: 東京在庫は昼の再集計後も72です。
+[14:07] Ren: 大阪41、福岡20です。
+[14:08] Mei: next inboundは5月11日です。
+[14:09] Kota: 画像背景はKN-410と同じwarm gray 3です。
+[14:10] Aiko: 同じ背景でもSKU行は別です。
+[14:11] Naomi: price export revisionはdraft-4です。
+[14:12] Ren: 修正対象は日本語仕様表の容量セルです。
+[14:13] Mei: 英語仕様表は設計値を表示しています。
+[14:14] Kota: thumbnail gridの順序はSKU昇順です。
+[14:15] Aiko: localization noteの並びは表示名順です。
+[14:16] Naomi: そのため2つの画面で隣接順が違います。
+[14:17] Ren: 今日はカードの差分だけ記録します。
+[14:18] Mei: QA status boardは15:00に更新します。
+[14:19] Kota: staging buildは2027.108です。
+[14:20] Aiko: web detailのcacheは30分です。
+[14:21] Naomi: store feedはovernightです。
+[14:22] Mei: 午後確認を終了します。

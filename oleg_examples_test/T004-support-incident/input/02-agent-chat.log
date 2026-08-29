@@ -1,0 +1,44 @@
+Channel: NORTHSTAR-INC/support-s2
+Date range: 2027-08-18 through 2027-08-19
+[2027-08-18 18:12 UTC] Mira Chen: NORTHSTAR-INC/7421 is resolved after the West retry confirmation.
+[2027-08-18 18:14 UTC] Priya Shah: The dashboard still shows normal fresh-upload latency in both customer workspaces.
+[2027-08-18 18:16 UTC] Jonas Reed: Retry volume is low enough that the hourly percentile is noisy.
+[2027-08-18 18:18 UTC] Mira Chen: The ticket summary has the worker version and the two sampled nodes.
+[2027-08-18 18:20 UTC] Jonas Reed: Status readers saw the phrase “upload delay” without the retry qualifier.
+[2027-08-18 18:22 UTC] Mira Chen: NORTHSTAR-INC/Status-Desk owns a corrected NORTHSTAR-INC/7421 status note by August 19 at 10:30 PDT.
+[2027-08-18 18:24 UTC] Priya Shah: Today’s public page traffic was 4,812 views, mostly from the mobile app release.
+[2027-08-18 18:27 UTC] Jonas Reed: The on-call report uses build 4.18.7-r2; the analytics report still groups it under 4.18.7.
+[2027-08-18 18:31 UTC] Mira Chen: I left the customer summary draft in NORTHSTAR-INC/Support-Drafts with the West workspace named in the first line.
+[2027-08-18 18:34 UTC] Priya Shah: The café downstairs changed its soup menu again.
+[2027-08-18 18:37 UTC] Jonas Reed: The night shift has enough coverage for the normal queue.
+[2027-08-18 19:01 UTC] Priya Shah: A new report says attachments never appear in the email preview for the East workspace.
+[2027-08-18 19:03 UTC] Mira Chen: The words sound similar, but East uses the email-preview renderer and West uses the retry worker.
+[2027-08-18 19:04 UTC] Priya Shah: Open NORTHSTAR-INC/7422 for NORTHSTAR-INC/LumenBay-East and assign it to Priya Shah.
+[2027-08-18 19:08 UTC] Priya Shah: NORTHSTAR-INC/7422 sample NORTHSTAR-INC/MAIL-552 has an HTML template reference with a missing content id.
+[2027-08-18 19:14 UTC] Jonas Reed: The attachment object itself is ready; only the preview is blank.
+[2027-08-18 19:22 UTC] Priya Shah: Template NORTHSTAR-INC/Email-Blue 9.6.1 started serving at 18:50 UTC.
+[2027-08-18 19:25 UTC] Mira Chen: That is after the last West retry sample, another reason to keep the cases separate.
+[2027-08-18 19:38 UTC] Priya Shah: Rolling the East template back to 9.6.0 restored the preview in the staging mailbox.
+[2027-08-18 19:55 UTC] Customer relay: The East requester can see the attachment preview again.
+[2027-08-18 20:04 UTC] Jonas Reed: Email-preview errors are zero in the last ten minutes.
+[2027-08-18 20:12 UTC] Priya Shah: I am leaving the East case open through one scheduled digest run.
+[2027-08-18 20:18 UTC] Mira Chen: The West queue remains flat at nine to fourteen items.
+[2027-08-18 20:43 UTC] Priya Shah: Digest NORTHSTAR-INC/DIGEST-119 rendered all seven East attachments.
+[2027-08-18 21:15 UTC] Priya Shah: Resolve NORTHSTAR-INC/7422; its email-preview path is healthy after the template rollback.
+[2027-08-19 15:55 UTC] Jonas Reed: Morning checks found normal fresh uploads, but retry samples were too few for a stable percentile.
+[2027-08-19 15:58 UTC] Mira Chen: NORTHSTAR-INC/7421 still appears resolved in the portal.
+[2027-08-19 16:03 UTC] Priya Shah: NORTHSTAR-INC/7422 also remains resolved, and East preview errors are still zero.
+[2027-08-19 16:08 UTC] Jonas Reed: The alert bridge says one customer email is waiting for ticket association.
+[2027-08-19 16:14 UTC] Mira Chen: The raw subject contains NORTHSTAR-INC/7421 and says West.
+[2027-08-19 16:18 UTC] Priya Shah: Then it belongs with the retry-worker case, not my East preview case.
+[2027-08-19 16:43 UTC] System: Mail importer attached NORTHSTAR-INC/MAIL-IN-2048 to NORTHSTAR-INC/7421.
+[2027-08-19 16:47 UTC] Mira Chen: The delayed email names NORTHSTAR-INC/LumenBay-West and NORTHSTAR-INC/7421. Reopen NORTHSTAR-INC/7421; NORTHSTAR-INC/7422 stays resolved.
+[2027-08-19 16:49 UTC] Diego Rios: I accept ownership of NORTHSTAR-INC/7421 from M.C.
+[2027-08-19 16:52 UTC] Diego Rios: I see four retry keys repeated across two worker leases.
+[2027-08-19 16:55 UTC] Jonas Reed: Alert NORTHSTAR-INC/AL-991 cleared before the mail import, so its clear state predates this evidence.
+[2027-08-19 16:58 UTC] Priya Shah: The East template path has no matching retry keys.
+[2027-08-19 17:02 UTC] Mira Chen: The late email arrived while I was in the weekly mentoring call.
+[2027-08-19 17:05 UTC] Diego Rios: I am reading the West worker traces now.
+[2027-08-19 17:08 UTC] Jonas Reed: Someone left a blue rain jacket near desk fourteen.
+[2027-08-19 17:12 UTC] Priya Shah: The support queue has six S3 tickets and one S2 ticket.
+[2027-08-19 17:16 UTC] Diego Rios: The last West retry completed after 143 seconds; fresh uploads remain under 20 seconds.

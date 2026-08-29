@@ -1,0 +1,27 @@
+POLYGLOT-OPS exportación del chat regional
+Canal: operaciones-mexico
+Fecha de exportación: 29/08/2026 10:20 America/Mexico_City
+[28/08/2026 09:05 America/Mexico_City] Diego Serrano: El patio norte recibió 17 unidades antes del cambio de turno.
+[28/08/2026 09:09 America/Mexico_City] Lucía Andrade: La cámara del andén tres volvió a enfocar bien después de limpiar la cubierta.
+[28/08/2026 09:12 America/Mexico_City] Tomás Vela: La lectura 08/11 del tablero es el lote de firmware, no el calendario de noviembre.
+[28/08/2026 09:16 America/Mexico_City] Eva Cornejo: El café de la esquina cambió de proveedor y ahora abre media hora antes.
+[28/08/2026 09:20 America/Mexico_City] Diego Serrano: Ayer cerramos la revisión de POLYGLOT-OPS/CENOTE-MX con 96 cajas contadas.
+[28/08/2026 09:24 America/Mexico_City] Lucía Andrade: En el reporte viejo aparecen 95 porque una caja llegó después de la foto.
+[28/08/2026 09:28 America/Mexico_City] Tomás Vela: ¿Alguien vio el adaptador gris de la sala pequeña?
+[28/08/2026 09:31 America/Mexico_City] Eva Cornejo: Está junto al monitor, debajo de la libreta amarilla.
+[28/08/2026 09:35 America/Mexico_City] Tomás Vela: El proveedor escribió “sello 6B”, pero la pieza instalada dice “6-B”.
+[28/08/2026 09:42 America/Mexico_City] Lucía Andrade: Yo enviaré las fotos de los sellos que faltan para POLYGLOT-OPS/RIO-MX.
+[28/08/2026 09:44 America/Mexico_City] Eva Cornejo: Gracias, Lucía; el expediente C-4421 tiene el mismo nombre de cuenta.
+[28/08/2026 09:49 America/Mexico_City] Lucía Andrade: Ya localicé las imágenes originales; falta elegir las tres que muestran el borde completo.
+[28/08/2026 09:54 America/Mexico_City] Diego Serrano: El tráfico hacia Vallejo estuvo más ligero que el jueves pasado.
+[28/08/2026 10:02 America/Mexico_City] Tomás Vela: La fila “31/08” del reporte es la versión de la plantilla que usó el turno anterior.
+[28/08/2026 10:08 America/Mexico_City] Eva Cornejo: En la impresora queda papel para unas 400 etiquetas.
+[28/08/2026 10:15 America/Mexico_City] Diego Serrano: El nombre Atlas también se usa en Tbilisi; aquí debemos escribir POLYGLOT-OPS/ATLAS-MX.
+[28/08/2026 10:19 America/Mexico_City] Tomás Vela: Sus contenedores y nuestros vehículos no comparten expediente.
+[28/08/2026 10:24 America/Mexico_City] Lucía Andrade: La lluvia de anoche dejó una charca junto a la puerta oeste.
+[28/08/2026 10:31 America/Mexico_City] Eva Cornejo: Mantenimiento puso una barrera y el paso peatonal sigue por la puerta central.
+[28/08/2026 10:38 America/Mexico_City] Diego Serrano: El consumo del generador bajó 4,7 % esta semana.
+[28/08/2026 10:44 America/Mexico_City] Tomás Vela: Si el clima mejora, quizá comamos en el patio el lunes.
+[28/08/2026 10:51 America/Mexico_City] Eva Cornejo: La música del almacén está muy baja hoy, lo cual agradezco.
+[28/08/2026 10:58 America/Mexico_City] Lucía Andrade: El turno de tarde dejó las llaves en el sobre azul.
+[28/08/2026 11:03 America/Mexico_City] Diego Serrano: Cerramos la reunión; el siguiente corte de métricas será a las 14:00.

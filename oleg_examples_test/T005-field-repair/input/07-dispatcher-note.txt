@@ -1,0 +1,41 @@
+CEDAR-FIELD/DISPATCH — nota de relevo
+Fecha: 04/09/2026
+Turno: 06:00–14:00 America/Bogota
+Redactora: Lucía Fajardo
+
+06:05 — La base abrió con siete técnicos presentes y dos en ruta.
+06:12 — CEDAR-FIELD/VAN-06 salió de mantenimiento; limpiaparabrisas probado bajo agua.
+06:18 — El tablero físico conserva tres imanes verdes de la semana anterior.
+06:24 — CEDAR-FIELD/METER-22 está al 100 % y guardado en el estante B.
+06:31 — El servidor de archivos tardó cuatro minutos en indexar la carpeta de fotos.
+06:38 — Diego Orduz abrió CEDAR-FIELD/PHOTO-4821 y confirmó que hará la carga antes de las 12:00 de hoy.
+06:44 — La foto 08 es la principal; la 07 puede quedar como apoyo por el reflejo.
+06:51 — Carlos Peña recogió el sobre con el plano de CEDAR-FIELD/UNIT-CH-71.
+07:02 — La recepción de CEDAR-FIELD/TORRE-ARCE informó que la puerta norte opera con normalidad.
+07:10 — El turno de cafetería movió su entrega de pan de las 08:00 a las 08:20.
+07:18 — Bodega contó 17 paños, nueve abrazaderas y seis bases magnéticas.
+07:25 — El portal de partes muestra CEDAR-FIELD/PART-7742 en estado Ordered.
+07:33 — Juliana Mena espera la etiqueta del transportista durante la tarde.
+07:41 — El estante B-14 quedó libre para la caja de CEDAR-FIELD/KIT-B42.
+
+08:47 — El administrador del sitio llamó después de probar el controlador de CEDAR-FIELD/UNIT-CH-17.
+08:51 — El cliente resolvió el síntoma al corregir una secuencia local y pidió retirar la intervención del sábado.
+08:56 — Cancelar CEDAR-FIELD/VISIT-4821, antes prevista para el 05/09 a las 10:00, hora de Bogotá.
+08:58 — Cancelar también CEDAR-FIELD/CONF-4821; ya no se requiere la llamada de acceso de esta tarde.
+09:01 — Cami fue avisada y retiró CEDAR-FIELD/UNIT-CH-17 de su ruta del sábado.
+09:04 — Recepción liberó el ascensor reservado para las 10:05.
+09:07 — El bloque de viaje puede permanecer visible hasta la próxima sincronización del calendario.
+09:10 — CEDAR-FIELD/VISIT-4827 para CEDAR-FIELD/UNIT-CH-71 sigue programada el lunes 07/09 a las 09:30 con Carlos Peña.
+09:13 — CEDAR-FIELD/ACT-4827 mantiene fecha límite 08/09 a las 17:00; el campo de responsable sigue vacío.
+09:16 — Mantener CEDAR-FIELD/PART-7742: pertenece a CEDAR-FIELD/UNIT-PM-42 en CEDAR-FIELD/PLANTA-MIRTO y Juliana continúa esperando la entrega.
+
+09:24 — El indicador del tablero móvil se trabó en 88 % durante la sincronización.
+09:31 — Una fila mostró “05/09|10:00|VISlT-482l”, con letras en lugar de algunos números.
+09:37 — La versión 5.14.2 del portal cargó la lista después de dos intentos.
+09:44 — El reloj del pasillo adelantaba un minuto respecto al teléfono de turno.
+09:51 — La ruta hacia CEDAR-FIELD/PARQUE-LINO tiene cierre parcial en el puente ficticio Laurel.
+09:58 — El promedio de combustible de CEDAR-FIELD/VAN-06 fue 9,7 km/L esta semana.
+10:05 — Quedan cuatro conos limpios y uno con cinta reflectiva desprendida.
+10:12 — Las llaves del armario B quedaron guardadas en un sobre amarillo para el relevo.
+10:19 — La impresora produjo una página con el borde derecho cortado; el original digital está completo.
+10:26 — Fin de notas de la mañana; el tablero volvió al menú principal.
