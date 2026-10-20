@@ -4,3 +4,4 @@ __pycache__/
 registry.json
 *.registry.json
 .commitments/
+.worktrees/
